@@ -63,7 +63,10 @@ Let's quickly look at the ojectives for this book.
 The ideas captured here are not means to any end. Rather, these are meant to 
 be starting points that give you the momentum with technologies and techniques
 that will streamline your projects. Your job is to keep experimenting and to 
-see what is useful enough to stick with you!
+see what is useful enough to stick with you. You will build up
+a solid base of code examples and problem solving snippets that will greatly 
+increase you efficacy. Over time, tools and processes will rotate in and out of 
+your toolbox as technology matures.
 
 Companies will make their services free in the hopes that you will see the value
 and usefulness of their products. The hope is that you will see enough utility 

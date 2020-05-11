@@ -13,7 +13,7 @@ if [ -f "${OUTFILE}" ]; then
   rm ${OUTFILE}
 fi
 # source the global functions
-echo ".. include:: ../global.rst" > ${IMAGE_DIR}/header.rst
+echo ".. include:: global.rst" > ${IMAGE_DIR}/header.rst
 # add the title to this section
 echo "===============" >> ${IMAGE_DIR}/header.rst
 echo "Picture Credits" >> ${IMAGE_DIR}/header.rst

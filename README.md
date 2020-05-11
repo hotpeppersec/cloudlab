@@ -11,7 +11,10 @@ in the references section.
 
 ## To generate PDF of book
 
+Should be done from inside the Docker container.
+
 ```bash
+make docker
 cd docs
 sphinx-build -M latexpdf . _build
 ```
@@ -24,7 +27,10 @@ sphinx-build -M latexpdf . _build
 
 https://www.amazon.com/gp/feature.html?docId=1000765211
 
+Should be done from inside the docker container.
+
 ```bash
+make docker
 cd docs && make epub
 ```
 
