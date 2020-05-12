@@ -162,6 +162,23 @@ Steps
 - Push this commit to github.com, `git push origin newbranch`
 - Use the github.com website to open and merge the pull request.
 
+The .gitignore file
+===================
+
+Use this file to designate items that should be excluded from revision
+control. This is useful for helping keep credentials and other secrets
+out of the GitHub repository.
+
+.. index::
+   single: .gitignore
+
+Consider the following example .gitignore file. This will prevent you 
+from checking in the `.DS-Store` that Macintosh creates in many folders. 
+
+.. code-block:: bash
+
+   .DS_Store
+
 Repository Settings
 ===================
 
@@ -192,8 +209,10 @@ Relevant files and folders mentioned in this chapter are organized as seen below
       "cloudlab" [shape=folder];
       ".github" [shape=folder];
       "CODEOWNERS" [shape=rectangle];
+      ".gitignore" [shape=rectangle];
       "/home/secdevops" -> "workspace";
       "workspace" -> "cloudlab";
       "cloudlab" -> ".github";
       ".github" -> "CODEOWNERS";
+      "cloudlab" -> ".gitignore";
    }

@@ -14,5 +14,6 @@
    _source/infrastructure
    _source/ansible
    _source/firewalls
+   _source/test-lab
    _source/pictures
    _source/glossary

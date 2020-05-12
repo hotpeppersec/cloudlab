@@ -14,16 +14,15 @@
 # -- Project information -----------------------------------------------------
 
 # General information about the project.
-project = u'CloudLab'
+project = u'Cloud Lab Workbook'
 copyright = u'Copyright © 2020 by Franklin Diaz'
-author = u'Franklin Diaz'
+author = u'© 2020 by Franklin Diaz'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
 # this will show on title page if uncommented
 #release = '0.0.1'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -70,9 +69,19 @@ pygments_style = 'colorful'
 
 
 # -- Options for HTML output -------------------------------------------------
-html_theme = 'theme' # use the theme in subdir 'theme'
-html_theme_path = ['.'] # make sphinx search for themes in current dir
-
+# The Read the Docs theme is available from
+# - https://github.com/snide/sphinx_rtd_theme
+# - https://pypi.python.org/pypi/sphinx_rtd_theme
+# - python-sphinx-rtd-theme package (on Debian)
+try:
+    #import sphinx_rtd_theme
+    #html_theme = 'sphinx_rtd_theme'
+    #html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+    html_theme = 'theme' # use the theme in subdir 'theme'
+    html_theme_path = ['.'] # make sphinx search for themes in current dir
+except ImportError:
+    sys.stderr.write('Warning: The Sphinx custom HTML theme was not found. Falling back to the default theme.\n')
+    #sys.stderr.write('Warning: The Sphinx \'sphinx_rtd_theme\' HTML theme was not found. Make sure you have the theme installed to produce pretty HTML output. Falling back to the default theme.\n')
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -86,6 +95,11 @@ html_theme_options = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['theme/static']
+html_context = {
+    'css_files': [
+        'theme/static/colorful.css',
+    ],
+}
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -102,6 +116,23 @@ html_domain_indices = False
 
 # -- Options for LaTeX output --------------------------------------------------
 
+latex_elements = {
+# The paper size ('letterpaper' or 'a4paper').
+'papersize': 'a4paper',
+# The font size ('10pt', '11pt' or '12pt').
+'pointsize': '11pt',
+# Latex figure (float) alignment
+#'figure_align': 'htbp',
+# Don't mangle with UTF-8 chars
+'inputenc': '',
+'utf8extra': ''
+#'maketitle': '''
+#\\begin{titlepage}
+#\\copyright Franklin Diaz, 2020
+#\\end{titlepage}
+# '''
+}
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 #latex_documents = [
@@ -113,7 +144,6 @@ html_domain_indices = False
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 latex_logo = 'images/plouzane-1758197_1920.jpg'
-
 latex_additional_files = ['sphinxmanual.cls'] 
 
 # -- Options for PDF output --------------------------------------------------

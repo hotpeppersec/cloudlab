@@ -20,7 +20,10 @@ Packer
 ******
 
 Using Hashicorp Packer is a great way to nail down the contents of a machine
-image before we bring up an instance. 
+image before we bring up an instance. Download Packer from the Hashicorp web
+site in preparation for the follwing steps [#]_ .
+
+.. [#] https://www.packer.io/downloads/
 
 .. index::
    single: Packer
@@ -108,24 +111,66 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
    ]
    }
 
+
+Validating
+
+==========
+Once the JSON files are created and saved in the packer directory, 
+we can use the `packer` tool to validate them. Type 
+`packer validate <filename>` to validate each new JSON file. This gives you a
+chance to find and fix any errors before the next step, the build phase.
+
+Building
+========
+
+Finally, we are ready to build our new images. Try typing `packer build <filename>`
+to create the images in AWS or GCP.
+
+Removing
+========
+
+You may want to remove the images from AWS/GCP since storing them there 
+incurs additional cost. 
+
 *********
 Terraform
 *********
 
 Terraform is a tool for building, changing, and versioning infrastructure 
-safely and efficiently [#]_ . 
+safely and efficiently [#]_ . Install the latest version of Terraform from
+Hashicorp in preparation for the activities that follow.
 
 .. [#] https://www.terraform.io/intro/index.html
 
 .. index::
    single: Terraform
 
-**********
-Validaters
-**********
+terraform.tfvars
+================
 
-packer
-terraform
+.. index::
+   single: terraform.tfvars
+
+variables.tf
+============
+
+.. index::
+   single: variables.tf
+
+main.tf
+=======
+
+.. index::
+   single: main.tf
+
+Verification
+============
+
+plan, show, validate, 
+
+Apply
+=====
+
 
 .. raw:: latex
 
@@ -135,7 +180,8 @@ terraform
 Tool Directory Structure
 ************************
 
-So far our relevant files and folders are organized like so:
+Files and folders relevant to this chapter are organized as shown
+below.
 
 .. graphviz::
    :caption: Updated Project Directory
@@ -144,9 +190,17 @@ So far our relevant files and folders are organized like so:
    digraph folders {
       "cloudlab" [shape=folder];
       "packer" [shape=folder];
+      "terraform" [shape=folder];
       "aws-debian-host.json" [shape=rect];
       "gcp-debian-host.json" [shape=rect];
+      "main.tf" [shape=rect];
+      "terraform.tfvars" [shape=rect];
+      "variables.tf" [shape=rect];
       "cloudlab" -> "packer";
+      "cloudlab" -> "terraform";
       "packer" -> "aws-debian-host.json";
       "packer" -> "gcp-debian-host.json";
+      "terraform" -> "main.tf";
+      "terraform" -> "terraform.tfvars";
+      "terraform" -> "variables.tf";
    }
