@@ -36,7 +36,64 @@ account.
    single: two-factor authentication
    single: GitHub
 
-Let's take a look at two of the key methods of interacting with projects
+
+SSH Key Setup
+=============
+
+Take a few minutes to generate an SSH key pair if you don't already have one.
+We will be using it at various stages to log in to various sites and hosts. 
+The directions for generating an SSH keypair found on the github.com website [#]_ 
+are perfect for this task.
+
+.. [#] https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+.. index::
+   single: SSH keys
+
+.. code-block:: bash
+
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
+   Enter passphrase (empty for no passphrase): [Type a passphrase]
+   Enter same passphrase again: [Type passphrase again]
+
+Now you can add your public key half to github.com [#]_ .
+
+.. [#] https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
+GPG Key Setup
+=============
+
+Using a GPG key to sign your commits [#]_ will help others verify that work
+you check in to revision control did actually come from you. It's not strictly necessary
+but is considered good practice. Some repositories require that you sign your 
+pull requests with your GPG key.
+
+.. [#] https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key
+
+.. index::
+   single: GPG key
+
+Take a few minutes to set up a GPG key and add it to your profile on GitHub.
+
+.. code-block:: bash
+
+   root@cloudlab:~# gpg --default-new-key-algo rsa4096 --gen-key
+   public and secret key created and signed.
+   Note that this key cannot be used for encryption.  You may want to use
+   the command "--edit-key" to generate a subkey for this purpose.
+   pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]
+         848943CDCE488F138BF91079E81498874E59648D
+   uid                      Jimmy Cloud <jimmy@cloud.cloud>
+
+   root@cloudlab:~# gpg --list-secret-keys --keyid-format LONG | grep sec | cut -f2 -d'/'| cut -f1 -d' '
+   E81498874E59648D
+   root@cloudlab:~# gpg --armor --export E81498874E59648D
+
+Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
+Add the GPG key to your GitHub account.
+
+Next let's take a look at two of the key methods of interacting with projects
 and other people on github.com. 
 
 Forking and Cloning Repositories
@@ -112,10 +169,12 @@ Example Repository
 ==================
 
 A GitHub Template Repository is available should you decide to follow 
-along with the code examples in this book.
+along with the code examples in this book. The next sets of steps are 
+predicated on having Docker installed and running as described in the previous
+chapter.
 
-Steps
-*****
+Template Steps
+**************
 
 - Navigate to `https://github.com/hotpeppersec/rapid_secdev_framework`_
 - Click the green button "Use this template"
@@ -124,7 +183,43 @@ Steps
 
 .. _`https://github.com/hotpeppersec/rapid_secdev_framework`: https://github.com/hotpeppersec/rapid_secdev_framework
 
-Now we have a repository we can use for testing and examples.
+Now you have a repository in your GitHub account that you can use for 
+testing and completing lab examples detailed in this book. For our 
+first exercise, let's try to make a clone of the repository we generated 
+from template.
+
+Cloning Steps
+*************
+
+- Navigate to the main page for our new repository on github.com.
+- Clone the repository to your local host by clicking on the green "Clone or download" button. 
+   - Be sure to clone with "SSH" and not "HTTPS".
+- Change to the clone directory with the "cd" command.
+
+From the `rapid_secdev_framework` directory, execute the
+command `make docker` to get to a command prompt within the container.
+
+Consider the following example. Notice that the command prompt changes
+to indicate that you have a BASH shell in the running container.
+
+.. code-block:: bash
+
+   thedevilsvoice@grimoire:25%:~/rapid_secdev_framework$ make docker
+   Building test env with docker-compose
+   docker-compose -f docker/docker-compose.yml build cloudlab
+   Building cloudlab
+   Step 1/3 : FROM python:3.8.2-buster
+   ---> 4f7cd4269fa9
+   Step 2/3 : WORKDIR /home/secdevops
+   ---> Using cache
+   ---> 95dc84398bc2
+   Step 3/3 : RUN apt update ;apt install -y apt-utils
+   ---> Using cache
+   ---> 83ea11278488
+   Successfully built 83ea11278488
+   Successfully tagged docker_cloudlab:latest
+   root@cloudlab:/home/secdevops#
+
 
 CODEOWNERS
 ==========
@@ -138,29 +233,17 @@ to make them aware of changes to certain files or folders in your projects.
    single: CODEOWNERS
 
 In it's most basic form, the CODEOWNERS file in the .github directory simply 
-lists the file(s) and the owner(s) on a line together. It looks like this:
+lists the file(s) and the owner(s) on a line together. 
+
+Consider this exmaple where we add the `@hotpeppersec` to the CODEOWNERS file.
 
 .. code-block:: bash
 
-   * @hotpeppersec
+   root@cloudlab:/home/secdevops# if [ ! -d ".github" ]; then mkdir .github; fi
+   root@cloudlab:/home/secdevops# echo "* @hotpeppersec" >> .github/CODEOWNERS
 
 In this example, the @hotpeppersec user will be tagged as a reviewer in all pull 
-requests. For our first exercise, let's try to make a clone of the repository we
-generated from template in the previous section. 
-
-Steps
-*****
-
-- Navigate to the main page for our new repository on github.com.
-- Clone the repository to your local host. 
-   - Be sure to clone with "SSH" and not "HTTPS".
-- Change to the clone directory with the "cd" command.
-- Create a new branch, for example `git checkout -b newbranch`
-- Create the `.github` directory, and then the `CODEOWNERS` file in that directory.
-- Add the file with git, `git add CODEOWNERS`
-- Commit the file with git, `git commit -S -m 'add CODEOWNERS file'`
-- Push this commit to github.com, `git push origin newbranch`
-- Use the github.com website to open and merge the pull request.
+requests.
 
 The .gitignore file
 ===================
@@ -177,12 +260,30 @@ from checking in the `.DS-Store` that Macintosh creates in many folders.
 
 .. code-block:: bash
 
-   .DS_Store
+   root@cloudlab:~/workspace/cloudlab# echo ".DS_Store" > .gitignore
+
+Pull Requests
+=============
+
+Describe pull requests.
+
+Let's use our changes to the CODEOWNERS file to try making a change in our clone
+of the repository in GitHub, then pushing that change up to the repository.
+
+Steps
+*****
+
+- Create a new branch, for example `git checkout -b newbranch`
+- Create the `.github` directory if it does not exist, then the `CODEOWNERS` file in that directory.
+- Use git to add the file to the commit: `git add CODEOWNERS`
+- Commit the file with git, `git commit -S -m 'add CODEOWNERS file'`
+- Push this commit to github.com, `git push origin newbranch`
+- Use the github.com website to open and merge the pull request.
 
 Repository Settings
 ===================
 
-When setting up a new repository I always click the Settings tab (with the little 
+When setting up a new repository in my GitHub account, I always click the Settings tab (with the little 
 gear icon) and then choose the "Branches" section. The Default branch gets set to 
 "master". Clicking the "Add Rule" button, entering "master" for the "Branch name 
 pattern", and then the green "Create" button sets up master as a protected branch.
@@ -205,13 +306,11 @@ Relevant files and folders mentioned in this chapter are organized as seen below
 
    digraph folders {
       "/home/secdevops" [shape=folder];
-      "workspace" [shape=folder];
       "cloudlab" [shape=folder];
       ".github" [shape=folder];
       "CODEOWNERS" [shape=rectangle];
       ".gitignore" [shape=rectangle];
-      "/home/secdevops" -> "workspace";
-      "workspace" -> "cloudlab";
+      "/home/secdevops" -> "cloudlab";
       "cloudlab" -> ".github";
       ".github" -> "CODEOWNERS";
       "cloudlab" -> ".gitignore";

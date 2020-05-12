@@ -31,16 +31,21 @@ Docker [#]_ .
 
 .. [#] https://docs.docker.com/get-docker/
 
+Once you have Docker installed and running on your workstation, take a look at 
+the two example files below. For now it's OK to see them and
+get a general familiarity with their contents. Later we will use these files to 
+create containers for our projects.
+
 **********
 Dockerfile
 **********
 
-The Dockerfile is the basic unit of containerization. That is to say, our
+The Dockerfile is our basic unit of containerization. That is to say, our
 containers, and the applications they contain, are defined by the Dockerfile.
 Each Dockerfile is predicated on a base image, like Debian 10 as shown in 
 the example below.
 
-Create a directory called `docker` and a file called `Dockerfile` within
+Consider a directory called `docker` and a file called `Dockerfile` within
 this directory. Note the capitalization of the first letter in the file name.
 Some IDE's will key off this file and allow for additional syntax highlighting.
 
@@ -61,11 +66,12 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
 docker-compose.yml
 ******************
 
-The docker compose file allows us to manage multiple Docker containers for
-one or more applications. We will add it as part of our framework so we 
-are prepared to extend our projects later, as needed.
+The `docker-compose.yml` file allows us to manage multiple Docker containers 
+for one or more applications. We will add it so we are prepared to extend 
+our projects later, as needed.
 
-Create a file called `docker-compose.yml` in our new `docker` directory.
+A file called `docker-compose.yml` will exist alongside our `Dockerfile`
+in our `docker` directory.
 
 .. code-block:: bash
 
@@ -95,16 +101,10 @@ So far our relevant files and folders are organized like so:
    :align: center
 
    digraph folders {
-      "/home/secdevops" [shape=folder];
       "cloudlab" [shape=folder];
-      "python" [shape=folder];
       "docker" [shape=folder];
-      "ruby" [shape=folder];
       "docker-compose.yml" [shape=rect];
       "Dockerfile" [shape=rect];
-      "/home/secdevops" -> "cloudlab";
-      "cloudlab" -> "python";
-      "cloudlab" -> "ruby";
       "cloudlab" -> "docker";
       "docker" -> "Dockerfile";
       "docker" -> "docker-compose.yml";

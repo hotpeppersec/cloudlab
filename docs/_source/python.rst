@@ -19,7 +19,7 @@ An item of note, Python3 is the only choice at this point. Python
 Requirements File
 *****************
 
-We will make use of a requirements file under `python\requirements.txt` so we can 
+We will make use of a requirements file under `python/requirements.txt` so we can 
 manage the required Python modules needed to build and run the Python portions of our
 project.
 

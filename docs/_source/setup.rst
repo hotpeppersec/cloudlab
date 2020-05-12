@@ -99,9 +99,10 @@ The Workhorse (IDE)
 
 I find it extremely helpful to have an Integrated Development Environment
 (IDE) that I don't have to spend a lot of time configuring. Lately that 
-is Visual Studio Code [#]_ for me. It works well on both Linux and Mac. The 
+is Visual Studio Code [#]_ for me. It works well on both Linux, Mac and other 
+operating systems as well. The 
 environment is easily extensible to support most any language, linter, or
-syntax checker I might need. Folks also seem to be quite fond of Sublime [#]_ 
+syntax checker we may have a need for. Folks also seem to be quite fond of Sublime [#]_ 
 for it's extensibility.
 
 .. [#] https://code.visualstudio.com/Download
@@ -115,65 +116,3 @@ There are times I catch myself switching between VSCode and a terminal
 window to do a quick edit in vi or interact with GitHub. Over time I am 
 changing the way I work in an attempt to reduce attempts to refocus 
 between windows on my desktop.
-
-SSH Key Setup
-=============
-
-Take a few minutes to generate an SSH key pair if you don't already have one.
-We will be using it at various stages to log in to various sites and hosts. 
-The directions for generating an SSH keypair found on the github.com website [#]_ 
-are perfect for this task.
-
-.. [#] https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-
-.. index::
-   single: SSH keys
-
-We will save a copy of the file `/home/secdevops/.ssh/id_rsa.pub` into a new file
-called `/home/secdevops/.ssh/authorized_keys`. We will use this file later for logging
-in to hosts we build.
-
-.. code-block:: bash
-
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
-   Enter passphrase (empty for no passphrase): [Type a passphrase]
-   Enter same passphrase again: [Type passphrase again]
-
-Now you can add your public key half to github.com [#]_ .
-
-.. [#] https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-
-GPG Key Setup
-=============
-
-Using a GPG key to sign your commits [#]_ will help others verify that work
-you check in to revision control did actually come from you. It's not strictly necessary
-but is considered good practice. Some repositories require that you sign your 
-pull requests with your GPG key.
-
-.. [#] https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key
-
-.. index::
-   single: GPG key
-
-.. raw:: latex
-
-    \clearpage
-
-Staring Directory Structure
-===========================
-
-So far our relevant files and folders are organized like so:
-
-.. graphviz::
-   :caption: File system layout
-   :align: center
-
-   digraph folders {
-      "/home/secdevops" [shape=folder];
-      ".ssh" [shape=folder];
-      ".gpg" [shape=folder];
-      "/home/secdevops" -> ".ssh";
-      "/home/secdevops" -> ".gpg";
-   }
