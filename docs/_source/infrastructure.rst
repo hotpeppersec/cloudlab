@@ -30,6 +30,8 @@ that is) is to configure two-factor authentication [#]_ (2FA).
 .. index::
    single: two-factor authentication
 
+
+
 *************************
 Amazon Web Services (AWS)
 *************************

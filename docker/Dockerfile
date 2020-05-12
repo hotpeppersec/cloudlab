@@ -12,7 +12,7 @@ apt -y install make git wget pandoc latexmk python3-pip python3-graphviz \
 texlive-fonts-recommended texlive-latex-extra
 
 # book stuff
-RUN make python; \
-if [ ! -d "pygments-css" ]; then git clone https://github.com/richleland/pygments-css.git; fi; \
-cp /book/pygments-css/vim.css /book/docs/theme/static/
+RUN make python
+#RUN if [ ! -d "pygments-css" ]; then git clone https://github.com/richleland/pygments-css.git; fi; \
+#cp /book/pygments-css/vim.css /book/docs/theme/static/
 RUN make docs
