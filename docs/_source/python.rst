@@ -7,30 +7,21 @@ Python
 .. image:: ../images/snake-1634293_1920.jpg
       :align: center
 
-An item of note, Python3 is the only choice at this point. Python
-2.x End of Life was January 1st, 2020 [#]_ .
+Getting started in writing programs is easy with Python. It is highly 
+extensible since there are so many add on modules available from a 
+collection known as Pypi [#]_ . It's fairly easy to learn, epecially when 
+compared to other languges. Python runs everywhere for all intents and 
+purposes.
+
+.. [#] https://pypi.org/
+
+An item of note, Python3 is our only choice at this point. Python
+2.x End of Life was January 1st, 2020 [#]_ . 
 
 .. [#] https://github.com/python/devguide/pull/344 
 
 .. index::
    single: Python3
-
-*****************
-Requirements File
-*****************
-
-We will make use of a requirements file under `python/requirements.txt` so we can 
-manage the required Python modules needed to build and run the Python portions of our
-project.
-
-*****************
-Test requirements
-*****************
-
-Some requirements are strictly intended to be part of the test harness, but are not 
-needed for the application proper. Using a separate file, such as `python/requirements-test.txt`
-makes this delineation clear to other develoeprs and folks who are not familiar with 
-the project.
 
 ********************
 The __init__.py File
@@ -69,6 +60,27 @@ within like so:
 
 Check the results in the file `/var/log/cloudlab/cloudlab.log`.
 
+
+*****************
+Requirements File
+*****************
+
+We will make use of a requirements file under `python/requirements.txt` so we can 
+manage the required Python modules needed to build and run the Python portions of our
+project.
+
+.. index::
+   single: requirements.txt
+
+*****************
+Test requirements
+*****************
+
+Some requirements are strictly intended to be part of the test harness, but are not 
+needed for the application proper. Using a separate file, such as `python/requirements-test.txt`
+makes this delineation clear to other develoeprs and folks who are not familiar with 
+the project.
+
 .. raw:: latex
 
     \clearpage
@@ -87,6 +99,7 @@ Files and folders relevant to the Python portions of our project are shown in th
       "/home/secdevops" [shape=folder];
       "cloudlab" [shape=folder];
       "python" [shape=folder];
+      "my_python_app" [shape=folder];
       "requirements.txt" [shape=rectangle];
       "requirements-test.txt" [shape=rectangle];
       "__init__.py" [shape=rectangle];
@@ -95,4 +108,5 @@ Files and folders relevant to the Python portions of our project are shown in th
       "python" -> "__init__.py";
       "python" -> "requirements.txt";
       "python" -> "requirements-test.txt";
+      "python" -> "my_python_app";
    }

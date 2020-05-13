@@ -113,8 +113,8 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
 
 
 Validating
-
 ==========
+
 Once the JSON files are created and saved in the packer directory, 
 we can use the `packer` tool to validate them. Type 
 `packer validate <filename>` to validate each new JSON file. This gives you a
