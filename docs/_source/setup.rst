@@ -1,8 +1,8 @@
 .. include:: global.rst
 
-============
+========
 Cloudlab
-============
+========
 
 .. image:: ../images/sky-690293_1920.jpg
    :align: center
@@ -37,22 +37,11 @@ should strive for simplicity and reduction of complexity whenever possible.
 Complexity in our processes beome the snags and side projects that are the enemy 
 of productivity. Refuse to shave more yaks than absolutely necessary!
 
-*************
-Prerequisites
-*************
+===============
+Getting Started
+===============
 
-This book assumes the reader has some basic knowledge of certain concepts. We will
-be exploring new ways of working for folks who are somewhat familiar with:
-
-- Linux (UI and command line)
-- Python 3
-- Familiarity with github.com and the concepts of pull requests and branching.
-
-*****
-Goals
-*****
-
-Let's quickly look at the ojectives for this book.
+Let's quickly look at the objectives for this book.
 
 - Create an extensible lab environment for rapid prototyping and development.
 - Get out of our old comfort zone, into a new one.
@@ -77,9 +66,16 @@ Finally, I've found it very helpful for my peace of mind to always leave my
 projects clean and green before walking away from my work station for the day.
 Hopefully you find similar benefit should you choose to adopt this practice.
 
-*****
-Setup
-*****
+*************
+Prerequisites
+*************
+
+This book assumes the reader has some basic knowledge of certain concepts. We will
+be exploring new ways of working for folks who are somewhat familiar with:
+
+- Linux (UI and command line)
+- Python 3
+- Familiarity with github.com and the concepts of pull requests and branching.
 
 To follow along with the examples in this book you will need a host running
 a recent version of Linux, or another UNIX variant. An Apple laptop

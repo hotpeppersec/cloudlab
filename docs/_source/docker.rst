@@ -58,7 +58,7 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
    ADD . /project
    WORKDIR /project
 
-   # env stuff
+   # environment stuff
    RUN apt update; \
    apt -y install apt-utils
 
@@ -67,8 +67,8 @@ docker-compose.yml
 ******************
 
 The `docker-compose.yml` file allows us to manage multiple Docker containers 
-for one or more applications. We will add it so we are prepared to extend 
-our projects later, as needed.
+for one or more applications. We will add this file to our project so we are 
+prepared to extend our work later, as needed.
 
 A file called `docker-compose.yml` will exist alongside our `Dockerfile`
 in our `docker` directory.

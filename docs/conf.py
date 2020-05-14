@@ -157,7 +157,7 @@ latex_elements = {
 
 # -- Options for EPUB output -------------------------------------------------
 
-epub_theme = 'epub'
+epub_theme = 'theme'
 #epub_version = u'3.0'
 epub_basename = 'CloudLabWorkbook'
 epub_title = u'Cloub Lab Workbook'
@@ -177,6 +177,7 @@ epub_identifier = epub_publisher
 # HTML files shat should be inserted after the pages created by sphinx.
 # The format is a list of tuples containing the path and title.
 #epub_post_files = [('usage/installation.xhtml', 'Installing Sphinx'), ('develop.xhtml', 'Sphinx development')]
+
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['_source/global.rst',
                       '_source/heroku.rst',
@@ -191,9 +192,9 @@ epub_use_index = False
 epub_description = 'A workbook to get you started with secure cloud development.'
 
 # A tuple containing the cover image and cover page html template filenames.
-epub_cover = ('school-tools-3596680_1920.jpg', 'epub-cover.html')
+epub_cover = ('', 'epub-cover.html')
 # The depth of the table of contents in toc.ncx.
-epub_tocdepth = 2
+epub_tocdepth = 3
 # Allow duplicate toc entries.
 epub_tocdup = False
 

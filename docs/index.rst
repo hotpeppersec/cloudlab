@@ -1,8 +1,15 @@
 .. toctree::
-   :maxdepth: 3
-
-   _source/introduction
+   :numbered:
+   :maxdepth: 2
+   :caption: Preface
+   
    _source/setup
+
+.. toctree::
+   :numbered:
+   :maxdepth: 2
+   :caption: Cloud Lab Workbook
+
    _source/docker
    _source/revision
    _source/python

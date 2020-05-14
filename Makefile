@@ -32,8 +32,13 @@ docker: python ## build docker container for testing
 	@docker-compose -f docker/docker-compose.yml run cloudlab /bin/bash
 
 docs: python ## Generate documentation
-	#sphinx-quickstart
-	cd docs && make html
+	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make docs inside docker container <***" && exit 1; fi
+	$(MAKE) print-status MSG="Building HTML docs"
+	cd docs && make html && cd -
+	$(MAKE) print-status MSG="Building LaTeX docs"
+	cd docs && make latexpdf && cd -
+	$(MAKE) print-status MSG="Building EPUB docs"
+	cd docs && make epub && cd -
 
 print-status:
 	@:$(call check_defined, MSG, Message to print)
