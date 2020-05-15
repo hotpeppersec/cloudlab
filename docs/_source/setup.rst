@@ -88,7 +88,7 @@ It is not necessary to install Python 3 locally, since we will contain
 Python and it's dependencies to an instance of Docker.
 
 Let's take a look at some of the other foundational environmental elements
-we need in place to be scuccessful.
+we need in place to be successful.
 
 The Workhorse (IDE)
 ===================

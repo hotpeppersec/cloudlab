@@ -1,5 +1,6 @@
 FROM debian:buster
-LABEL AUTHOR="franklin@bitsmasher.net"
+LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
+
 ENV DEBIAN_FRONTEND noninteractive
 
 ADD . /book

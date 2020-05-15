@@ -171,6 +171,11 @@ plan, show, validate,
 Apply
 =====
 
+*****
+Vault
+*****
+
+Very quick and easy way to protect secrets in your GitHub repositories. 
 
 .. raw:: latex
 

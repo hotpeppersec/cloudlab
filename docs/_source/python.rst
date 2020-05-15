@@ -93,9 +93,19 @@ detailed in the next section.
 Project Testing
 ***************
 
-Testing Python portion of our projects is made easy with Tox. It can be used
-to create one or more isolated virtual testing environments, checking that an
-application is compatible with multiple version of Python for example.
+Security and reliability in our lab and rapid prototyping work is just 
+as important as it is in our work for the Production environment. In fact, 
+you might say it's even more important since todays rapid mock ups can easily 
+wind up making it into the build pipeine when folks are under a time crunch to 
+deliver.
+
+There are many test frameworks out there, lots of great ideas put forth by
+the community. For our current efforts, we've settled on Tox as the framework 
+of choice. It dovetails nicely with the rest of our patterns. Tox allows us
+to manage requirements for virtual environments when testing, acts as a front
+end to `pytest` and `coverage` modules, and much more. It is highly configurable
+and extensible. For example we can test that an
+application is compatible with multiple versions of Python.
 
 .. index::
    single: Tox
@@ -110,6 +120,36 @@ Example `tox.ini` file:
 
 .. index::
    single: tox.ini
+
+.. code-block:: python
+
+   [tox]
+   envlist = py38
+   skip_missing_interpreters = true
+
+   [testenv]
+   setenv = 
+   PYTHONPATH = .
+   PYTHONHTTPSVERIFY=0 
+   deps = 
+   coverage
+   pytest
+   commands = 
+   coverage run -m pytest -v --capture=sys
+   coverage report --omit="*/test*,.tox/*"
+
+*************
+Test Coverage
+*************
+
+Unit and functional testing is foundational in developing robust, 
+secure code. We want to be sure that when we create new code, we are 
+also adding test cases to our test suite that fully cover the new
+classes, functions, and so on.
+
+As mentioned previously, we can avail ourselves of the `coverage` module
+by adding it to `test-requirements.txt` or the `deps` section of our 
+tox.ini file.
 
 
 .. raw:: latex
