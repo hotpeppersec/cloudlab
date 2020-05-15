@@ -59,6 +59,32 @@ Here are some of the linters I have found useful for languages I encounter frequ
 
 .. [#] http://puppet-lint.com/
 
+****************
+Linting with Tox
+****************
+
+Recall that we are using Tox as our main test framework. 
+To set up Tox to do our linting work for us, we can add an environment 
+to our envlist called "pylint" and then declare it in a new stanza in 
+tox.ini. Notice how we let "deps" do the work of installing the "pylint"
+dependency for us.
+
+.. index::
+   single: pylint
+
+.. code-block:: python
+
+  [tox]
+   envlist = py38. pylint
+   skip_missing_interpreters = true
+
+  [pylint]
+  deps =
+    pylint
+  commands=
+    # the -rn flag will suppress report output (warnings)
+    pylint -rn --rcfile=.pylintrc my_resume/my_resume.py
+
 **************
 GitHub Actions
 **************

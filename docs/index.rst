@@ -15,8 +15,8 @@
    _source/python
    _source/makefiles
    _source/about-ci-cd
-   _source/tools
    _source/infrastructure
+   _source/tools
    _source/ansible
    _source/test-lab
    _source/pictures

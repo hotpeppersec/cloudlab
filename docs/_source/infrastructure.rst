@@ -8,9 +8,11 @@ Infrastructure
    :align: center
 
 This chapter details our ability to quickly and uniformly stand up 
-and tear down servers and networks to run our workloads. We will look
-at some popular cloud computing providers and then delve into ways we
-can leverage them to our benefit.
+and tear down virtual servers and networks to run our workloads. We will look
+at some popular cloud computing providers to prepare to explore ways we
+can leverage them to our benefit. The platforms we will build here comprise the
+hosts we will run our application code on. These virtual resources will be distributed
+across provider hardware in data centers aroudn the world.
 
 ***************************
 Google Cloud Platform (GCP)
@@ -18,9 +20,16 @@ Google Cloud Platform (GCP)
 
 Google Cloud Platform (GCP) is a suite of cloud computing 
 services that runs on the same infrastructure that Google uses internally 
-for its end-user products [#]_ .
+for its end-user products [#]_ . If the resources we allocate on GCP were a pyramid, 
+the apex of that pyramid would be a "project". A project is made up of the settings, 
+permissions, and other metadata that describe your applications [#]_ .
 
 .. [#] https://cloud.google.com/
+.. [#] https://cloud.google.com/docs/overview/
+
+.. index::
+   single: Google Cloud Platform
+   single: GCP
 
 One of the very first things you should do (after creating an account, 
 that is) is to configure two-factor authentication [#]_ (2FA).
@@ -30,7 +39,25 @@ that is) is to configure two-factor authentication [#]_ (2FA).
 .. index::
    single: two-factor authentication
 
+At this point you are ready to install the `gcloud` software development kit (SDK)
+on your local machine [#]_ .
 
+.. [#] https://cloud.google.com/sdk/install
+
+.. index::
+   single: gcloud
+
+Credentials
+===========
+
+Once the `gcloud` SDK is installed, you are ready to set up local credentials 
+that allow interaction between your machine and the GCP application programming 
+interface (API). In other words, Google hosts a server that you can exchange 
+commands with to configure your GCP projects from your local CLI.
+
+GCP credentials are stored in the directory `~/.config/gcloud` as a JSON file. 
+Do not share this file with other people. Do not check this file into your GitHub 
+repositories under any circumstances.
 
 *************************
 Amazon Web Services (AWS)
@@ -43,17 +70,29 @@ that is) is to configure mutli-factor authentication [#]_ (MFA).
 
 .. index::
    single: multi-factor authentication
+   single: AWS
+   single: Amazon Web Services
 
 Amazon's AWS is one of the more prevalent cloud providers in terms of
 popularity and simultaneously mature and ever-expanding feature set.
 
-*************
-Digital Ocean
-*************
+Credentials
+===========
 
-One of my favorite things about this provider is their collection of tutorials
-that they maintain. You can pick up lots of tips and tricks sbout the topics 
-in this book by going through their site.
+Amazon Web Services (AWS) credentials are stored in a hidden directory in your
+home directory called ".aws". The file `~/.aws/credentials` shoudl be modified to 
+contain your AWS access_id and secret_key as seen below.
+
+.. code:: shell
+
+   $ cat ~/.aws/credentials 
+
+   [default]
+   aws_access_key_id = AKIAJCQ6WHUXVOKZ8RQQ
+   aws_secret_access_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
+
+Do not share this file with other people. Do not check this file into your GitHub 
+repositories under any circumstances.
 
 .. raw:: latex
 
@@ -72,11 +111,20 @@ from the diagram for clarity.
    :align: center
 
    digraph folders {
+      "/home/secdevops" [shape=folder];
       "cloudlab" [shape=folder];
+      ".config" [shape=folder];
+      "gcloud" [shape=folder];
+      "secdevops-my-proj-000101-420240.json" [shape=rect];
+      ".aws" [shape=folder];
       "gcp" [shape=folder];
       "aws" [shape=folder];
-      "digital_ocean" [shape=folder];
+
+      "/home/secdevops" -> ".aws";
+      "/home/secdevops" -> ".config";
+      ".config" -> "gcloud";
+      "gcloud" -> "secdevops-my-proj-000101-420240.json";
+      "/home/secdevops" -> "cloudlab";
       "cloudlab" -> "aws";
-      "cloudlab" -> "digital_ocean";
       "cloudlab" -> "gcp";
    }

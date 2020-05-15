@@ -142,16 +142,19 @@ of test harness requirements specified in our `python/requirements-test.txt` fil
      coverage run -m pytest -v --capture=sys
      coverage report --omit="*/test*,.tox/*"
 
-*************
-Test Coverage
-*************
+**********
+Test Cases
+**********
 
 Unit and functional testing is foundational in developing robust, secure code. 
 We want to be sure that when we create new code, we are 
 also adding test cases to our test suite that fully cover the new classes, 
 functions, and so on.
 
-Consider the following example unit test case. THe purpose is to test that the
+.. index::
+   single: Test Cases (Python)
+
+Consider the following example unit test case. The purpose is to test that the
 function `check_docker()` in the file `python/cloudlab/lib/helper_functions.py` 
 returns `True` when called from inside a Docker container.
 
@@ -164,14 +167,18 @@ returns `True` when called from inside a Docker container.
    def test_check_docker():
       assert(check_docker())
 
+*************
+Test Coverage
+*************
+
 As mentioned previously, we can avail ourselves of the `coverage` module
 by adding it to `test-requirements.txt` or the `deps` section of our 
-tox.ini file.
+tox.ini file. The purpose is to automatically generate a report on how much of
+our code is "covered" by test cases in `python/test`.
 
-
-.. raw:: latex
-
-    \clearpage
+.. index::
+   single: Coverage
+   single: Test Coverage
     
 **************************
 Python Directory Structure
