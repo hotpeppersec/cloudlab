@@ -112,3 +112,6 @@ There are times I catch myself switching between VSCode and a terminal
 window to do a quick edit in vi or interact with GitHub. Over time I am 
 changing the way I work in an attempt to reduce attempts to refocus 
 between windows on my desktop.
+
+.. image:: ../images/setup-vscode.png
+   :align: center

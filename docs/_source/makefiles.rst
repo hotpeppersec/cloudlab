@@ -35,9 +35,18 @@ and python) and we also have three Makefile directives of the same name:
 Targets
 *******
 
-Makefiles are comprised of various targets. This is where the work gets
-done. Let's add a target for Docker and a target for Python to make our
-lives easier. 
+Makefiles are comprised of various stanzas, know as targets. This is where 
+the work gets done. Let's add a target for Docker and a target for Python 
+to make our lives easier in the future. Consider the two target stanzas below.
+
+When the `docker` target is called by the use when `make docker` is typed at
+the CLI, the fist thing that happens is the `python` target is called. If the
+`python/requirements.txt` file exists, we attempt to install the modules listed
+therein with the Python "pip" package manager. Once completed, the thread of 
+execution returns to the docker target, sending the user a message to stdout that
+we will be building with docker-compose. After a quick check for existence of the 
+file `/.dockerenv`, we use docker-compose to build from our Dockerfile, and then 
+start a BASH shell in our "cloudlab" container. 
 
 .. code-block:: bash
 
@@ -49,8 +58,10 @@ lives easier.
       @docker-compose -f docker/docker-compose.yml run cloudlab /bin/bash
 
    python: ## setup python3
+      if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="Run make python inside docker container" && exit 1; fi
+      $(MAKE) print-status MSG="Set up the Python environment"
       if [ -f 'python/requirements.txt' ]; then \
-      pip3 install -rpython/requirements.txt; fi
+      python -m pip install -rpython/requirements.txt; fi
 
 Be sure when you indent in a Makefile that you use tabs, not spaces.
 You can use the backslash character to combine two consecutive lines into 
@@ -62,10 +73,12 @@ Full Example Makefile
 
 Here is a full example of a working Makefile. 
 
-.. code-block:: shell
+.. code-block:: Makefile
 
    .PHONY: docker docs python
 
+   REQS := python/requirements.txt
+   REQS_TEST := python/requirements-test.txt
    # Used for colorizing output of echo messages
    BLUE := "\\033[1\;36m"
    NC := "\\033[0m" # No color/default
@@ -85,6 +98,10 @@ Here is a full example of a working Makefile.
    help:
       @python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
+   clean: ## Cleanup all the things
+      find . -name '*.pyc' | xargs rm -rf
+      find . -name '__pycache__' | xargs rm -rf
+
    docker: python ## build docker container for testing
       $(MAKE) print-status MSG="Building with docker-compose"
       @if [ -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Don't run make docker inside docker container <***" && exit 1; fi
@@ -103,7 +120,7 @@ Here is a full example of a working Makefile.
    test: python ## test all the things
       if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="Run make test inside docker container" && exit 1; fi
       $(MAKE) print-status MSG="Set up the test harness"
-      if [ -f '$(REQS_TEST)' ]; then pip3 install -r$(REQS_TEST); fi
+      if [ -f '$(REQS_TEST)' ]; then python3 -m pip install -r$(REQS_TEST); fi
       #tox
    
 .. raw:: latex
@@ -122,23 +139,16 @@ seen below.
    :align: center
 
    digraph folders {
-      "/home/secdevops" [shape=folder];
       "cloudlab" [shape=folder];
       "python" [shape=folder];
       "docker" [shape=folder];
-      "ruby" [shape=folder];
+      "terraform" [shape=folder];
       "Makefile" [shape=rect];
-      "requirements.txt" [shape=rectangle];
-      "requirements-test.txt" [shape=rectangle];
-      "__init__.py" [shape=rectangle];
       "docker-compose.yml" [shape=rect];
       "Dockerfile" [shape=rect];
-      "/home/secdevops" -> "cloudlab";
+
       "cloudlab" -> "python";
-      "python" -> "__init__.py";
-      "python" -> "requirements.txt";
-      "python" -> "requirements-test.txt";
-      "cloudlab" -> "ruby";
+      "cloudlab" -> "terraform";
       "cloudlab" -> "docker";
       "cloudlab" -> "Makefile";
       "docker" -> "Dockerfile";

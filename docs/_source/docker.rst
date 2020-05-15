@@ -45,22 +45,28 @@ containers, and the applications they contain, are defined by the Dockerfile.
 Each Dockerfile is predicated on a base image, like Debian 10 as shown in 
 the example below.
 
-Consider a directory called `docker` and a file called `Dockerfile` within
+Consider a directory called `docker`_ and a file called `Dockerfile` within
 this directory. Note the capitalization of the first letter in the file name.
 Some IDE's will key off this file and allow for additional syntax highlighting.
 
+.. _docker: https://github.com/hotpeppersec/rapid_secdev_framework/tree/master/docker
+.. _Dockerfile: https://github.com/hotpeppersec/rapid_secdev_framework/blob/master/docker/Dockerfile
+
+.. index::
+   single: Dockerfile
+
 .. code-block:: bash
 
-   FROM debian:buster
-   LABEL AUTHOR="franklin@bitsmasher.net"
-   ENV DEBIAN_FRONTEND noninteractive
+   FROM python:3.8.2-buster
+   LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
 
+   ENV DEBIAN_FRONTEND noninteractive
+   
    ADD . /project
    WORKDIR /project
-
-   # environment stuff
+   
    RUN apt update; \
-   apt -y install apt-utils
+      apt -y install apt-utils
 
 
 
@@ -71,6 +77,9 @@ docker-compose.yml
 The `docker-compose.yml` file allows us to manage multiple Docker containers 
 for one or more applications. We will add this file to our project so we are 
 prepared to extend our work later, as needed.
+
+.. index::
+   single: docker-compose.yml
 
 A file called `docker-compose.yml` will exist alongside our `Dockerfile`
 in our `docker` directory.
@@ -96,7 +105,8 @@ in our `docker` directory.
 Docker Directory Structure
 **************************
 
-So far our relevant files and folders are organized like so:
+Files and folders relevant to the Docker portion of our project 
+are organized as seen below.
 
 .. graphviz::
    :caption: Project Directory

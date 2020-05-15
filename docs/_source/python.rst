@@ -8,10 +8,10 @@ Python
       :align: center
 
 Getting started in writing programs is easy with Python. It is highly 
-extensible since there are so many add on modules available from a 
-collection known as Pypi [#]_ . It's fairly easy to learn, epecially when 
-compared to other languges. Python runs everywhere for all intents and 
-purposes.
+extensible since there are many add on modules available from a 
+collection known as Pypi [#]_ . Python is fairly easy to learn, epecially when 
+compared to other languges. Python runs "everywhere", for all intents and 
+purposes. For all these reasons, Python is a great choice.
 
 .. [#] https://pypi.org/
 
@@ -28,10 +28,10 @@ The __init__.py File
 ********************
 
 We add this file to let the Python interpreter know that the directories
-it is found in are a contiguous part of our project. Since module imports and
+it is found in are a contiguous part of our Python project. Since module imports and
 function definitions in this file are available to all the python code files
 in the directory, we can use it to our advantage. For example, try adding this 
-quick and dirty logging function to `lib/__init__.py`:
+quick and dirty logging function to `python/cloudlab/lib/__init__.py`:
 
 .. code-block:: python
 
@@ -66,9 +66,12 @@ Check the results in the file `/var/log/secdevops/cloudlab.log`.
 Requirements File
 *****************
 
-A requirements file under `python/requirements.txt` includes the required
-Python modules needed to build and run any Python portions of our
-project.
+A requirements file under `python/requirements.txt` lists the required
+Python modules needed to build and run any Python portions of our cloudlab project.
+We also add a check in the Makefile to verify the existence of the `requirements.txt` 
+file. The intention is, so we can quickly cut and paste the Makefile into a new project, 
+but not break anything if no requirements are present yet.
+
 
 .. index::
    single: requirements.txt
@@ -86,8 +89,7 @@ familiar with the project.
 .. index::
    single: requirements-test.txt
 
-Note that we can also include test requirements in our `tox.ini` file, 
-detailed in the next section.
+Note that we can also include test requirements in our `tox.ini` file, as detailed in the next section.
 
 ***************
 Project Testing
@@ -116,7 +118,9 @@ for the project.
 .. index::
    single: make test
 
-Example `tox.ini` file:
+An example `tox.ini` file follow. Take notice of the "deps" section, where Python
+module requirements can be specified. In our current configuration, these are in lieu 
+of test harness requirements specified in our `python/requirements-test.txt` file.
 
 .. index::
    single: tox.ini
@@ -129,23 +133,36 @@ Example `tox.ini` file:
 
    [testenv]
    setenv = 
-   PYTHONPATH = .
-   PYTHONHTTPSVERIFY=0 
+     PYTHONPATH = .
+     PYTHONHTTPSVERIFY=0 
    deps = 
-   coverage
-   pytest
+     coverage
+     pytest
    commands = 
-   coverage run -m pytest -v --capture=sys
-   coverage report --omit="*/test*,.tox/*"
+     coverage run -m pytest -v --capture=sys
+     coverage report --omit="*/test*,.tox/*"
 
 *************
 Test Coverage
 *************
 
-Unit and functional testing is foundational in developing robust, 
-secure code. We want to be sure that when we create new code, we are 
-also adding test cases to our test suite that fully cover the new
-classes, functions, and so on.
+Unit and functional testing is foundational in developing robust, secure code. 
+We want to be sure that when we create new code, we are 
+also adding test cases to our test suite that fully cover the new classes, 
+functions, and so on.
+
+Consider the following example unit test case. THe purpose is to test that the
+function `check_docker()` in the file `python/cloudlab/lib/helper_functions.py` 
+returns `True` when called from inside a Docker container.
+
+.. code-block:: python
+
+   import pytest
+   from cloudlab.lib.helper_functions import check_docker
+
+
+   def test_check_docker():
+      assert(check_docker())
 
 As mentioned previously, we can avail ourselves of the `coverage` module
 by adding it to `test-requirements.txt` or the `deps` section of our 
@@ -167,17 +184,30 @@ Files and folders relevant to the Python portions of our project are shown in th
    :align: center
 
    digraph folders {
-      "/home/secdevops" [shape=folder];
-      "cloudlab" [shape=folder];
-      "python" [shape=folder];
-      "my_python_app" [shape=folder];
-      "requirements.txt" [shape=rectangle];
-      "requirements-test.txt" [shape=rectangle];
-      "__init__.py" [shape=rectangle];
-      "/home/secdevops" -> "cloudlab";
-      "cloudlab" -> "python";
-      "python" -> "__init__.py";
-      "python" -> "requirements.txt";
-      "python" -> "requirements-test.txt";
-      "python" -> "my_python_app";
+      1 [label="python", shape=folder];
+      2 [label="cloudlab", shape=folder];
+      3 [label="lib", shape=folder];
+      4 [label="requirements.txt", shape=rectangle];
+      5 [label="requirements-test.txt", shape=rectangle];
+      6 [label="__init__.py", shape=rectangle];
+      7 [label="__init__.py", shape=rectangle];
+      8 [label="test", shape=folder];
+      9 [label="cloudlab.py", shape=rectangle];
+      A [label="__init__.py", shape=rectangle];
+      B [label="__init__.py", shape=rectangle];
+      C [label="tox.ini", shape=rectangle];
+      D [label="helper_functions.py", shape=rectangle];
+
+      1 -> 2;
+      1 -> 6;
+      2 -> 3;
+      1 -> 4;
+      1 -> 5;
+      2 -> 7;
+      1 -> 8;
+      2 -> 9;
+      8 -> A;
+      3 -> B;
+      1 -> C;
+      3 -> D;
    }

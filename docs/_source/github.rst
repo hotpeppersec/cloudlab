@@ -265,7 +265,15 @@ from checking in the `.DS-Store` that Macintosh creates in many folders.
 Pull Requests
 =============
 
-Describe pull requests.
+When you make changes on a local branch, say on your personal laptop, you
+will eventually want those changes to flow back into the main project. Opening
+a pull request is a means of letting other people know you've got a set 
+of changes ready for review and potential changes [#]_ .
+
+.. [#] https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
+
+.. index::
+   single: Pull Request
 
 Let's use our changes to the CODEOWNERS file to try making a change in our clone
 of the repository in GitHub, then pushing that change up to the repository.
@@ -288,8 +296,49 @@ gear icon) and then choose the "Branches" section. The Default branch gets set t
 "master". Clicking the "Add Rule" button, entering "master" for the "Branch name 
 pattern", and then the green "Create" button sets up master as a protected branch.
 
+.. image:: ../images/github-branch-protection.png
+   :align: center
+
 After we start to work with CI/CD tools (status checks, like GitHub Actions for 
 example) there will be choices available here for managing those checks.
+
+.. image:: ../images/guthub-status-check.png
+   :align: center
+
+Automated Repository Scanning
+=============================
+
+There are many GitHub plugins that are free for single-user/non-commercial scenarios. 
+a cursory search of the web of the GitHub Marketplace will turn up many of these. 
+Let's leave some of the tedious work to the bots so we can focus on our journey to the
+cloud!
+
+Renovate
+********
+
+WhiteSource Renovate is what's known as a dependency scanner. It is free for single user to
+add from the GitHub Marketplace [#]_ . It can tell you when you are using a version of a module
+or image that is out of date. For example, if you have a Dockerfile that specifies Python 3.8.1, 
+Renovate will open a pull request on your repository to update the version string in that Dockerfile
+to the most current version available. You can also grant Renovate the permissions required to 
+simply merge the change with no human interaction. Renovate supports JavaScript, Java, Ruby, PHP, 
+Python, Go, Cargo, Elixir, Docker, and more.
+
+.. [#] https://github.com/marketplace/renovate
+
+Once you've signed up and specified which repositories you want Renovate to monitor, it opens a 
+pull request to install a simple default configuration file called `renovate.json`. Merge this 
+initial pull request and you're up and running!
+
+LGTM
+****
+
+Semmle is a company that runs a code scanning service we can use to keep
+an eye on our repositories for issues with syntax and dependencies. It is tightly coupled with 
+github.com and can be configured from lgtm.com after logging in with your GitHub credentials.
+
+As a fun aside, LGTM stands for "looks good to me", something developers will add as review 
+comments when their pull request is simple or matches obvious expectations. 
 
 .. raw:: latex
 
