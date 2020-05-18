@@ -15,6 +15,18 @@ tools in greater depth.
 .. index::
    single: Terraform
 
+.. figure:: ../images/infra_flow.png
+   :align: center
+   :name: myFig1
+   :alt: alternate text
+   :figclass: align-center
+
+   The pipeline flow.
+
+Consider the following diagram :numref:`myFig1` as we discuss the tools we'll use to 
+implement our infrastructure as coode and associated configurations in 
+the cloud provider network.
+
 ******
 Packer
 ******
@@ -115,7 +127,6 @@ Google Compute. Save the contents of this file into `packer/gcp-debian-host.json
       ]
    }
 
-
 Validating
 ==========
 
@@ -177,8 +188,8 @@ variables.tf
 ============
 
 The `variables.tf` file is another common file seen in projects in AWS, GCP and other cloud providers.
-It typically contains values for variables such as region information or even the name of the image
-we created previously with Packer.
+It contains declarations of variables, and often values for variables as well. As an example there 
+might be region information or even the name of the image we created previously with Packer.
 
 .. index::
    single: variables.tf
@@ -192,7 +203,8 @@ main.tf
 Verification
 ============
 
-plan, show, validate, 
+Terraform has some commands (validate & plan) that we can use to verify our configuration before 
+sending it off to the cloud provider to act upon.
 
 Apply
 =====

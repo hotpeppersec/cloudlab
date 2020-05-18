@@ -19,7 +19,7 @@ copyright = u'Copyright © 2020 by Franklin Diaz'
 author = u'© 2020 by Franklin Diaz'
 
 # The short X.Y version
-version = '0.0.1'
+version = '0.0.2'
 # The full version, including alpha/beta/rc tags
 # this will show on title page if uncommented
 #release = '0.0.1'
@@ -37,8 +37,10 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.intersphinx',
     'sphinx.ext.graphviz',
-    'rst2pdf.pdfbuilder'
-    ]
+    'rst2pdf.pdfbuilder']
+
+# Turns on numbered figures for HTML output
+numfig = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

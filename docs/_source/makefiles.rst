@@ -73,7 +73,7 @@ Full Example Makefile
 
 Here is a full example of a working Makefile. 
 
-.. code-block:: Makefile
+.. code-block:: shell
 
    .PHONY: docker docs python
 

@@ -49,7 +49,6 @@ contain your AWS access_id and secret_key as seen below.
 Do not share this file with other people. Do not check this file into your GitHub 
 repositories under any circumstances.
 
-
 ***************************
 Google Cloud Platform (GCP)
 ***************************
@@ -94,7 +93,6 @@ commands with to configure your GCP projects from your local CLI.
 GCP credentials are stored in the directory `~/.config/gcloud` as a JSON file. 
 Do not share this file with other people. Do not check this file into your GitHub 
 repositories under any circumstances.
-
 
 .. raw:: latex
 
