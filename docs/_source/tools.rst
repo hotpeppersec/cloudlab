@@ -44,6 +44,9 @@ and immutability.
 .. index::
    single: Packer
 
+Packer Example Configuration for AWS
+====================================
+
 Here is an example of how to set up a JSON file to build a Packer image in 
 AWS. Save the contents of this file into `packer/aws-debian-host.json`:
 
@@ -96,6 +99,9 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
    ]
    }
 
+Packer Example Configuration for GCP
+====================================
+
 Here is an example of how to set up a JSON file to build a Packer image in 
 Google Compute. Save the contents of this file into `packer/gcp-debian-host.json`:
 
@@ -127,30 +133,33 @@ Google Compute. Save the contents of this file into `packer/gcp-debian-host.json
       ]
    }
 
-Validating
-==========
+Validating Packer JSON Files
+============================
 
 Once the JSON files are created and saved in the packer directory, 
 we can use the `packer` tool to validate them. Type 
 `packer validate <filename>` to validate each new JSON file. This gives you a
 chance to find and fix any errors before the next step, the build phase.
 
-Building
-========
+Note that your validation commands may fail if the cloud provider credentials have not been
+configured at this point.
+
+Building Images with Packer
+===========================
 
 Finally, we are ready to build our new images. Try typing `packer build <filename>`
 to create the images in AWS or GCP.
 
-Removing
-========
+Removing Packer Images from Cloud Provider
+==========================================
 
-You may want to remove the images from AWS/GCP since storing them there 
-incurs additional cost. 
+You may want to remove the images from AWS/GCP since storing them incurs additional cost, whether
+they are in use or not [#]_ . 
 
-To remove stale machine images from AWs, you may try a tool such as 
-aws-amicleaner [#]_ , which is available to be installed via Python/pip as well
-as from the GitHub repository for the project.
+.. [#] https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=name
 
+To remove stale machine images from AWS, you may try a tool such as aws-amicleaner [#]_ , which is 
+available to be installed via Python/pip as well as from the GitHub repository for the project.
 
 .. [#] https://github.com/bonclay7/aws-amicleaner
 
@@ -158,9 +167,9 @@ as from the GitHub repository for the project.
 Terraform
 *********
 
-Terraform is a tool for building, changing, and versioning infrastructure 
-safely and efficiently [#]_ . Install the latest version of Terraform from
-Hashicorp in preparation for the activities that follow.
+Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently 
+[#]_ . Install the latest version of Terraform from Hashicorp in preparation for the activities 
+that follow.
 
 .. [#] https://www.terraform.io/intro/index.html
 
@@ -213,9 +222,8 @@ Apply
 Ansible
 *******
 
-Environments where you have a set of repeatable configuration
-steps can be deployed more quickly with Ansible. Building a set of
-good Ansible playbooks over team means you can pick and choose 
+Environments where you have a set of repeatable configuration steps can be deployed more quickly 
+with Ansible. Building a set of good Ansible playbooks over team means you can pick and choose 
 the most useful patterns in future projects. A true force multiplier.
 
 .. index::
@@ -224,21 +232,18 @@ the most useful patterns in future projects. A true force multiplier.
 Installing Ansible
 ==================
 
-We can extend our existing lab framework by simply adding "ansible" to
-`python/requirements.txt`. Now when we type `make docker`, pip will take
-care of the installation for us. Then we can experiment with Ansible 
-playbook runs inside our Docker container.
+Simply adding "ansible" to `python/requirements.txt` will make Ansible available in our Docker 
+containers. Now when we type `make docker`, pip will take care of the installation for us. Then we can 
+experiment with Ansible playbook runs.
 
 Ansible Playbooks
 =================
 
-Ansible breaks down it's execution runs into discrete workflows known as 
-playbooks. Playbooks are executed on the target hosts to implement 
-configurations. It's quite useful to be able to kick off a playbook run
-on the taget host every 15 minutes. This is a direct example of Continuous 
-Deployment in action. If somethings changes in the GitHub repository, we 
-want that to propagate out to the targets and the latest configuration to 
-be applied to the server. We can also deploy a newer version of an 
+Ansible breaks down it's execution runs into discrete workflows known as playbooks. Playbooks are 
+executed on the target hosts to implement configurations. It's quite useful to be able to kick off a 
+playbook run on the taget host every 15 minutes. This is a direct example of Continuous Deployment in 
+action. If somethings changes in the GitHub repository, we want that to propagate out to the targets 
+and the latest configuration to be applied to the server. We can also deploy a newer version of an 
 application and then stop and start the applicationto effect the change.
 
 Ansible playbooks break down target hosts into groupings known as roles.

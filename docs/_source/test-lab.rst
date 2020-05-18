@@ -7,11 +7,14 @@ The Test Lab
 .. image:: ../images/milky-way-984050_1920.jpg
    :align: center
 
-Let's try putting it all together.
+We've reached the point where it's time to assemble all our functional blocks into a proper lab in 
+the cloud.
 
 *******************
 Lab Network Diagram
 *******************
+
+
 
 ********
 Firewall
