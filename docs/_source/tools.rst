@@ -4,7 +4,7 @@
 Tools
 =====
 
-.. image:: ../images/mouse-593297_1920.jpg
+.. image:: ../images/railway-4101305_1920.jpg
    :align: center
 
 We can reduce our mean time to deploy by using tools to prepare and
@@ -21,43 +21,16 @@ Packer
 
 Using Hashicorp Packer is a great way to nail down the contents of a machine
 image before we bring up an instance. Download Packer from the Hashicorp web
-site in preparation for the follwing steps [#]_ .
+site in preparation for the follwing steps [#]_ . We will focus on creating images
+for our cloud provider from the command line. Bear in mind it is also possible to
+use Terraform to manage the creation of Packer generated machine images. Generating 
+machine images on the fly using Terraform would increase our degree of ephepmerality
+and immutability.
 
 .. [#] https://www.packer.io/downloads/
 
 .. index::
    single: Packer
-
-Here is an example of how to set up a JSON file to build a Packer image in 
-Google Compute. Save the contents of this file into `packer/gcp-debian-host.json`:
-
-.. code-block:: bash
-
-   {
-      "builders": [
-         {
-            "type": "googlecompute",
-            "account_file": "/home/franklin/.config/gcloud/my-gcloud-creds-file.json",
-            "project_id": "sec-dev-ops-000378",
-            "source_image_family": "debian-10",
-            "zone": "us-central1-a",
-            "image_description": "SecDevOps Debian Host",
-            "image_name": "generic-lab-host",
-            "ssh_username": "root",
-            "metadata": { "enable-oslogin": "false" }
-         }
-      ],
-      "provisioners": [
-         {
-            "type": "shell",
-            "inline": [
-            "sleep 10",
-            "mkdir -p /home/franklin/.ssh",
-            "chmod 700 /home/franklin/.ssh"
-            ]
-         }
-      ]
-   }
 
 Here is an example of how to set up a JSON file to build a Packer image in 
 AWS. Save the contents of this file into `packer/aws-debian-host.json`:
@@ -111,6 +84,37 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
    ]
    }
 
+Here is an example of how to set up a JSON file to build a Packer image in 
+Google Compute. Save the contents of this file into `packer/gcp-debian-host.json`:
+
+.. code-block:: bash
+
+   {
+      "builders": [
+         {
+            "type": "googlecompute",
+            "account_file": "/home/franklin/.config/gcloud/my-gcloud-creds-file.json",
+            "project_id": "sec-dev-ops-000378",
+            "source_image_family": "debian-10",
+            "zone": "us-central1-a",
+            "image_description": "SecDevOps Debian Host",
+            "image_name": "generic-lab-host",
+            "ssh_username": "root",
+            "metadata": { "enable-oslogin": "false" }
+         }
+      ],
+      "provisioners": [
+         {
+            "type": "shell",
+            "inline": [
+            "sleep 10",
+            "mkdir -p /home/franklin/.ssh",
+            "chmod 700 /home/franklin/.ssh"
+            ]
+         }
+      ]
+   }
+
 
 Validating
 ==========
@@ -131,6 +135,13 @@ Removing
 
 You may want to remove the images from AWS/GCP since storing them there 
 incurs additional cost. 
+
+To remove stale machine images from AWs, you may try a tool such as 
+aws-amicleaner [#]_ , which is available to be installed via Python/pip as well
+as from the GitHub repository for the project.
+
+
+.. [#] https://github.com/bonclay7/aws-amicleaner
 
 *********
 Terraform
@@ -171,19 +182,66 @@ plan, show, validate,
 Apply
 =====
 
-*****
-Vault
-*****
+*******
+Ansible
+*******
 
-Very quick and easy way to protect secrets in your GitHub repositories. 
+.. image:: ../images/railway-4101305_1920.jpg
+   :align: center
+
+Environments where you have a set of repeatable configuration
+steps can be deployed more quickly with Ansible. Building a set of
+good Ansible playbooks over team means you can pick and choose 
+the most useful patterns in future projects. A true force multiplier.
+
+.. index::
+   single: Ansible
+
+Installing
+==========
+
+We can extend our existing lab framework by simply adding "ansible" to
+`python/requirements.txt`. Now when we type `make docker`, pip will take
+care of the installation for us. Then we can experiment with Ansible 
+playbook runs inside our Docker container.
+
+Playbooks
+=========
+
+Ansible breaks down it's execution runs into discrete workflows known as 
+playbooks. Playbooks are executed on the target hosts to implement 
+configurations. It's quite useful to be able to kick off a playbook run
+on the taget host every 15 minutes. This is a direct example of Continuous 
+Deployment in action. If somethings changes in the GitHub repository, we 
+want that to propagate out to the targets and the latest configuration to 
+be applied to the server. We can also deploy a newer version of an 
+application and then stop and start the applicationto effect the change.
+
+Ansible playbooks break down target hosts into groupings known as roles. 
+
+Testing
+=======
+
+There is a test framework known as "molecule" that can be used to 
+test ansible playbooks in the CI/CD pipeline.
+
+Vault
+=====
+
+Vault is a tool that is included with Ansible. It is an easy way to protect secrets 
+in your GitHub repositories. 
+
+.. [#] https://www.vaultproject.io/downloads
+
+.. index::
+   single: Vault
 
 .. raw:: latex
 
     \clearpage
 
-************************
 Tool Directory Structure
-************************
+========================
 
 Files and folders relevant to this chapter are organized as shown
 below.

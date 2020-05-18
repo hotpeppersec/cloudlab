@@ -14,6 +14,42 @@ can leverage them to our benefit. The platforms we will build here comprise the
 hosts we will run our application code on. These virtual resources will be distributed
 across provider hardware in data centers aroudn the world.
 
+*************************
+Amazon Web Services (AWS)
+*************************
+
+One of the very first things you should do (after creating an account, 
+that is) is to configure mutli-factor authentication [#]_ (MFA).
+
+.. [#] MFA: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html
+
+.. index::
+   single: multi-factor authentication
+   single: AWS
+   single: Amazon Web Services
+
+Amazon's AWS is one of the more prevalent cloud providers in terms of
+popularity and simultaneously mature and ever-expanding feature set.
+
+Credentials
+===========
+
+Amazon Web Services (AWS) credentials are stored in a hidden directory in your
+home directory called ".aws". The file `~/.aws/credentials` shoudl be modified to 
+contain your AWS access_id and secret_key as seen below.
+
+.. code:: shell
+
+   $ cat ~/.aws/credentials 
+
+   [default]
+   aws_access_key_id = AKIAJCQ6WHUXVOKZ8RQQ
+   aws_secret_access_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
+
+Do not share this file with other people. Do not check this file into your GitHub 
+repositories under any circumstances.
+
+
 ***************************
 Google Cloud Platform (GCP)
 ***************************
@@ -59,40 +95,6 @@ GCP credentials are stored in the directory `~/.config/gcloud` as a JSON file.
 Do not share this file with other people. Do not check this file into your GitHub 
 repositories under any circumstances.
 
-*************************
-Amazon Web Services (AWS)
-*************************
-
-One of the very first things you should do (after creating an account, 
-that is) is to configure mutli-factor authentication [#]_ (MFA).
-
-.. [#] MFA: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html
-
-.. index::
-   single: multi-factor authentication
-   single: AWS
-   single: Amazon Web Services
-
-Amazon's AWS is one of the more prevalent cloud providers in terms of
-popularity and simultaneously mature and ever-expanding feature set.
-
-Credentials
-===========
-
-Amazon Web Services (AWS) credentials are stored in a hidden directory in your
-home directory called ".aws". The file `~/.aws/credentials` shoudl be modified to 
-contain your AWS access_id and secret_key as seen below.
-
-.. code:: shell
-
-   $ cat ~/.aws/credentials 
-
-   [default]
-   aws_access_key_id = AKIAJCQ6WHUXVOKZ8RQQ
-   aws_secret_access_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
-
-Do not share this file with other people. Do not check this file into your GitHub 
-repositories under any circumstances.
 
 .. raw:: latex
 

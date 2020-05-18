@@ -17,7 +17,6 @@
    _source/about-ci-cd
    _source/infrastructure
    _source/tools
-   _source/ansible
    _source/test-lab
    _source/pictures
    _source/glossary
