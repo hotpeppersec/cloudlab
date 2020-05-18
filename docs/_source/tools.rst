@@ -159,11 +159,26 @@ Hashicorp in preparation for the activities that follow.
 terraform.tfvars
 ================
 
+When working with AWS as cloud provider, life gets a bit easier if you save a copy of your
+console credentials in a file called `terraform.tfvars` as seen in the next example. You must
+be very careful not to commit these credentials to GitHub! Adding the line `terraform.tfvars`
+to your `.gitignore` file at the top level of your lab repository helps a lot. Keeping track of 
+your credentials is very important!
+
 .. index::
    single: terraform.tfvars
 
+.. code:: shell
+
+   aws_access_key = AKIAJCQ6WHUXVOKZ8RQQ
+   aws_secret_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
+
 variables.tf
 ============
+
+The `variables.tf` file is another common file seen in projects in AWS, GCP and other cloud providers.
+It typically contains values for variables such as region information or even the name of the image
+we created previously with Packer.
 
 .. index::
    single: variables.tf
@@ -239,6 +254,9 @@ our pipelines out to our cloud providers.
 Encrypting a File with Vault  
 ============================
 
+.. index::
+   single: encryption
+
 Let's try encrypting a file... using another file! Create a text file with some random contents.
 For example, create a file in your home directory called my_dog.txt with the following contents:
 
@@ -258,6 +276,9 @@ as a long series of seemingly nonsense characters.
 
 Decrypting a File with Vault
 ============================
+
+.. index::
+   single: decryption
 
 At some point, we are going to want to decrypt our data so it becomes usable, we can perform operations
 on it, and so on. As long as we keep or recreate the original key file on our host, or create an 
