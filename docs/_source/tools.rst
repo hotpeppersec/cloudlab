@@ -186,9 +186,6 @@ Apply
 Ansible
 *******
 
-.. image:: ../images/railway-4101305_1920.jpg
-   :align: center
-
 Environments where you have a set of repeatable configuration
 steps can be deployed more quickly with Ansible. Building a set of
 good Ansible playbooks over team means you can pick and choose 
@@ -197,16 +194,16 @@ the most useful patterns in future projects. A true force multiplier.
 .. index::
    single: Ansible
 
-Installing
-==========
+Installing Ansible
+==================
 
 We can extend our existing lab framework by simply adding "ansible" to
 `python/requirements.txt`. Now when we type `make docker`, pip will take
 care of the installation for us. Then we can experiment with Ansible 
 playbook runs inside our Docker container.
 
-Playbooks
-=========
+Ansible Playbooks
+=================
 
 Ansible breaks down it's execution runs into discrete workflows known as 
 playbooks. Playbooks are executed on the target hosts to implement 
@@ -217,31 +214,67 @@ want that to propagate out to the targets and the latest configuration to
 be applied to the server. We can also deploy a newer version of an 
 application and then stop and start the applicationto effect the change.
 
-Ansible playbooks break down target hosts into groupings known as roles. 
+Ansible playbooks break down target hosts into groupings known as roles.
 
-Testing
-=======
+Testing Ansible Playbooks
+=========================
 
 There is a test framework known as "molecule" that can be used to 
 test ansible playbooks in the CI/CD pipeline.
 
-Vault
-=====
+*************
+Ansible Vault
+*************
 
-Vault is a tool that is included with Ansible. It is an easy way to protect secrets 
-in your GitHub repositories. 
-
-.. [#] https://www.vaultproject.io/downloads
+Vault is a tool that is included with Ansible. You may notice that `ansible-vault`
+is a symlink back to `ansible` on your system. Vault is an easy way to protect 
+secrets using AES-256 encryption in your GitHub repositories. For example, we can use it to secure data at 
+rest in a repository, or protect system configuration data as it transits through
+our pipelines out to our cloud providers.
 
 .. index::
+   single: AES-256
    single: Vault
+
+Encrypting a File with Vault  
+============================
+
+Let's try encrypting a file... using another file! Create a text file with some random contents.
+For example, create a file in your home directory called my_dog.txt with the following contents:
+
+.. code-block:: bash
+
+   My dog has fleas.
+
+Now we can encrypt some data using this file as the encryption key. For the sake of example, let's
+assume we have a file called `data_to_protect.txt` that we would like to encrypt.
+
+.. code-block:: bash
+
+   ansible-vault encrypt --vault-password-file ~/my_dog.txt data_to_protect.txt
+
+Now when we view the `data_to_protect.txt` file, we can see it has been encrypted and appears
+as a long series of seemingly nonsense characters.
+
+Decrypting a File with Vault
+============================
+
+At some point, we are going to want to decrypt our data so it becomes usable, we can perform operations
+on it, and so on. As long as we keep or recreate the original key file on our host, or create an 
+identical copy of the key file some some target/remote host, we will be able to decrypt the data. This
+is quite useful to us indeed, when it comes to protecting our data.
+
+.. code-block:: bash
+
+   ansible-vault decrypt --vault-password-file ~/my_dog.txt data_to_protect.txt
 
 .. raw:: latex
 
     \clearpage
 
+************************
 Tool Directory Structure
-========================
+************************
 
 Files and folders relevant to this chapter are organized as shown
 below.
