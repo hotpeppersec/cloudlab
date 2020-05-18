@@ -149,7 +149,12 @@ latex_elements = {
     'utf8extra': '',
     'papersize':'letterpaper',
     #'fontenc':r'\usepackage[T2A,T1]{fontenc}',
-    'preamble': r'\renewcommand{\pageautorefname}{%s}' % ('page'),
+    'preamble': r'''
+\usepackage{draftwatermark}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{1.2}
+\SetWatermarkLightness{0.9}
+''',
 }
 
 # -- Options for PDF output --------------------------------------------------

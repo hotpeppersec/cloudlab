@@ -15,7 +15,7 @@ to decrease [#]_ . It's not a question of if, but how quickly commoditization of
 compute resources takes place, leaving only a few main providers of these resources.
 This is not unlike how power generation and distribution became centralized, now
 the domain of a few large utility companies. Nothing beyond considerations of 
-practicality stop you from making your own electricty, but you may wish to invest
+practicality stop you from making your own electricity, but you may wish to invest
 your time in other pursuits.
 
 .. [#] https://start.paloaltonetworks.com/esg-research-cloud-native-devsecops-report.html 

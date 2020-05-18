@@ -16,4 +16,4 @@ texlive-fonts-recommended texlive-latex-extra
 RUN make python
 #RUN if [ ! -d "pygments-css" ]; then git clone https://github.com/richleland/pygments-css.git; fi; \
 #cp /book/pygments-css/vim.css /book/docs/theme/static/
-RUN make docs
+#RUN make docs
