@@ -1,10 +1,7 @@
-=============
-Book Proposal
-=============
+===========
+Description
+===========
 
-***************
-Summary of Book
-***************
 
 Over the past five or so years I've been doing security development work, 
 previously at SalesForce and now at Palo Alto Networks. 
@@ -112,26 +109,3 @@ My assumption is this would be a good book for folks new to the industry to foll
 I see that there is also a need for folks who have been in the workforce 
 for some years (or even decades!) to re-tool and adapt to rapidly changing technological landscape. 
 
-***    
-You 
-***
-
-*Who are you?*
-
-Tech nerd, into computers since my Vic-20 days. I like spicy food 
-and growing hot pepper plants, listening to music, family and dogs. 
-
-https://www.linkedin.com/in/franklin-diaz/
-
-https://youtu.be/XX0KX-4Q7es
-
-https://youtu.be/pacUKJybyEI
-
-https://gist.github.com/thedevilsvoice/1fed891832a79894184495f942b95017
-
-*What are your goals in writing this book?*
-
-Ideas and personal best practices aren't much use if you can't capture
-and share them. My hope is that this information will be useful and helpful
-to people I will most likely be interacting with and working with in 
-the future.

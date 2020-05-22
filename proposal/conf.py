@@ -1,38 +1,15 @@
 # -*- coding: utf-8 -*-
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
-
-# -- Project information -----------------------------------------------------
-
 # General information about the project.
-project = u'Cloud Lab Workbook'
+project = u'The DevOps Pipeline'
 copyright = u'Copyright © 2020 by Franklin Diaz'
 author = u'© 2020 by Franklin Diaz'
 
 # The short X.Y version
 version = '0.0.2'
-# The full version, including alpha/beta/rc tags
-# this will show on title page if uncommented
-#release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
 
-# If your documentation needs a minimal Sphinx version, state it here.
-#
-# needs_sphinx = '1.0'
-
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
 extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.intersphinx',
@@ -124,24 +101,6 @@ latex_paper_size = 'letter'
 # The font size ('10pt', '11pt' or '12pt').
 latex_font_size = '10pt'
 
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title, author, document class [howto/manual]).
-#latex_documents = [(master_doc, 'calibre.tex', title, 'Franklin Diaz', 'manual', False)]
-
-# Additional stuff for the LaTeX preamble.
-# latex_preamble = ''
-
-# Documents to append as an appendix to all manuals.
-# latex_appendices = []
-
-# If false, no module index is generated.
-# latex_use_modindex = True
-
-#latex_elements = { 'maketitle': copyright,
-# 'extraclassoptions': 'openany,oneside' }
-# The name of an image file (relative to this directory) to place at the top of
-# the title page.
-latex_logo = 'images/plouzane-1758197_1920.jpg'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 latex_additional_files = ['sphinxmanual.cls'] 
@@ -150,98 +109,4 @@ latex_elements = {
     'inputenc': '',
     'utf8extra': '',
     'papersize':'letterpaper',
-    #'fontenc':r'\usepackage[T2A,T1]{fontenc}',
-    'preamble': r'''
-\usepackage{draftwatermark}
-\SetWatermarkText{DRAFT}
-\SetWatermarkScale{1.2}
-\SetWatermarkLightness{0.9}
-''',
 }
-
-# -- Options for PDF output --------------------------------------------------
-#pdf_documents = [('index', 'documentation', My Docs', 'Me'), ]
-
-# -- Options for EPUB output -------------------------------------------------
-
-epub_theme = 'theme'
-#epub_version = u'3.0'
-epub_basename = 'CloudLabWorkbook'
-epub_title = u'Cloub Lab Workbook'
-epub_author = 'Franklin Diaz'
-epub_copyright = u'2020, Franklin Diaz'
-epub_publisher = 'http://sphinx-doc.org/'
-# A unique identification for the text.
-epub_uid = 'web-site'
-# The scheme of the identifier. Typical schemes are ISBN or URL.
-epub_scheme = 'url'
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-epub_identifier = epub_publisher
-# HTML files that should be inserted before the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#epub_pre_files = [('index.xhtml', 'Welcome')]
-# HTML files shat should be inserted after the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#epub_post_files = [('usage/installation.xhtml', 'Installing Sphinx'), ('develop.xhtml', 'Sphinx development')]
-
-# A list of files that should not be packed into the epub file.
-epub_exclude_files = ['_source/global.rst',
-                      '_source/heroku.rst',
-                      '_source/ruby.rst', 
-                      '_source/extras.rst'
-                      ]
-epub_fix_images = False
-epub_max_image_width = 0
-epub_show_urls = 'inline'
-epub_use_index = False
-#epub_guide = (('toc', 'contents.xhtml', 'Table of Contents'),)
-epub_description = 'A workbook to get you started with secure cloud development.'
-
-# A tuple containing the cover image and cover page html template filenames.
-epub_cover = ('', 'epub-cover.html')
-# The depth of the table of contents in toc.ncx.
-epub_tocdepth = 3
-# Allow duplicate toc entries.
-epub_tocdup = False
-
-# -- Options for Mobi output ---------------------------------------------------
-
-mobi_theme = "mobi"
-mobi_title = u'Cloud Lab Workbook'
-mobi_author = u'Franklin Diaz'
-mobi_publisher = u'Franklin Diaz'
-mobi_copyright = u'2012, Franklin Diaz'
-
-# The scheme of the identifier. Typical schemes are ISBN or URL.
-#mobi_scheme = ''
-
-# The unique identifier of the text. This can be a ISBN number
-# or the project homepage.
-#mobi_identifier = ''
-
-# A unique identification for the text.
-#mobi_uid = ''
-
-#mobi_cover = "_static/cover.png"
-
-# HTML files that should be inserted before the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#mobi_pre_files = []
-
-# HTML files shat should be inserted after the pages created by sphinx.
-# The format is a list of tuples containing the path and title.
-#mobi_post_files = []
-
-# A list of files that should not be packed into the mobi file.
-mobi_exclude_files = ['_static/opensearch.xml', '_static/doctools.js',
-    '_static/jquery.js', '_static/searchtools.js', '_static/underscore.js',
-    '_static/basic.css', 'search.html', '_static/websupport.js']
-
-# The depth of the table of contents in toc.ncx.
-mobi_tocdepth = 2
-
-# Allow duplicate toc entries.
-mobi_tocdup = False
-
-mobi_add_visible_links = False
