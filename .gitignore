@@ -1,5 +1,5 @@
 .vscode
-docs/_build
+_build
 pygments-css
 *.deb
 kindlegen
