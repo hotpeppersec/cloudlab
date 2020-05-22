@@ -15,28 +15,44 @@ is suitable for folks new to the information security, information technology,
 and software industries, as well as season professionals looking to expand 
 their skillsets.
 
-We introduce technologies in a specific order and use just enough of those technologies to take a project from local development environment, to our build pipeline, and finally to our lab environment hosted on a cloud provider such as 
+We introduce technologies in a specific order and use just enough of those 
+technologies to take a project from local development environment, to our 
+build pipeline, and finally to our lab environment hosted on a cloud provider 
+such as 
 GCP or AWS.
 
-The first thing we cover is the idea of containerization, specifically implemented using Docker and docker-compose. This allows for an ephemeral, immutable environment that we can build and test ideas. 
+The first thing we cover is the idea of containerization, specifically 
+implemented using Docker and docker-compose. This allows for an ephemeral, 
+immutable environment that we can build and test ideas. 
 
-Next we touch on revision control as an idea, and GitHub in particular. We go touch on the key steps in setting up a GitHub 
+Next we touch on revision control as an idea, and GitHub in particular. We go 
+touch on the key steps in setting up a GitHub 
 account, and properly configuring it.
 
-We look at setting up Python as the workhorse language for building out ideas in our project.
+We look at setting up Python as the workhorse language for building out ideas 
+in our project.
 
-The Makefile section gives us a way to control the preceeding technologies and starts to tie things together. That is to say, we now have Docker and Python as Makefile targets. As we move forward we will continue to add more targets to our
+The Makefile section gives us a way to control the preceeding technologies and 
+starts to tie things together. That is to say, we now have Docker and Python as 
+Makefile targets. As we move forward we will continue to add more targets to our
 Makefie.
 
-The CI/CD section is where we talk about the pipelines that deliver our work from our local containers and funnel changes to our "cloud" setup. Here we discuss some patterns we can use to run our local containers in a remote test environment. 
+The CI/CD section is where we talk about the pipelines that deliver our work 
+from our local containers and funnel changes to our "cloud" setup. Here we 
+discuss some patterns we can use to run our local containers in a remote test 
+environment. 
 
-Infrastructure section introduces the cloud provider and how to configure your local machine to interact properly with two of the most popular, GCP & AWS. 
+Infrastructure section introduces the cloud provider and how to configure your 
+local machine to interact properly with two of the most popular, GCP & AWS. 
 
-Once we have the proper credentials in place, we can look at poular tools for programatically building server images and provisioning our cloud setups.
+Once we have the proper credentials in place, we can look at poular tools for 
+programatically building server images and provisioning our cloud setups.
 
-The Ansible section will be about how, after the platform is created, we can configure the hosts to meet our needs with specific packages, users, etc.
+The Ansible section will be about how, after the platform is created, we can 
+configure the hosts to meet our needs with specific packages, users, etc.
 
-Finally we arrive at the full test lab section, where we can discuss the cloud environment in GCP/AWS in it's entirety.
+Finally we arrive at the full test lab section, where we can discuss the cloud 
+environment in GCP/AWS in it's entirety.
 
 *******
 Outline
@@ -79,6 +95,7 @@ page two_
 page three_
 
 .. _three: https://i.imgur.com/zB0pUeA.png
+
 ********    
 Audience
 ********

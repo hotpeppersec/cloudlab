@@ -2,13 +2,11 @@
 About the Author
 ================
 
-Tech nerd, into computers since my Vic-20 days. I like spicy food 
-and growing hot pepper plants, listening to music, family and dogs. 
 
-https://www.linkedin.com/in/franklin-diaz/
+He is also the lead organizer for the BSides Indy security conference in 
+Indianapolis, Indiana.
 
-https://youtu.be/XX0KX-4Q7es
-
-https://youtu.be/pacUKJybyEI
-
-https://gist.github.com/thedevilsvoice/1fed891832a79894184495f942b95017
+Mr. Diaz has a Bachelor of Science in Computer Science from Roosevelt University, 
+a Master of Science degree in Computer Information Systems from 
+Northwestern University, and a Master of Science degree in Network Security & 
+Network Engineering from DePaul University.

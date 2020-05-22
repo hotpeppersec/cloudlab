@@ -1,5 +1,7 @@
 # cloudlab
 
+![Docker Image CI](https://github.com/thedevilsvoice/devops_pipeline/workflows/Docker%20Image%20CI/badge.svg?branch=master)
+
 ## Images
 
 The images at pixabay.com are free for commercial use.
