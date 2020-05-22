@@ -432,8 +432,13 @@ Ansible playbooks break down target hosts into groupings known as roles.
 Testing Ansible Playbooks
 =========================
 
-There is a test framework known as "molecule" that can be used to 
-test ansible playbooks in the CI/CD pipeline.
+There is a test framework known as "molecule" that can be used to test ansible playbooks.
+
+.. code:: shell
+
+   $ molecule init role -r logfwd
+   --> Initializing new role logfwd...
+   Initialized role in /ansible/roles/logfwd successfully.
 
 *************
 Ansible Vault

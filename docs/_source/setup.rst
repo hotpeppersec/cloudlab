@@ -47,7 +47,9 @@ Let's quickly look at the objectives for this book.
 - Get out of our old comfort zone, into a new one.
 - Keep our lab costs down while meeting the rest of the objectives.
    - Utilize free services and open source tools to the extent possible.
+- Use the published Best Practices for each tool we choose to employ.
 - Always leave our project in a functional state.
+
 
 The ideas captured here are not means to any end. Rather, these are meant to 
 be starting points that give you the momentum with technologies and techniques
@@ -61,6 +63,11 @@ Companies will make their services free in the hopes that you will see the value
 and usefulness of their products. The hope is that you will see enough utility 
 that you will recommend them to your enterprise clients and integrate their 
 stuff into your workflows. Not a bad trade-off!
+
+When we choose to use a tool, say Ansible for example, it only makes sense to also adopt the
+most up-to-date best practices for using that tool. File system layout, naming conventions,
+script syntax and organization, and so on. We get to enjoy the clear and safe path
+forged by the folks that came before us, and with whom we share many goals. 
 
 Finally, I've found it very helpful for my peace of mind to always leave my
 projects clean and green before walking away from my work station for the day.
