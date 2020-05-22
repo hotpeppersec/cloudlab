@@ -200,15 +200,15 @@ Consider the relevant Terraform files that we will include in our projects.
    :align: center
 
    digraph folders {
-      "terraform" [shape=folder];
+      "aws" [shape=folder];
       "main.tf" [shape=rect];
       "output.tf" [shape=rect];
       "terraform.tfvars" [shape=rect];
       "variables.tf" [shape=rect];
-      "terraform" -> "main.tf";
-      "terraform" -> "output.tf";
-      "terraform" -> "terraform.tfvars";
-      "terraform" -> "variables.tf";
+      "aws" -> "main.tf";
+      "aws" -> "output.tf";
+      "aws" -> "terraform.tfvars";
+      "aws" -> "variables.tf";
    }
 
 
@@ -259,7 +259,7 @@ reference modules, both internal and exteral. The main.tf file is the place the 
 We can also designate our data sources in the main.tf file. Consider the following Terraform data sources.
 These AWS data sources reference our Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
 
-.. code:: terraform
+.. code:: shell
 
    data "aws_vpc" "default" {
    default = true
@@ -283,7 +283,7 @@ available to other Terraform modules.
 
 Consider the following output declarations from our example code.
 
-.. code:: terraform
+.. code:: shell
 
    output "web_public_ip" {
       description = "Public IPs assigned to the web instance"
@@ -311,7 +311,7 @@ created previously with Packer.
 
 Consider the following example. Here we declare a "region" variable in the file variables.tf.
 
-.. code:: terraform
+.. code:: shell
 
    variable "region" {
       description = "AWS region to launch servers."
@@ -333,11 +333,9 @@ your Terraform files is as easy as  typing `terraform validate` in the directory
 To get your Terrform files into a clean standard format, the `terraform fmt` command works well. There
 is also the option to do this formatting from inside the VSCode window on a per-file basis.
 
-Apply
-=====
+Plan
+====
 
-The `apply` action is where the rubber meets the proverbial road. This action will transmit our
-configurations to the cloud provider and allocate the necessary resources to stand up our environment.
 First we will will create a "plan" in preparation for application.
 
 .. code:: shell
@@ -365,6 +363,12 @@ First we will will create a "plan" in preparation for application.
 
    To perform exactly these actions, run the following command to apply:
       terraform apply "franklin.out"
+
+Apply
+=====
+
+The `apply` action is where the rubber meets the proverbial road. This action will transmit our
+configurations to the cloud provider and allocate the necessary resources to stand up our environment.
 
 With our plan in place, we can now "apply" that plan to the cloud provider. This can take a counsiderable
 amount of time, depending on the complexity of the desired configuration. Note that Terraform will 
@@ -500,18 +504,23 @@ below.
 
    digraph folders {
       "cloudlab" [shape=folder];
+      "ansible" [shape=folder];
+      "aws" [shape=folder];
       "packer" [shape=folder];
-      "terraform" [shape=folder];
       "aws-debian-host.json" [shape=rect];
       "gcp-debian-host.json" [shape=rect];
       "main.tf" [shape=rect];
+      "outputs.tf" [shape=rect];
       "terraform.tfvars" [shape=rect];
       "variables.tf" [shape=rect];
+      "cloudlab" -> "ansible";
+      "cloudlab" -> "aws";
       "cloudlab" -> "packer";
-      "cloudlab" -> "terraform";
+      "aws" -> "main.tf";
+      "aws" -> "outputs.tf";
+      "aws" -> "terraform.tfvars";
+      "aws" -> "variables.tf";
       "packer" -> "aws-debian-host.json";
       "packer" -> "gcp-debian-host.json";
-      "terraform" -> "main.tf";
-      "terraform" -> "terraform.tfvars";
-      "terraform" -> "variables.tf";
+
    }

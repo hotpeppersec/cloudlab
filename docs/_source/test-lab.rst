@@ -1,8 +1,8 @@
 .. include:: global.rst
 
-============
+=============
 The Cloud Lab
-============
+=============
 
 .. image:: ../images/milky-way-984050_1920.jpg
    :align: center
