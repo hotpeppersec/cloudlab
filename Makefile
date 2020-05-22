@@ -23,6 +23,8 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 clean: ## Cleanup all the things
+	find . -name '*.pyc' | xargs rm -rf
+	find . -name '__pycache__' | xargs rm -rf
 	cd docs && make clean && cd -
 
 docker: python ## build docker container for testing
