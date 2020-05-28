@@ -1,7 +1,4 @@
-===========
-Description
-===========
-
+# blank section header
 
 Over the past five or so years I've been doing security development work, 
 previously at SalesForce and now at Palo Alto Networks. 
@@ -18,8 +15,7 @@ their skillsets.
 We introduce technologies in a specific order and use just enough of those 
 technologies to take a project from local development environment, to our 
 build pipeline, and finally to our lab environment hosted on a cloud provider 
-such as 
-GCP or AWS.
+such as Google Cloud or Amazon Web Services.
 
 The first thing we cover is the idea of containerization, specifically 
 implemented using Docker and docker-compose. This allows for an ephemeral, 
@@ -54,75 +50,61 @@ configure the hosts to meet our needs with specific packages, users, etc.
 Finally we arrive at the full test lab section, where we can discuss the cloud 
 environment in GCP/AWS in it's entirety.
 
-*******
-Outline
-******* 
-    
-*Provide a detailed outline listing at least chapter titles and first level headings.*
+## About the Author
 
-I've created a github repo with Python & Sphinx that generates LaTeX and PDF
-formats of a draft book. 
+He is also the lead organizer for the BSides Indy security conference in 
+Indianapolis, Indiana.
 
-first page: `contents one`_ 
+Mr. Diaz has a Bachelor of Science in Computer Science from Roosevelt University, 
+a Master of Science degree in Computer Information Systems from 
+Northwestern University, and a Master of Science degree in Network Security & 
+Network Engineering from DePaul University.
 
-.. _`contents one`: https://i.imgur.com/eXo6sOx.png
+### Contact Information
 
-second page: `contents two`_
+```
+Franklin Diaz
+franklin@bitsmasher.net
+(773) 960-5400
+```
 
-.. _`contents two`: https://i.imgur.com/WRejKOW.png
+## Annotated Table of Contents
 
-Follow Along Code Examples
-==========================
+annotated TOC
+
+## Sample Chapter
+
+### Follow Along Code Examples
 
 There are also code examples in a second (already public) repository
 for folks to follow along and see/try examples:
 
-`https://github.com/hotpeppersec/rapid_secdev_framework`
+[https://github.com/hotpeppersec/rapid_secdev_framework](https://github.com/hotpeppersec/rapid_secdev_framework)
 
-Writing Sample
-==============
-
-The fist chapter as a writing sample.
-
-page one_
-
-.. _one: https://i.imgur.com/IMTvehI.png
-
-page two_
-
-.. _two: https://i.imgur.com/tahiV0p.png
-
-page three_
-
-.. _three: https://i.imgur.com/zB0pUeA.png
-
-********    
-Audience
-********
+## Market 
 
 *Who is your target audience and how will your book meet their needs?*
 
-I've written this with folks from the security community in mind. I hear people say a lot that they are curious about geting started with SecDevOps concepts such as coding and understanding cloud technologies. I think this writing will provide a good "quickstart" path to accomplish exactly that. 
+I've written this with folks from the security community in mind. I hear people 
+say a lot that they are curious about geting started with SecDevOps concepts such 
+as coding and understanding cloud technologies. I think this writing will provide a 
+good "quickstart" path to accomplish exactly that. 
 
-***********    
-Competition
-***********
+
+*Discuss the market for your book.*
+
+This book could be described as a pathway to starting out in (Sec)DevOps.
+
+My assumption is this would be a good book for folks new to the industry to follow 
+along with. By this I don't just mean young or school-aged folks.
+I see that there is also a need for folks who have been in the workforce 
+for some years (or even decades!) to re-tool and adapt to rapidly changing 
+technological landscape. 
+
+### Competition
 
 *List any competing titles. How will your work compete?*
 
 I realize there are many titles out there that deep dive on the subjects
 that I cover in this book, offering a depth of knowledge in an area. 
 This book would instead take a breadth of knowledge approach. 
-
-******    
-Market 
-******
-
-*Discuss the market for your book.*
-
-This book could be described as a pathway to starting out in (Sec)DevOps.
-
-My assumption is this would be a good book for folks new to the industry to follow along with. By this I don't just mean young or school-aged folks.
-I see that there is also a need for folks who have been in the workforce 
-for some years (or even decades!) to re-tool and adapt to rapidly changing technological landscape. 
-

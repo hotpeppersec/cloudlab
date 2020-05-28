@@ -160,7 +160,7 @@ AMI ID.
    us-west-2: ami-0e9e6427509a9d0b5
 
 The AMI ID "ami-0e9e6427509a9d0b5" is now a usable image that we can include in our 
-terraform builds. 
+Terraform builds. 
 
 Removing Packer Images from Cloud Provider
 ==========================================
@@ -239,7 +239,7 @@ main.tf
 This file will contain the bulk of our Terraform configurations. As with Python, we have the ability to
 reference modules, both internal and exteral. The main.tf file is the place the module references are made. 
 
-.. code:: terraform
+.. code:: shell
 
    # Example of how to reference an external module
    module "security_group" {

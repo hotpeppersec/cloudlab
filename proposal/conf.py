@@ -11,10 +11,8 @@ version = '0.0.2'
 # -- General configuration ---------------------------------------------------
 
 extensions = [
-    'sphinx.ext.autosectionlabel',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.graphviz',
-    'rst2pdf.pdfbuilder']
+    'recommonmark'
+    ]
 
 # Turns on numbered figures for HTML output
 numfig = True
@@ -46,6 +44,10 @@ language = None
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'colorful'
 
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # -- Options for HTML output -------------------------------------------------
 # The Read the Docs theme is available from
@@ -101,6 +103,7 @@ latex_paper_size = 'letter'
 # The font size ('10pt', '11pt' or '12pt').
 latex_font_size = '10pt'
 
+latex_logo = 'images/plouzane-1758197_1920.jpg'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 latex_additional_files = ['sphinxmanual.cls'] 
@@ -109,4 +112,5 @@ latex_elements = {
     'inputenc': '',
     'utf8extra': '',
     'papersize':'letterpaper',
+    'extraclassoptions': 'openany,oneside',
 }
