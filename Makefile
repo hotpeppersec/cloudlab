@@ -1,4 +1,4 @@
-.PHONY: docker docs python
+.PHONY: docker docs proposal python
 
 # Used for colorizing output of echo messages
 BLUE := "\\033[1\;36m"
@@ -45,6 +45,13 @@ docs: python ## Generate documentation
 print-status:
 	@:$(call check_defined, MSG, Message to print)
 	@echo "$(BLUE)$(MSG)$(NC)"
+
+proposal: python ## build the book proposal document
+	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make proposal inside docker container <***" && exit 1; fi
+	$(MAKE) print-status MSG="Building HTML docs"
+	cd proposal && make html && cd -
+	$(MAKE) print-status MSG="Building LaTeX docs"
+	cd proposal && make latexpdf && cd -
 
 python: ## setup python3
 	$(MAKE) print-status MSG="Set up the Python environment"
