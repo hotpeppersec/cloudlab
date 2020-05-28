@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # General information about the project.
-project = u'The DevOps Pipeline'
+project = u'Book Proposal - DevOps Pipeline'
 copyright = u'Copyright © 2020 by Franklin Diaz'
 author = u'© 2020 by Franklin Diaz'
 
@@ -11,6 +11,8 @@ version = '0.0.2'
 # -- General configuration ---------------------------------------------------
 
 extensions = [
+    'sphinx_markdown_tables',
+    'sphinx.ext.graphviz',
     'recommonmark'
     ]
 
@@ -25,8 +27,15 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path .
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+source_parsers = {
+    '.md': 'recommonmark.parser.CommonMarkParser',
+}
+
 # The suffix of source filenames.
-source_suffix = '.rst'
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -43,11 +52,6 @@ language = None
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'colorful'
-
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown',
-}
 
 # -- Options for HTML output -------------------------------------------------
 # The Read the Docs theme is available from

@@ -3,3 +3,4 @@ pygments
 rst2pdf
 restructuredtext-lint
 recommonmark
+sphinx-markdown-tables
