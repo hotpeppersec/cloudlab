@@ -8,8 +8,6 @@ along with an try examples from will be maintained.
 
 ## Market 
 
-*Who is your target audience and how will your book meet their needs?*
-
 I've spent quite a bit of time interacting with the Information Security community on
 Twitter and at many industry conferences. My first draft of this book has been written with folks from the security community in mind after talking to them about the kind of 
 things they say they are interested in learning. I hear people 
@@ -34,5 +32,6 @@ I realize there are many titles out there that deep dive on the individual subje
 that I cover in this book, offering a depth of knowledge in an area. 
 This book would instead take a breadth of knowledge approach. 
 
-The [roadmap in this blog post](https://medium.com/@devfire/how-to-become-a-devops-engineer-in-six-months-or-less-366097df7737) is similar to the
+- The [roadmap in this blog post](https://medium.com/@devfire/how-to-become-a-devops-engineer-in-six-months-or-less-366097df7737) is similar to the
 idea that I am proposing.
+- This [video on youtube](https://www.youtube.com/watch?v=OkidaZmnADw) captures some of the principals I am outlining in this book.
