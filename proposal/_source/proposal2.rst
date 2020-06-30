@@ -1,20 +1,23 @@
-.. graphviz::
-   :caption: Project Directory
-   :align: center
-
-   digraph folders {
-      "cloudlab" [shape=folder];
-      "python" [shape=folder];
-      "docker" [shape=folder];
-      "terraform" [shape=folder];
-      "Makefile" [shape=rect];
-      "docker-compose.yml" [shape=rect];
-      "Dockerfile" [shape=rect];
-
-      "cloudlab" -> "python";
-      "cloudlab" -> "terraform";
-      "cloudlab" -> "docker";
-      "cloudlab" -> "Makefile";
-      "docker" -> "Dockerfile";
-      "docker" -> "docker-compose.yml";
-   }
++-------------------------------------+-------------------+
+| Chapter                             | Latest Page Count |
++=====================================+===================+
+| Getting Started                     | 2                 |
++-------------------------------------+-------------------+
+| Containerization                    | 3                 |
++-------------------------------------+-------------------+
+| Revision Control                    | 8                 |
++-------------------------------------+-------------------+
+| Python                              | 4                 |
++-------------------------------------+-------------------+
+| Makefiles                           | 4                 |
++-------------------------------------+-------------------+
+| Continuous Integration & Deployment | 8                 |
++-------------------------------------+-------------------+
+| Infrastructure                      | 3                 |
++-------------------------------------+-------------------+
+| Tools                               | 11                |
++-------------------------------------+-------------------+
+| The Cloud Lab                       | 0                 |
++-------------------------------------+-------------------+
+| Shifting Left                       | 0                 |
++-------------------------------------+-------------------+

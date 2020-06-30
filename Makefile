@@ -26,6 +26,7 @@ clean: ## Cleanup all the things
 	find . -name '*.pyc' | xargs rm -rf
 	find . -name '__pycache__' | xargs rm -rf
 	cd docs && make clean && cd -
+	cd proposal && make clean && cd -
 
 docker: python ## build docker container for testing
 	$(MAKE) print-status MSG="Building with docker-compose"
