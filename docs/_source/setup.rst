@@ -141,3 +141,15 @@ comes from.
 While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other pipelines exist as 
 well. For example, Data Engineers build and maintain Data Science pipelines for to get information into a data lake, 
 or for Data Scientists to be able to create machine learning models from.
+
+*********
+Resources
+*********
+
+Social Media 
+============
+
+#mentoringmonday hashtag on twitter
+
+Reading List
+============
