@@ -14,12 +14,12 @@
 # -- Project information -----------------------------------------------------
 
 # General information about the project.
-project = u'Cloud Lab Workbook'
+project = u'DevSecOps Quickstart'
 copyright = u'Copyright © 2020 by Franklin Diaz'
 author = u'© 2020 by Franklin Diaz'
 
 # The short X.Y version
-version = '0.0.2'
+version = '0.0.3'
 # The full version, including alpha/beta/rc tags
 # this will show on title page if uncommented
 #release = '0.0.1'
@@ -166,10 +166,10 @@ latex_elements = {
 
 epub_theme = 'theme'
 #epub_version = u'3.0'
-epub_basename = 'CloudLabWorkbook'
-epub_title = u'Cloub Lab Workbook'
+epub_basename = 'DevSecOpsQuickStart'
+epub_title = u'DevSecOps Quickstart'
 epub_author = 'Franklin Diaz'
-epub_copyright = u'2020, Franklin Diaz'
+epub_copyright = u'© 2020 by Franklin Diaz'
 epub_publisher = 'http://sphinx-doc.org/'
 # A unique identification for the text.
 epub_uid = 'web-site'
@@ -208,10 +208,10 @@ epub_tocdup = False
 # -- Options for Mobi output ---------------------------------------------------
 
 mobi_theme = "mobi"
-mobi_title = u'Cloud Lab Workbook'
+mobi_title = u'DevSecOps Quickstart'
 mobi_author = u'Franklin Diaz'
 mobi_publisher = u'Franklin Diaz'
-mobi_copyright = u'2012, Franklin Diaz'
+mobi_copyright = u'© 2020 by Franklin Diaz'
 
 # The scheme of the identifier. Typical schemes are ISBN or URL.
 #mobi_scheme = ''

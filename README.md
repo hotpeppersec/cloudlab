@@ -1,6 +1,6 @@
-# cloudlab
+# DevSecOps Quickstart
 
-![Docker Image CI](https://github.com/thedevilsvoice/devops_pipeline/workflows/Docker%20Image%20CI/badge.svg?branch=master)
+![Docker Image CI](https://github.com/thedevilsvoice/devsecops_quickstart/workflows/Docker%20Image%20CI/badge.svg?branch=master)
 
 ## Images
 
@@ -21,9 +21,9 @@ cd docs
 sphinx-build -M latexpdf . _build
 ```
 
-- PDF will be in `cloudlab/docs/_build/latex/cloudlab.pdf`
-- Find the file in `file:///home/thedevilsvoice/workspace/cloudlab/docs/_build/latex/cloudlab.pdf`
-    - If you open in firefox you get a nice nav bar on the left side.
+- PDF will be in `docs/_build/latex/devsecopsquickstart.pdf`
+- Find the file in `file:///home/thedevilsvoice/workspace/devsecops_quickstart/docs/_build/latex/devsecopsquickstart.pdf`
+  - If you open in firefox you get a nice nav bar on the left side.
 
 ## Epub
 

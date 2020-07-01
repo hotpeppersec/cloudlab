@@ -41,7 +41,7 @@ of productivity. Refuse to shave more yaks than absolutely necessary!
 Getting Started
 ===============
 
-Let's quickly look at the objectives for this book.
+Let's start by considering the objectives for this book.
 
 - Create an extensible lab environment for rapid prototyping and development.
 - Get out of our old comfort zone, into a new one.
@@ -122,3 +122,22 @@ between windows on my desktop.
 
 .. image:: ../images/setup-vscode.png
    :align: center
+
+The Flow (Pipelines)
+====================
+
+Work products, code and documents for example, begin their life on developer workstations, the "local"
+environment. These work products are created, reviewed and checked into revision control systems (GitHub
+for example) by the DevSecOps engineer. Test cases are created and run against the work at check-in time, to ensure 
+stability, security, and compatibility with the exsiting code base. The automation required to to execute
+tests every time work is checked in is also the responsibility of the DevSecOps engineers. Work typically 
+"flows" from the local environments, into a test environment, and finally to production. We will refer to 
+the entirety of this flow as a "pipeline". Code from multiple local environments is checked in to revision
+control throughout a typical workday, and continuously tested and integrated with the main code base.
+That is to say, work undergoes "Continuous Inetegration" (CI) with the main code base, and often "Continuous
+Deployment" (CD) between local, test, and production environments. This is where the term "CI/CD Pipeline" 
+comes from.
+
+While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other pipelines exist as 
+well. For example, Data Engineers build and maintain Data Science pipelines for to get information into a data lake, 
+or for Data Scientists to be able to create machine learning models from.
