@@ -251,17 +251,36 @@ latex_elements = {
                     \end{figure}
 
                 \vspace*{40mm} %%% * is used to give space from top
-                \textbf{\Huge {DevSecOps Quickstart}}
-                \vspace{0mm}
+                \begin{flushright}
+                    \textbf{\textsf{\Huge {DevSecOps Quickstart}}}\\
+                    \vspace{0mm}
+                    \Large \textsf{Franklin Diaz}\\
+                    \Large \textsf{Created on : April 20, 2020}\\
+                    \vspace*{0mm}
+                    \Large \textsf{Last updated : \today}\\
+                \end{flushright}
+        \clearpage
 
-                \Large \textbf{{Franklin Diaz}}
-                \small Created on : April 20, 2020
-                \vspace*{0mm}
-                
-                \small  Last updated : \today
-                %% \vfill adds at the bottom
-                \vfill
-                \small \textit{Follow along code project available from }{\href{https://github.com/hotpeppersec/rapid_secdev_framework}{RapidSecDevFramework}}
+        \vspace*{\fill}
+        \begingroup
+        \centering
+        \textsf{© 2020 Franklin Diaz, All Rights Reserved}\\
+        \url{https://github.com/thedevilsvoice/devsecops_quickstart}\\
+        \textsf{Images used in this book are from Pixaboay, used under their License available at }
+        \url{https://pixabay.com/service/terms/#license}.\\
+        \textsf{Follow along code project available from }{\href{https://github.com/hotpeppersec/rapid_secdev_framework}{RapidSecDevFramework}}
+
+        Revision: 0.0.3
+
+        Published on: \today
+
+        \endgroup
+
+        \vspace*{\fill}
+
+        %% \vfill adds at the bottom
+        \vfill
+Last updated : \today\\
         \end{titlepage}
 
         \clearpage
@@ -271,6 +290,9 @@ latex_elements = {
         \listoftables
         \clearpage
         \pagenumbering{arabic}
+    ''',
+    'footer': r'''
+    \small \textit{Follow along code project available from }{\href{https://github.com/hotpeppersec/rapid_secdev_framework}{RapidSecDevFramework}}
     ''',
     # Latex figure (float) alignment
     #
