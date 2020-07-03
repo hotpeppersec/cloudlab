@@ -27,26 +27,26 @@ pipeline for our lab and development work, test, and even production environment
 The techniques here are meant to help the security-minded developer sharpen her or his
 skills, and introduce tips and tactics that benefit the teams they are a part of.
 There are many, many ways to reach similar goals these days with the preponderance
-of Open Source and commercial tools available. By focusing on a few we can blaze a
+of Open Source and commercial tools that are available. By focusing on a few we can blaze a
 trail to success in our projects.
 
 We have a goal in mind of selecting complementary tools and process to construct 
 and streamline our ways of working. We will attempt to leverage these ways to 
 get us quickly and securely to a working lab environment. At the same time we 
-should strive for simplicity and reduction of complexity whenever possible.
+should strive for simplicity and reduction of complexity whenever possible. Experience tells us that 
+tools and process that are too cumbersome or burdensome are typically circumvented, or even abandoned. 
 Complexity in our processes beome the snags and side projects that are the enemy 
 of productivity. Refuse to shave more yaks than absolutely necessary!
 
-===============
-Getting Started
-===============
+==================
+Getting Acclimated
+==================
 
 Let's start by considering the objectives for this book.
 
 - Create an extensible lab environment for rapid prototyping and development.
 - Get out of our old comfort zone, into a new one.
-- Keep our lab costs down while meeting the rest of the objectives.
-   - Utilize free services and open source tools to the extent possible.
+- Keep our lab costs down while meeting the rest of the objectives. Utilize free services and open source tools to the extent possible.
 - Use the published Best Practices for each tool we choose to employ.
 - Always leave our project in a functional state.
 
@@ -115,18 +115,19 @@ for it's extensibility.
    single: VSCode
    single: Sublime
 
-There are times I catch myself switching between VSCode and a terminal
-window to do a quick edit in vi or interact with GitHub. Over time I am 
-changing the way I work in an attempt to reduce attempts to refocus 
-between windows on my desktop.
+There are times I catch myself switching between VSCode and a terminal window to do a quick 
+edit in vi or interact with GitHub. Over time I am changing the way I work in an attempt to 
+reduce attempts to refocus between windows on my desktop.
 
 .. image:: ../images/setup-vscode.png
    :align: center
 
+********************
 The Flow (Pipelines)
-====================
+********************
 
-Work products, code and documents for example, begin their life on developer workstations, the "local"
+Work products, such as code and documents for example, begin their life on developer workstations. We
+will refer to this as the "local"
 environment. These work products are created, reviewed and checked into revision control systems (GitHub
 for example) by the DevSecOps engineer. Test cases are created and run against the work at check-in time, to ensure 
 stability, security, and compatibility with the exsiting code base. The automation required to to execute
@@ -142,9 +143,14 @@ While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, o
 well. For example, Data Engineers build and maintain Data Science pipelines for to get information into a data lake, 
 or for Data Scientists to be able to create machine learning models from.
 
-*********
-Resources
-*********
+******************
+Learning Resources
+******************
+
+Training & Certification
+========================
+
+
 
 Social Media 
 ============

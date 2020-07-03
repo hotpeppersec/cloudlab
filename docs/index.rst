@@ -8,7 +8,7 @@
 .. toctree::
    :numbered:
    :maxdepth: 3
-   :caption: Cloud Lab Workbook
+   :caption: DevSecOps Quickstart
 
    _source/docker
    _source/github
