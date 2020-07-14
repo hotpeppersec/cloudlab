@@ -1,18 +1,25 @@
 .. include:: global.rst
 
-======
-Docker
-======
+==========
+Containers
+==========
 
 .. image:: ../images/container-4203677_1920.jpg
    :align: center
 
+Creating a fully functioning software ecosystem for our serice or 
+project is known as containerization. The most popular and common
+tool for acheiving containerization is Docker. Using Docker, we can
+programatically build up an environment for our project, and pass the
+entirety of this encapsulated environmentfrom our local development
+machine, into the Continuous Integration pipeline for testing, and even 
+all the way to our production environment.
+
 With containerization of our projects, we can take advantge of 
-immutability [#]_, starting in our development environment, 
-the test environment and even our production environment. Using immutable 
+immutability [#]_. Using immutable 
 containers means we have hosts that are ephemeral. Ephemerality is the 
 concept of things being transitory, existing only briefly [#]_. Rather 
-than spending a great deal of time patching and upgrading VM's 
+than spending a great deal of time patching and upgrading containers, virtual machines, 
 or bare metal, we're going to quickly create a new container 
 in place of the old one.
 
@@ -35,6 +42,10 @@ Once you have Docker installed and running on your workstation, take a look at
 the two example files below. For now it's OK to see them and
 get a general familiarity with their contents. Later we will use these files to 
 create containers for our projects.
+
+***********************
+Container Orchestration
+***********************
 
 **********
 Dockerfile
