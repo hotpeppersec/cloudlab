@@ -55,14 +55,14 @@ The ideas captured here are not means to any end. Rather, these are meant to
 be starting points that give you the momentum with technologies and techniques
 that will streamline your projects. Your job is to keep experimenting and to 
 see what is useful enough to stick with you. You will build up
-a solid base of code examples and problem solving snippets that will greatly 
+a solid base of code examples and problem solving techniques that will greatly 
 increase you efficacy. Over time, tools and processes will rotate in and out of 
 your toolbox as technology matures.
 
 Companies will make their services free in the hopes that you will see the value
 and usefulness of their products. The hope is that you will see enough utility 
 that you will recommend them to your enterprise clients and integrate their 
-stuff into your workflows. Not a bad trade-off!
+stuff into your workflows. Not a bad trade-off! 
 
 When we choose to use a tool, say Ansible for example, it only makes sense to also adopt the
 most up-to-date best practices for using that tool. File system layout, naming conventions,
@@ -92,7 +92,9 @@ packages, etc. Support for environments other than Linux or Mac are
 beyond the scope of this book.
 
 It is not necessary to install Python 3 locally, since we will contain
-Python and it's dependencies to an instance of Docker.
+Python and it's dependencies to an instance of Docker. For this reason,
+we will move to discussing containerization using Docker in the chapter 
+following this one.
 
 Let's take a look at some of the other foundational environmental elements
 we need in place to be successful.
@@ -142,20 +144,3 @@ comes from.
 While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other pipelines exist as 
 well. For example, Data Engineers build and maintain Data Science pipelines for to get information into a data lake, 
 or for Data Scientists to be able to create machine learning models from.
-
-******************
-Learning Resources
-******************
-
-Training & Certification
-========================
-
-
-
-Social Media 
-============
-
-#mentoringmonday hashtag on twitter
-
-Reading List
-============

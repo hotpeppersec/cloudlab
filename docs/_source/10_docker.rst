@@ -9,7 +9,7 @@ Docker
 
 With containerization of our projects, we can take advantge of 
 immutability [#]_, starting in our development environment, 
-the test environment and even our production environment. Using immutable 
+the test environment and eventually our production environment. Using immutable 
 containers means we have hosts that are ephemeral. Ephemerality is the 
 concept of things being transitory, existing only briefly [#]_. Rather 
 than spending a great deal of time patching and upgrading VM's 
