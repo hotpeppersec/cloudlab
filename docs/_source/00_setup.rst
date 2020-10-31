@@ -142,6 +142,7 @@ Delivery" (CD) between local, test, and production environments. This is where t
 comes from.
 
 .. image:: ../images/flow.png
+   :caption: Typical build pipeline
    :align: center
 
 While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other pipelines exist as 

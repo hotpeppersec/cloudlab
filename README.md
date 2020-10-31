@@ -13,12 +13,14 @@ in the references section.
 
 ## To generate PDF of book
 
-Should be done from inside the Docker container.
+Should be done from inside the Docker container. The PDF will persist
+outside the Docker container in the users filesystem until
+the `make clean` command is issued.
 
 ```bash
 make docker
-cd docs
-sphinx-build -M latexpdf . _build
+#cd docs && sphinx-build -M latexpdf . _build
+make docs
 ```
 
 - PDF will be in `docs/_build/latex/devsecopsquickstart.pdf`
@@ -27,12 +29,6 @@ sphinx-build -M latexpdf . _build
 
 ## Epub
 
-```bash
-sudo apt -y install calibre sigil
-```
-
-https://www.amazon.com/gp/feature.html?docId=1000765211
-
 Should be done from inside the docker container.
 
 ```bash
@@ -40,9 +36,23 @@ make docker
 cd docs && make epub
 ```
 
-## Kindle
+The epub file will be in `docs/_build/epub/DevSecOpsQuickStart.epub`. It
+will persist outside the Docker container in the users filesystem until
+the `make clean` command is issued.
 
-Now you can generate the kindle .mobi file
+Now you can use Calibre to view the epub file, and Sigil to edit the
+epub file as needed.
+
+```bash
+sudo apt -y install calibre sigil
+```
+
+## Kindle (deprecated)
+
+Now you can generate the kindle .mobi file. Note that [kindlegen is no longer
+available](https://www.amazon.com/gp/feature.html?docId=1000765211)). Note that
+the .mobi format is for testing on older devices that do not support 
+Enhanced Typesetting.
 
 ```bash
 kindlegen _build/epub/CloudLab.epub

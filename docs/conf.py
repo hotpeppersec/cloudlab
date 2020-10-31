@@ -200,16 +200,18 @@ epub_identifier = epub_publisher
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['_source/global.rst',
-                      '_source/heroku.rst',
-                      '_source/ruby.rst', 
-                      '_source/extras.rst'
+                      '_source/x2_heroku.rst',
+                      '_source/x3_ruby.rst', 
+                      '_source/x1_extras.rst',
+                      '_source/x4_resources.rst',
+                      '_source/x5_scanners.rst'
                       ]
 epub_fix_images = False
 epub_max_image_width = 0
 epub_show_urls = 'inline'
 epub_use_index = False
 #epub_guide = (('toc', 'contents.xhtml', 'Table of Contents'),)
-epub_description = 'A workbook to get you started with secure cloud development.'
+epub_description = 'A workbook to get you started with secure development.'
 
 # A tuple containing the cover image and cover page html template filenames.
 epub_cover = ('', 'epub-cover.html')
