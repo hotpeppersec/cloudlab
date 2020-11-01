@@ -7,6 +7,8 @@ Revision Control
 .. image:: ../images/owl-50267_1920.jpg
    :align: center
 
+|
+
 The ability to organize and store our projects on free websites like 
 github.com is fundamental to our workflow. In addition to giving us 
 a way to back up our work and store it for free, it facilitates a greater degree of 
@@ -51,6 +53,8 @@ are perfect for this task.
    single: SSH keys
 
 .. code-block:: bash
+   :caption: Generating SSH keys.
+   :name: ssh-keygen
 
    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
    Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
@@ -77,6 +81,8 @@ pull requests with your GPG key.
 Take a few minutes to set up a GPG key and add it to your profile on GitHub.
 
 .. code-block:: bash
+   :caption: Set up GPG key and add to GitHub.
+   :name: Set up GPG key and add to GitHub.
 
    root@cloudlab:~# gpg --default-new-key-algo rsa4096 --gen-key
    public and secret key created and signed.
@@ -123,6 +129,8 @@ from your clone back to the original source repository.
       "Local Clone" -> "Original Repository on github.com"[arrowhead=normal label="add remote called upstream"];
    }
 
+|
+
 This can be a tricky pattern to master, but it is fundamental if you want
 to join the ranks of Open Source contributors and developers that enjoy 
 the full power of Git and GitHub.
@@ -138,6 +146,8 @@ To create a "remote" called `upstream` from your clone to the original repo,
 use this example command:
 
 .. code-block:: bash
+   :caption: Create a "remote" named upstream.
+   :name: Create a "remote" named upstream.
 
    git remote add upstream git@github.com:hotpeppersec/cloudlab.git
 
@@ -203,6 +213,8 @@ Consider the following example. Notice that the command prompt changes
 to indicate that you have a BASH shell in the running container.
 
 .. code-block:: bash
+   :caption: Cloning repository and starting container.
+   :name: Cloning repository and starting container
 
    thedevilsvoice@grimoire:25%:~/rapid_secdev_framework$ make docker
    Building test env with docker-compose
@@ -238,6 +250,8 @@ lists the file(s) and the owner(s) on a line together.
 Consider this exmaple where we add the `@hotpeppersec` to the CODEOWNERS file.
 
 .. code-block:: bash
+   :caption: Adding a user to the CODEOWNERS file
+   :name: Adding a user to the CODEOWNERS file
 
    root@cloudlab:/home/secdevops# if [ ! -d ".github" ]; then mkdir .github; fi
    root@cloudlab:/home/secdevops# echo "* @hotpeppersec" >> .github/CODEOWNERS
@@ -259,6 +273,8 @@ Consider the following example .gitignore file. This will prevent you
 from checking in the `.DS-Store` that Macintosh creates in many folders. 
 
 .. code-block:: bash
+   :caption: Creating a simple .gitignore file
+   :name: Creating a simple .gitignore file
 
    root@cloudlab:~/workspace/cloudlab# echo ".DS_Store" > .gitignore
 
@@ -294,16 +310,32 @@ Repository Settings
 When setting up a new repository in my GitHub account, I always click the Settings tab (with the little 
 gear icon) and then choose the "Branches" section. The Default branch gets set to 
 "master". Clicking the "Add Rule" button, entering "master" for the "Branch name 
-pattern", and then the green "Create" button sets up master as a protected branch.
+pattern", and then the green "Create" button sets up master as a protected branch. Consider the
+following example :numref:`myFig2`. 
 
-.. image:: ../images/github-branch-protection.png
+.. figure:: ../images/github-branch-protection.png
    :align: center
+   :name: myFig2
+   :alt: Setting up branch protection.
+   :figclass: align-center
+
+   Setting up branch protection.
+
+|
 
 After we start to work with CI/CD tools (status checks, like GitHub Actions for 
-example) there will be choices available here for managing those checks.
+example) new choices (:numref:`myFig3`) become available in this part of your repository for
+managing those checks.
 
-.. image:: ../images/guthub-status-check.png
+.. figure:: ../images/guthub-status-check.png
    :align: center
+   :name: myFig3
+   :alt: Requiring status checks.
+   :figclass: align-center
+
+   Requiring status checks.
+
+|
 
 Automated Repository Scanning
 =============================

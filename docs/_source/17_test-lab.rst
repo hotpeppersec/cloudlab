@@ -7,6 +7,8 @@ The Cloud Lab
 .. image:: ../images/milky-way-984050_1920.jpg
    :align: center
 
+|
+
 We've reached the point where it's time to assemble all our functional blocks into 
 a proper lab in the cloud.
 

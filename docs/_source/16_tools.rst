@@ -7,23 +7,28 @@ Tools
 .. image:: ../images/railway-4101305_1920.jpg
    :align: center
 
-We can reduce our mean time to deploy by using tools to prepare and
+|
+
+We can reduce our Mean Time To Deploy (MTTD) [#]_ by using tools to prepare and
 generate our machine images programatically, and with scripting languages
-such as HCL, which Terraform is based on. In this section we examine these
+such as HCL, which Terraform [#]_ is based on. In this section we examine these
 tools in greater depth.
 
 .. index::
+   single: MTTD
    single: Terraform
 
 .. figure:: ../images/infra_flow.png
    :align: center
-   :name: myFig1
+   :name: myFig4
    :alt: alternate text
    :figclass: align-center
 
    The pipeline flow.
 
-Consider the following diagram :numref:`myFig1` as we discuss the tools we'll use to 
+|
+
+Consider the following diagram :numref:`myFig4` as we discuss the tools we'll use to 
 implement our infrastructure as coode and associated configurations in 
 the cloud provider network.
 
@@ -51,6 +56,8 @@ Here is an example of how to set up a JSON file to build a Packer image in
 AWS. Save the contents of this file into `packer/aws-debian-host.json`:
 
 .. code-block:: bash
+   :caption: A JSON file for Packer in AWS
+   :name: A JSON file for Packer in AWS
 
    {
    "variables": {
@@ -106,6 +113,8 @@ Here is an example of how to set up a JSON file to build a Packer image in
 Google Compute. Save the contents of this file into `packer/gcp-debian-host.json`:
 
 .. code-block:: bash
+   :caption: A JSON file to build Packer image in Google Compute
+   :name: A JSON file to build Packer image in Google Compute
 
    {
       "builders": [
@@ -152,6 +161,8 @@ to create the image. You shoudl see output similar to the following, but with a 
 AMI ID.
 
 .. code-block:: bash
+   :caption: Building a Packer image
+   :name: Building a Packer image
 
    Build 'amazon-ebs' finished.
 
@@ -228,7 +239,9 @@ your credentials is very important!
 An example of a local terraform.tfvars file follows. Remember that this file will never be 
 checked into GitHub or any other revision control toolset.
 
-.. code:: shell
+.. code-block:: bash
+   :caption: An example terraform.tfvars file
+   :name: An example terraform.tfvars file
 
    aws_access_key = AKIAJCQ6WHUXVOKZ8RQQ
    aws_secret_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
@@ -239,9 +252,10 @@ main.tf
 This file will contain the bulk of our Terraform configurations. As with Python, we have the ability to
 reference modules, both internal and exteral. The main.tf file is the place the module references are made. 
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Example of how to reference an external module
+   :name: Example of how to reference an external module
 
-   # Example of how to reference an external module
    module "security_group" {
       source  = "terraform-aws-modules/security-group/aws"
       version = "~> 3.0"
@@ -259,7 +273,9 @@ reference modules, both internal and exteral. The main.tf file is the place the 
 We can also designate our data sources in the main.tf file. Consider the following Terraform data sources.
 These AWS data sources reference our Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Designation of data sources in main.tf
+   :name: Designation of data sources in main.tf
 
    data "aws_vpc" "default" {
    default = true
@@ -283,7 +299,9 @@ available to other Terraform modules.
 
 Consider the following output declarations from our example code.
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Displaying resources from our main.tf file
+   :name: Displaying resources from our main.tf file
 
    output "web_public_ip" {
       description = "Public IPs assigned to the web instance"
@@ -311,7 +329,9 @@ created previously with Packer.
 
 Consider the following example. Here we declare a "region" variable in the file variables.tf.
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Declaring a region in variables.tf
+   :name: Declaring a region in variables.tf
 
    variable "region" {
       description = "AWS region to launch servers."
@@ -325,7 +345,9 @@ Terraform has some commands, `validate` and `fmt` (short for "format") that we c
 verify our configuration before sending it off to the cloud provider to act upon. Validating 
 your Terraform files is as easy as  typing `terraform validate` in the directory the files exist in.
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Validating Terraform files
+   :name: Validating Terraform files
 
    thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform validate
    Success! The configuration is valid.
@@ -338,7 +360,9 @@ Plan
 
 First we will will create a "plan" in preparation for application.
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Creating a plan file with Terraform
+   :name: Creating a plan file with Terraform
 
    thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform plan -out franklin.out
    Refreshing Terraform state in-memory prior to plan...
@@ -374,7 +398,9 @@ With our plan in place, we can now "apply" that plan to the cloud provider. This
 amount of time, depending on the complexity of the desired configuration. Note that Terraform will 
 prompt you to enter "yes" before it will proceed. 
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Applying a Terraform plan from file
+   :name: Applying a Terraform plan from file
 
    thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform apply
    data.aws_vpc.default: Refreshing state...
@@ -434,7 +460,12 @@ Testing Ansible Playbooks
 
 There is a test framework known as "molecule" that can be used to test ansible playbooks.
 
-.. code:: shell
+.. index::
+   single: Molecule
+
+.. code-block:: bash
+   :caption: Testing Ansible with Molecule
+   :name: Testing Ansible with Molecule
 
    $ molecule init role -r logfwd
    --> Initializing new role logfwd...
@@ -464,6 +495,8 @@ Let's try encrypting a file... using another file! Create a text file with some 
 For example, create a file in your home directory called my_dog.txt with the following contents:
 
 .. code-block:: bash
+   :caption: Unencrypted data
+   :name: Unencrypted data
 
    My dog has fleas.
 
@@ -471,6 +504,8 @@ Now we can encrypt some data using this file as the encryption key. For the sake
 assume we have a file called `data_to_protect.txt` that we would like to encrypt.
 
 .. code-block:: bash
+   :caption: Encrypting date file with another file as the key
+   :name: Encrypting date file with another file as the key
 
    ansible-vault encrypt --vault-password-file ~/my_dog.txt data_to_protect.txt
 
@@ -489,6 +524,8 @@ identical copy of the key file some some target/remote host, we will be able to 
 is quite useful to us indeed, when it comes to protecting our data.
 
 .. code-block:: bash
+   :caption: Decrypting our data file
+   :name: Decrypting our data file
 
    ansible-vault decrypt --vault-password-file ~/my_dog.txt data_to_protect.txt
 

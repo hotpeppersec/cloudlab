@@ -7,6 +7,8 @@ Python
 .. image:: ../images/snake-1634293_1920.jpg
       :align: center
 
+|
+
 Getting started in writing programs is easy with Python. It is highly 
 extensible since there are many add on modules available from a 
 collection known as Pypi [#]_ . Python is fairly easy to learn, epecially when 
@@ -34,6 +36,8 @@ in the directory, we can use it to our advantage. For example, try adding this
 quick and dirty logging function to `python/cloudlab/lib/__init__.py`:
 
 .. code-block:: python
+   :caption: Example __init__.py file
+   :name: Example __init__.py file
 
    import logging
    from pathlib import Pathigure logger
@@ -50,6 +54,8 @@ Now we can create a Python file `log_test.py` and call the logger from
 within like so:
 
 .. code-block:: python
+   :caption: Calling logger in __init__.py
+   :name: Calling logger in __init__.py
 
    import logging
    from pathlib import Path
@@ -126,6 +132,8 @@ of test harness requirements specified in our `python/requirements-test.txt` fil
    single: tox.ini
 
 .. code-block:: python
+   :caption: An example tox.ini file
+   :name: An example tox.ini file
 
    [tox]
    envlist = py38
@@ -159,6 +167,8 @@ function `check_docker()` in the file `python/cloudlab/lib/helper_functions.py`
 returns `True` when called from inside a Docker container.
 
 .. code-block:: python
+   :caption: Example Unit test case
+   :name: Example Unit test case
 
    import pytest
    from cloudlab.lib.helper_functions import check_docker

@@ -7,6 +7,8 @@ Cloudlab
 .. image:: ../images/sky-690293_1920.jpg
    :align: center
 
+|
+
 At the time of this writing in 2020, about 40% of production workloads are 
 running on containers and serverless deployments.  Bare metal and virtual machines currently host 
 a bit over 60% of production workloads. Containerized workload use is expected to 
@@ -121,8 +123,12 @@ There are times I catch myself switching between VSCode and a terminal window to
 edit in vi or interact with GitHub. Over time I am changing the way I work in an attempt to 
 reduce attempts to refocus between windows on my desktop.
 
+|
+
 .. image:: ../images/setup-vscode.png
    :align: center
+
+|
 
 ********************
 The Flow (Pipelines)
@@ -133,17 +139,25 @@ will refer to this as the "local"
 environment. These work products are created, reviewed and checked into revision control systems (GitHub
 for example) by the DevSecOps practitioner. Test cases are created and run against the work at check-in time, to ensure 
 stability, security, and compatibility with the exsiting code base. The automation required to to execute
-tests every time work is checked in is also the responsibility of the DevSecOps engineers. Work typically 
-"flows" from the local environments, into a test environment, and finally to production. We will refer to 
-the entirety of this flow as a "pipeline". Code from one or more local environments is checked in to revision
-control throughout a typical workday, and continuously tested and integrated with the main code base.
-That is to say, work undergoes "Continuous Inetegration" (CI) with the main code base, and often "Continuous
-Delivery" (CD) between local, test, and production environments. This is where the term "CI/CD Pipeline" 
-comes from.
+tests every time work is checked in is also the responsibility of the DevSecOps engineers. As seen in :numref:`myFig1` 
+work typically "flows" from the local environments, into a test environment, and finally to production. We 
+will refer to the entirety of this flow as a "pipeline". Code from one or more local environments is checked 
+in to revision control throughout a typical workday, and continuously tested and integrated with the 
+main code base. That is to say, work undergoes "Continuous Inetegration" (CI) with the main code base,
+and often "Continuous Delivery" (CD) between local, test, and production environments. This is where the 
+term "CI/CD Pipeline" comes from.
 
-.. image:: ../images/flow.png
-   :caption: Typical build pipeline
+|
+
+.. figure:: ../images/flow.png
    :align: center
+   :name: myFig1
+   :alt: A typical build pipeline
+   :figclass: align-center
+
+   Typical build pipeline.
+
+|
 
 While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other pipelines exist as 
 well. For example, Data Engineers build and maintain Data Science pipelines for to get information into a data lake, 

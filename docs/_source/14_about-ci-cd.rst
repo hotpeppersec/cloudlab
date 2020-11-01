@@ -7,6 +7,8 @@ Continuous Integration & Deployment
 .. image:: ../images/finland-905712_1920.jpg
    :align: center
 
+|
+
 Accomodations for Continuous Integration (CI) & Continuous Deployment (CD) in our projects
 directly corresponds to our chances of success.
 
@@ -73,6 +75,8 @@ dependency for us.
    single: pylint
 
 .. code-block:: python
+   :caption: Directing Tox to perform code linting
+   :name: Directing Tox to perform code linting
 
   [tox]
    envlist = py38. pylint
@@ -103,6 +107,8 @@ YAML file under `codelab/.github/workflows/docker_compose.yml` to have GitHub Ac
 our `make docker` target from our custom Makefile.
 
 .. code-block:: yaml
+   :caption: Directing GitHub Actions to execute our make docker directive
+   :name: Directing GitHub Actions to execute our make docker directive
 
   ---
   name: CloudLab Docker Image CI
@@ -134,6 +140,8 @@ Save this YAML file under `codelab/.github/workflows/python.yml` to have GitHub 
 our `make python` target from our custom Makefile.
 
 .. code-block:: yaml
+   :caption: Directing GitHub Actions to execute our make python directive
+   :name: Directing GitHub Actions to execute our make python directive
 
   ---
   name: CloudLab Python CI
@@ -176,6 +184,8 @@ and build our AMI image with Packer.
    single: Packer
 
 .. code-block:: yaml
+   :caption: Build Packer image via GitHub Actions
+   :name: Build Packer image via GitHub Actions
 
   ---
     name: Packer
@@ -228,6 +238,8 @@ text files using a GitHub Action.
    single: markdownlint
 
 .. code-block:: yaml
+   :caption: Validate Markdown files via GitHub Actions
+   :name: Validate Markdown files via GitHub Actions
 
   name: CI
   on:
@@ -250,6 +262,8 @@ Note the designation of a configuration file named `.markdownlint.json` at the t
 level of our repository. This JSON file is used to skip certain checks by the markdownlint tool.
 
 .. code-block:: json
+   :caption: Skip the listed Markdown lint checks
+   :name: Skip the listed Markdown lint checks
 
   {
       "default": true,
@@ -269,6 +283,8 @@ Circle CI is a Continuous Integation service free for non-commercial projects.
    single: Circle CI
 
 .. code-block:: yaml
+   :caption: A YAML file for Circle CI configuration
+   :name: A YAML file for Circle CI configuration
 
   # Python CircleCI 2.0 configuration file
   # 
@@ -367,8 +383,11 @@ that prevent the PR from being merged until Travis CI flags the build as passing
 
 .. index::
    single: Docker
+   single: Molecule
 
 .. code-block:: yaml
+   :caption: Testing Ansible using Molecule in Travis CI
+   :name: Testing Ansible using Molecule in Travis CI
 
     ---
     sudo: required
@@ -400,6 +419,8 @@ files in your repository.
    single: Markdown
 
 .. code-block:: yaml
+   :caption: Validating Markdown files using Travis CI
+   :name: Validating Markdown files using Travis CI
 
     ---
     sudo: required
@@ -417,8 +438,10 @@ You can also create an `.mdlrc` file to give `mdl` direction on what to scan for
    single: .mdlrc
 
 .. code-block:: shell
+   :caption: An example .mdlrc file to configure the mdl (markdownlint) tool
+   :name: An example .mdlrc file to configure the mdl (markdownlint) tool
 
-    rules "MD001" ,"MD002" ,"MD003" ,"MD004" ,"MD005" ,"MD006" ,"MD007" ,"MD009" ,"MD010" ,"MD011" ,"MD012" ,"MD014" ,"MD018" ,"MD019" ,"MD020" ,"MD021" ,"MD022" ,"MD023" ,"MD025" ,"MD026" ,"MD027" ,"MD028" ,"MD029" ,"MD030" ,"MD031" ,"MD032" ,"MD034" ,"MD035" ,"MD036" ,"MD037" ,"MD038" ,"MD039" 
+   rules "MD001" ,"MD002" ,"MD003" ,"MD004" ,"MD005" ,"MD006" ,"MD007" ,"MD009" ,"MD010" ,"MD011" ,"MD012" ,"MD014" ,"MD018" ,"MD019" ,"MD020" ,"MD021" ,"MD022" ,"MD023" ,"MD025" ,"MD026" ,"MD027" ,"MD028" ,"MD029" ,"MD030" ,"MD031" ,"MD032" ,"MD034" ,"MD035" ,"MD036" ,"MD037" ,"MD038" ,"MD039" 
 
 .. raw:: latex
 

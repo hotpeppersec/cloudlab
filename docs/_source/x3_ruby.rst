@@ -7,6 +7,8 @@ Ruby
 .. image:: ../images/crab-298346_1920.jpg
    :align: center
 
+|
+
 "Ruby is simple in appearance, but is very complex inside, just 
 like our human body. [#]_ " Yukihiro “Matz” Matsumoto
 
@@ -33,6 +35,8 @@ Consider the following simple example of a Gemfile.
    single: Gemfile
 
 .. code-block:: Ruby
+   :caption: Simple example of a Gemfile
+   :name: Simple example of a Gemfile
 
     source "https://rubygems.org"
     gem "unicode"

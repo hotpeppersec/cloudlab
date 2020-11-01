@@ -7,6 +7,8 @@ Infrastructure
 .. image:: ../images/cologne-cathedral-1507854_1920.jpg
    :align: center
 
+|
+
 This chapter details our ability to quickly and uniformly stand up 
 and tear down virtual servers and networks to run our workloads. We will look
 at some popular cloud computing providers to prepare to explore ways we
@@ -38,7 +40,9 @@ Amazon Web Services (AWS) credentials are stored in a hidden directory in your
 home directory called ".aws". The file `~/.aws/credentials` shoudl be modified to 
 contain your AWS access_id and secret_key as seen below.
 
-.. code:: shell
+.. code-block:: bash
+   :caption: Storing AWS Credentials in a flat file
+   :name: Storing AWS Credentials in a flat file
 
    $ cat ~/.aws/credentials 
 

@@ -7,6 +7,8 @@ Automated Repository Scanning
 .. image:: ../images/code-4333398_1920.jpg
    :align: center
 
+|
+
 Here are a few GitHub plugins that are free for single-user/non-commercial scenarios. 
 Let's leave some of the tedious work to the bots so we can focus on our journey to the
 cloud!

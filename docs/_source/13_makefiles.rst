@@ -7,6 +7,8 @@ Makefiles
 .. image:: ../images/books-1163695_1920.jpg
    :align: center
 
+|
+
 A Makefile is a good way to put shorts sets of oft repeated steps 
 at the fingertips of the developer. Rather than typing three complicated and 
 possibly hard to recall strings to kick off your Docker container, you 
@@ -28,6 +30,8 @@ Consider this example, where we have three directories (docker, docs,
 and python) and we also have three Makefile directives of the same name:
 
 .. code-block:: bash
+   :caption: Using the PHONY directive in a Makefile
+   :name: Using the PHONY directive in a Makefile
 
     .PHONY: docker docs python
 
@@ -49,6 +53,8 @@ file `/.dockerenv`, we use docker-compose to build from our Dockerfile, and then
 start a BASH shell in our "cloudlab" container. 
 
 .. code-block:: bash
+   :caption: Specifying targets in a Makefile
+   :name: Specifying targets in a Makefile
 
    docker: python ## build docker container for testing
       echo "Building CloudLab with docker-compose"
@@ -74,6 +80,8 @@ Full Example Makefile
 Here is a full example of a working Makefile. 
 
 .. code-block:: shell
+   :caption: Full Makefile example
+   :name: Full Makefile example
 
    .PHONY: docker docs python
 

@@ -7,6 +7,8 @@ Containers
 .. image:: ../images/container-4203677_1920.jpg
    :align: center
 
+|
+
 Creating a fully functioning software ecosystem for our serice or 
 project is known as containerization. The most popular and common
 tool for acheiving containerization is Docker. Using Docker, we can
@@ -68,6 +70,8 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
    single: Dockerfile
 
 .. code-block:: bash
+   :caption: An example Dockerfile
+   :name: Dockerfile
 
    FROM python:3.8.2-buster
    LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
@@ -79,7 +83,6 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
    
    RUN apt update; \
       apt -y install apt-utils
-
 
 
 ******************
@@ -97,6 +100,8 @@ A file called `docker-compose.yml` will exist alongside our `Dockerfile`
 in our `docker` directory.
 
 .. code-block:: bash
+   :caption: An example docker-compose.yml file
+   :name: docker-compose.yml
 
    version: '3'
    services:
