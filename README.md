@@ -2,6 +2,8 @@
 
 ![Docker Image CI](https://github.com/thedevilsvoice/devsecops_quickstart/workflows/Docker%20Image%20CI/badge.svg?branch=master)
 
+![Cloudy](https://github.com/thedevilsvoice/devsecops_quickstart/blob/master/docs/images/sky-690293_1920.jpg)
+
 ## Images
 
 The images at pixabay.com are free for commercial use.
