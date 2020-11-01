@@ -3,4 +3,5 @@ _build
 pygments-css
 *.deb
 kindlegen
+kindlegen.xz
 .DS_Store
