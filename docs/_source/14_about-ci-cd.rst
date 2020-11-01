@@ -437,7 +437,7 @@ You can also create an `.mdlrc` file to give `mdl` direction on what to scan for
 .. index::
    single: .mdlrc
 
-.. code-block:: shell
+.. code-block:: bash
    :caption: An example .mdlrc file to configure the mdl (markdownlint) tool
    :name: An example .mdlrc file to configure the mdl (markdownlint) tool
 

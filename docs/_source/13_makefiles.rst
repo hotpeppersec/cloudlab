@@ -79,7 +79,7 @@ Full Example Makefile
 
 Here is a full example of a working Makefile. 
 
-.. code-block:: shell
+.. code-block:: bash
    :caption: Full Makefile example
    :name: Full Makefile example
 
