@@ -155,6 +155,25 @@ use this example command:
 After completing these steps you can easily submit pull requests (PRs)
 back to the original project.
 
+Keeping a Clone in Sync
+=======================
+
+The process of performing a pull request (PR) and merging changes is covered
+fairly extensively on the Web. Let's take a quick look at how to keep your local
+clone of a repository, as well as your clone on github.com, up to date.
+
+Steps
+*****
+
+These are the steps to take once your pull request is merged to the main branch
+in the main project repository. From the command line on the machine where your
+clone resides:
+
+- git checkout master
+- git fetch upstream
+- git rebase upstream/master
+- git push origin master
+
 Creating Repositories
 =====================
 
