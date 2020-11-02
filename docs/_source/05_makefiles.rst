@@ -46,6 +46,9 @@ Makefiles are comprised of various stanzas, know as targets. This is where
 the work gets done. Let's add a target for Docker and a target for Python 
 to make our lives easier in the future. Consider the two target stanzas below.
 
+.. index::
+   single: Targets
+
 .. code-block:: bash
    :caption: Specifying targets in a Makefile
    :name: Specifying targets in a Makefile

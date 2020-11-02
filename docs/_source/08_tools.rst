@@ -58,6 +58,7 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
 .. code-block:: bash
    :caption: A JSON file for Packer in AWS
    :name: A JSON file for Packer in AWS
+   :linenos:
 
    {
    "variables": {
@@ -115,6 +116,7 @@ Google Compute. Save the contents of this file into `packer/gcp-debian-host.json
 .. code-block:: bash
    :caption: A JSON file to build Packer image in Google Compute
    :name: A JSON file to build Packer image in Google Compute
+   :linenos:
 
    {
       "builders": [
@@ -163,6 +165,7 @@ AMI ID.
 .. code-block:: bash
    :caption: Building a Packer image
    :name: Building a Packer image
+   :linenos:
 
    Build 'amazon-ebs' finished.
 
@@ -255,6 +258,7 @@ reference modules, both internal and exteral. The main.tf file is the place the 
 .. code-block:: bash
    :caption: Example of how to reference an external module
    :name: Example of how to reference an external module
+   :linenos:
 
    module "security_group" {
       source  = "terraform-aws-modules/security-group/aws"
@@ -276,6 +280,7 @@ These AWS data sources reference our Virtual Private Cloud (VPC) and provider-as
 .. code-block:: bash
    :caption: Designation of data sources in main.tf
    :name: Designation of data sources in main.tf
+   :linenos:
 
    data "aws_vpc" "default" {
    default = true
@@ -302,6 +307,7 @@ Consider the following output declarations from our example code.
 .. code-block:: bash
    :caption: Displaying resources from our main.tf file
    :name: Displaying resources from our main.tf file
+   :linenos:
 
    output "web_public_ip" {
       description = "Public IPs assigned to the web instance"
@@ -363,6 +369,7 @@ First we will will create a "plan" in preparation for application.
 .. code-block:: bash
    :caption: Creating a plan file with Terraform
    :name: Creating a plan file with Terraform
+   :linenos:
 
    thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform plan -out franklin.out
    Refreshing Terraform state in-memory prior to plan...
@@ -401,6 +408,7 @@ prompt you to enter "yes" before it will proceed.
 .. code-block:: bash
    :caption: Applying a Terraform plan from file
    :name: Applying a Terraform plan from file
+   :linenos:
 
    thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform apply
    data.aws_vpc.default: Refreshing state...
@@ -466,6 +474,7 @@ There is a test framework known as "molecule" that can be used to test ansible p
 .. code-block:: bash
    :caption: Testing Ansible with Molecule
    :name: Testing Ansible with Molecule
+   :linenos:
 
    $ molecule init role -r logfwd
    --> Initializing new role logfwd...

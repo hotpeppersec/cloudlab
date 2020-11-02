@@ -77,6 +77,7 @@ dependency for us.
 .. code-block:: python
    :caption: Directing Tox to perform code linting
    :name: Directing Tox to perform code linting
+   :linenos:
 
   [tox]
    envlist = py38. pylint
@@ -109,6 +110,7 @@ our `make docker` target from our custom Makefile.
 .. code-block:: yaml
    :caption: Directing GitHub Actions to execute our make docker directive
    :name: Directing GitHub Actions to execute our make docker directive
+   :linenos:
 
   ---
   name: CloudLab Docker Image CI
@@ -142,7 +144,8 @@ our `make python` target from our custom Makefile.
 .. code-block:: yaml
    :caption: Directing GitHub Actions to execute our make python directive
    :name: Directing GitHub Actions to execute our make python directive
-
+   :linenos:
+  
   ---
   name: CloudLab Python CI
   on:
@@ -186,6 +189,7 @@ and build our AMI image with Packer.
 .. code-block:: yaml
    :caption: Build Packer image via GitHub Actions
    :name: Build Packer image via GitHub Actions
+   :linenos:
 
   ---
     name: Packer
@@ -240,6 +244,7 @@ text files using a GitHub Action.
 .. code-block:: yaml
    :caption: Validate Markdown files via GitHub Actions
    :name: Validate Markdown files via GitHub Actions
+   :linenos:
 
   name: CI
   on:
@@ -264,6 +269,7 @@ level of our repository. This JSON file is used to skip certain checks by the ma
 .. code-block:: json
    :caption: Skip the listed Markdown lint checks
    :name: Skip the listed Markdown lint checks
+   :linenos:
 
   {
       "default": true,
@@ -285,6 +291,7 @@ Circle CI is a Continuous Integation service free for non-commercial projects.
 .. code-block:: yaml
    :caption: A YAML file for Circle CI configuration
    :name: A YAML file for Circle CI configuration
+   :linenos:
 
   # Python CircleCI 2.0 configuration file
   # 
@@ -388,7 +395,8 @@ that prevent the PR from being merged until Travis CI flags the build as passing
 .. code-block:: yaml
    :caption: Testing Ansible using Molecule in Travis CI
    :name: Testing Ansible using Molecule in Travis CI
-
+   :linenos:
+  
     ---
     sudo: required
     dist: xenial   # required for Python >= 3.7
@@ -421,6 +429,7 @@ files in your repository.
 .. code-block:: yaml
    :caption: Validating Markdown files using Travis CI
    :name: Validating Markdown files using Travis CI
+   :linenos:
 
     ---
     sudo: required

@@ -13,8 +13,11 @@ This chapter details our ability to quickly and uniformly stand up
 and tear down virtual servers and networks to run our workloads. We will look
 at some popular cloud computing providers to prepare to explore ways we
 can leverage them to our benefit. The platforms we will build here comprise the
-hosts we will run our application code on. These virtual resources will be distributed
-across provider hardware in data centers aroudn the world.
+hosts we will use to run our application code on. These virtual resources will 
+be distributed across provider hardware in data centers around the world with
+very little oversight or interaction from us. For example, we can choose a Region
+of the world for our server instance to exist in, but we don't need to worry about
+which machine or rack it's in, or even where the data center is located.
 
 *************************
 Amazon Web Services (AWS)
