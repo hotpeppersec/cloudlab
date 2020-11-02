@@ -38,6 +38,7 @@ quick and dirty logging function to `python/cloudlab/lib/__init__.py`:
 .. code-block:: python
    :caption: Example __init__.py file
    :name: Example __init__.py file
+   :linenos:
 
    import logging
    from pathlib import Pathigure logger
@@ -56,6 +57,7 @@ within like so:
 .. code-block:: python
    :caption: Calling logger in __init__.py
    :name: Calling logger in __init__.py
+   :linenos:
 
    import logging
    from pathlib import Path
@@ -134,6 +136,7 @@ of test harness requirements specified in our `python/requirements-test.txt` fil
 .. code-block:: python
    :caption: An example tox.ini file
    :name: An example tox.ini file
+   :linenos:
 
    [tox]
    envlist = py38
@@ -169,6 +172,7 @@ returns `True` when called from inside a Docker container.
 .. code-block:: python
    :caption: Example Unit test case
    :name: Example Unit test case
+   :linenos:
 
    import pytest
    from cloudlab.lib.helper_functions import check_docker

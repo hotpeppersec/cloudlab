@@ -26,6 +26,9 @@ If a file or directory exists with the same name as a stanza in the
 Makefile, you will need to specify it under the *PHONY* directive. This
 will allow the Makefile to find and run the desired commands.
 
+.. index::
+   single: PHONY
+
 Consider this example, where we have three directories (docker, docs, 
 and python) and we also have three Makefile directives of the same name:
 
@@ -43,18 +46,10 @@ Makefiles are comprised of various stanzas, know as targets. This is where
 the work gets done. Let's add a target for Docker and a target for Python 
 to make our lives easier in the future. Consider the two target stanzas below.
 
-When the `docker` target is called by the use when `make docker` is typed at
-the CLI, the fist thing that happens is the `python` target is called. If the
-`python/requirements.txt` file exists, we attempt to install the modules listed
-therein with the Python "pip" package manager. Once completed, the thread of 
-execution returns to the docker target, sending the user a message to stdout that
-we will be building with docker-compose. After a quick check for existence of the 
-file `/.dockerenv`, we use docker-compose to build from our Dockerfile, and then 
-start a BASH shell in our "cloudlab" container. 
-
 .. code-block:: bash
    :caption: Specifying targets in a Makefile
    :name: Specifying targets in a Makefile
+   :linenos:
 
    docker: python ## build docker container for testing
       echo "Building CloudLab with docker-compose"
@@ -69,8 +64,19 @@ start a BASH shell in our "cloudlab" container.
       if [ -f 'python/requirements.txt' ]; then \
       python -m pip install -rpython/requirements.txt; fi
 
+When the user types `make docker` at the CLI to invoke the `docker` target in
+the Makefile, the fist thing that happens is the `python` target is called. If the file
+`python/requirements.txt` exists, we attempt to install the modules listed
+within that reuiqirements file using the Python "pip" package manager. Once completed, the thread of 
+execution returns to the docker target. A message is sent to the user via STDOUT that
+we will be building with docker-compose. An empty file at the root of the containers filesystem
+named `/.dockerenv` is a convention that indicates we are operating inside a containerized environment. 
+After a quick check for existence of the file `/.dockerenv`, we use docker-compose to build 
+from our Dockerfile, and then start a BASH shell in our "cloudlab" container. The user now has the
+ability to run BASH commands "inside" the Docker container.
+
 Be sure when you indent in a Makefile that you use tabs, not spaces.
-You can use the backslash character to combine two consecutive lines into 
+You can use the backslash character in a Makefile to combine two consecutive lines into 
 one logical line.
 
 *********************
@@ -82,6 +88,7 @@ Here is a full example of a working Makefile.
 .. code-block:: bash
    :caption: Full Makefile example
    :name: Full Makefile example
+   :linenos:
 
    .PHONY: docker docs python
 
