@@ -71,6 +71,7 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
 .. code-block:: bash
    :caption: An example Dockerfile
    :name: Dockerfile
+   :linenos:
 
    FROM python:3.8.2-buster
    LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
@@ -101,7 +102,8 @@ in our `docker` directory.
 .. code-block:: bash
    :caption: An example docker-compose.yml file
    :name: docker-compose.yml
-
+   :linenos:
+   
    version: '3'
    services:
    cloudlab:

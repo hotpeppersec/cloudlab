@@ -83,6 +83,7 @@ Take a few minutes to set up a GPG key and add it to your profile on GitHub.
 .. code-block:: bash
    :caption: Set up GPG key and add to GitHub.
    :name: Set up GPG key and add to GitHub.
+   :linenos:
 
    root@cloudlab:~# gpg --default-new-key-algo rsa4096 --gen-key
    public and secret key created and signed.
