@@ -4,14 +4,14 @@
 
 ![Cloudy](https://github.com/thedevilsvoice/devsecops_quickstart/blob/master/docs/images/sky-690293_1920.jpg)
 
-## Images
+## Dev Environment Setup
 
-The images at pixabay.com are free for commercial use.
-
-Down load the images to docs/images and save the HTML credits
-for the photograph as a file with .html extension. Then run the
-`generate_pic_ref.sh` script to make the picture credits file
-in the references section.
+- make
+- docker-compose
+- Docker
+- python3-pip
+- vscode 
+  - drawio
 
 ## To generate PDF of book
 
@@ -48,6 +48,15 @@ epub file as needed.
 ```bash
 sudo apt -y install calibre sigil
 ```
+
+## Images
+
+The images at pixabay.com are free for commercial use.
+
+Down load the images to docs/images and save the HTML credits
+for the photograph as a file with .html extension. Then run the
+`generate_pic_ref.sh` script to make the picture credits file
+in the references section.
 
 ## Kindle (deprecated)
 
