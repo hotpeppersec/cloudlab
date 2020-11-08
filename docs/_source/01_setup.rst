@@ -171,4 +171,6 @@ This book features a final chapter to guide the reader through applying the info
 introduced between this one and that. You are encouraged to jump ahead, go back and re-read, 
 do the parts you think you can use right away and skip that parts you don;t think you will
 ever use. Learning can be a non-linear experience and you are encouraged to "color outside
-the lines" to the extent you feel comfortable doing so. 
+the lines" to the extent you feel comfortable doing so.
+
+
