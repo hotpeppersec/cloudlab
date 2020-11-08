@@ -10,7 +10,7 @@ The Cloud Lab
 |
 
 We've reached the point where it's time to assemble all our functional blocks into 
-a proper lab in the cloud.
+a proper lab using resources of a cloud service provider.
 
 *******************
 Lab Network Diagram

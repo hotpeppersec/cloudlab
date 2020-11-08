@@ -9,6 +9,10 @@ DevSecOps Quick Start
 
 |
 
+*************
+Why DevSecOps
+*************
+
 The world is changing with respect to how how softare is created and maintained. Folks
 at the leading edge in todays computing industry are not just building software, but
 are curating it through a cyclical process of continuous development, testing, use, and
