@@ -9,22 +9,33 @@ DevSecOps Quick Start
 
 |
 
+The world is changing with respect to how how softare is created and maintained. Folks
+at the leading edge in todays computing industry are not just building software, but
+are curating it through a cyclical process of continuous development, testing, use, and
+improvement. With increasing frequency, applications and workloads are moving to 
+computing environments that are abstracted away, managed by invisible armies of engineers
+at comapnies other than their own. Of course we are referring to those multitentant cloud
+type computing landscapes. Passing one or more fully encapsulated applications to a cloud 
+provider for the purposes of having them host it as a production environment has become
+commonplace. Further, cloud service providers are adding new features and capabilites at
+breakneck speed. 
+
 At the time of this writing in 2020, about 40% of production workloads are 
 running on containers and serverless deployments.  Bare metal and virtual machines currently host 
 a bit over 60% of production workloads. Containerized workload use is expected to 
-increase greatly in the coming years. Conversely, bare metal and VM usage is expected 
+increase even more in the coming years. Conversely, bare metal and VM usage is expected 
 to decrease [#]_ . It's not a question of if, but how quickly commoditization of 
-compute resources takes place, leaving only a few main providers of these resources.
-This is not unlike how power generation and distribution became centralized, now
-the domain of a few large utility companies. Nothing beyond considerations of 
-practicality stop you from making your own electricity, but you may wish to invest
-your time in other pursuits.
+compute resources takes place, perhaps leaving only a few main providers of these cloud resources.
+This is not unlike how power generation and distribution became centralized in the previous century, now
+the domain of a few large utility companies. Nothing beyond considerations of time, money, and
+practicality stop you from making your own electricity, but most folks are keen to invest their 
+efforts in other pursuits.
 
 .. [#] https://start.paloaltonetworks.com/esg-research-cloud-native-devsecops-report.html 
 
 In this book, we will explore a combination of techniques that can refresh
-your skills and align your projects with current software development techniques. 
-We can use small bits and pieces from various technolgies to create a secure build 
+your skills and align your projects with the technological leading edge. 
+We will introduce various popular technolgies, then use common bits and pieces of these to create a secure build 
 pipeline for our lab and development work, test, and even production environments. 
 The techniques here are meant to help the security-minded developer sharpen her or his
 skills, and introduce tips and tactics that benefit the teams they are a part of.
