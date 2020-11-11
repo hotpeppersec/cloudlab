@@ -1,8 +1,8 @@
 version: '3'
 services:
   cloudlab:
-    hostname: cloudlab
-    container_name: cloudlab
+    hostname: franklin
+    container_name: devsecops
     volumes:
       - ..:/book
     build:
