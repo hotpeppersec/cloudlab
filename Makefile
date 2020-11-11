@@ -31,8 +31,8 @@ clean: ## Cleanup all the things
 docker: python ## build docker container for testing
 	$(MAKE) print-status MSG="Building with docker-compose"
 	@if [ -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Don't run make docker inside docker container <***" && exit 1; fi
-	docker-compose -f docker/docker-compose.yml build cloudlab
-	@docker-compose -f docker/docker-compose.yml run cloudlab /bin/bash
+	docker-compose -f docker/docker-compose.yml build devsecops
+	@docker-compose -f docker/docker-compose.yml run devsecops /bin/bash
 
 docs: python ## Generate documentation
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make docs inside docker container <***" && exit 1; fi
