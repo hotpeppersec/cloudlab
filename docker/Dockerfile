@@ -10,7 +10,7 @@ WORKDIR /book
 RUN apt update; \
 apt -y install apt-utils; \
 apt -y install make git wget pandoc latexmk python3-pip python3-graphviz \
-texlive-fonts-recommended texlive-latex-extra
+texlive-fonts-recommended texlive-latex-extra texlive-xetex
 
 # book stuff
 RUN make python
