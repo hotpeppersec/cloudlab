@@ -20,8 +20,10 @@ outside the Docker container in the users filesystem until
 the `make clean` command is issued.
 
 ```bash
-make docker
-#cd docs && sphinx-build -M latexpdf . _build
+make docker && cd docs
+#sphinx-build -M latexpdf . _build
+# Generate PDF with special Unicode characters:
+#sphinx-build -b latex -d _build/doctrees . _build/xetex && cd _build/xetex; xelatex *.tex
 make docs
 ```
 
