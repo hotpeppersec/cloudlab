@@ -9,10 +9,6 @@ DevSecOps Quick Start
 
 |
 
-*************
-Why DevSecOps
-*************
-
 The world is changing with respect to how how softare is created and maintained. Folks
 at the leading edge in todays computing industry are not just building software, but
 are curating it through a cyclical process of continuous development, testing, use, and
@@ -206,9 +202,9 @@ Creation is a long and twisty path, fraught with the distractions of a life well
 the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
 supportive and loving family is the touchstone that 
 
-*****************
-About the Authors
-*****************
+****************
+About the Author
+****************
 
 Franklin Diaz is a Computer Scientist and lifelong computer hobbyist. He spent 14 years
 as a Software Engineer, testing and developing Motorola's CDMA cellular base station products.

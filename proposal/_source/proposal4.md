@@ -1,11 +1,3 @@
-
-### Follow Along Project
-
-A comprehensive project in a public GitHub repository that readers can follow 
-along with an try examples from will be maintained. 
-
-[https://github.com/hotpeppersec/rapid_secdev_framework](https://github.com/hotpeppersec/rapid_secdev_framework)
-
 ## Market
 
 I've spent quite a bit of time interacting with the Information Security community on

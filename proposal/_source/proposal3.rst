@@ -1,8 +1,8 @@
 .. include:: global.rst
 
-==========
-Containers
-==========
+============================
+Containers (Example Chapter)
+============================
 
 .. image:: ../images/container-4203677_1920.jpg
    :align: center
