@@ -39,14 +39,14 @@ With containerization, we can more easily acheive immutability across the
 software lifecycle. 
 
 .. index::
-   single: immutability
+   single: Immutability
 
-Using immutable containers means we have hosts that are ephemeral. Ephemerality
-is the concept of things being
-transitory in nature, existing only briefly [#]_. Rather 
-than spending a great deal of time patching and upgrading one or more hosts as in a traditional project
-stack that uses virtual machines or bare metal, we're going to quickly create a new container 
-in place of the old one.
+Ephemerality is the concept of something being transitory in nature, existing only
+briefly [#]_. Using immutable containers makes it easier to realize infrastructure and hosts
+that are ephemeral. Rather than spending a great deal of time patching and upgrading one or
+more hosts as we might in a traditional project stack that uses virtual machines or bare metal, 
+we're going to use Docker to create a new container in place of the old one. In other words, we're
+running our project in containers that are immutable and ephemeral to the degree possible.
 
 .. [#] https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure/
 .. [#] https://en.wikipedia.org/wiki/Ephemerality
@@ -54,10 +54,10 @@ in place of the old one.
 .. index::
    single: Ephemerality
 
-Using Docker also gives us the benefit of being able to switch quickly 
-between base OS images with just a few lines of code change to our project. 
-See the Docker website for instructions on how to install and configure
-Docker [#]_ .
+Using Docker gives us the benefit of being able to switch quickly between base operating system
+images with just a few lines of code change to our project. See the Docker website for
+instructions on how to install and configure Docker [#]_ . A properl;y functioning Docker
+setup on your local machine is a requirement for the exercises we will do later.
 
 .. [#] https://docs.docker.com/get-docker/
 
@@ -65,8 +65,6 @@ Once you have Docker installed and running on your workstation, take a look at
 the two example files below. For now it's OK to see them and
 get a general familiarity with their contents. Later we will use these files to 
 create containers for our projects.
-
-
 
 **********
 Dockerfile
@@ -77,7 +75,7 @@ containers, and the applications they contain, are defined by the Dockerfile.
 Each Dockerfile is predicated on a base image, like Debian 10 as shown in 
 the example below.
 
-Consider a directory called `docker`_ and a file called `Dockerfile` within
+Consider a directory called `docker`_ and a file called `Dockerfile`_ within
 this directory. Note the capitalization of the first letter in the file name.
 Some IDE's will key off this file and allow for additional syntax highlighting.
 
@@ -92,7 +90,7 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
    :name: Dockerfile
    :linenos:
 
-   FROM python:3.8.2-buster
+   FROM python:3.9-buster
    LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
 
    ENV DEBIAN_FRONTEND noninteractive
@@ -102,6 +100,17 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
    
    RUN apt update; \
       apt -y install apt-utils
+
+A valid Dockerfile begins with the FROM_ instruction. This instruction specifies the base image
+that we will use to build our project on. These base images come from the `Docker Hub repositories`_.
+We are setting an environment variable `DEBIAN_FRONEND` to the value of `noninteractive`, which
+will cause the `apt` command to skip or ignore any interactive menus that are encountered during
+execution of the apt command, since these would cause our builds to "hang up" at an inaccessible
+interactive prompt. The ADD and WORKDIR directives are meant to cause Docker to use the `/workdir`
+directory as the root of the project "inside" the container. Finally, we are directing Docker to
+RUN and apt update and install the apt-utils package.
+
+.. _Docker Hub repositories: https://docs.docker.com/docker-hub/repos/
 
 ******************
 docker-compose.yml
