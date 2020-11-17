@@ -51,6 +51,38 @@ tools and process that are too cumbersome or burdensome are typically circumvent
 Complexity in our processes beome the snags and side projects that are the enemy 
 of productivity. Refuse to shave more yaks than absolutely necessary!
 
+********
+Colophon
+********
+
+This book was written in the reStructuredText file format [#]_ . The Sphinx module for Python
+was used to format these files and programatically generate HTML, PDF, LaTeX, and other working
+formats used in the typesetting process.
+
+.. [#]  https://en.wikipedia.org/wiki/ReStructuredText
+
+****************
+Acknowledgements
+****************
+
+Creation is a long and twisty path, fraught with the distractions of a life well-lived and
+the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
+supportive and loving family is the touchstone that 
+
+****************
+About the Author
+****************
+
+Franklin Diaz is a Computer Scientist and lifelong computer hobbyist. He spent 14 years
+as a Software Engineer, testing and developing Motorola's CDMA cellular base station products.
+He spent five years Salesforce where he was on the Security Detection Engineering team doing
+security log aggregation and Data Engineering to augment and enhance the detection capabilities
+of the Blue Team. Most recently he is at Palo Alto Networks where he works as a Consulting
+Engineer. He is also the lead organizer for the BSides Indy security conference in Indianapolis,
+Indiana. His education includes a Bachelor of Science in Computer Science from Roosevelt University, 
+a Master of Science degree in Computer Information Systems from Northwestern University, and a
+Master of Science degree in Network Security & Network Engineering from DePaul University.
+
 ==================
 Getting Acclimated
 ==================
@@ -183,35 +215,3 @@ introduced between this one and that. You are encouraged to jump ahead, go back 
 do the parts you think you can use right away and skip that parts you don;t think you will
 ever use. Learning can be a non-linear experience and you are encouraged to "color outside
 the lines" to the extent you feel comfortable doing so. 
-
-********
-Colophon
-********
-
-This book was written in the reStructuredText file format [#]_ . The Sphinx module for Python
-was used to format these files and programatically generate HTML, PDF, LaTeX, and other working
-formats used in the typesetting process.
-
-.. [#]  https://en.wikipedia.org/wiki/ReStructuredText
-
-****************
-Acknowledgements
-****************
-
-Creation is a long and twisty path, fraught with the distractions of a life well-lived and
-the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
-supportive and loving family is the touchstone that 
-
-****************
-About the Author
-****************
-
-Franklin Diaz is a Computer Scientist and lifelong computer hobbyist. He spent 14 years
-as a Software Engineer, testing and developing Motorola's CDMA cellular base station products.
-He spent five years Salesforce where he was on the Security Detection Engineering team doing
-security log aggregation and Data Engineering to augment and enhance the detection capabilities
-of the Blue Team. Most recently he is at Palo Alto Networks where he works as a Consulting
-Engineer. He is also the lead organizer for the BSides Indy security conference in Indianapolis,
-Indiana. His education includes a Bachelor of Science in Computer Science from Roosevelt University, 
-a Master of Science degree in Computer Information Systems from Northwestern University, and a
-Master of Science degree in Network Security & Network Engineering from DePaul University.

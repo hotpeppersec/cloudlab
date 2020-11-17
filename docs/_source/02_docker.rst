@@ -11,16 +11,39 @@ Containers
 
 Containerization is the process of generating a fully functioning software ecosystem that includes
 code and dependencies for part or all of a project. The most popular and common
-tool for implementing containerization is Docker. Using Docker, we can
-programatically build an environment for our project, and pass the
-entirety of this encapsulated environment from our local development
-machine, into the Continuous Integration pipeline for testing, and eventually
+tool for realizing containerization is Docker. Using Docker, we can programatically build an
+environment for our project, and pass the entirety of this encapsulated environment from our local
+development machine, into the Continuous Integration pipeline for testing, and eventually
 into our production environment.
 
-With containerization, we can more easily acheive immutability [#]_, starting in our development environment, 
-the test environment and eventually our production environment. Using immutable 
-containers means we have hosts that are ephemeral. Ephemerality is the 
-concept of things being transitory, existing only briefly [#]_. Rather 
+.. index::
+   single: Containerization
+   single: Docker
+
+Software Infrastructure and Platforms are the foundations upon which our scripts, code, and
+projects are founded. It is more desirable to creae projects that are built
+and replaced frequently, than it is to attempt to upgrade and repair the infrastructure, platforms,
+and project code. Attempts to upgrade and repair in place, such as with bare metal platforms
+for example, quickly reveal great difficulty in maintaining consistency with the project source,
+as well as issues keeping operating system packages current yet still compatible with the project.
+Imagine a situation where an upgrade to a package is necessary to meet security requirements,
+but this very same upgrade means the project stop working resulting in angry users and customers.
+Certainly not a situation we ever like to find ourselves in.
+
+There is obvious advantage of being able to quickly stand up new clones of our project to
+replace existing instances that may be outdated, insecure, etc. 
+The idea of immutability [#]_, in reference to software, is the degree to which something, 
+our running project in this case, can be changed. Immutablity is desirable, in that we wish to
+be able to simply replace outdated instances of our porject in their entirety.
+With containerization, we can more easily acheive immutability across the
+software lifecycle. 
+
+.. index::
+   single: immutability
+
+Using immutable containers means we have hosts that are ephemeral. Ephemerality
+is the concept of things being
+transitory in nature, existing only briefly [#]_. Rather 
 than spending a great deal of time patching and upgrading one or more hosts as in a traditional project
 stack that uses virtual machines or bare metal, we're going to quickly create a new container 
 in place of the old one.
@@ -29,9 +52,7 @@ in place of the old one.
 .. [#] https://en.wikipedia.org/wiki/Ephemerality
 
 .. index::
-   single: immutability
    single: Ephemerality
-   single: Docker
 
 Using Docker also gives us the benefit of being able to switch quickly 
 between base OS images with just a few lines of code change to our project. 
@@ -45,9 +66,7 @@ the two example files below. For now it's OK to see them and
 get a general familiarity with their contents. Later we will use these files to 
 create containers for our projects.
 
-***********************
-Container Orchestration
-***********************
+
 
 **********
 Dockerfile
@@ -84,7 +103,6 @@ Some IDE's will key off this file and allow for additional syntax highlighting.
    RUN apt update; \
       apt -y install apt-utils
 
-
 ******************
 docker-compose.yml
 ******************
@@ -114,6 +132,22 @@ in our `docker` directory.
       build:
          context: ..
          dockerfile: docker/Dockerfile
+
+***********************
+Container Orchestration
+***********************
+
+.. index::
+   single: Orchestration
+
+******************
+A Bit About Podman
+******************
+
+Podman is an Open Source alternative to Docker from the Open Containers Initiative (OCI).
+
+.. index::
+   single: Podman
 
 .. raw:: latex
 
