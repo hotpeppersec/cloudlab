@@ -22,3 +22,7 @@ Franklin Diaz
 franklin@bitsmasher.net
 (773) 960-5400
 ```
+
+## Page Counts By Chapter
+
+Here is a current count of pages by chapter, and an estimated numbers of pages after chapters are completed.
