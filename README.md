@@ -6,28 +6,32 @@
 
 ## Linux Dev Environment Setup
 
-- make
 - docker-compose
 - Docker
-- python3-pip
-- vscode 
-  - drawio
+
+```bash
+sudo apt install make python3-pip
+```
 
 ## Windows Dev Environment Setup
 
 - Docker (includes docker-compose)
 - install chocolatey (https://dev.to/bdbch/setting-up-ssh-and-git-on-windows-10-2khk)
-  - `choco install git -Y`
-  - `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
-  - `ssh-add id_rsa`
-  - `type C:\Users\your_user_name\.ssh\id_rsa.pub`
-  - `docker-compose -f docker\docker-compose.yml build devsecops`
-	- `docker-compose -f docker\docker-compose.yml run devsecops /bin/bash`
-
-### Windows Optional
-
 - [Python3](https://www.python.org/downloads/windows/)
 
+```bash
+choco install git -Y
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-add id_rsa
+type C:\Users\your_user_name\.ssh\id_rsa.pub
+docker-compose -f docker\docker-compose.yml build devsecops
+docker-compose -f docker\docker-compose.yml run devsecops /bin/bash
+```
+
+## IDE Setup
+
+- VScode
+  - drawio plugin
 
 ## To generate PDF of book
 

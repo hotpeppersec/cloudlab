@@ -91,10 +91,24 @@ Colophon
 ********
 
 This book was written in the reStructuredText file format [#]_ . The Sphinx module for Python
-was used to format these files and programatically generate HTML, PDF, LaTeX, and other working
-formats used in the typesetting process.
+was used to format these files and programatically generate LaTeX, and other working
+formats used in the typesetting process. Some graphs have been generated programatically
+using the Graphviz software. The entire publishing environment is encapsulated in a container
+according to the principles outlined in this book.
 
 .. [#]  https://en.wikipedia.org/wiki/ReStructuredText
+
+|
+
+.. figure:: ../images/workflow.png
+   :align: center
+   :name: myFig0
+   :alt: Containerized publishing workflow.
+   :figclass: align-center
+
+   Containerized publishing workflow.
+
+|
 
 ****************
 Acknowledgements
@@ -104,9 +118,9 @@ Creation is a long and twisty path, fraught with the distractions of a life well
 the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
 supportive and loving family is the touchstone that 
 
-****************
-About the Author
-****************
+*****************
+About the Authors
+*****************
 
 Franklin Diaz is a Computer Scientist and lifelong computer hobbyist. He spent 14 years
 as a Software Engineer, testing and developing Motorola's CDMA cellular base station products.
@@ -127,19 +141,13 @@ be exploring new ways of working for folks who are somewhat familiar with:
 
 - Linux (UI and command line)
 - Python 3
-- Familiarity with github.com and the concepts of pull requests and branching.
+- Familiarity with github.com and the concepts of [pull requests]_ and [branching]_.
 
-To follow along with the examples in this book you will need a host running
-a recent version of Linux, or another UNIX variant. An Apple laptop
-would also be a good choice. Other operating systems may work as well,
-if they have the ability to run a BASH shell, install open source 
-packages, etc. Support for environments other than Linux or Mac are
-beyond the scope of this book.
+.. [pull requests]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
+.. [branching]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 
-It is not necessary to install Python 3 locally, since we will contain
-Python and it's dependencies to an instance of Docker. For this reason,
-we will move to discussing containerization using Docker in the chapter 
-following this one.
+The examples in this book have been tested on Linux, Mac, and Windows hosts running the
+latest version of Docker. 
 
 Let's take a look at some of the other foundational environmental elements
 we need in place to be successful.
@@ -147,13 +155,12 @@ we need in place to be successful.
 The Workhorse (IDE)
 ===================
 
-I find it extremely helpful to have an Integrated Development Environment
+The authors find it extremely helpful to have an Integrated Development Environment
 (IDE) that I don't have to spend a lot of time configuring. Lately that 
-is Visual Studio Code [#]_ for me. It works well on both Linux, Mac and other 
-operating systems as well. The 
-environment is easily extensible to support most any language, linter, or
-syntax checker we may have a need for. Folks also seem to be quite fond of Sublime [#]_ 
-for it's extensibility.
+is Visual Studio Code [#]_ for us. It works well on Linux, Mac and other 
+operating systems as well. The environment is easily extensible to support most any
+language, linter, or syntax checker we may have a need for. Folks also seem to be quite
+fond of Sublime [#]_ for it's extensibility.
 
 .. [#] https://code.visualstudio.com/Download
 .. [#] https://www.sublimetext.com/
