@@ -9,15 +9,15 @@ DevSecOps Quick Start
 
 |
 
-The world is changing with respect to how how softare is created and maintained. Folks
-at the leading edge in todays computing industry are not just building software, but
+The world is changing with respect to how how software is created and maintained. Folks
+at the leading edge in today's computing industry are not just building software, but
 are curating it through a cyclical process of continuous development, testing, use, and
 improvement. With increasing frequency, applications and workloads are moving to 
 computing environments that are abstracted away, managed by invisible armies of engineers
-at comapnies other than their own. Of course we are referring to those multitentant cloud
+at comapnies other than their own. Of course we are referring to those multitenant cloud
 type computing landscapes. Passing one or more fully encapsulated applications to a cloud 
 provider for the purposes of having them host it as a production environment has become
-commonplace. Further, cloud service providers are adding new features and capabilites at
+commonplace. Further, cloud service providers are adding new features and capabilities at
 breakneck speed. 
 
 At the time of this writing in 2020, about 40% of production workloads are 
@@ -35,7 +35,7 @@ efforts in other pursuits.
 
 In this book, we will explore a combination of techniques that can refresh
 your skills and align your projects with the technological leading edge. 
-We will introduce various popular technolgies, then use common bits and pieces of these to create a secure build 
+We will introduce various popular technologies, then use common bits and pieces of these to create a secure build 
 pipeline for our lab and development work, test, and even production environments. 
 The techniques here are meant to help the security-minded developer sharpen her or his
 skills, and introduce tips and tactics that benefit the teams they are a part of.
@@ -48,7 +48,7 @@ and streamline our ways of working. We will attempt to leverage these ways to
 get us quickly and securely to a working lab environment. At the same time we 
 should strive for simplicity and reduction of complexity whenever possible. Experience tells us that 
 tools and process that are too cumbersome or burdensome are typically circumvented, or even abandoned. 
-Complexity in our processes beome the snags and side projects that are the enemy 
+Complexity in our processes become the snags and side projects that are the enemy 
 of productivity. Refuse to shave more yaks than absolutely necessary!
 
 ==================
