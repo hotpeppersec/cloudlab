@@ -305,6 +305,16 @@ from checking in the `.DS-Store` that Macintosh creates in many folders.
 
    root@cloudlab:~/workspace/cloudlab# echo ".DS_Store" > .gitignore
 
+Working with Branches
+=====================
+
+Naming your branches something useful is helpful (self documenting).
+
+Let's look at how to create a branch
+
+Steps
+*****
+
 Pull Requests
 =============
 
@@ -317,6 +327,9 @@ of changes ready for review and potential changes [#]_ .
 
 .. index::
    single: Pull Request
+
+Keeping pull requests smaller and more frequent makes it easier for your peers to review
+your changes. It also means you will be less likely to lose work.
 
 Let's use our changes to the CODEOWNERS file to try making a change in our clone
 of the repository in GitHub, then pushing that change up to the repository.

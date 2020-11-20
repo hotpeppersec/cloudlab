@@ -19,6 +19,8 @@ sudo apt install make python3-pip
 - install chocolatey (https://dev.to/bdbch/setting-up-ssh-and-git-on-windows-10-2khk)
 - [Python3](https://www.python.org/downloads/windows/)
 
+[Here is a link about installing Git locally](https://dev.to/bdbch/setting-up-ssh-and-git-on-windows-10-2khk)
+
 ```bash
 choco install git -Y
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"

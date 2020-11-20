@@ -223,9 +223,18 @@ explore how to "clone" the project repository and do our work directory from the
 Container Orchestration
 ***********************
 
-Everyone is talking about Kubernetes these days. Kubernetes is an example, perhaps the
-penultimate example, of Container Orchestration. An orchestrator helps us acheieve
-immutability, and scale to meet user demand quickly and easily.
+Kubernetes is an example, perhaps the penultimate example, of a Container Orchestrator. Folks
+throughout the software and security communities are using Kubernetes these
+days, and with good reason.  It's adoption as a means to manage and replicate
+containers, and scale the applications they contain, has been nothing short of revolutionary.
+Admins and developers can do more, better work, albiet at the expense of introduction yet
+another paradigm to learn, and some amount of complexity.
+
+An orchestrator helps us acheieve immutability, and scale to meet user demand quickly and easily
+by abstracting away concerns that come with operating workloads in a bare metal or VM 
+environment.
+
+As Kubernetes and other orchestrators 
 
 .. index::
    single: Kubernetes
