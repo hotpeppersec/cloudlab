@@ -109,7 +109,7 @@ latex_font_size = '10pt'
 latex_logo = 'images/plouzane-1758197_1920.jpg'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
-latex_additional_files = ['sphinxmanual.cls'] 
+#latex_additional_files = ['sphinxmanual.cls'] 
 
 latex_elements = {
     'inputenc': '',
