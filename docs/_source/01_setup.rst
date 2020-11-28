@@ -60,7 +60,7 @@ Let's start by considering the objectives for this book.
 - Create an extensible lab environment for rapid prototyping and development.
 - Get out of our old comfort zone, into a new one.
 - Keep our lab costs down while meeting the rest of the objectives. Utilize free services and open source tools to the extent possible.
-- Use the published Best Practices for each tool we choose to employ.
+- Use the published best practices for each tool we choose to employ.
 - Always leave our project in a functional state.
 
 
@@ -219,6 +219,6 @@ Lab Exercises
 
 This book features a final chapter to guide the reader through applying the information
 introduced between this one and that. You are encouraged to jump ahead, go back and re-read, 
-do the parts you think you can use right away and skip that parts you don;t think you will
+do the parts you think you can use right away and skip the parts you don't think you will
 ever use. Learning can be a non-linear experience and you are encouraged to "color outside
 the lines" to the extent you feel comfortable doing so. 

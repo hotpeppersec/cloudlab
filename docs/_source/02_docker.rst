@@ -79,8 +79,8 @@ will dictate how we provision resources and include operating system essentials 
 inside our container. Each Dockerfile is predicated on a base image, such as Python/Debian 10 as 
 shown in the example below.
 
-Consider a directory called 
-`docker <https://github.com/hotpeppersec/rapid_secdev_framework/tree/master/docker>`_ 
+Consider a directory named 
+`Docker <https://github.com/hotpeppersec/rapid_secdev_framework/tree/master/docker>`_ 
 and a file called 
 `Dockerfile <https://github.com/hotpeppersec/rapid_secdev_framework/blob/master/docker/Dockerfile>`_ within
 this directory. Note the capitalization of the first letter in the file name.
@@ -120,15 +120,13 @@ directory as the root of the project "inside" the container. Finally, we are dir
 docker-compose.yml
 ******************
 
-The `docker-compose.yml` file allows us to manage multiple Docker containers 
+A file called docker-compose.yml will exist alongside our `Dockerfile`
+in our Docker directory. The docker-compose.yml file allows us to manage multiple Docker containers 
 for one or more applications. We will add this file to our project to illustrate it's
 composition and give ourselves the ability to extend our work later, as needed.
 
 .. index::
    single: docker-compose.yml
-
-A file called `docker-compose.yml` will exist alongside our `Dockerfile`
-in our `docker` directory.
 
 .. code-block:: bash
    :caption: An example docker-compose.yml file
