@@ -57,7 +57,7 @@ Getting Acclimated
 
 Let's start by considering the objectives for this book.
 
-- Create an extensible lab environment for rapid prototyping and development.
+- Create an extensible lab environment for prototyping and development.
 - Get out of our old comfort zone, into a new one.
 - Keep our lab costs down while meeting the rest of the objectives. Utilize free services and open source tools to the extent possible.
 - Use the published best practices for each tool we choose to employ.
@@ -65,26 +65,33 @@ Let's start by considering the objectives for this book.
 
 
 The ideas captured here are not means to any end. Rather, these are meant to 
-be starting points that give you the momentum with technologies and techniques
-that will streamline your projects. Your job is to keep experimenting and to 
-see what is useful enough to stick with you. You will build up
-a solid base of code examples and problem solving techniques that will greatly 
-increase you efficacy. Over time, tools and processes will rotate in and out of 
-your toolbox as technology matures.
+be starting points, giving you a frame of reference with novel technologies and 
+techniques that will streamline your projects. You will build up the momentum to 
+pursue these new ideas by following along with the examples outlined in this book.  
 
-Companies will make their services free in the hopes that you will see the value
-and usefulness of their products. The hope is that you will see enough utility 
-that you will recommend them to your enterprise clients and integrate their 
-stuff into your workflows. Not a bad trade-off! 
+You should work to build up a solid base of code examples and problem solving 
+techniques that will greatly increase your efficacy. Over time, new tools and 
+processes will rotate in and out of your toolbox as technology progresses. Keep in 
+mind that your job is to maintain that momentum, to keep experimenting and to 
+see what is useful enough to stick with you and make a permanent part of your 
+repertoire.
+
+Companies often make their services free in the hopes that you will see the value
+and usefulness of their products. The thinking goes that hopefully you will see 
+enough utility that you will recommend them to your enterprise clients and integrate 
+their products into your workflows. Not a bad trade-off! It only makes sense to avail
+yourself of free-tier cloud services, build and test plaforms, and low or no-cost
+hosting environments. There are plenty of these out there and we will explore
+some of these as we dive further into the topics.
 
 When we choose to use a tool, say Ansible for example, it only makes sense to also adopt the
-most up-to-date best practices for using that tool. File system layout, naming conventions,
+most up-to-date and best practices for using that tool. File system layout, naming conventions,
 script syntax and organization, and so on. We get to enjoy the clear and safe path
 forged by the folks that came before us, and with whom we share many goals. 
 
-Finally, I've found it very helpful for my peace of mind to always leave my
-projects clean and green before walking away from my work station for the day.
-Hopefully you find similar benefit should you choose to adopt this practice.
+Finally, the authors have found it very helpful for their peace of mind to leave 
+projects clean and green, to the xtent possible, before walking away from the keyboard
+for the day. Perhaps you would find similar benefit should you choose to adopt this practice.
 
 ********
 Colophon
@@ -184,17 +191,19 @@ reduce attempts to refocus between windows on my desktop.
 The Flow (Pipelines)
 ********************
 
-Work products, such as code and documents for example, begin their life on developer workstations. We
-will refer to this as the "local"
-environment. These work products are created, reviewed and checked into revision control systems (GitHub
-for example) by the DevSecOps practitioner. Test cases are created and run against the work at check-in time, to ensure 
-stability, security, and compatibility with the exsiting code base. The automation required to to execute
-tests every time work is checked in is also the responsibility of the DevSecOps engineers. As seen in :numref:`myFig1` 
-work typically "flows" from the local environments, into a test environment, and finally to production. We 
-will refer to the entirety of this flow as a "pipeline". Code from one or more local environments is checked 
-in to revision control throughout a typical workday, and continuously tested and integrated with the 
-main code base. That is to say, work undergoes "Continuous Inetegration" (CI) with the main code base,
-and often "Continuous Delivery" (CD) between local, test, and production environments. This is where the 
+Work products, such as code and documents for example, begin their life on developer 
+workstations. We will refer to this as the "local" environment. These work products are 
+created, reviewed and checked into revision control systems (GitHub for example) by the 
+DevSecOps practitioner. Test cases are created and run against the work at check-in time, 
+to ensure stability, security, and compatibility with the exsiting code base. The 
+automation required to to execute tests every time work is checked in is also the 
+responsibility of the DevSecOps engineers. As seen in :numref:`myFig1` work typically "flows" 
+from the local environments, into a test environment, and finally to production. We 
+will refer to the entirety of this flow as a "pipeline". Code from one or more local 
+environments is checked in to revision control throughout a typical workday, and 
+continuously tested and integrated with the main code base. That is to say, work 
+undergoes "Continuous Inetegration" (CI) with the main code base, and often "Continuous 
+Delivery" (CD) between local, test, and production environments. This is where the 
 term "CI/CD Pipeline" comes from.
 
 |
@@ -209,9 +218,20 @@ term "CI/CD Pipeline" comes from.
 
 |
 
-While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other pipelines exist as 
-well. For example, Data Engineers build and maintain Data Science pipelines for to get information into a data lake, 
-or for Data Scientists to be able to create machine learning models from.
+While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other 
+pipelines exist as well. For example, let's assume our organization maintains a vast
+pool of raw data, also known as a data lake [#]_. The staff Data Engineers build and 
+maintain Data Science [#]_ pipelines to facilitate the smooth flow of logs and other
+data into that data lake. Now Data Scientists are able to create machine learning models
+that rely on that data to produce useful insights. As another example, consider code 
+changes as they move from developer workstations into a code repository for storage. 
+Accessing this code for the purpose of testing will differ from how it is accessed for
+the purposes of deployment. The order of operations and flow between differeing functions
+might be said to comprise two different pipelines.
+
+.. index::
+   single: Data Lake
+   single: Data Science
 
 *************
 Lab Exercises
