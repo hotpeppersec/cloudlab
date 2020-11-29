@@ -9,6 +9,17 @@ DevSecOps Quick Start
 
 |
 
+The term DevSecOps is an amalgam of the words development, security and operations. Simply put,
+DevSecOps lives at the intersection of application development, information security, and 
+network operations. As we will soon discover, Infrastructure as Code (IaC) is the platform upon 
+which software flows moves through continuous delivery cycle. To the extent possible, we attempt
+to realize gains in performance of our people and projects by leveraging automation and Agile
+development practices.
+
+.. index::
+   single: devsecops
+   single: Infrastructure as Code (IaC)
+
 The world is changing with respect to how how software is created and maintained. Folks
 at the leading edge in today's computing industry are not just building software, but
 are curating it through a cyclical process of continuous development, testing, use, and
@@ -147,8 +158,9 @@ in a focus-stealing world.
 Prerequisites
 *************
 
-This book assumes the reader has some basic knowledge of certain concepts. We will
-be exploring new ways of working for folks who are somewhat familiar with:
+This book intends to be a practical treatment of common and popular technologies from the
+DevSecOps world. As such, we assume the reader has some basic knowledge of certain concepts. 
+We will be exploring new ways of working for folks who are somewhat familiar with:
 
 - Linux (UI and command line)
 - Python 3
@@ -190,6 +202,7 @@ IDE for similar reasons, including it's customizability and extensibility.
 .. [#] https://www.sublimetext.com/
 
 .. index::
+   single: Integrated Development Environment
    single: VSCode
    single: Sublime
 
@@ -222,6 +235,12 @@ continuously tested and integrated with the main code base. That is to say, work
 undergoes "Continuous Inetegration" (CI) with the main code base, and often "Continuous 
 Delivery" (CD) between local, test, and production environments. This is where the 
 term "CI/CD Pipeline" comes from.
+
+.. index::
+   single: CI
+   single: Continuous Deployment
+   single: CD 
+   single: Continuous Integration
 
 |
 
