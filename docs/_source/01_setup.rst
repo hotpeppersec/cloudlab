@@ -90,7 +90,7 @@ script syntax and organization, and so on. We get to enjoy the clear and safe pa
 forged by the folks that came before us, and with whom we share many goals. 
 
 Finally, the authors have found it very helpful for their peace of mind to leave 
-projects clean and green, to the xtent possible, before walking away from the keyboard
+projects clean and green, to the extent possible, before walking away from the keyboard
 for the day. Perhaps you would find similar benefit should you choose to adopt this practice.
 
 ********
@@ -99,9 +99,10 @@ Colophon
 
 This book was written in the reStructuredText file format [#]_ . The Sphinx module for Python
 was used to format these files and programatically generate LaTeX, and other working
-formats used in the typesetting process. Some graphs have been generated programatically
-using the Graphviz software. The entire publishing environment is encapsulated in a container
-according to the principles outlined in this book.
+formats used in the typesetting process. The resultant LaTeX files were manged using TeXstudio 
+and Overleaf. Some graphs have been generated programatically using the Graphviz software. 
+The entire publishing environment is encapsulated in a container according to the principles
+outlined in this book.
 
 .. [#]  https://en.wikipedia.org/wiki/ReStructuredText
 
@@ -117,14 +118,6 @@ according to the principles outlined in this book.
 
 |
 
-****************
-Acknowledgements
-****************
-
-Creation is a long and twisty path, fraught with the distractions of a life well-lived and
-the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
-supportive and loving family is the touchstone that 
-
 *****************
 About the Authors
 *****************
@@ -138,6 +131,17 @@ Engineer. He is also the lead organizer for the BSides Indy security conference 
 Indiana. His education includes a Bachelor of Science in Computer Science from Roosevelt University, 
 a Master of Science degree in Computer Information Systems from Northwestern University, and a
 Master of Science degree in Network Security & Network Engineering from DePaul University.
+
+
+****************
+Acknowledgements
+****************
+
+Creation is a long and twisty path, fraught with the distractions of a life well-lived and
+the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
+supportive and loving family is the touchstone that grounds us through it all. Franklin would
+like to thanks his family, especially his loving wife for making it possible to maintain focus
+in a focus-stealing world.
 
 *************
 Prerequisites
@@ -153,21 +157,34 @@ be exploring new ways of working for folks who are somewhat familiar with:
 .. [pull requests]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 .. [branching]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 
-The examples in this book have been tested on Linux, Mac, and Windows hosts running the
+The examples in this book have been tested on Linux and Windows hosts running the
 latest version of Docker. 
 
 Let's take a look at some of the other foundational environmental elements
 we need in place to be successful.
 
+Windows Specific Prerequisites
+******************************
+
+- installation of power shell
+- instalation of python 3.9.0
+- installation of gh or github command line client?
+
+Linux Specific Prerequisites
+****************************
+
+When installing Docker on Linux hosts, it should be noted that docker-compose must be
+installed separately.
+
 The Workhorse (IDE)
 ===================
 
 The authors find it extremely helpful to have an Integrated Development Environment
-(IDE) that I don't have to spend a lot of time configuring. Lately that 
-is Visual Studio Code [#]_ for us. It works well on Linux, Mac and other 
-operating systems as well. The environment is easily extensible to support most any
-language, linter, or syntax checker we may have a need for. Folks also seem to be quite
-fond of Sublime [#]_ for it's extensibility.
+(IDE) that they don't have to spend a lot of time configuring and maintaining. Lately 
+that is Visual Studio Code [#]_ for us. It works well on Linux, Mac and other operating 
+systems as well. The environment is easily extensible to support most any language, linter, 
+or syntax checker we may have a need for. Folks also seem to be quite fond of the Sublime [#]_ 
+IDE for similar reasons, including it's customizability and extensibility.
 
 .. [#] https://code.visualstudio.com/Download
 .. [#] https://www.sublimetext.com/
@@ -220,8 +237,8 @@ term "CI/CD Pipeline" comes from.
 
 While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other 
 pipelines exist as well. For example, let's assume our organization maintains a vast
-pool of raw data, also known as a data lake [#]_. The staff Data Engineers build and 
-maintain Data Science [#]_ pipelines to facilitate the smooth flow of logs and other
+pool of raw data, also known as a data lake. The staff Data Engineers build and 
+maintain Data Science pipelines to facilitate the smooth flow of logs and other
 data into that data lake. Now Data Scientists are able to create machine learning models
 that rely on that data to produce useful insights. As another example, consider code 
 changes as they move from developer workstations into a code repository for storage. 
