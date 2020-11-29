@@ -221,22 +221,29 @@ reduce attempts to refocus between windows on my desktop.
 The Flow (Pipelines)
 ********************
 
-Work products, such as code and documents for example, begin their life on developer 
-workstations. We will refer to this as the "local" environment. These work products are 
-created, reviewed and checked into revision control systems (GitHub for example) by the 
-DevSecOps practitioner. Test cases are created and run against the work at check-in time, 
-to ensure stability, security, and compatibility with the exsiting code base. The 
-automation required to to execute tests every time work is checked in is also the 
-responsibility of the DevSecOps engineers. As seen in :numref:`myFig1` work typically "flows" 
-from the local environments, into a test environment, and finally to production. We 
-will refer to the entirety of this flow as a "pipeline". Code from one or more local 
-environments is checked in to revision control throughout a typical workday, and 
-continuously tested and integrated with the main code base. That is to say, work 
-undergoes "Continuous Inetegration" (CI) with the main code base, and often "Continuous 
-Delivery" (CD) between local, test, and production environments. This is where the 
-term "CI/CD Pipeline" comes from.
+Work products such as code and documents begin their life on developer workstations. We
+will refer to these developer environments where this takes place as the "local" environment. 
+These work products are created, reviewed and checked into Revision Control Systems (RCS), GitHub
+for example, by the DevSecOps practitioner. Other revison control systems include GitLab and 
+BitBucket.
 
 .. index::
+   single: Revsion Control System (RCS)
+
+Test cases are created and run against the work products at check-in time, to ensure 
+stability, security, and compatibility with the exsiting code base. The automation required 
+to execute tests every time work is checked in is also typically the responsibility of the DevSecOps 
+engineers. As seen in :numref:`myFig1` work typically "flows" from the local environments, into 
+a test environment, and finally to production where it is available for use by the entire user base. 
+
+We will refer to the entirety of this three-stage flow as one example of a "pipeline". Code from 
+one or more local environments is checked in to the revision control system throughout a typical DevSecOps
+workday, and continuously tested and integrated with the main code base. That is to say, work undergoes 
+"Continuous Integration" (CI) with the main code base, and often "Continuous Delivery" (CD) between 
+local, test, and production environments. This is where the term "CI/CD Pipeline" comes from.
+
+.. index::
+   single: pipeline
    single: CI
    single: Continuous Deployment
    single: CD 
