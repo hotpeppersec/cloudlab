@@ -50,13 +50,13 @@ Relevant files and folders mentioned in this chapter are organized as seen below
    digraph folders {
       "/home/secdevops" [shape=folder];
       "workspace" [shape=folder];
-      "cloudlab" [shape=folder];
+      "devsecops" [shape=folder];
       "python" [shape=folder];
       "ruby" [shape=folder];
       "Gemfile" [shape=rectangle];
       "/home/secdevops" -> "workspace";
-      "workspace" -> "cloudlab";
-      "cloudlab" -> "python";
-      "cloudlab" -> "ruby";
+      "workspace" -> "devsecops";
+      "devsecops" -> "python";
+      "devsecops" -> "ruby";
       "ruby" -> "Gemfile";
    }

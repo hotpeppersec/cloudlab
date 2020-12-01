@@ -111,7 +111,7 @@ our `make docker` target from our custom Makefile.
    :linenos:
 
   ---
-  name: CloudLab Docker Image CI
+  name: DevSecOps Docker Image CI
   on:
     push:
       branches: [ master ]
@@ -145,7 +145,7 @@ our `make python` target from our custom Makefile.
    :linenos:
   
   ---
-  name: CloudLab Python CI
+  name: DevSecOps Python CI
   on:
     push:
       branches: [ master ]
@@ -171,14 +171,14 @@ our `make python` target from our custom Makefile.
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
-          sudo mkdir -p /var/log/cloudlab
-          sudo chmod 777 /var/log/cloudlab
+          sudo mkdir -p /var/log/devsecops
+          sudo chmod 777 /var/log/devsecops
           make test
 
 Packer
 ======
 
-Save this YAML file under `codelab/.github/workflows/packer.yml` to have GitHub Actions validate
+Save this YAML file under `devsecops/.github/workflows/packer.yml` to have GitHub Actions validate
 and build our AMI image with Packer.
 
 .. index::
@@ -413,7 +413,7 @@ that prevent the PR from being merged until Travis CI flags the build as passing
       - cd playbooks/roles/webserver && molecule test
 
 The contents of the requirements files and the example Ansible code is available in 
-the cloudlab repo.
+the companion repo.
 
 Markdown
 ========
@@ -467,7 +467,7 @@ the diagram for clarity.
    :align: center
 
    digraph folders {
-      "cloudlab" [shape=folder];
+      "devsecops" [shape=folder];
       ".github" [shape=folder];
       "workflows" [shape=folder];
       ".circleci" [shape=folder];
@@ -479,11 +479,11 @@ the diagram for clarity.
       ".travis.yml" [shape=rectangle];
       ".mdlrc" [shape=rectangle];
       ".markdownlint.json" [shape=rectangle];
-      "cloudlab" -> ".github";
-      "cloudlab" -> ".mdlrc";
-      "cloudlab" -> ".travis.yml";
-      "cloudlab" -> ".markdownlint.json";
-      "cloudlab" -> ".circleci";
+      "devsecops" -> ".github";
+      "devsecops" -> ".mdlrc";
+      "devsecops" -> ".travis.yml";
+      "devsecops" -> ".markdownlint.json";
+      "devsecops" -> ".circleci";
       ".circleci" -> "config.yml";
       ".github" -> "workflows";
       "workflows" -> "docker_compose.yml";
