@@ -87,7 +87,7 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
          "ami_name": "generic-lab-host {{timestamp}}",
          "tags": {
          "Name": "Packer-Ansible",
-         "Project": "SecDevOps CloudLab",
+         "Project": "DevSecOps",
          "Commit": "unknown"
          }
       }
@@ -100,7 +100,7 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
             "mkdir -p /home/secdevops/.ssh",
             "chmod 700 /home/secdevops/.ssh",
             "cd /home/secdevops && git clone https://github.com/wwce/ctf_scoreboard.git",
-            "cp /home/secdevops/cloudlab/packer/authorized_keys /home/secdevops/.ssh",
+            "cp /home/secdevops/devsecops/packer/authorized_keys /home/secdevops/.ssh",
             "chown -R ubuntu /home/ubuntu",
             "cp /home/ubuntu/ctf_scoreboard/packer/ctfd.service /etc/systemd/system"
       ]}
@@ -264,7 +264,7 @@ reference modules, both internal and exteral. The main.tf file is the place the 
       source  = "terraform-aws-modules/security-group/aws"
       version = "~> 3.0"
 
-      name        = "CloudLab"
+      name        = "DevSecOps"
       description = "Security group for the cloud lab"
       vpc_id      = data.aws_vpc.default.id
 
@@ -355,7 +355,7 @@ your Terraform files is as easy as  typing `terraform validate` in the directory
    :caption: Validating Terraform files
    :name: Validating Terraform files
 
-   thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform validate
+   user@devsecops::~/workspace/rapid_secdev_framework/aws$ terraform validate
    Success! The configuration is valid.
 
 To get your Terrform files into a clean standard format, the `terraform fmt` command works well. There
@@ -371,7 +371,7 @@ First we will will create a "plan" in preparation for application.
    :name: Creating a plan file with Terraform
    :linenos:
 
-   thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform plan -out franklin.out
+   user@devsecops::~/workspace/rapid_secdev_framework/aws$ terraform plan -out franklin.out
    Refreshing Terraform state in-memory prior to plan...
    The refreshed state will be used to calculate this plan, but will not be
    persisted to local or remote state storage.
@@ -554,7 +554,7 @@ below.
    :align: center
 
    digraph folders {
-      "cloudlab" [shape=folder];
+      "devsecops" [shape=folder];
       "ansible" [shape=folder];
       "aws" [shape=folder];
       "packer" [shape=folder];
@@ -564,9 +564,9 @@ below.
       "outputs.tf" [shape=rect];
       "terraform.tfvars" [shape=rect];
       "variables.tf" [shape=rect];
-      "cloudlab" -> "ansible";
-      "cloudlab" -> "aws";
-      "cloudlab" -> "packer";
+      "devsecops" -> "ansible";
+      "devsecops" -> "aws";
+      "devsecops" -> "packer";
       "aws" -> "main.tf";
       "aws" -> "outputs.tf";
       "aws" -> "terraform.tfvars";

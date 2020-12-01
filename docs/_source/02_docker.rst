@@ -263,12 +263,12 @@ Here is the change for the `unprivileged_userns_clone` error:
 
 .. code-block:: bash
 
-   user@example.com::~$ podman
+   user@devsecops::~$ podman
    cannot clone: Operation not permitted
    user namespaces are not enabled in /proc/sys/kernel/unprivileged_userns_clone
    Error: could not get runtime: cannot re-exec process
-   user@example.com::~$ sudo sysctl kernel.unprivileged_userns_clone=1
-   user@example.com::~$ podman-v
+   user@devsecops::~$ sudo sysctl kernel.unprivileged_userns_clone=1
+   user@devsecops::~$ podman-v
    podman version 1.9.1
 
 Once podman is installed properly you should be able to `alias docker=podman`

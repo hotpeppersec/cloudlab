@@ -119,7 +119,7 @@ from the diagram for clarity.
 
    digraph folders {
       "/home/secdevops" [shape=folder];
-      "cloudlab" [shape=folder];
+      "devsecops" [shape=folder];
       ".config" [shape=folder];
       "gcloud" [shape=folder];
       "secdevops-my-proj-000101-420240.json" [shape=rect];
@@ -131,7 +131,7 @@ from the diagram for clarity.
       "/home/secdevops" -> ".config";
       ".config" -> "gcloud";
       "gcloud" -> "secdevops-my-proj-000101-420240.json";
-      "/home/secdevops" -> "cloudlab";
-      "cloudlab" -> "aws";
-      "cloudlab" -> "gcp";
+      "/home/secdevops" -> "devsecops";
+      "devsecops" -> "aws";
+      "devsecops" -> "gcp";
    }
