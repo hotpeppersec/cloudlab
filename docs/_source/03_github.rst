@@ -56,8 +56,8 @@ are perfect for this task.
    :caption: Generating SSH keys.
    :name: ssh-keygen
 
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
+   ssh-keygen -t rsa -b 4096 -C "user@example.com"
+   Enter a file in which to save the key (/home/user/.ssh/id_rsa): [Press enter]
    Enter passphrase (empty for no passphrase): [Type a passphrase]
    Enter same passphrase again: [Type passphrase again]
 
@@ -91,11 +91,11 @@ Take a few minutes to set up a GPG key and add it to your profile on GitHub.
    the command "--edit-key" to generate a subkey for this purpose.
    pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]
          848943CDCE488F138BF91079E81498874E59648D
-   uid                      Jimmy Cloud <jimmy@cloud.cloud>
+   uid                      Kevin Flynn <user@example.com>
 
-   root@cloudlab:~# gpg --list-secret-keys --keyid-format LONG | grep sec | cut -f2 -d'/'| cut -f1 -d' '
+   user@devsecops:~# gpg --list-secret-keys --keyid-format LONG | grep sec | cut -f2 -d'/'| cut -f1 -d' '
    E81498874E59648D
-   root@cloudlab:~# gpg --armor --export E81498874E59648D
+   user@devsecops:~# gpg --armor --export E81498874E59648D
 
 Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
 Add the GPG key to your GitHub account.

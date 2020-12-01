@@ -25,8 +25,11 @@ source_suffix = {
 
 extensions = [
     'sphinx.ext.graphviz',
-    'recommonmark'
-    ]
+    'recommonmark',
+    'sphinx.ext.autosectionlabel',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.graphviz',
+    'rst2pdf.pdfbuilder']
 
 # Turns on numbered figures for HTML output
 numfig = True
