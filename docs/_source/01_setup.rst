@@ -57,8 +57,7 @@ Getting Acclimated
 
 Let's start by considering the objectives for this book.
 
-- Create an extensible lab environment for rapid prototyping and development.
-- Get out of our old comfort zone, into a new one.
+- Create an extensible lab environment for rapid prototyping and development. Get out of our old comfort zone, into a new one.
 - Keep our lab costs down while meeting the rest of the objectives. Utilize free services and open source tools to the extent possible.
 - Use the published best practices for each tool we choose to employ.
 - Always leave our project in a functional state.
