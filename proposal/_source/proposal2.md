@@ -172,9 +172,10 @@ of service users, etc. This might be thought of as furnishing and decorating the
 
 ### Chapter 9: The Cloud Lab
 
-Finally we arrive at the full test lab section, where we can discuss the cloud 
-environment in GCP/AWS in it's entirety. We consider larger building blocks of the cloud
-environment, various components such as firewalls and specific types of servers. A comprehensive project in a public GitHub repository that readers can follow 
-along with an try examples from will be maintained. 
+Finally we arrive at the full test lab section, where we can discuss the cloud environment
+in GCP/AWS in it's entirety. We consider larger building blocks of the cloud
+environment, various components such as firewalls and specific types of servers. A
+comprehensive project in a public GitHub repository that readers can follow along with
+an try examples from will be maintained.
 
 [https://github.com/hotpeppersec/rapid_secdev_framework](https://github.com/hotpeppersec/rapid_secdev_framework)
