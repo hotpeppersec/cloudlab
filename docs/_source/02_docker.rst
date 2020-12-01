@@ -242,26 +242,27 @@ As Kubernetes and other orchestrators
 A Bit About Podman (Optional)
 *****************************
 
+The reason we mention Podman is because it is a more secure alternative [#]_ to 
+Docker for creating containers. You will not need to have Podman working to work
+through the exercies in this book.
+
+.. [#] https://opensource.com/article/18/10/podman-more-secure-way-run-containers
+
 Podman is an Open Source alternative container engine from the Open Containers Initiative (OCI).
 <<<<<<< HEAD
 The Podman service is purportedly capable of being a drop-in replacement for Docker, although
 it only runs on Linux hosts at the time of this writing.
 =======
 The podman service is purportedly capable of being a drop-in replacement for Docker, although
-it only runs on Linux hosts at the time of this writing. You will not need to have Podman
-working to work through the exercies in this book.
+it only runs on Linux hosts at the time of this writing. 
 
 .. index::
    single: Podman
    single: Open Containers Initiative (OCI)
 >>>>>>> tweaks after tuesday review
 
-The reason we mention Podman is because it is a more secure alternative [#]_ to Docker for creating 
-containers. 
-
 You can install Podman by following the instructions [#]_ at their web site.
 
-.. [#] https://opensource.com/article/18/10/podman-more-secure-way-run-containers
 .. [#] https://podman.io/getting-started/installation.html
 
 Here is the change for the `unprivileged_userns_clone` error:
