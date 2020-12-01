@@ -225,7 +225,7 @@ Kubernetes is an example, perhaps the penultimate example, of a Container Orches
 throughout the software and security communities are using Kubernetes these
 days, and with good reason.  It's adoption as a means to manage and replicate
 containers, and scale the applications they contain, has been nothing short of revolutionary.
-Admins and developers can do more, better work, albiet at the expense of introduction yet
+Admins and developers can do more, better work, albeit at the expense of introduction yet
 another paradigm to learn, and some amount of complexity.
 
 An orchestrator helps us achieve immutability, and scale to meet user demand quickly and easily
