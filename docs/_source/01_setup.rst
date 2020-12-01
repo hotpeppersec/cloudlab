@@ -14,7 +14,7 @@ at the leading edge in today's computing industry are not just building software
 are curating it through a cyclical process of continuous development, testing, use, and
 improvement. With increasing frequency, applications and workloads are moving to 
 computing environments that are abstracted away, managed by invisible armies of engineers
-at comapnies other than their own. Of course we are referring to those multitenant cloud
+at companies other than their own. Of course we are referring to those multitenant cloud
 type computing landscapes. Passing one or more fully encapsulated applications to a cloud 
 provider for the purposes of having them host it as a production environment has become
 commonplace. Further, cloud service providers are adding new features and capabilities at
@@ -188,12 +188,12 @@ Work products, such as code and documents for example, begin their life on devel
 will refer to this as the "local"
 environment. These work products are created, reviewed and checked into revision control systems (GitHub
 for example) by the DevSecOps practitioner. Test cases are created and run against the work at check-in time, to ensure 
-stability, security, and compatibility with the exsiting code base. The automation required to to execute
+stability, security, and compatibility with the existing code base. The automation required to to execute
 tests every time work is checked in is also the responsibility of the DevSecOps engineers. As seen in :numref:`myFig1` 
 work typically "flows" from the local environments, into a test environment, and finally to production. We 
 will refer to the entirety of this flow as a "pipeline". Code from one or more local environments is checked 
 in to revision control throughout a typical workday, and continuously tested and integrated with the 
-main code base. That is to say, work undergoes "Continuous Inetegration" (CI) with the main code base,
+main code base. That is to say, work undergoes "Continuous Integration" (CI) with the main code base,
 and often "Continuous Delivery" (CD) between local, test, and production environments. This is where the 
 term "CI/CD Pipeline" comes from.
 
