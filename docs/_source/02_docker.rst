@@ -249,17 +249,12 @@ through the exercies in this book.
 .. [#] https://opensource.com/article/18/10/podman-more-secure-way-run-containers
 
 Podman is an Open Source alternative container engine from the Open Containers Initiative (OCI).
-<<<<<<< HEAD
-The Podman service is purportedly capable of being a drop-in replacement for Docker, although
-it only runs on Linux hosts at the time of this writing.
-=======
 The podman service is purportedly capable of being a drop-in replacement for Docker, although
 it only runs on Linux hosts at the time of this writing. 
 
 .. index::
    single: Podman
    single: Open Containers Initiative (OCI)
->>>>>>> tweaks after tuesday review
 
 You can install Podman by following the instructions [#]_ at their web site.
 
