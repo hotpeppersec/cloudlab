@@ -12,14 +12,12 @@ Continuous Integration & Deployment
 Accomodations for Continuous Integration (CI) & Continuous Deployment (CD) in our projects
 directly corresponds to our chances of success.
 
-
 .. index::
    single: CI
    single: Continuous Deployment
    single: CD 
    single: Continuous Integration
    
-
 *******
 Linters
 *******

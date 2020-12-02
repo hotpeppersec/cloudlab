@@ -9,12 +9,23 @@ DevSecOps Quick Start
 
 |
 
+The term DevSecOps is an amalgam of the words development, security and operations. Simply put,
+DevSecOps lives at the intersection of application development, information security, and 
+network operations. As we will soon discover, Infrastructure as Code (IaC) is the platform upon 
+which software flows moves through continuous delivery cycle. To the extent possible, we attempt
+to realize gains in performance of our people and projects by leveraging automation and Agile
+development practices.
+
+.. index::
+   single: devsecops
+   single: Infrastructure as Code (IaC)
+
 The world is changing with respect to how how software is created and maintained. Folks
 at the leading edge in today's computing industry are not just building software, but
 are curating it through a cyclical process of continuous development, testing, use, and
 improvement. With increasing frequency, applications and workloads are moving to 
 computing environments that are abstracted away, managed by invisible armies of engineers
-at comapnies other than their own. Of course we are referring to those multitenant cloud
+at companies other than their own. Of course we are referring to those multitenant cloud
 type computing landscapes. Passing one or more fully encapsulated applications to a cloud 
 provider for the purposes of having them host it as a production environment has become
 commonplace. Further, cloud service providers are adding new features and capabilities at
@@ -64,26 +75,33 @@ Let's start by considering the objectives for this book.
 
 
 The ideas captured here are not means to any end. Rather, these are meant to 
-be starting points that give you the momentum with technologies and techniques
-that will streamline your projects. Your job is to keep experimenting and to 
-see what is useful enough to stick with you. You will build up
-a solid base of code examples and problem solving techniques that will greatly 
-increase you efficacy. Over time, tools and processes will rotate in and out of 
-your toolbox as technology matures.
+be starting points, giving you a frame of reference with novel technologies and 
+techniques that will streamline your projects. You will build up the momentum to 
+pursue these new ideas by following along with the examples outlined in this book.  
 
-Companies will make their services free in the hopes that you will see the value
-and usefulness of their products. The hope is that you will see enough utility 
-that you will recommend them to your enterprise clients and integrate their 
-stuff into your workflows. Not a bad trade-off! 
+You should work to build up a solid base of code examples and problem solving 
+techniques that will greatly increase your efficacy. Over time, new tools and 
+processes will rotate in and out of your toolbox as technology progresses. Keep in 
+mind that your job is to maintain that momentum, to keep experimenting and to 
+see what is useful enough to stick with you and make a permanent part of your 
+repertoire.
+
+Companies often make their services free in the hopes that you will see the value
+and usefulness of their products. The thinking goes that hopefully you will see 
+enough utility that you will recommend them to your enterprise clients and integrate 
+their products into your workflows. Not a bad trade-off! It only makes sense to avail
+yourself of free-tier cloud services, build and test plaforms, and low or no-cost
+hosting environments. There are plenty of these out there and we will explore
+some of these as we dive further into the topics.
 
 When we choose to use a tool, say Ansible for example, it only makes sense to also adopt the
-most up-to-date best practices for using that tool. File system layout, naming conventions,
+most up-to-date and best practices for using that tool. File system layout, naming conventions,
 script syntax and organization, and so on. We get to enjoy the clear and safe path
 forged by the folks that came before us, and with whom we share many goals. 
 
-Finally, I've found it very helpful for my peace of mind to always leave my
-projects clean and green before walking away from my work station for the day.
-Hopefully you find similar benefit should you choose to adopt this practice.
+Finally, the authors have found it very helpful for their peace of mind to leave 
+projects clean and green, to the extent possible, before walking away from the keyboard
+for the day. Perhaps you would find similar benefit should you choose to adopt this practice.
 
 ********
 Colophon
@@ -91,9 +109,10 @@ Colophon
 
 This book was written in the reStructuredText file format [#]_ . The Sphinx module for Python
 was used to format these files and programatically generate LaTeX, and other working
-formats used in the typesetting process. Some graphs have been generated programatically
-using the Graphviz software. The entire publishing environment is encapsulated in a container
-according to the principles outlined in this book.
+formats used in the typesetting process. The resultant LaTeX files were manged using TeXstudio 
+and Overleaf. Some graphs have been generated programatically using the Graphviz software. 
+The entire publishing environment is encapsulated in a container according to the principles
+outlined in this book.
 
 .. [#]  https://en.wikipedia.org/wiki/ReStructuredText
 
@@ -109,14 +128,6 @@ according to the principles outlined in this book.
 
 |
 
-****************
-Acknowledgements
-****************
-
-Creation is a long and twisty path, fraught with the distractions of a life well-lived and
-the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
-supportive and loving family is the touchstone that 
-
 *****************
 About the Authors
 *****************
@@ -131,12 +142,24 @@ Indiana. His education includes a Bachelor of Science in Computer Science from R
 a Master of Science degree in Computer Information Systems from Northwestern University, and a
 Master of Science degree in Network Security & Network Engineering from DePaul University.
 
+
+****************
+Acknowledgements
+****************
+
+Creation is a long and twisty path, fraught with the distractions of a life well-lived and
+the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
+supportive and loving family is the touchstone that grounds us through it all. Franklin would
+like to thanks his family, especially his loving wife for making it possible to maintain focus
+in a focus-stealing world.
+
 *************
 Prerequisites
 *************
 
-This book assumes the reader has some basic knowledge of certain concepts. We will
-be exploring new ways of working for folks who are somewhat familiar with:
+This book intends to be a practical treatment of common and popular technologies from the
+DevSecOps world. As such, we assume the reader has some basic knowledge of certain concepts. 
+We will be exploring new ways of working for folks who are somewhat familiar with:
 
 - Linux (UI and command line)
 - Python 3
@@ -145,26 +168,40 @@ be exploring new ways of working for folks who are somewhat familiar with:
 .. [pull requests]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 .. [branching]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 
-The examples in this book have been tested on Linux, Mac, and Windows hosts running the
+The examples in this book have been tested on Linux and Windows hosts running the
 latest version of Docker. 
 
 Let's take a look at some of the other foundational environmental elements
 we need in place to be successful.
 
+Windows Specific Prerequisites
+******************************
+
+- installation of power shell
+- instalation of python 3.9.0
+- installation of gh or github command line client?
+
+Linux Specific Prerequisites
+****************************
+
+When installing Docker on Linux hosts, it should be noted that docker-compose must be
+installed separately.
+
 The Workhorse (IDE)
 ===================
 
 The authors find it extremely helpful to have an Integrated Development Environment
-(IDE) that I don't have to spend a lot of time configuring. Lately that 
-is Visual Studio Code [#]_ for us. It works well on Linux, Mac and other 
-operating systems as well. The environment is easily extensible to support most any
-language, linter, or syntax checker we may have a need for. Folks also seem to be quite
-fond of Sublime [#]_ for it's extensibility.
+(IDE) that they don't have to spend a lot of time configuring and maintaining. Lately 
+that is Visual Studio Code [#]_ for us. It works well on Linux, Mac and other operating 
+systems as well. The environment is easily extensible to support most any language, linter, 
+or syntax checker we may have a need for. Folks also seem to be quite fond of the Sublime [#]_ 
+IDE for similar reasons, including it's customizability and extensibility.
 
 .. [#] https://code.visualstudio.com/Download
 .. [#] https://www.sublimetext.com/
 
 .. index::
+   single: Integrated Development Environment
    single: VSCode
    single: Sublime
 
@@ -183,18 +220,33 @@ reduce attempts to refocus between windows on my desktop.
 The Flow (Pipelines)
 ********************
 
-Work products, such as code and documents for example, begin their life on developer workstations. We
-will refer to this as the "local"
-environment. These work products are created, reviewed and checked into revision control systems (GitHub
-for example) by the DevSecOps practitioner. Test cases are created and run against the work at check-in time, to ensure 
-stability, security, and compatibility with the exsiting code base. The automation required to to execute
-tests every time work is checked in is also the responsibility of the DevSecOps engineers. As seen in :numref:`myFig1` 
-work typically "flows" from the local environments, into a test environment, and finally to production. We 
-will refer to the entirety of this flow as a "pipeline". Code from one or more local environments is checked 
-in to revision control throughout a typical workday, and continuously tested and integrated with the 
-main code base. That is to say, work undergoes "Continuous Inetegration" (CI) with the main code base,
-and often "Continuous Delivery" (CD) between local, test, and production environments. This is where the 
-term "CI/CD Pipeline" comes from.
+Work products such as code and documents begin their life on developer workstations. We
+will refer to these developer environments where this takes place as the "local" environment. 
+These work products are created, reviewed and checked into Revision Control Systems (RCS), GitHub
+for example, by the DevSecOps practitioner. Other revison control systems include GitLab and 
+BitBucket.
+
+.. index::
+   single: Revsion Control System (RCS)
+
+Test cases are created and run against the work products at check-in time, to ensure 
+stability, security, and compatibility with the exsiting code base. The automation required 
+to execute tests every time work is checked in is also typically the responsibility of the DevSecOps 
+engineers. As seen in :numref:`myFig1` work typically "flows" from the local environments, into 
+a test environment, and finally to production where it is available for use by the entire user base. 
+
+We will refer to the entirety of this three-stage flow as one example of a "pipeline". Code from 
+one or more local environments is checked in to the revision control system throughout a typical DevSecOps
+workday, and continuously tested and integrated with the main code base. That is to say, work undergoes 
+"Continuous Integration" (CI) with the main code base, and often "Continuous Delivery" (CD) between 
+local, test, and production environments. This is where the term "CI/CD Pipeline" comes from.
+
+.. index::
+   single: pipeline
+   single: CI
+   single: Continuous Deployment
+   single: CD 
+   single: Continuous Integration
 
 |
 
@@ -208,9 +260,20 @@ term "CI/CD Pipeline" comes from.
 
 |
 
-While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other pipelines exist as 
-well. For example, Data Engineers build and maintain Data Science pipelines for to get information into a data lake, 
-or for Data Scientists to be able to create machine learning models from.
+While the CI/CD Pipeline is often the primary focus of the DevSecOps engineer, other 
+pipelines exist as well. For example, let's assume our organization maintains a vast
+pool of raw data, also known as a data lake. The staff Data Engineers build and 
+maintain Data Science pipelines to facilitate the smooth flow of logs and other
+data into that data lake. Now Data Scientists are able to create machine learning models
+that rely on that data to produce useful insights. As another example, consider code 
+changes as they move from developer workstations into a code repository for storage. 
+Accessing this code for the purpose of testing will differ from how it is accessed for
+the purposes of deployment. The order of operations and flow between differeing functions
+might be said to comprise two different pipelines.
+
+.. index::
+   single: Data Lake
+   single: Data Science
 
 *************
 Lab Exercises

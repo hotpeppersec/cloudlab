@@ -22,7 +22,7 @@ consistent operating experience across environments.
    single: Docker
 
 Software Infrastructure and Platforms are the foundations upon which our scripts, code, and
-projects are founded. It is more desirable to creae projects that are built
+projects are founded. It is more desirable to create projects that are built
 and replaced frequently, than it is to attempt to upgrade and repair the infrastructure, platforms,
 and project code. Attempts to upgrade and repair in place, such as with bare metal platforms
 for example, quickly reveal great difficulty in maintaining consistency with the project source,
@@ -34,11 +34,11 @@ Certainly not a situation we ever like to find ourselves in.
 There is obvious advantage of being able to quickly stand up new clones of our project to
 replace existing instances that may be outdated, insecure, etc. 
 The idea of immutability [#]_, in reference to software, is the degree to which something, 
-our running project in this case, can be changed. Immutablity is desirable, in that we wish to
-be able to simply replace outdated instances of our porject in their entirety. Upgrading and
+our running project in this case, can be changed. Immutability is desirable, in that we wish to
+be able to simply replace outdated instances of our project in their entirety. Upgrading and
 patching are inherently problematic activities, high cost in terms of time, effort and money, 
 that we have the technology to dissociate from.
-With containerization, we can more easily acheive immutability across the
+With containerization, we can more easily achieve immutability across the
 software lifecycle. 
 
 .. index::
@@ -225,10 +225,10 @@ Kubernetes is an example, perhaps the penultimate example, of a Container Orches
 throughout the software and security communities are using Kubernetes these
 days, and with good reason.  It's adoption as a means to manage and replicate
 containers, and scale the applications they contain, has been nothing short of revolutionary.
-Admins and developers can do more, better work, albiet at the expense of introduction yet
+Admins and developers can do more, better work, albeit at the expense of introduction yet
 another paradigm to learn, and some amount of complexity.
 
-An orchestrator helps us acheieve immutability, and scale to meet user demand quickly and easily
+An orchestrator helps us achieve immutability, and scale to meet user demand quickly and easily
 by abstracting away concerns that come with operating workloads in a bare metal or VM 
 environment.
 
@@ -243,7 +243,7 @@ A Bit About Podman
 ******************
 
 Podman is an Open Source alternative container engine from the Open Containers Initiative (OCI).
-The podman service is purportedly capable of being a drop-in replacement for Docker, although
+The Podman service is purportedly capable of being a drop-in replacement for Docker, although
 it only runs on Linux hosts at the time of this writing.
 
 The advantage to running Podman is, it is a more secure alternative [#]_ to Docker for creating 
