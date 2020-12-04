@@ -67,9 +67,10 @@ images with just a few lines of code change to our project. For example, we coul
 modify our container image to be predicated on Debian rather than Red Hat distribution of 
 Linux kernel and operating system should the need arise.
 
-See the Docker website for
-instructions on how to install and configure Docker [#]_ . A properly functioning Docker
-setup on your local machine is a requirement for the exercises we will do later.
+See the Docker website for instructions on how to install and configure Docker [#]_ . 
+A properly functioning Docker setup on your local machine is a requirement for the
+exercises we will do later. Note that Podman is an acceptable substitute for Docker, as
+detailed later in this chapter.
 
 .. [#] https://docs.docker.com/get-docker/
 
@@ -226,34 +227,14 @@ explore how to "clone" the project repository and do our work directory from the
 
 .. _`https://github.com/hotpeppersec/rapid_secdev_framework`: https://github.com/hotpeppersec/rapid_secdev_framework
 
-***********************
-Container Orchestration
-***********************
-
-Kubernetes is an example, perhaps the penultimate example, of a Container Orchestrator. Folks
-throughout the software and security communities are using Kubernetes these
-days, and with good reason.  It's adoption as a means to manage and replicate
-containers, and scale the applications they contain, has been nothing short of revolutionary.
-Admins and developers can do more, better work, albeit at the expense of introduction yet
-another paradigm to learn, and some amount of complexity.
-
-An orchestrator helps us achieve immutability, and scale to meet user demand quickly and easily
-by abstracting away concerns that come with operating workloads in a bare metal or VM 
-environment.
-
-As Kubernetes and other orchestrators 
-
-.. index::
-   single: Kubernetes
-   single: Orchestration
-
-******************
-A Bit About Podman
-******************
+******************************
+Substituting Podman for Docker
+******************************
 
 Podman is an Open Source alternative container engine from the Open Containers Initiative (OCI).
 The Podman service is purportedly capable of being a drop-in replacement for Docker, although
-it only runs on Linux hosts at the time of this writing.
+it only runs on Linux hosts at the time of this writing. Podman gives the user the ability to 
+use traditional Docker commands, without the need to run a daemon to do so.
 
 The advantage to running Podman is, it is a more secure alternative [#]_ to Docker for creating 
 containers. You can install Podman by following the instructions [#]_ at their web site.
@@ -279,3 +260,30 @@ and use it as a drop in replacement for docker.
 .. index::
    single: Podman
    single: Open Containers Initiative (OCI)
+
+***********************
+Container Orchestration
+***********************
+
+An orchestrator for containers can be thought of as an engine which allows for their
+provisioning, deployment, scaling, monitoring, load balancing, and more. Kubernetes is 
+an example, perhaps the penultimate example, of a Container Orchestrator. Folks
+throughout the software and security communities are using Kubernetes these
+days, and with good reason.  It's adoption as a means to manage and replicate
+containers, and scale the applications they contain, has been nothing short of revolutionary.
+Admins and developers can do more, better work, albeit at the expense of introduction yet
+another paradigm to learn, and some amount of complexity.
+
+.. index::
+   single: Kubernetes
+   single: Orchestration
+
+An orchestrator helps us achieve immutability, and scale to meet user demand quickly and easily
+by abstracting away concerns that come with operating workloads in a bare metal or VM 
+environment.
+
+Kubernetes and other orchestrators are rapidly evolving. To ignore this game-changing
+ecosystem is to be left behind in terms of technological prowess. That said, it's just beyond
+the scope of this book. Learning about containers, pipelines, infrastructure, and so on
+are the foundational elements you will want to become familiar with in preparation for 
+expanding your mindset into the greater dimensionality that orchestration realizes.
