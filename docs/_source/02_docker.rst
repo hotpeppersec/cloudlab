@@ -130,9 +130,10 @@ directory as the root of the project "inside" the container. Finally, we are dir
 docker-compose.yml
 ******************
 
-The docker-compose.yml file allows us to manage multiple Docker containers 
-for one or more applications. We will add this file to our project to illustrate it's
-composition and give ourselves the ability to extend our work later, as needed.
+The docker-compose tool and its associated docker-compose.yml file allows us to manage 
+multiple Docker containers for one or more applications. We will add this file to our 
+project to illustrate it's composition and give ourselves the ability to extend our work 
+later, as needed.
 
 A file called docker-compose.yml will exist alongside our `Dockerfile` in our docker 
 directory. 
@@ -164,20 +165,20 @@ container name. Under "volumes" we are mounting the base of the project director
 host filesystem as "/project" in the container filesystem. The build "directive" tells 
 docker-compose how to locate the Dockerfile we wish to use for the containers.
 
-**************
-Testing it Out
-**************
+****************************
+Exercise: Testing Out Docker
+****************************
 
-With Docker properly installed and our two configuration files in place, we can now
-try out our configuration. Please see (:numref:`myFig1`) for an illustration of how to 
-lay out the project files in your local filesystem.
+With Docker properly installed and an understanding of the necessary configuration files, 
+we can now try out our configuration. See (:numref:`myFig1`) for an illustration of 
+how to lay out the project files in your local filesystem.
 
 .. raw:: latex
 
     \clearpage
 
 .. graphviz::
-   :caption: Project Directory
+   :caption: Project Directory and Docker related files.
    :align: center
    :name: myFig1
 
@@ -191,8 +192,8 @@ lay out the project files in your local filesystem.
       "docker" -> "docker-compose.yml";
    }
 
-Exercise
-********
+Here is a step by step description of how to prepare the creation of our first 
+container:
 
 - Create the "rapid_secdev_framework" folder.
   - When creating folders, note that capitalization matters.
@@ -211,18 +212,28 @@ that typing the "docker-compose" command on line 6 will reference the devsecops
    :caption: Steps to test Docker configuration.
    :name: Steps to test Docker configuration.
    :linenos:
-   :emphasize-lines: 6
 
    mkdir rapid_secdev_framework
    cd rapid_secdev_framework
    mkdir docker
    vi docker/Dockerfile
    vi docker/docker-compose.yml
+
+With our files created and populated, we are ready to generate our container 
+based on our specified configuration. 
+
+.. code-block:: bash
+   :caption: Build the Docker container.
+   :name: Build the Docker container.
+   :linenos:
+
    docker-compose -f docker/docker-compose.yml build devsecops
 
+If all went well, you should now have a shell prompt from "inside" the new container.
 Recall that we set our **WORKDIR** variable to `/project` in the Dockerfile. 
 Following that example, we now have `Dockerfile` and `docker-compose.yml` 
-in the directory `/project/docker` inside the container.
+in the directory `/project/docker`, having mounted the project directory from the 
+host machine "inside" the container. 
 
 Testing from GitHub
 *******************
