@@ -15,20 +15,20 @@ tool for realizing containerization is Docker. Using Docker, we can programatica
 an environment for our project, and pass the entirety of this encapsulated environment
 from our local development machine, into the Continuous Integration pipeline for testing,
 and eventually into our production environment. Containerization helps us by offering a
-consistent operating experience across environments.
+consistent operating experience across disparate environments.
 
 .. index::
    single: Containerization
    single: Docker
 
-Software Infrastructure and Platforms are the foundations upon which our scripts, code, and
-projects are founded. It is more desirable to create projects that are built
+It is more desirable to create projects that are built
 and replaced frequently, than it is to attempt to upgrade and repair the infrastructure, platforms,
-and project code. Attempts to upgrade and repair in place, such as with bare metal platforms
-for example, quickly reveal great difficulty in maintaining consistency with the project source,
-as well as issues keeping operating system packages current yet still compatible with the project.
-Imagine a situation where an upgrade to a package is necessary to meet security requirements,
-but this very same upgrade means the project stop working resulting in angry users and customers.
+and project code. Attempts to patch and upgrade project hosts "in place", such as with
+bare metal platforms for example, quickly reveal great difficulty in maintaining consistency
+with the project source. This also introduces issues keeping operating system packages current,
+yet still compatible with the project. Imagine a situation where an upgrade to a package is necessary
+to meet security requirements, but this very same upgrade means the project stop working since 
+the package features have also changed. The result is most likely angry end users and customers.
 Certainly not a situation we ever like to find ourselves in.
 
 There is obvious advantage of being able to quickly stand up new clones of our project to
@@ -57,8 +57,17 @@ running our project in containers that are immutable and ephemeral to the degree
 .. index::
    single: Ephemerality
 
-Using Docker gives us the benefit of being able to switch quickly between base operating system
-images with just a few lines of code change to our project. See the Docker website for
+Docker images are "canned" (as in, prefabricated) or custom directives for provisioning
+the operating system of a Docker container. One or more images can be used as building blocks
+when configuring our containers. For example, a base Linux image and base Python image
+might be combined with our customizations that describe and point to our application code,
+all of which make up a single containerized "server".  
+We get the added benefit of being able to switch quickly between base operating system
+images with just a few lines of code change to our project. For example, we could easily 
+modify our container image to be predicated on Debian rather than Red Hat distribution of 
+Linux kernel and operating system should the need arise.
+
+See the Docker website for
 instructions on how to install and configure Docker [#]_ . A properly functioning Docker
 setup on your local machine is a requirement for the exercises we will do later.
 

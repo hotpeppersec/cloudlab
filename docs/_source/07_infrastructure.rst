@@ -9,19 +9,51 @@ Infrastructure
 
 |
 
+
+Software Infrastructure and Platforms are the foundations upon which our 
+scripts, code, and projects are founded. Infrastructure comprises the base upon 
+which our containers rest, and the connectivity that allows us to communicate
+with them and them with each other.
+
 This chapter details our ability to quickly and uniformly stand up 
-and tear down virtual servers and networks to run our workloads. We will look
-at some popular cloud computing providers to prepare to explore ways we
-can leverage them to our benefit. The platforms we will build here comprise the
-hosts we will use to run our application code on. These virtual resources will 
-be distributed across provider hardware in data centers around the world with
-very little oversight or interaction from us. For example, we can choose a Region
-of the world for our server instance to exist in, but we don't need to worry about
-which machine or rack it's in, or even where the data center is located.
+and tear down virtual domains and networks to connect our containers and route
+their workloads. We will look at some popular cloud computing providers to 
+prepare to explore ways we can leverage them to our benefit. 
+
+A Cloud Provider is a company that offers to host our containerized projects and
+virtual infrastructure so we dont have to do it ourselves. 
+
+.. index::
+   single: Cloud Provider
+
+The virtual resources we subscribe to will be distributed across cloud provider
+hardware in data centers around the world with very little oversight or interaction
+from us. For example, we can choose a Region of the world for our server instance to
+exist in, but we don't need to worry about which machine or rack it's in, or even where
+the data center is located.
 
 *************************
 Amazon Web Services (AWS)
 *************************
+
+Consider (:numref:`myFig4`) which illustrates the connectivity of a basic project using
+Amazon Web Services (AWS). 
+
+.. index::
+   single: Amazon Web Services
+
+.. figure:: ../images/ddb-no-vpc-endpoint-1024x561.png
+   :align: center
+   :name: myFig4
+   :alt: A simple Public Cloud configuration using AWS as a provider.
+   :figclass: align-center
+
+   A simple Public Cloud configuration using AWS as a provider.
+
+|
+
+Getting Set up in AWS
+=====================
 
 One of the very first things you should do (after creating an account, 
 that is) is to configure mutli-factor authentication [#]_ (MFA).

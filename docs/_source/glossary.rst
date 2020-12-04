@@ -4,10 +4,14 @@ Glossary
 
 .. glossary::
 
+    Containerization
+        The process of generating a fully functioning software ecosystem that includes code and
+        dependencies for part or all of a project.
+
     Continuous Delivery
-        Continuous Delivery is the ability to get changes of all types—including new features, configuration changes, 
-        bug fixes and experiments—into production, or into the hands of users, safely and quickly in a sustainable way. 
-        (Jez Humble, `Continuous Delivery`, 2010)
+        Continuous Delivery is the ability to get changes of all types—including new features, 
+        configuration changes, bug fixes and experiments—into production, or into the hands of
+        users, safely and quickly in a sustainable way. (Jez Humble, `Continuous Delivery`, 2010)
 
     Continuous Integration
         A software development paradigm wherein developers are continuously integrating their changes into a shared

@@ -87,7 +87,7 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
          "ami_name": "generic-lab-host {{timestamp}}",
          "tags": {
          "Name": "Packer-Ansible",
-         "Project": "SecDevOps CloudLab",
+         "Project": "DevSecOps",
          "Commit": "unknown"
          }
       }
@@ -100,9 +100,9 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
             "mkdir -p /home/secdevops/.ssh",
             "chmod 700 /home/secdevops/.ssh",
             "cd /home/secdevops && git clone https://github.com/wwce/ctf_scoreboard.git",
-            "cp /home/secdevops/cloudlab/packer/authorized_keys /home/secdevops/.ssh",
+            "cp /home/secdevops/rapid_secdev_framework/packer/authorized_keys /home/secdevops/.ssh",
             "chown -R ubuntu /home/ubuntu",
-            "cp /home/ubuntu/ctf_scoreboard/packer/ctfd.service /etc/systemd/system"
+            "cp /home/ubuntu/rapid_secdev_framework/packer/ctfd.service /etc/systemd/system"
       ]}
    ]
    }
@@ -122,7 +122,7 @@ Google Compute. Save the contents of this file into `packer/gcp-debian-host.json
       "builders": [
          {
             "type": "googlecompute",
-            "account_file": "/home/franklin/.config/gcloud/my-gcloud-creds-file.json",
+            "account_file": "/home/secdevops/.config/gcloud/my-gcloud-creds-file.json",
             "project_id": "sec-dev-ops-000378",
             "source_image_family": "debian-10",
             "zone": "us-central1-a",
@@ -137,8 +137,8 @@ Google Compute. Save the contents of this file into `packer/gcp-debian-host.json
             "type": "shell",
             "inline": [
             "sleep 10",
-            "mkdir -p /home/franklin/.ssh",
-            "chmod 700 /home/franklin/.ssh"
+            "mkdir -p /home/secdevops/.ssh",
+            "chmod 700 /home/secdevops/.ssh"
             ]
          }
       ]
@@ -355,7 +355,7 @@ your Terraform files is as easy as  typing `terraform validate` in the directory
    :caption: Validating Terraform files
    :name: Validating Terraform files
 
-   thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform validate
+   user@devsecops::~/workspace/rapid_secdev_framework/aws$ terraform validate
    Success! The configuration is valid.
 
 To get your Terrform files into a clean standard format, the `terraform fmt` command works well. There
@@ -371,7 +371,7 @@ First we will will create a "plan" in preparation for application.
    :name: Creating a plan file with Terraform
    :linenos:
 
-   thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform plan -out franklin.out
+   user@devsecops::~/workspace/rapid_secdev_framework/aws$ terraform plan -out franklin.out
    Refreshing Terraform state in-memory prior to plan...
    The refreshed state will be used to calculate this plan, but will not be
    persisted to local or remote state storage.
@@ -410,7 +410,7 @@ prompt you to enter "yes" before it will proceed.
    :name: Applying a Terraform plan from file
    :linenos:
 
-   thedevilsvoice@grimoire::~/workspace/rapid_secdev_framework/aws$ terraform apply
+   user@devsecops::~/workspace/rapid_secdev_framework/aws$ terraform apply
    data.aws_vpc.default: Refreshing state...
    data.aws_subnet_ids.all: Refreshing state...
 
@@ -554,7 +554,7 @@ below.
    :align: center
 
    digraph folders {
-      "cloudlab" [shape=folder];
+      "devsecops" [shape=folder];
       "ansible" [shape=folder];
       "aws" [shape=folder];
       "packer" [shape=folder];
@@ -564,9 +564,9 @@ below.
       "outputs.tf" [shape=rect];
       "terraform.tfvars" [shape=rect];
       "variables.tf" [shape=rect];
-      "cloudlab" -> "ansible";
-      "cloudlab" -> "aws";
-      "cloudlab" -> "packer";
+      "devsecops" -> "ansible";
+      "devsecops" -> "aws";
+      "devsecops" -> "packer";
       "aws" -> "main.tf";
       "aws" -> "outputs.tf";
       "aws" -> "terraform.tfvars";
