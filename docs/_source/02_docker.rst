@@ -130,10 +130,12 @@ directory as the root of the project "inside" the container. Finally, we are dir
 docker-compose.yml
 ******************
 
-A file called docker-compose.yml will exist alongside our `Dockerfile`
-in our Docker directory. The docker-compose.yml file allows us to manage multiple Docker containers 
+The docker-compose.yml file allows us to manage multiple Docker containers 
 for one or more applications. We will add this file to our project to illustrate it's
 composition and give ourselves the ability to extend our work later, as needed.
+
+A file called docker-compose.yml will exist alongside our `Dockerfile` in our docker 
+directory. 
 
 .. index::
    single: docker-compose.yml
@@ -154,8 +156,6 @@ composition and give ourselves the ability to extend our work later, as needed.
          context: ..
          dockerfile: docker/Dockerfile
 
-Recall that we set our **WORKDIR** to `/project` in the Dockerfile. Following that
-example, we now have `Dockerfile` and `docker-compose.yml` in the directory `/project/docker`.
 The `docker-compose.yml` file begins with a version specification. It's important to 
 note that the commands and structure of `docker-compose.yml` can vary widely based on 
 this version. While versions cannot be mixed, all version are valid with respect to 
@@ -191,18 +191,21 @@ lay out the project files in your local filesystem.
       "docker" -> "docker-compose.yml";
    }
 
-Steps
-*****
+Exercise
+********
 
 - Create the "rapid_secdev_framework" folder.
-- From that folder, create another folder called "docker"
-- Cut and paste the Dockerfile into the docker folder.
-- Cut and paste the docker-compose.yml file into the docker folder.
+  - When creating folders, note that capitalization matters.
+- In that folder, create another folder called "docker".
+- Now in the docker folder, create a text file with the name "Dockerfile".
+  - Copy and paste the example Dockerfile from earlier in this chapter into your text file.
+- Also in the docker folder, create a text file with the name "docker-compose.yml"
+  - Copy and paste the example docker-compose.yml file from earlier in this chapter into your second text file.
 
-Here is an example of the shell commands to accomplish these steps. You can
-substitue vi for your favorite text editor. Note that typing the "docker-compose" 
-command on line 6 will reference the devsecops "service" we specified on line 3
-of the docker-compose.yml file.
+Here is an example of the BASH shell commands you can use to accomplish the steps
+of the exercise. You can substitue vi for your favorite text editor as needed. Note 
+that typing the "docker-compose" command on line 6 will reference the devsecops 
+"service" we specified on line 3 of the docker-compose.yml file.
 
 .. code-block:: bash
    :caption: Steps to test Docker configuration.
@@ -216,6 +219,10 @@ of the docker-compose.yml file.
    vi docker/Dockerfile
    vi docker/docker-compose.yml
    docker-compose -f docker/docker-compose.yml build devsecops
+
+Recall that we set our **WORKDIR** variable to `/project` in the Dockerfile. 
+Following that example, we now have `Dockerfile` and `docker-compose.yml` 
+in the directory `/project/docker` inside the container.
 
 Testing from GitHub
 *******************
@@ -266,9 +273,12 @@ Container Orchestration
 ***********************
 
 An orchestrator for containers can be thought of as an engine which allows for their
-provisioning, deployment, scaling, monitoring, load balancing, and more. Kubernetes is 
-an example, perhaps the penultimate example, of a Container Orchestrator. Folks
-throughout the software and security communities are using Kubernetes these
+provisioning, deployment, scaling, monitoring, load balancing, and more. The Container 
+Orchestrator is meant to manage the lifecycle and visibility of a container at all 
+stages. 
+
+Kubernetes is an example, perhaps the penultimate example, of a Container Orchestrator. 
+Folks throughout the software and security communities are using Kubernetes these
 days, and with good reason.  It's adoption as a means to manage and replicate
 containers, and scale the applications they contain, has been nothing short of revolutionary.
 Admins and developers can do more, better work, albeit at the expense of introduction yet
@@ -286,4 +296,7 @@ Kubernetes and other orchestrators are rapidly evolving. To ignore this game-cha
 ecosystem is to be left behind in terms of technological prowess. That said, it's just beyond
 the scope of this book. Learning about containers, pipelines, infrastructure, and so on
 are the foundational elements you will want to become familiar with in preparation for 
-expanding your mindset into the greater dimensionality that orchestration realizes.
+expanding your mindset into the greater dimensionality that orchestration realizes. 
+
+For this stage of our journey to DevSecOps enlightenment, it is enough to know that 
+orchestration exists and have a bit of familiarity with its purpose. 
