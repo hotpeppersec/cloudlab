@@ -55,11 +55,11 @@ to make our lives easier in the future. Consider the two target stanzas below.
    :linenos:
 
    docker: python ## build docker container for testing
-      echo "Building CloudLab with docker-compose"
+      echo "Building devsecops with docker-compose"
       @if [ -f /.dockerenv ]; then \
       printf "***> Don't run make docker inside docker container <***" && exit 1; fi
-      docker-compose -f docker/docker-compose.yml build cloudlab
-      @docker-compose -f docker/docker-compose.yml run cloudlab /bin/bash
+      docker-compose -f docker/docker-compose.yml build devsecops
+      @docker-compose -f docker/docker-compose.yml run devsecops /bin/bash
 
    python: ## setup python3
       if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="Run make python inside docker container" && exit 1; fi
@@ -123,8 +123,8 @@ Here is a full example of a working Makefile.
    docker: python ## build docker container for testing
       $(MAKE) print-status MSG="Building with docker-compose"
       @if [ -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Don't run make docker inside docker container <***" && exit 1; fi
-      docker-compose -f docker/docker-compose.yml build cloudlab
-      @docker-compose -f docker/docker-compose.yml run cloudlab /bin/bash
+      docker-compose -f docker/docker-compose.yml build devsecops
+      @docker-compose -f docker/docker-compose.yml run devsecops /bin/bash
 
    print-status:
       @:$(call check_defined, MSG, Message to print)
@@ -157,7 +157,7 @@ seen below.
    :align: center
 
    digraph folders {
-      "cloudlab" [shape=folder];
+      "devsecops" [shape=folder];
       "python" [shape=folder];
       "docker" [shape=folder];
       "terraform" [shape=folder];
@@ -165,10 +165,10 @@ seen below.
       "docker-compose.yml" [shape=rect];
       "Dockerfile" [shape=rect];
 
-      "cloudlab" -> "python";
-      "cloudlab" -> "terraform";
-      "cloudlab" -> "docker";
-      "cloudlab" -> "Makefile";
+      "devsecops" -> "python";
+      "devsecops" -> "terraform";
+      "devsecops" -> "docker";
+      "devsecops" -> "Makefile";
       "docker" -> "Dockerfile";
       "docker" -> "docker-compose.yml";
    }

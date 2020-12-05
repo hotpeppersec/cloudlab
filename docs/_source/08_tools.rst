@@ -264,7 +264,7 @@ reference modules, both internal and exteral. The main.tf file is the place the 
       source  = "terraform-aws-modules/security-group/aws"
       version = "~> 3.0"
 
-      name        = "CloudLab"
+      name        = "DevSecOps"
       description = "Security group for the cloud lab"
       vpc_id      = data.aws_vpc.default.id
 

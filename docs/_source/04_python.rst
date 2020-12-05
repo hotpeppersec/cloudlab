@@ -33,7 +33,7 @@ We add this file to let the Python interpreter know that the directories
 it is found in are a contiguous part of our Python project. Since module imports and
 function definitions in this file are available to all the python code files
 in the directory, we can use it to our advantage. For example, try adding this 
-quick and dirty logging function to `python/cloudlab/lib/__init__.py`:
+quick and dirty logging function to `python/devsecops/lib/__init__.py`:
 
 .. code-block:: python
    :caption: Example __init__.py file
@@ -43,9 +43,9 @@ quick and dirty logging function to `python/cloudlab/lib/__init__.py`:
    import logging
    from pathlib import Pathigure logger
    
-   Path("/var/log/cloudlab").mkdir(parents=True, exist_ok=True)
+   Path("/var/log/devsecops").mkdir(parents=True, exist_ok=True)
    logging.basicConfig(
-      filename="/var/log/cloudlab/cloudlab.log",
+      filename="/var/log/devsecops/devsecops.log",
       level=logging.DEBUG,
       format="[%(asctime)s] [%(filename)s:%(lineno)s - %(funcName)5s() - 
       %(processName)s] %(levelname)s - %(message)s"
@@ -67,7 +67,7 @@ within like so:
    if __name__ == "__main__":
       main()
 
-Check the results in the file `/var/log/secdevops/cloudlab.log`.
+Check the results in the file `/var/log/devsecops/devsecops.log`.
 
 
 *****************
@@ -206,14 +206,14 @@ Files and folders relevant to the Python portions of our project are shown in th
 
    digraph folders {
       1 [label="python", shape=folder];
-      2 [label="cloudlab", shape=folder];
+      2 [label="devsecops", shape=folder];
       3 [label="lib", shape=folder];
       4 [label="requirements.txt", shape=rectangle];
       5 [label="requirements-test.txt", shape=rectangle];
       6 [label="__init__.py", shape=rectangle];
       7 [label="__init__.py", shape=rectangle];
       8 [label="test", shape=folder];
-      9 [label="cloudlab.py", shape=rectangle];
+      9 [label="devsecops.py", shape=rectangle];
       A [label="__init__.py", shape=rectangle];
       B [label="__init__.py", shape=rectangle];
       C [label="tox.ini", shape=rectangle];

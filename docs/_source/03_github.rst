@@ -56,8 +56,8 @@ are perfect for this task.
    :caption: Generating SSH keys.
    :name: ssh-keygen
 
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
+   ssh-keygen -t rsa -b 4096 -C "user@example.com"
+   Enter a file in which to save the key (/home/user/.ssh/id_rsa): [Press enter]
    Enter passphrase (empty for no passphrase): [Type a passphrase]
    Enter same passphrase again: [Type passphrase again]
 
@@ -85,17 +85,17 @@ Take a few minutes to set up a GPG key and add it to your profile on GitHub.
    :name: Set up GPG key and add to GitHub.
    :linenos:
 
-   root@cloudlab:~# gpg --default-new-key-algo rsa4096 --gen-key
+   user@devsecops:~# gpg --default-new-key-algo rsa4096 --gen-key
    public and secret key created and signed.
    Note that this key cannot be used for encryption.  You may want to use
    the command "--edit-key" to generate a subkey for this purpose.
    pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]
          848943CDCE488F138BF91079E81498874E59648D
-   uid                      Jimmy Cloud <jimmy@cloud.cloud>
+   uid                      Kevin Flynn <user@example.com>
 
-   root@cloudlab:~# gpg --list-secret-keys --keyid-format LONG | grep sec | cut -f2 -d'/'| cut -f1 -d' '
+   user@devsecops:~# gpg --list-secret-keys --keyid-format LONG | grep sec | cut -f2 -d'/'| cut -f1 -d' '
    E81498874E59648D
-   root@cloudlab:~# gpg --armor --export E81498874E59648D
+   user@devsecops:~# gpg --armor --export E81498874E59648D
 
 Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
 Add the GPG key to your GitHub account.
@@ -158,7 +158,7 @@ use this example command:
    :caption: Create a "remote" named upstream.
    :name: Create a "remote" named upstream.
 
-   git remote add upstream git@github.com:hotpeppersec/cloudlab.git
+   git remote add upstream git@github.com:hotpeppersec/rapid_secdev_framework.git
 
 After completing these steps you can easily submit pull requests (PRs)
 back to the original project.
@@ -215,7 +215,7 @@ Template Steps
 
 - Navigate to `https://github.com/hotpeppersec/rapid_secdev_framework`_
 - Click the green button "Use this template"
-- Select a "Repository name", like "cloudlab" for example.
+- Select a "Repository name", like "rapid_secdev_framework" for example.
 - Now click "Create repository from template"
 
 .. _`https://github.com/hotpeppersec/rapid_secdev_framework`: https://github.com/hotpeppersec/rapid_secdev_framework
@@ -243,11 +243,11 @@ to indicate that you have a BASH shell in the running container.
    :caption: Cloning repository and starting container.
    :name: Cloning repository and starting container
 
-   thedevilsvoice@grimoire:25%:~/rapid_secdev_framework$ make docker
+   user@devsecops:25%:~/rapid_secdev_framework$ make docker
    Building test env with docker-compose
-   docker-compose -f docker/docker-compose.yml build cloudlab
-   Building cloudlab
-   Step 1/3 : FROM python:3.8.2-buster
+   docker-compose -f docker/docker-compose.yml build devsecops
+   Building devsecops
+   Step 1/3 : FROM python:3.9-buster
    ---> 4f7cd4269fa9
    Step 2/3 : WORKDIR /home/secdevops
    ---> Using cache
@@ -256,8 +256,8 @@ to indicate that you have a BASH shell in the running container.
    ---> Using cache
    ---> 83ea11278488
    Successfully built 83ea11278488
-   Successfully tagged docker_cloudlab:latest
-   root@cloudlab:/home/secdevops#
+   Successfully tagged docker_devsecops:latest
+   user@devsecops:/home/secdevops#
 
 
 CODEOWNERS
@@ -280,10 +280,10 @@ Consider this exmaple where we add the `@hotpeppersec` to the CODEOWNERS file.
    :caption: Adding a user to the CODEOWNERS file
    :name: Adding a user to the CODEOWNERS file
 
-   root@cloudlab:/home/secdevops# if [ ! -d ".github" ]; then mkdir .github; fi
-   root@cloudlab:/home/secdevops# echo "* @hotpeppersec" >> .github/CODEOWNERS
+   user@devsecops:/home/secdevops# if [ ! -d ".github" ]; then mkdir .github; fi
+   user@devsecops:/home/secdevops# echo "* @githubusername" >> .github/CODEOWNERS
 
-In this example, the @hotpeppersec user will be tagged as a reviewer in all pull 
+In this example, the @githubusername user will be tagged as a reviewer in all pull 
 requests.
 
 The .gitignore file
@@ -427,12 +427,12 @@ Relevant files and folders mentioned in this chapter are organized as seen below
 
    digraph folders {
       "/home/secdevops" [shape=folder];
-      "cloudlab" [shape=folder];
+      "docker_devsecops" [shape=folder];
       ".github" [shape=folder];
       "CODEOWNERS" [shape=rectangle];
       ".gitignore" [shape=rectangle];
-      "/home/secdevops" -> "cloudlab";
-      "cloudlab" -> ".github";
+      "/home/secdevops" -> "devsecops";
+      "devsecops" -> ".github";
       ".github" -> "CODEOWNERS";
-      "cloudlab" -> ".gitignore";
+      "devsecops" -> ".gitignore";
    }
