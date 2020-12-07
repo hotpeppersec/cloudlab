@@ -259,9 +259,13 @@ the Linux kernel through the runC container runtime process (rather than with a 
 
 .. _`According to William Henry of Red Hat Inc`: https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/
 
-You can install Podman by following the instructions [#]_ at their web site.
+.. index::
+   single: Podman
+   single: Open Containers Initiative (OCI)
 
-.. [#] https://podman.io/getting-started/installation.html
+You can install Podman by `following the instructions`_ at their web site.
+
+.. _`following the instructions`: https://podman.io/getting-started/installation.html
 
 Here is the change for the `unprivileged_userns_clone` error:
 
@@ -275,12 +279,8 @@ Here is the change for the `unprivileged_userns_clone` error:
    user@devsecops::~$ podman-v
    podman version 1.9.1
 
-Once podman is installed properly you should be able to `alias docker=podman`
+Once Podman is installed properly you should be able to `alias docker=podman`
 and use it as a drop in replacement for docker.
-
-.. index::
-   single: Podman
-   single: Open Containers Initiative (OCI)
 
 ***********************
 Container Orchestration
