@@ -33,8 +33,8 @@ Certainly not a situation we ever like to find ourselves in.
 
 There is obvious advantage of being able to quickly stand up new clones of our project to
 replace existing instances that may be outdated, insecure, etc. 
-The idea of immutability [#]_, in reference to software, is the degree to which something, 
-our running project in this case, can be changed. Immutability is desirable, in that we wish to
+The idea of immutability [#]_, in reference to software projects, is the degree to which something, 
+our running project for example, can be changed. Immutability is desirable, in that we wish to
 be able to simply replace outdated instances of our project in their entirety. Upgrading and
 patching are inherently problematic activities, high cost in terms of time, effort and money, 
 that we have the technology to dissociate from.
@@ -249,10 +249,15 @@ explore how to "clone" the project repository and do our work directory from the
 Substituting Podman for Docker
 ******************************
 
-Podman is an Open Source alternative container engine from the Open Containers Initiative (OCI).
-The Podman service is purportedly capable of being a drop-in replacement for Docker, although
+Podman is an Open Source container engine from the Open Containers Initiative (OCI). The 
+Podman service is purportedly capable of being a drop-in replacement for Docker, although
 it only runs on Linux hosts at the time of this writing. Podman gives the user the ability to 
-use traditional Docker commands, without the need to run a daemon to do so.
+use traditional Docker commands, without the need to run a daemon to do so, as is the case
+with Docker. `According to William Henry of Red Hat Inc`_ , the Podman approach is simply to 
+directly interact with the image registry, with the container and image storage, and with 
+the Linux kernel through the runC container runtime process (rather than with a daemon).
+
+.. _`According to William Henry of Red Hat Inc`: https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/
 
 You can install Podman by following the instructions [#]_ at their web site.
 
