@@ -190,30 +190,49 @@ installed separately.
 The Workhorse (IDE)
 ===================
 
-The authors find it extremely helpful to have an Integrated Development Environment
-(IDE) that they don't have to spend a lot of time configuring and maintaining. Lately 
-that is Visual Studio Code [#]_ for us. It works well on Linux, Mac and other operating 
-systems as well. The environment is easily extensible to support most any language, linter, 
-or syntax checker we may have a need for. Folks also seem to be quite fond of the Sublime [#]_ 
-IDE for similar reasons, including it's customizability and extensibility.
-
-.. [#] https://code.visualstudio.com/Download
-.. [#] https://www.sublimetext.com/
+It is quite helpful to have a piece of software on your workstation that makes code 
+creation and edits easier. This software is commonly known as an Integrated Development 
+Environment (IDE). 
 
 .. index::
    single: Integrated Development Environment
-   single: VSCode
-   single: Sublime
 
-There are times I catch myself switching between VSCode and a terminal window to do a quick 
-edit in vi or interact with GitHub. Over time I am changing the way I work in an attempt to 
-reduce attempts to refocus between windows on my desktop.
+One of the key features to look for in an IDE is to use one that you don't have to spend 
+a lot of time configuring and maintaining. A decent IDE with the right add-ons can provide
+syntax highlighting to show potential issues you might have missed, help you check for 
+spelling or grammar mistakes in your documentation, and even makes suggestions on alternate 
+ways of writing your code.
+
+Visual Studio Code [#]_ from Microsoft is quite a popular choice these days in a large sea 
+of commercial and Open Source candidates. VSCode works well on Linux, Mac and other operating 
+systems. The environment is easily extensible to support most any language, linter, or syntax 
+checker we may have a need for, thanks to their easy to use and well integrated "Extensions" 
+feature. VSCode also has an integrated terminal window so the developer can execute shell commands
+without leaving the IDE screen.
+
+.. [#] https://code.visualstudio.com/Download
+
+.. index::
+   single: VSCode
+   single: Terminal Window
+
+Folks also seem to be quite fond of the Sublime [#]_ IDE for similar reasons, including 
+it's customizability and extensibility.
+
+.. [#] https://www.sublimetext.com/
+
+.. index::
+   single: Sublime
 
 |
 
-.. image:: ../images/setup-vscode.png
+.. figure:: ../images/setup-vscode.png
    :align: center
+   :name: myFig0a
+   :alt: The VScode IDE.
+   :figclass: align-center
 
+   The VScode IDE.
 |
 
 ********************
