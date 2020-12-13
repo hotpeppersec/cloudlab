@@ -295,11 +295,43 @@ might be said to comprise two different pipelines.
    single: Data Science
 
 *************
+Shifting Left
+*************
+
+We now have a mental picture of how software will flow from Development, to Test, 
+and to Production.
+
+.. index::
+   single: Shift Left
+
+**********
+Automation
+**********
+
+Consider what may happen when we want to apply the lessons from this book across a large
+environment made up of many hosts, containers, pieces of application software, etc. It becomes 
+a huge challenge to log in to hosts and containers to type commands to keep things up and running
+properly, look at logs, and so on. This is where automation comes in. Automation is a way to provision 
+and maintain some or many hosts in a programmatic and touchless manner. Automation is the 
+force multiplier we use to acheive scaling.
+
+.. index::
+   single: Automation
+
+*******************
+Agile Methodologies
+*******************
+
+.. index::
+   single: Agile
+
+*************
 Lab Exercises
 *************
 
-This book features a final chapter to guide the reader through applying the information
-introduced between this one and that. You are encouraged to jump ahead, go back and re-read, 
-do the parts you think you can use right away and skip the parts you don't think you will
+This book is meant to be a workbook as much as it is meant to be read. It features a final 
+chapter meant to guide the reader through applying the information introduced between this 
+one and that. You are encouraged to jump ahead, go back and re-read, do the exercises you think 
+you can apply the learning objective from right away, and skip the parts you don't think you will
 ever use. Learning can be a non-linear experience and you are encouraged to "color outside
 the lines" to the extent you feel comfortable doing so. 
