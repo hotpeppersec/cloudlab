@@ -129,9 +129,9 @@ outlined in this book.
 
 |
 
-*****************
-About the Authors
-*****************
+****************
+About the Author
+****************
 
 Franklin Diaz is a Computer Scientist and lifelong computer hobbyist. He spent 14 years
 as a Software Engineer, testing and developing Motorola's CDMA cellular base station products.
@@ -154,6 +154,10 @@ supportive and loving family is the touchstone that grounds us through it all. F
 like to thanks his family, especially his loving wife for making it possible to maintain focus
 in a focus-stealing world.
 
+Feedback has been a key component in getting these words organized into the order
+they appear before you today. Special thank you to all the reviewers including
+Aaron Didier (@phreakinggeek).
+
 *************
 Prerequisites
 *************
@@ -169,8 +173,7 @@ We will be exploring new ways of working for folks who are somewhat familiar wit
 .. [pull requests]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
 .. [branching]: https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-branches
 
-The examples in this book have been tested on Linux and Windows hosts running the
-latest version of Docker.
+The examples in this book have been tested on Linux running the latest version of Docker.
 
 Let's take a look at some of the other foundational environmental elements
 we need in place to be successful.

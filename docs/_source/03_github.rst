@@ -9,14 +9,19 @@ Revision Control
 
 |
 
-The ability to organize and store our projects on free websites like 
-github.com is fundamental to our workflow. In addition to giving us 
-a way to back up our work and store it for free, it facilitates a greater degree of 
-collaboration. There are several (mostly) free services we can choose 
-from including Bit Bucket and Git Lab. For this exercise we will focus 
-on the most well known of these, GitHub.
+The advantages of using a revision control methodolgy in being able to
+organize and store project artifacts in a way that multiple users or
+teams can leverage. Websites, like github.com for example, are fundamental
+to our workflow as they are a key piece of our software delivery pipeline.
+
+In addition to giving us a way to back up and store our work, essentially
+for free, it facilitates a greater degree of collaboration. There are other
+similar, (mostly) free services we can choose from including Bit Bucket and
+Git Lab. For the purposes of this book we will focus on the most well known
+of these, GitHub.
 
 .. index::
+   single: GitHub
    single: revision control
 
 **********
@@ -24,27 +29,28 @@ github.com
 **********
 
 Simply put, github.com is a website that allows you to store the work
-you are using git to manage. Git is the tool that allows for revision control 
-of your work. GitHub is a repository for storing that work, creating teams 
+you are using git to manage. Git is the tool that allows for revision control
+of your work. GitHub is a repository for storing that work, creating teams
 to work on projects, tracking issues, release snapshotting, and more.
 
-One of the very first things you should do (after creating an account, 
-that is) is to configure two-factor authentication [#]_ (2FA) for your GitHub
-account. 
+Enable Two-Factor Authentication
+================================
 
-.. [#] https://help.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa
+One of the very first things you should do (after creating an account,
+that is) is to configure two-factor authentication [#]_ (2FA) for your GitHub
+account.
 
 .. index::
    single: two-factor authentication
-   single: GitHub
 
+.. [#] https://help.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa
 
 SSH Key Setup
 =============
 
 Take a few minutes to generate an SSH key pair if you don't already have one.
-We will be using it at various stages to log in to various sites and hosts. 
-The directions for generating an SSH keypair found on the github.com website [#]_ 
+We will be using it at various stages to log in to various sites and hosts.
+The directions for generating an SSH keypair found on the github.com website [#]_
 are perfect for this task.
 
 .. [#] https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
@@ -70,7 +76,7 @@ GPG Key Setup
 
 Using a GPG key to sign your commits [#]_ will help others verify that work
 you check in to revision control did actually come from you. It's not strictly necessary
-but is considered good practice. Some repositories require that you sign your 
+but is considered good practice. Some repositories require that you sign your
 pull requests with your GPG key.
 
 .. [#] https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key
@@ -101,7 +107,7 @@ Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and end
 Add the GPG key to your GitHub account.
 
 Next let's take a look at two of the key methods of interacting with projects
-and other people on github.com. 
+and other people on github.com.
 
 Forking and Cloning Repositories
 ================================
@@ -113,7 +119,7 @@ you are making a copy of that repository to your personal account on the GitHub 
 .. index::
    single: Forking
 
-Creating a "clone" of your fork to your local machine is done so that you 
+Creating a "clone" of your fork to your local machine is done so that you
 can make changes without altering the original project before testing and reivew of the
 changes takes place.
 
@@ -138,7 +144,7 @@ Adding a "remote" is a git convention to easily push changes from your clone bac
 |
 
 This can be a tricky pattern to master, but it is fundamental if you want
-to join the ranks of Open Source contributors and developers that enjoy 
+to join the ranks of Open Source contributors and developers that enjoy
 the full power of Git and GitHub.
 
 Steps:
@@ -147,11 +153,11 @@ Steps:
 - From the original project page on github.com, click the "fork" button.
   - This creates a copy of the original repository on your personal GitHub page.
 - Now from your page, make a clone of that fork from github.com to your machine.
-  - This will allow you to add, update and test code and documentation without 
+  - This will allow you to add, update and test code and documentation without
    altering the original project.
 - On your local machine, create a "remote" connection back to the original repo.
 
-To create a "remote" called `upstream` from your clone to the original repo, 
+To create a "remote" called `upstream` from your clone to the original repo,
 use this example command:
 
 .. code-block:: bash
@@ -185,10 +191,10 @@ clone resides:
 Creating Repositories
 =====================
 
-If you are starting out on a new project, simply creating a repo is 
+If you are starting out on a new project, simply creating a repo is
 probably enough. Often I will start a repository on my personal account
 while I use the steps in this book to get the project of fthe ground.
-Later I will move the repository into an organization where the responsibility 
+Later I will move the repository into an organization where the responsibility
 for ownership and administration can be shared with other folks.
 
 While the repository is owned by me, I use a much simpler process for
@@ -205,8 +211,8 @@ Steps
 Example Repository
 ==================
 
-A GitHub Template Repository is available should you decide to follow 
-along with the code examples in this book. The next sets of steps are 
+A GitHub Template Repository is available should you decide to follow
+along with the code examples in this book. The next sets of steps are
 predicated on having Docker installed and running as described in the previous
 chapter.
 
@@ -220,16 +226,16 @@ Template Steps
 
 .. _`https://github.com/hotpeppersec/rapid_secdev_framework`: https://github.com/hotpeppersec/rapid_secdev_framework
 
-Now you have a repository in your GitHub account that you can use for 
-testing and completing lab examples detailed in this book. For our 
-first exercise, let's try to make a clone of the repository we generated 
+Now you have a repository in your GitHub account that you can use for
+testing and completing lab examples detailed in this book. For our
+first exercise, let's try to make a clone of the repository we generated
 from template.
 
 Cloning Steps
 *************
 
 - Navigate to the main page for our new repository on github.com.
-- Clone the repository to your local host by clicking on the green "Clone or download" button. 
+- Clone the repository to your local host by clicking on the green "Clone or download" button.
    - Be sure to clone with "SSH" and not "HTTPS".
 - Change to the clone directory with the "cd" command.
 
@@ -271,8 +277,8 @@ to make them aware of changes to certain files or folders in your projects.
 .. index::
    single: CODEOWNERS
 
-In it's most basic form, the CODEOWNERS file in the .github directory simply 
-lists the file(s) and the owner(s) on a line together. 
+In it's most basic form, the CODEOWNERS file in the .github directory simply
+lists the file(s) and the owner(s) on a line together.
 
 Consider this exmaple where we add the `@hotpeppersec` to the CODEOWNERS file.
 
@@ -283,7 +289,7 @@ Consider this exmaple where we add the `@hotpeppersec` to the CODEOWNERS file.
    user@devsecops:/home/secdevops# if [ ! -d ".github" ]; then mkdir .github; fi
    user@devsecops:/home/secdevops# echo "* @githubusername" >> .github/CODEOWNERS
 
-In this example, the @githubusername user will be tagged as a reviewer in all pull 
+In this example, the @githubusername user will be tagged as a reviewer in all pull
 requests.
 
 The .gitignore file
@@ -296,8 +302,8 @@ out of the GitHub repository.
 .. index::
    single: .gitignore
 
-Consider the following example .gitignore file. This will prevent you 
-from checking in the `.DS-Store` that Macintosh creates in many folders. 
+Consider the following example .gitignore file. This will prevent you
+from checking in the `.DS-Store` that Macintosh creates in many folders.
 
 .. code-block:: bash
    :caption: Creating a simple .gitignore file
@@ -320,7 +326,7 @@ Pull Requests
 
 When you make changes on a local branch, say on your personal laptop, you
 will eventually want those changes to flow back into the main project. Opening
-a pull request is a means of letting other people know you've got a set 
+a pull request is a means of letting other people know you've got a set
 of changes ready for review and potential changes [#]_ .
 
 .. [#] https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests
@@ -347,11 +353,11 @@ Steps
 Repository Settings
 ===================
 
-When setting up a new repository in my GitHub account, I always click the Settings tab (with the little 
-gear icon) and then choose the "Branches" section. The Default branch gets set to 
-"master". Clicking the "Add Rule" button, entering "master" for the "Branch name 
+When setting up a new repository in my GitHub account, I always click the Settings tab (with the little
+gear icon) and then choose the "Branches" section. The Default branch gets set to
+"master". Clicking the "Add Rule" button, entering "master" for the "Branch name
 pattern", and then the green "Create" button sets up master as a protected branch. Consider the
-following example :numref:`myFig2`. 
+following example :numref:`myFig2`.
 
 .. figure:: ../images/github-branch-protection.png
    :align: center
@@ -363,7 +369,7 @@ following example :numref:`myFig2`.
 
 |
 
-After we start to work with CI/CD tools (status checks, like GitHub Actions for 
+After we start to work with CI/CD tools (status checks, like GitHub Actions for
 example) new choices (:numref:`myFig3`) become available in this part of your repository for
 managing those checks.
 
@@ -380,8 +386,8 @@ managing those checks.
 Automated Repository Scanning
 =============================
 
-There are many GitHub plugins that are free for single-user/non-commercial scenarios. 
-a cursory search of the web of the GitHub Marketplace will turn up many of these. 
+There are many GitHub plugins that are free for single-user/non-commercial scenarios.
+a cursory search of the web of the GitHub Marketplace will turn up many of these.
 Let's leave some of the tedious work to the bots so we can focus on our journey to the
 cloud!
 
@@ -390,27 +396,27 @@ Renovate
 
 WhiteSource Renovate is what's known as a dependency scanner. It is free for single user to
 add from the GitHub Marketplace [#]_ . It can tell you when you are using a version of a module
-or image that is out of date. For example, if you have a Dockerfile that specifies Python 3.8.1, 
+or image that is out of date. For example, if you have a Dockerfile that specifies Python 3.8.1,
 Renovate will open a pull request on your repository to update the version string in that Dockerfile
-to the most current version available. You can also grant Renovate the permissions required to 
-simply merge the change with no human interaction. Renovate supports JavaScript, Java, Ruby, PHP, 
+to the most current version available. You can also grant Renovate the permissions required to
+simply merge the change with no human interaction. Renovate supports JavaScript, Java, Ruby, PHP,
 Python, Go, Cargo, Elixir, Docker, and more.
 
 .. [#] https://github.com/marketplace/renovate
 
-Once you've signed up and specified which repositories you want Renovate to monitor, it opens a 
-pull request to install a simple default configuration file called `renovate.json`. Merge this 
+Once you've signed up and specified which repositories you want Renovate to monitor, it opens a
+pull request to install a simple default configuration file called `renovate.json`. Merge this
 initial pull request and you're up and running!
 
 LGTM
 ****
 
 Semmle is a company that runs a code scanning service we can use to keep
-an eye on our repositories for issues with syntax and dependencies. It is tightly coupled with 
+an eye on our repositories for issues with syntax and dependencies. It is tightly coupled with
 github.com and can be configured from lgtm.com after logging in with your GitHub credentials.
 
-As a fun aside, LGTM stands for "looks good to me", something developers will add as review 
-comments when their pull request is simple or matches obvious expectations. 
+As a fun aside, LGTM stands for "looks good to me", something developers will add as review
+comments when their pull request is simple or matches obvious expectations.
 
 .. raw:: latex
 
