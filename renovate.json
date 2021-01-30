@@ -1,6 +1,10 @@
 {
+  "assignees": [
+	  "@thedevilsvoice"
+  ],
+  "assignAutomerge": false,
+  "automerge": true,
   "extends": [
-    "config:base",
-    "docker:enableMajor"
+    "config:base"
   ]
 }
