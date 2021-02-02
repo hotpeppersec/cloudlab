@@ -1,7 +1,20 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgbonum} % set the document font
+%\usepackage[english]{babel}
+
+\usepackage{ragged2e} % use flush and justify for text blocks
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is to watermark the pages with DRAFT
 \usepackage{draftwatermark}
 \SetWatermarkText{DRAFT}
 \SetWatermarkScale{1.2}
 \SetWatermarkLightness{0.9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xcolor}
+\usepackage{booktabs}
 
 %%%add number to subsubsection 2=subsection, 3=subsubsection
 %%% below subsubsection is not good idea.
@@ -11,7 +24,7 @@
 \setcounter{tocdepth}{2}
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
-\usepackage{graphicx}
+\usepackage{graphicx}\graphicspath{{images/}}
 
 %%% reduce spaces for Table of contents, figures and tables
 %%% it is used "\addtocontents{toc}{\vskip -1.2cm}" etc. in the document
@@ -34,14 +47,12 @@
 \usepackage{datetime}
 
 \newdateformat{MonthYearFormat}{%
-    \monthname[\THEMONTH], \THEYEAR}
+	\monthname[\THEMONTH], \THEYEAR}
 
 %% RO, LE will not work for 'oneside' layout.
 %% Change oneside to twoside in document class
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+\usepackage{fancyhdr}\pagestyle{fancy}
 \fancyhf{}
-
 %%% Alternating Header for oneside
 \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{ \small \nouppercase{\leftmark} }{}}
 \fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{}{ \small \nouppercase{\rightmark} }}
@@ -62,10 +73,10 @@
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
-\RequirePackage{tocbibind} %%% comment this to remove page number for following
-\addto\captionsenglish{\renewcommand{\contentsname}{Table of contents}}
-\addto\captionsenglish{\renewcommand{\listfigurename}{List of figures}}
-\addto\captionsenglish{\renewcommand{\listtablename}{List of tables}}
+%\RequirePackage{tocbibind} %%% comment this to remove page number for following
+%\addto\captionsenglish{\renewcommand{\contentsname}{Table of contents}}
+%\addto\captionsenglish{\renewcommand{\listfigurename}{List of figures}}
+%\addto\captionsenglish{\renewcommand{\listtablename}{List of tables}}
 % \addto\captionsenglish{\renewcommand{\chaptername}{Chapter}}
 
 %%reduce spacing for itemize

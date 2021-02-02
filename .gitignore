@@ -3,9 +3,18 @@
 *.code-workspace
 .DS_Store
 
-# Book artifacts
+# Book build artifacts
 _build
+*.aux
+*.bbl
+*.blg
+*.lof
+*.log
+*.lot
+*.out
 *.pdf
+*.synctex.gz
+*.toc
 __*_temp.tex
 pygments-css
 kindlegen

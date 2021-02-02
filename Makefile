@@ -39,6 +39,8 @@ book: python ## Generate documentation
 	$(MAKE) print-status MSG="Building HTML"
 	cd book && make html && cd -
 	$(MAKE) print-status MSG="Building LaTeX"
+	if [ ! -d /project/book/_build/latex ]; then mkdir -p /project/book/_build/latex; fi
+	if [ ! -L /project/book/_build/latex/images ]; then ln -s /project/book/images /project/book/_build/latex/images; fi
 	cd book && make latexpdf && cd -
 	$(MAKE) print-status MSG="Building xeLaTeX"
 	cd book && \

@@ -1,0 +1,34 @@
+\documentclass[12pt,a4paper]{book}
+
+\include{preamble}
+
+\begin{document}
+
+% frontmatter: half title, title page, colophon (copyright page), epigraph, toc, preface, acknowledgements
+\frontmatter
+
+\include{frontmatter/maketitle}
+\include{frontmatter/colophon}
+\pagenumbering{Roman}
+\include{frontmatter/preface} %preface and acknowledgements
+\include{frontmatter/about_author}
+\tableofcontents
+\listoffigures
+\listoftables
+\pagenumbering{arabic}
+
+
+% mainmatter: parts and chapters
+\mainmatter
+
+% backmatter: appendix, bibliography, index, postface
+\backmatter
+\bibliography{backmatter/mybib}
+%\printindex
+\include{backmatter/postface}
+
+%%% front cover, spline, back cover
+% front_cover
+
+\end{document}
+
