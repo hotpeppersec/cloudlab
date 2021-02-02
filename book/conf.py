@@ -15,8 +15,8 @@
 
 # General information about the project.
 project = u'DevSecOps Quickstart'
-copyright = u'Copyright © 2020 by Franklin Diaz'
-author = u'© 2020 by Franklin Diaz'
+copyright = u'Copyright © 2021 by Franklin Diaz'
+author = u'© 2021 by Franklin Diaz'
 
 # The short X.Y version
 version = '0.0.3'
@@ -153,8 +153,8 @@ latex_elements = {
     'utf8extra': '',
     'papersize':'letterpaper',
     #'fontenc':r'\usepackage[T2A,T1]{fontenc}',
-    'preamble': r'\input{../../_static/mypreamble.tex}',
-    'maketitle': r'\input{../../_static/maketitle.tex}',
+    'preamble': r'\input{../../mypreamble.tex}',
+    'maketitle': r'\input{../../frontamatter/maketitle.tex}',
     'footer': r'''
       \small \textit{Follow along code project available from }{\href{https://github.com/hotpeppersec/rapid_secdev_framework}{RapidSecDevFramework}}
     ''',
@@ -168,7 +168,6 @@ latex_elements = {
         HeaderFamily=\\rmfamily\\bfseries, \
         InnerLinkColor={rgb}{0,0,1}, \
         OuterLinkColor={rgb}{0,0,1}',
-
         'tableofcontents':' ',
 }
 
@@ -182,7 +181,7 @@ epub_theme = 'theme'
 epub_basename = 'DevSecOpsQuickStart'
 epub_title = u'DevSecOps Quickstart'
 epub_author = 'Franklin Diaz'
-epub_copyright = u'© 2020 by Franklin Diaz'
+epub_copyright = u'© 2021 by Franklin Diaz'
 epub_publisher = 'http://sphinx-doc.org/'
 # A unique identification for the text.
 epub_uid = 'web-site'
@@ -201,7 +200,7 @@ epub_identifier = epub_publisher
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['_source/global.rst',
                       '_source/x2_heroku.rst',
-                      '_source/x3_ruby.rst', 
+                      '_source/x3_ruby.rst',
                       '_source/x1_extras.rst',
                       '_source/x4_resources.rst',
                       '_source/x5_scanners.rst'
@@ -226,7 +225,7 @@ mobi_theme = "mobi"
 mobi_title = u'DevSecOps Quickstart'
 mobi_author = u'Franklin Diaz'
 mobi_publisher = u'Franklin Diaz'
-mobi_copyright = u'© 2020 by Franklin Diaz'
+mobi_copyright = u'© 2021 by Franklin Diaz'
 
 # The scheme of the identifier. Typical schemes are ISBN or URL.
 #mobi_scheme = ''

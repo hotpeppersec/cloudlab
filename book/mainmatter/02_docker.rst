@@ -9,6 +9,15 @@ Containers
 
 |
 
+.. raw:: latex
+\chapterquote{Who says God has created this world? We have created it by
+our own imagination.God is supreme, independent. When we say he has
+created this illusion, we lower him and his infinity. He is beyond all
+this.Only when we find him in ourselves, and even in our day to day life,
+do all doubts vanish.}{Meher Baba}
+
+|
+
 Containerization is the process of generating a fully functioning software ecosystem that
 includes code and dependencies for part or all of a project. The most popular and common
 tool for realizing containerization is Docker. Using Docker, we can programatically build

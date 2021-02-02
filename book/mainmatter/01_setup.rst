@@ -1,68 +1,5 @@
 .. include:: global.rst
 
-=====================
-DevSecOps Quick Start
-=====================
-
-.. image:: ../images/sky-690293_1920.jpg
-   :align: center
-
-|
-
-The term DevSecOps is an amalgam of the words development, security and operations. Simply put,
-DevSecOps lives at the intersection of application development, information security, and
-network operations. As we will soon discover, Infrastructure as Code (IaC) is the platform upon
-which software flows moves through a cycle of Continuous Delivery (CD). To the extent possible, we attempt
-to realize gains in performance of our people and projects by leveraging automation and Agile
-development practices throughout this cycle.
-
-.. index::
-   single: devsecops
-   single: Infrastructure as Code (IaC)
-   single: Continuous Delivery
-
-The world is changing with respect to how how software is created and maintained. Folks
-at the leading edge in today's computing industry are not just building software, but
-are curating it through a cyclical process of continuous development, testing, use, and
-improvement. With increasing frequency, applications and workloads are moving to
-computing environments that are abstracted away, managed by invisible armies of engineers
-at companies other than their own. Of course we are referring to those multitenant cloud
-type computing landscapes. Passing one or more fully encapsulated applications to a cloud
-provider for the purposes of having them host it as a production environment has become
-commonplace. Further, cloud service providers are adding new features and capabilities at
-breakneck speed.
-
-At the time of this writing in 2020, about 40% of production workloads are
-running on containers and serverless deployments.  Bare metal and virtual machines currently host
-a bit over 60% of production workloads. Containerized workload use is expected to
-increase even more in the coming years. Conversely, bare metal and VM usage is expected
-to decrease [#]_ . It's not a question of if, but how quickly commoditization of
-compute resources takes place, perhaps leaving only a few main providers of these cloud resources.
-This is not unlike how power generation and distribution became centralized in the previous century, now
-the domain of a few large utility companies. Nothing beyond considerations of time, money, and
-practicality stop you from making your own electricity, but most folks are keen to invest their
-efforts in other pursuits.
-
-.. [#] https://start.paloaltonetworks.com/esg-research-cloud-native-devsecops-report.html
-
-In this book, we will explore a combination of techniques that can refresh
-your skills and align your projects with the technological leading edge.
-We will introduce various popular technologies, then use common bits and pieces of these to create a secure build
-pipeline for our lab and development work, test, and even production environments.
-The techniques here are meant to help the security-minded developer sharpen her or his
-skills, and introduce tips and tactics that benefit the teams they are a part of.
-There are many, many ways to reach similar goals these days with the preponderance
-of Open Source and commercial tools that are available. By focusing on a few we can blaze a
-trail to success in our projects.
-
-We have a goal in mind of selecting complementary tools and process to construct
-and streamline our ways of working. We will attempt to leverage these ways to
-get us quickly and securely to a working lab environment. At the same time we
-should strive for simplicity and reduction of complexity whenever possible. Experience tells us that
-tools and process that are too cumbersome or burdensome are typically circumvented, or even abandoned.
-Complexity in our processes become the snags and side projects that are the enemy
-of productivity. Refuse to shave more yaks than absolutely necessary!
-
 ==================
 Getting Acclimated
 ==================
@@ -103,60 +40,6 @@ forged by the folks that came before us, and with whom we share many goals.
 Finally, the authors have found it very helpful for their peace of mind to leave
 projects clean and green, to the extent possible, before walking away from the keyboard
 for the day. Perhaps you would find similar benefit should you choose to adopt this practice.
-
-********
-Colophon
-********
-
-This book was written in the reStructuredText file format [#]_ . The Sphinx module for Python
-was used to format these files and programatically generate LaTeX, and other working
-formats used in the typesetting process. The resultant LaTeX files were manged using TeXstudio
-and Overleaf. Some graphs have been generated programatically using the Graphviz software.
-The entire publishing environment is encapsulated in a container according to the principles
-outlined in this book.
-
-.. [#]  https://en.wikipedia.org/wiki/ReStructuredText
-
-|
-
-.. figure:: ../images/workflow.png
-   :align: center
-   :name: myFig0
-   :alt: Containerized publishing workflow.
-   :figclass: align-center
-
-   Containerized publishing workflow.
-
-|
-
-****************
-About the Author
-****************
-
-Franklin Diaz is a Computer Scientist and lifelong computer hobbyist. He spent 14 years
-as a Software Engineer, testing and developing Motorola's CDMA cellular base station products.
-He spent five years Salesforce where he was on the Security Detection Engineering team doing
-security log aggregation and Data Engineering to augment and enhance the detection capabilities
-of the Blue Team. Most recently he is at Palo Alto Networks where he works as a Consulting
-Engineer. He is also the lead organizer for the BSides Indy security conference in Indianapolis,
-Indiana. His education includes a Bachelor of Science in Computer Science from Roosevelt University,
-a Master of Science degree in Computer Information Systems from Northwestern University, and a
-Master of Science degree in Network Security & Network Engineering from DePaul University.
-
-
-****************
-Acknowledgements
-****************
-
-Creation is a long and twisty path, fraught with the distractions of a life well-lived and
-the frenetic pace of a day and age that clamors for a million tiny bits of our attention. A
-supportive and loving family is the touchstone that grounds us through it all. Franklin would
-like to thanks his family, especially his loving wife for making it possible to maintain focus
-in a focus-stealing world.
-
-Feedback has been a key component in getting these words organized into the order
-they appear before you today. Special thank you to all the reviewers including
-Aaron Didier (@phreakinggeek).
 
 *************
 Prerequisites

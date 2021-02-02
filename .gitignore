@@ -1,8 +1,12 @@
+# system artifacts
 .vscode
 *.code-workspace
+.DS_Store
+
+# Book artifacts
 _build
+*.pdf
+__*_temp.tex
 pygments-css
-*.deb
 kindlegen
 kindlegen.xz
-.DS_Store

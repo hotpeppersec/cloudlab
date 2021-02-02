@@ -1,11 +1,11 @@
-.PHONY: docker docs proposal python
+.PHONY: book docker proposal python
 
 # Used for colorizing output of echo messages
 BLUE := "\\033[1\;36m"
 NC := "\\033[0m" # No color/default
 
-REQS := python/requirements.txt
-REQS_TEST := python/requirements-test.txt
+REQS := /project/python/requirements.txt
+REQS_TEST := /project/python/requirements-test.txt
 
 define PRINT_HELP_PYSCRIPT
 import re, sys
@@ -25,28 +25,28 @@ help:
 clean: ## Cleanup all the things
 	find . -name '*.pyc' | xargs rm -rf
 	find . -name '__pycache__' | xargs rm -rf
-	cd docs && make clean && cd -
+	cd book && make clean && cd -
 	cd proposal && make clean && cd -
 
-docker: python ## build docker container for testing
+docker: ## build docker container for testing
 	$(MAKE) print-status MSG="Building with docker-compose"
 	@if [ -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Don't run make docker inside docker container <***" && exit 1; fi
 	docker-compose -f docker/docker-compose.yml build devsecops
 	@docker-compose -f docker/docker-compose.yml run devsecops /bin/bash
 
-docs: python ## Generate documentation
-	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make docs inside docker container <***" && exit 1; fi
+book: python ## Generate documentation
+	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make book inside docker container <***" && exit 1; fi
 	$(MAKE) print-status MSG="Building HTML"
-	cd docs && make html && cd -
+	cd book && make html && cd -
 	$(MAKE) print-status MSG="Building LaTeX"
-	cd docs && make latexpdf && cd -
+	cd book && make latexpdf && cd -
 	$(MAKE) print-status MSG="Building xeLaTeX"
-	cd docs && \
+	cd book && \
 	sphinx-build -b latex -d _build/doctrees . _build/xetex && \
 	cd _build/xetex; xelatex *.tex && \
-	cd /book
+	cd /project
 	$(MAKE) print-status MSG="Building EPUB"
-	cd docs && make epub && cd -
+	cd book && make epub && cd -
 
 print-status:
 	@:$(call check_defined, MSG, Message to print)
@@ -54,13 +54,13 @@ print-status:
 
 proposal: python ## build the book proposal document
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make proposal inside docker container <***" && exit 1; fi
-	$(MAKE) print-status MSG="Building HTML docs"
+	$(MAKE) print-status MSG="Building HTML book proposal"
 	cd proposal && make html && cd -
-	$(MAKE) print-status MSG="Building LaTeX docs"
+	$(MAKE) print-status MSG="Building LaTeX book proposal"
 	cd proposal && make latexpdf && cd -
 
 python: ## setup python3
-	#@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make python inside docker container <***" && exit 1; fi
+	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make python inside docker container <***" && exit 1; fi
 	$(MAKE) print-status MSG="Set up the Python environment"
 	if [ -f '$(REQS)' ]; then python3 -m pip install -r$(REQS); fi
 
