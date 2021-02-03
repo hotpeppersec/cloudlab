@@ -9,6 +9,8 @@ _build
 *.bbl
 *.blg
 *.idx
+*.ilg
+*.ind
 *.lof
 *.log
 *.lot

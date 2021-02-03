@@ -1,0 +1,162 @@
+\makeatletter
+\@removefromreset{figure}{section}
+\@addtoreset{figure}{chapter}
+\renewcommand{\thefigure}{\thechapter.\@arabic\c@figure}
+\makeatother
+
+\hypertarget{makefiles}{%
+\section{Makefiles}\label{makefiles}}
+
+\includegraphics{../images/books-1163695_1920.jpg}
+
+A Makefile is a good way to put shorts sets of oft repeated steps at the
+fingertips of the developer. Rather than typing three complicated and
+possibly hard to recall strings to kick off your Docker container, you
+can simply type make docker and have everything build as desired. We're
+going to be using GNU Make for our projects.
+
+single: Makefile
+
+\hypertarget{the-phony-directive}{%
+\subsection{The PHONY Directive}\label{the-phony-directive}}
+
+If a file or directory exists with the same name as a stanza in the
+Makefile, you will need to specify it under the \emph{PHONY} directive.
+This will allow the Makefile to find and run the desired commands.
+
+single: PHONY
+
+Consider this example, where we have three directories (docker, docs,
+and python) and we also have three Makefile directives of the same name:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{.PHONY}\NormalTok{: docker docs python}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{targets}{%
+\subsection{Targets}\label{targets}}
+
+Makefiles are comprised of various stanzas, know as targets. This is
+where the work gets done. Let's add a target for Docker and a target for
+Python to make our lives easier in the future. Consider the two target
+stanzas below.
+
+single: Targets
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{docker}\NormalTok{: python }\CommentTok{## build docker container for testing}
+   \BuiltInTok{echo} \StringTok{"Building devsecops with docker-compose"}
+   \ExtensionTok{@if}\NormalTok{ [ -f /.dockerenv ]}\KeywordTok{;} \KeywordTok{then} \KeywordTok{\textbackslash{}}
+   \BuiltInTok{printf} \StringTok{"***> Don't run make docker inside docker container <***"} \KeywordTok{&&} \BuiltInTok{exit}\NormalTok{ 1}\KeywordTok{;} \KeywordTok{fi}
+   \ExtensionTok{docker-compose}\NormalTok{ -f docker/docker-compose.yml build devsecops}
+   \ExtensionTok{@docker-compose}\NormalTok{ -f docker/docker-compose.yml run devsecops /bin/bash}
+
+\ExtensionTok{python}\NormalTok{: }\CommentTok{## setup python3}
+   \KeywordTok{if}\BuiltInTok{ [} \OtherTok{!} \OtherTok{-f}\NormalTok{ /.dockerenv}\BuiltInTok{ ]}\NormalTok{; }\KeywordTok{then} \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"Run make python inside docker container"} \KeywordTok{&&} \BuiltInTok{exit}\NormalTok{ 1}\KeywordTok{;} \KeywordTok{fi}
+   \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"Set up the Python environment"}
+   \KeywordTok{if}\BuiltInTok{ [} \OtherTok{-f} \StringTok{'python/requirements.txt'}\BuiltInTok{ ]}\NormalTok{; }\KeywordTok{then} \KeywordTok{\textbackslash{}}
+   \ExtensionTok{python}\NormalTok{ -m pip install -rpython/requirements.txt}\KeywordTok{;} \KeywordTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+When the user types make docker at the CLI to invoke the docker target
+in the Makefile, the fist thing that happens is the python target is
+called. If the file python/requirements.txt exists, we attempt to
+install the modules listed within that reuiqirements file using the
+Python "pip" package manager. Once completed, the thread of execution
+returns to the docker target. A message is sent to the user via STDOUT
+that we will be building with docker-compose. An empty file at the root
+of the containers filesystem named /.dockerenv is a convention that
+indicates we are operating inside a containerized environment. After a
+quick check for existence of the file /.dockerenv, we use docker-compose
+to build from our Dockerfile, and then start a BASH shell in our
+"cloudlab" container. The user now has the ability to run BASH commands
+"inside" the Docker container.
+
+Be sure when you indent in a Makefile that you use tabs, not spaces. You
+can use the backslash character in a Makefile to combine two consecutive
+lines into one logical line.
+
+\hypertarget{full-example-makefile}{%
+\subsection{Full Example Makefile}\label{full-example-makefile}}
+
+Here is a full example of a working Makefile.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{.PHONY}\NormalTok{: docker docs python}
+
+\ExtensionTok{REQS}\NormalTok{ := python/requirements.txt}
+\ExtensionTok{REQS_TEST}\NormalTok{ := python/requirements-test.txt}
+\CommentTok{# Used for colorizing output of echo messages}
+\ExtensionTok{BLUE}\NormalTok{ := }\StringTok{"}\DataTypeTok{\textbackslash{}\textbackslash{}}\StringTok{033[1\textbackslash{};36m"}
+\ExtensionTok{NC}\NormalTok{ := }\StringTok{"}\DataTypeTok{\textbackslash{}\textbackslash{}}\StringTok{033[0m"} \CommentTok{# No color/default}
+
+\ExtensionTok{define}\NormalTok{ PRINT_HELP_PYSCRIPT}
+\ExtensionTok{import}\NormalTok{ re, sys}
+
+\KeywordTok{for} \ExtensionTok{line}\NormalTok{ in sys.stdin:}
+\ExtensionTok{match}\NormalTok{ = re.match(r}\StringTok{'^([a-zA-Z_-]+):.*?## (.*)$$'}\NormalTok{, line)}
+\KeywordTok{if} \ExtensionTok{match}\NormalTok{:}
+   \ExtensionTok{target}\NormalTok{, help = match.groups()}
+   \ExtensionTok{print}\NormalTok{(}\StringTok{"%-20s %s"}\NormalTok{ % (target, help))}
+\ExtensionTok{endef}
+
+\BuiltInTok{export} \VariableTok{PRINT_HELP_PYSCRIPT}
+
+\ExtensionTok{help}\NormalTok{:}
+   \ExtensionTok{@python}\NormalTok{ -c }\StringTok{"}\VariableTok{$$}\StringTok{PRINT_HELP_PYSCRIPT"} \OperatorTok{<} \VariableTok{$(}\ExtensionTok{MAKEFILE_LIST}\VariableTok{)}
+
+\ExtensionTok{clean}\NormalTok{: }\CommentTok{## Cleanup all the things}
+   \FunctionTok{find}\NormalTok{ . -name }\StringTok{'*.pyc'} \KeywordTok{|} \FunctionTok{xargs}\NormalTok{ rm -rf}
+   \FunctionTok{find}\NormalTok{ . -name }\StringTok{'__pycache__'} \KeywordTok{|} \FunctionTok{xargs}\NormalTok{ rm -rf}
+
+\ExtensionTok{docker}\NormalTok{: python }\CommentTok{## build docker container for testing}
+   \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"Building with docker-compose"}
+   \ExtensionTok{@if}\NormalTok{ [ -f /.dockerenv ]}\KeywordTok{;} \KeywordTok{then} \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"***> Don't run make docker inside docker container <***"} \KeywordTok{&&} \BuiltInTok{exit}\NormalTok{ 1}\KeywordTok{;} \KeywordTok{fi}
+   \ExtensionTok{docker-compose}\NormalTok{ -f docker/docker-compose.yml build devsecops}
+   \ExtensionTok{@docker-compose}\NormalTok{ -f docker/docker-compose.yml run devsecops /bin/bash}
+
+\ExtensionTok{print-status}\NormalTok{:}
+   \ExtensionTok{@}\NormalTok{:}\VariableTok{$(}\ExtensionTok{call}\NormalTok{ check_defined, MSG, Message to print}\VariableTok{)}
+   \ExtensionTok{@echo} \StringTok{"}\VariableTok{$(}\ExtensionTok{BLUE}\VariableTok{)$(}\ExtensionTok{MSG}\VariableTok{)$(}\ExtensionTok{NC}\VariableTok{)}\StringTok{"}
+
+\ExtensionTok{python}\NormalTok{: }\CommentTok{## setup python3}
+   \KeywordTok{if}\BuiltInTok{ [} \OtherTok{!} \OtherTok{-f}\NormalTok{ /.dockerenv}\BuiltInTok{ ]}\NormalTok{; }\KeywordTok{then} \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"Run make python inside docker container"} \KeywordTok{&&} \BuiltInTok{exit}\NormalTok{ 1}\KeywordTok{;} \KeywordTok{fi}
+   \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"Set up the Python environment"}
+   \KeywordTok{if}\BuiltInTok{ [} \OtherTok{-f} \StringTok{'$(REQS)'}\BuiltInTok{ ]}\NormalTok{; }\KeywordTok{then} \ExtensionTok{python3}\NormalTok{ -m pip install -r}\VariableTok{$(}\ExtensionTok{REQS}\VariableTok{)}\KeywordTok{;} \KeywordTok{fi}
+
+\ExtensionTok{test}\NormalTok{: python }\CommentTok{## test all the things}
+   \KeywordTok{if}\BuiltInTok{ [} \OtherTok{!} \OtherTok{-f}\NormalTok{ /.dockerenv}\BuiltInTok{ ]}\NormalTok{; }\KeywordTok{then} \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"Run make test inside docker container"} \KeywordTok{&&} \BuiltInTok{exit}\NormalTok{ 1}\KeywordTok{;} \KeywordTok{fi}
+   \VariableTok{$(}\ExtensionTok{MAKE}\VariableTok{)} \ExtensionTok{print-status}\NormalTok{ MSG=}\StringTok{"Set up the test harness"}
+   \KeywordTok{if}\BuiltInTok{ [} \OtherTok{-f} \StringTok{'$(REQS_TEST)'}\BuiltInTok{ ]}\NormalTok{; }\KeywordTok{then} \ExtensionTok{python3}\NormalTok{ -m pip install -r}\VariableTok{$(}\ExtensionTok{REQS_TEST}\VariableTok{)}\KeywordTok{;} \KeywordTok{fi}
+   \CommentTok{#tox}
+\end{Highlighting}
+\end{Shaded}
+
+\clearpage
+
+\hypertarget{directory-structure-with-makefile}{%
+\subsection{Directory Structure with
+Makefile}\label{directory-structure-with-makefile}}
+
+Relevant files and folders related to our Makefile are organized as seen
+below.
+
+\begin{description}
+\item[digraph folders \{]
+"devsecops" {[}shape=folder{]}; "python" {[}shape=folder{]}; "docker"
+{[}shape=folder{]}; "terraform" {[}shape=folder{]}; "Makefile"
+{[}shape=rect{]}; "docker-compose.yml" {[}shape=rect{]}; "Dockerfile"
+{[}shape=rect{]};
+
+"devsecops" -\textgreater{} "python"; "devsecops" -\textgreater{}
+"terraform"; "devsecops" -\textgreater{} "docker"; "devsecops"
+-\textgreater{} "Makefile"; "docker" -\textgreater{} "Dockerfile";
+"docker" -\textgreater{} "docker-compose.yml";
+\end{description}
+
+\}

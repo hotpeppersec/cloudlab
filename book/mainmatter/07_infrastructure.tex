@@ -1,0 +1,147 @@
+\makeatletter
+\@removefromreset{figure}{section}
+\@addtoreset{figure}{chapter}
+\renewcommand{\thefigure}{\thechapter.\@arabic\c@figure}
+\makeatother
+
+\hypertarget{infrastructure}{%
+\section{Infrastructure}\label{infrastructure}}
+
+\includegraphics{../images/cologne-cathedral-1507854_1920.jpg}
+
+Software Infrastructure and Platforms are the foundations upon which our
+scripts, code, and projects are founded. Infrastructure comprises the
+base upon which our containers rest, and the connectivity that allows us
+to communicate with them and them with each other.
+
+This chapter details our ability to quickly and uniformly stand up and
+tear down virtual domains and networks to connect our containers and
+route their workloads. We will look at some popular cloud computing
+providers to prepare to explore ways we can leverage them to our
+benefit.
+
+A Cloud Provider is a company that offers to host our containerized
+projects and virtual infrastructure so we dont have to do it ourselves.
+
+single: Cloud Provider
+
+The virtual resources we subscribe to will be distributed across cloud
+provider hardware in data centers around the world with very little
+oversight or interaction from us. For example, we can choose a Region of
+the world for our server instance to exist in, but we don't need to
+worry about which machine or rack it's in, or even where the data center
+is located.
+
+\hypertarget{amazon-web-services-aws}{%
+\subsection{Amazon Web Services (AWS)}\label{amazon-web-services-aws}}
+
+Consider ({myFig4}) which illustrates the connectivity of a basic
+project using Amazon Web Services (AWS).
+
+single: Amazon Web Services
+
+\begin{figure}
+\centering
+\includegraphics{../images/ddb-no-vpc-endpoint-1024x561.png}
+\caption{A simple Public Cloud configuration using AWS as a provider.}
+\end{figure}
+
+\hypertarget{getting-set-up-in-aws}{%
+\subsubsection{Getting Set up in AWS}\label{getting-set-up-in-aws}}
+
+One of the very first things you should do (after creating an account,
+that is) is to configure mutli-factor authentication\footnote{MFA:
+  \url{https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html}}
+(MFA).
+
+single: multi-factor authentication single: AWS single: Amazon Web
+Services
+
+Amazon's AWS is one of the more prevalent cloud providers in terms of
+popularity and simultaneously mature and ever-expanding feature set.
+
+\hypertarget{credentials}{%
+\subsubsection{Credentials}\label{credentials}}
+
+Amazon Web Services (AWS) credentials are stored in a hidden directory
+in your home directory called ".aws". The file
+\textasciitilde{}/.aws/credentials shoudl be modified to contain your
+AWS access\_id and secret\_key as seen below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{$ }\FunctionTok{cat}\NormalTok{ ~/.aws/credentials }
+
+\NormalTok{[}\ExtensionTok{default}\NormalTok{]}
+\ExtensionTok{aws_access_key_id}\NormalTok{ = AKIAJCQ6WHUXVOKZ8RQQ}
+\ExtensionTok{aws_secret_access_key}\NormalTok{ = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ}
+\end{Highlighting}
+\end{Shaded}
+
+Do not share this file with other people. Do not check this file into
+your GitHub repositories under any circumstances.
+
+\hypertarget{google-cloud-platform-gcp}{%
+\subsection{Google Cloud Platform
+(GCP)}\label{google-cloud-platform-gcp}}
+
+Google Cloud Platform (GCP) is a suite of cloud computing services that
+runs on the same infrastructure that Google uses internally for its
+end-user products\footnote{\url{https://cloud.google.com/}} . If the
+resources we allocate on GCP were a pyramid, the apex of that pyramid
+would be a "project". A project is made up of the settings, permissions,
+and other metadata that describe your applications\footnote{\url{https://cloud.google.com/docs/overview/}}
+.
+
+single: Google Cloud Platform single: GCP
+
+One of the very first things you should do (after creating an account,
+that is) is to configure two-factor authentication\footnote{2FA:
+  \url{https://www.google.com/landing/2step/}} (2FA).
+
+single: two-factor authentication
+
+At this point you are ready to install the gcloud software development
+kit (SDK) on your local machine\footnote{\url{https://cloud.google.com/sdk/install}}
+.
+
+single: gcloud
+
+\hypertarget{credentials-1}{%
+\subsubsection{Credentials}\label{credentials-1}}
+
+Once the gcloud SDK is installed, you are ready to set up local
+credentials that allow interaction between your machine and the GCP
+application programming interface (API). In other words, Google hosts a
+server that you can exchange commands with to configure your GCP
+projects from your local CLI.
+
+GCP credentials are stored in the directory
+\textasciitilde{}/.config/gcloud as a JSON file. Do not share this file
+with other people. Do not check this file into your GitHub repositories
+under any circumstances.
+
+\clearpage
+
+\hypertarget{directory-structure}{%
+\subsection{Directory Structure}\label{directory-structure}}
+
+Relevant folders and files related to our build pipeline are shown
+below. The users home directory and workspace subdirectory is implied
+and removed from the diagram for clarity.
+
+\begin{description}
+\item[digraph folders \{]
+"/home/secdevops" {[}shape=folder{]}; "devsecops" {[}shape=folder{]};
+".config" {[}shape=folder{]}; "gcloud" {[}shape=folder{]};
+"secdevops-my-proj-000101-420240.json" {[}shape=rect{]}; ".aws"
+{[}shape=folder{]}; "gcp" {[}shape=folder{]}; "aws" {[}shape=folder{]};
+
+"/home/secdevops" -\textgreater{} ".aws"; "/home/secdevops"
+-\textgreater{} ".config"; ".config" -\textgreater{} "gcloud"; "gcloud"
+-\textgreater{} "secdevops-my-proj-000101-420240.json";
+"/home/secdevops" -\textgreater{} "devsecops"; "devsecops"
+-\textgreater{} "aws"; "devsecops" -\textgreater{} "gcp";
+\end{description}
+
+\}
