@@ -6,7 +6,6 @@
 
 % frontmatter: half title, title page, colophon (copyright page), epigraph, toc, preface, acknowledgements
 \frontmatter
-
 \include{frontmatter/maketitle}
 \include{frontmatter/colophon}
 \pagenumbering{Roman}
@@ -17,9 +16,11 @@
 \listoftables
 \pagenumbering{arabic}
 
-
 % mainmatter: parts and chapters
 \mainmatter
+\include{mainmatter/00_intro}
+\include{mainmatter/01_setup}
+\include{mainmatter/02_docker}
 
 % backmatter: appendix, bibliography, index, postface
 \backmatter

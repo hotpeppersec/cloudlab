@@ -21,7 +21,7 @@ development practices throughout this cycle.
    single: Infrastructure as Code (IaC)
    single: Continuous Delivery
 
-The world is changing with respect to how how software is created and maintained. Folks
+The world is changing with respect to how software is created and maintained. Folks
 at the leading edge in today's computing industry are not just building software, but
 are curating it through a cyclical process of continuous development, testing, use, and
 improvement. With increasing frequency, applications and workloads are moving to

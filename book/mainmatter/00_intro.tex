@@ -1,0 +1,71 @@
+\makeatletter
+\@removefromreset{figure}{section}
+\@addtoreset{figure}{chapter}
+\renewcommand{\thefigure}{\thechapter.\@arabic\c@figure}
+\makeatother
+
+\hypertarget{Introduction}{%
+	\chapter{Introduction}\label{Introduction}}
+
+\includegraphics[scale=0.85]{../images/sky-690293_1920.jpg}
+\justify
+The term DevSecOps is an amalgam of the words development, security and
+operations. Simply put, DevSecOps lives at the intersection of
+application development, information security, and network operations.
+As we will soon discover, Infrastructure as Code (IaC) is the platform
+upon which software flows moves through a cycle of Continuous Delivery
+(CD). To the extent possible, we attempt to realize gains in performance
+of our people and projects by leveraging automation and Agile
+development practices throughout this cycle.
+
+single: devsecops single: Infrastructure as Code (IaC) single:
+Continuous Delivery
+\justify
+The world is changing with respect to how software is created and
+maintained. Folks at the leading edge in today's computing industry are
+not just building software, but are curating it through a cyclical
+process of continuous development, testing, use, and improvement. With
+increasing frequency, applications and workloads are moving to computing
+environments that are abstracted away, managed by invisible armies of
+engineers at companies other than their own. Of course we are referring
+to those multitenant cloud type computing landscapes. Passing one or
+more fully encapsulated applications to a cloud provider for the
+purposes of having them host it as a production environment has become
+commonplace. Further, cloud service providers are adding new features
+and capabilities at breakneck speed.
+\justify
+At the time of this writing in 2020, about 40\% of production workloads
+are running on containers and serverless deployments. Bare metal and
+virtual machines currently host a bit over 60\% of production workloads.
+Containerized workload use is expected to increase even more in the
+coming years. Conversely, bare metal and VM usage is expected to
+decrease\footnote{\url{https://start.paloaltonetworks.com/esg-research-cloud-native-devsecops-report.html}}
+. It's not a question of if, but how quickly commoditization of compute
+resources takes place, perhaps leaving only a few main providers of
+these cloud resources. This is not unlike how power generation and
+distribution became centralized in the previous century, now the domain
+of a few large utility companies. Nothing beyond considerations of time,
+money, and practicality stop you from making your own electricity, but
+most folks are keen to invest their efforts in other pursuits.
+\justify
+In this book, we will explore a combination of techniques that can
+refresh your skills and align your projects with the technological
+leading edge. We will introduce various popular technologies, then use
+common bits and pieces of these to create a secure build pipeline for
+our lab and development work, test, and even production environments.
+The techniques here are meant to help the security-minded developer
+sharpen her or his skills, and introduce tips and tactics that benefit
+the teams they are a part of. There are many, many ways to reach similar
+goals these days with the preponderance of Open Source and commercial
+tools that are available. By focusing on a few we can blaze a trail to
+success in our projects.
+\justify
+We have a goal in mind of selecting complementary tools and process to
+construct and streamline our ways of working. We will attempt to
+leverage these ways to get us quickly and securely to a working lab
+environment. At the same time we should strive for simplicity and
+reduction of complexity whenever possible. Experience tells us that
+tools and process that are too cumbersome or burdensome are typically
+circumvented, or even abandoned. Complexity in our processes become the
+snags and side projects that are the enemy of productivity. Refuse to
+shave more yaks than absolutely necessary!

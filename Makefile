@@ -22,18 +22,6 @@ export PRINT_HELP_PYSCRIPT
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-clean: ## Cleanup all the things
-	find . -name '*.pyc' | xargs rm -rf
-	find . -name '__pycache__' | xargs rm -rf
-	cd book && make clean && cd -
-	cd proposal && make clean && cd -
-
-docker: ## build docker container for testing
-	$(MAKE) print-status MSG="Building with docker-compose"
-	@if [ -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Don't run make docker inside docker container <***" && exit 1; fi
-	docker-compose -f docker/docker-compose.yml build devsecops
-	@docker-compose -f docker/docker-compose.yml run devsecops /bin/bash
-
 book: python ## Generate documentation
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make book inside docker container <***" && exit 1; fi
 	$(MAKE) print-status MSG="Building HTML"
@@ -49,6 +37,19 @@ book: python ## Generate documentation
 	cd /project
 	$(MAKE) print-status MSG="Building EPUB"
 	cd book && make epub && cd -
+
+clean: ## Cleanup all the things
+	find . -name '*.pyc' | xargs rm -rf
+	find . -name '__pycache__' | xargs rm -rf
+	cd book && make clean && cd -
+	cd proposal && make clean && cd -
+	rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
+
+docker: ## build docker container for testing
+	$(MAKE) print-status MSG="Building with docker-compose"
+	@if [ -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Don't run make docker inside docker container <***" && exit 1; fi
+	docker-compose -f docker/docker-compose.yml build devsecops
+	@docker-compose -f docker/docker-compose.yml run devsecops /bin/bash
 
 print-status:
 	@:$(call check_defined, MSG, Message to print)
