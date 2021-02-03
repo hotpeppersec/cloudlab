@@ -1,30 +1,22 @@
-\makeatletter
-\@removefromreset{figure}{section}
-\@addtoreset{figure}{chapter}
-\renewcommand{\thefigure}{\thechapter.\@arabic\c@figure}
-\makeatother
+\chapter{Revision Control}
 
-\hypertarget{revision-control}{%
-\section{Revision Control}\label{revision-control}}
+\includegraphics[scale=0.20]{../images/owl-50267_1920.jpg}
 
-\includegraphics{../images/owl-50267_1920.jpg}
-
-The advantages of using a revision control methodolgy in being able to
+\justify
+The advantages of using a revision control\index{revision control} methodology in being able to
 organize and store project artifacts in a way that multiple users or
 teams can leverage. Websites, like github.com for example, are
 fundamental to our workflow as they are a key piece of our software
 delivery pipeline.
 
+\justify
 In addition to giving us a way to back up and store our work,
 essentially for free, it facilitates a greater degree of collaboration.
 There are other similar, (mostly) free services we can choose from
 including Bit Bucket and Git Lab. For the purposes of this book we will
-focus on the most well known of these, GitHub.
+focus on the most well known of these, GitHub\index{GitHub}.
 
-single: GitHub single: revision control
-
-\hypertarget{github.com}{%
-\subsection{github.com}\label{github.com}}
+\section{github.com}
 
 Simply put, github.com is a website that allows you to store the work
 you are using git to manage. Git is the tool that allows for revision
@@ -32,68 +24,60 @@ control of your work. GitHub is a repository for storing that work,
 creating teams to work on projects, tracking issues, release
 snapshotting, and more.
 
-\hypertarget{enable-two-factor-authentication}{%
-\subsubsection{Enable Two-Factor
-Authentication}\label{enable-two-factor-authentication}}
+\subsection{Enable Two-Factor Authentication}
 
+\justify
 One of the very first things you should do (after creating an account,
 that is) is to configure two-factor authentication\footnote{\url{https://help.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa}}
 (2FA) for your GitHub account.
 
 single: two-factor authentication
 
-\hypertarget{ssh-key-setup}{%
-\subsubsection{SSH Key Setup}\label{ssh-key-setup}}
+\subsection{SSH Key Setup}
 
-Take a few minutes to generate an SSH key pair if you don't already have
+Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have
 one. We will be using it at various stages to log in to various sites
 and hosts. The directions for generating an SSH keypair found on the
 github.com website\footnote{\url{https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent}}
 are perfect for this task.
 
-single: SSH keys
+\begin{mybox}{\thetcbcounter: SSH Key Generation}
+ssh-keygen -t rsa -b 4096 -C "user@example.com"\\
+Enter a file in which to save the key (/home/user/.ssh/id\_rsa): [Press enter]\\
+Enter passphrase (empty for no passphrase): [Type a passphrase]\\
+Enter same passphrase again: [Type passphrase again]
+\end{mybox}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{ssh-keygen}\NormalTok{ -t rsa -b 4096 -C }\StringTok{"user@example.com"}
-\ExtensionTok{Enter}\NormalTok{ a file in which to save the key (/home/user/.ssh/id_rsa)}\BuiltInTok{:}\NormalTok{ [Press enter]}
-\ExtensionTok{Enter}\NormalTok{ passphrase (empty for no passphrase)}\BuiltInTok{:}\NormalTok{ [Type a passphrase]}
-\ExtensionTok{Enter}\NormalTok{ same passphrase again: [Type passphrase again]}
-\end{Highlighting}
-\end{Shaded}
+\justify
+Now you can add your public key half to github.com\footnote{\url{https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account}}.
 
-Now you can add your public key half to github.com\footnote{\url{https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account}}
-.
+\subsubsection{GPG Key Setup}
 
-\hypertarget{gpg-key-setup}{%
-\subsubsection{GPG Key Setup}\label{gpg-key-setup}}
-
+\justify
 Using a GPG key to sign your commits\footnote{\url{https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key}}
 will help others verify that work you check in to revision control did
 actually come from you. It's not strictly necessary but is considered
 good practice. Some repositories require that you sign your pull
-requests with your GPG key.
+requests with your GPG key\index{GPG key}.
 
-single: GPG key
-
+\justify
 Take a few minutes to set up a GPG key and add it to your profile on
 GitHub.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{user@devsecops}\NormalTok{:~# gpg --default-new-key-algo rsa4096 --gen-key}
-\ExtensionTok{public}\NormalTok{ and secret key created and signed.}
-\ExtensionTok{Note}\NormalTok{ that this key cannot be used for encryption.  You may want to use}
-\ExtensionTok{the}\NormalTok{ command }\StringTok{"--edit-key"}\NormalTok{ to generate a subkey for this purpose.}
-\ExtensionTok{pub}\NormalTok{   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]}
-      \ExtensionTok{848943CDCE488F138BF91079E81498874E59648D}
-\ExtensionTok{uid}\NormalTok{                      Kevin Flynn }\OperatorTok{<}\NormalTok{user@example.com}\OperatorTok{>}
+\begin{mybox}{\thetcbcounter: GPG Key Setup}
+user@devsecops:\~\# gpg --default-new-key-algo rsa4096 --gen-key\\
+public and secret key created and signed.\\
+Note that this key cannot be used for encryption.  You may want to use
+the command "--edit-key" to generate a subkey for this purpose.\\
+pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]\\
+\hspace*{15mm}      848943CDCE488F138BF91079E81498874E59648D\\
+uid\\
+\hspace*{25mm}                     Kevin Flynn <user@example.com>\\
 
-\ExtensionTok{user@devsecops}\NormalTok{:~# gpg --list-secret-keys --keyid-format LONG }\KeywordTok{|} \FunctionTok{grep}\NormalTok{ sec }\KeywordTok{|} \FunctionTok{cut}\NormalTok{ -f2 -d}\StringTok{'/'}\KeywordTok{|} \FunctionTok{cut}\NormalTok{ -f1 -d}\StringTok{' '}
-\ExtensionTok{E81498874E59648D}
-\ExtensionTok{user@devsecops}\NormalTok{:~# gpg --armor --export E81498874E59648D}
-\end{Highlighting}
-\end{Shaded}
+user@devsecops:\~\# gpg --list-secret-keys --keyid-format LONG |grep sec| cut -f2 -d'/'|cut -f1 -d' '\\
+E81498874E59648D\\
+user@devsecops:\~\# gpg --armor --export E81498874E59648D
+\end{mybox}
 
 Copy your GPG key, beginning with
 -\/-\/-\/-\/-BEGIN PGP PUBLIC KEY BLOCK-\/-\/-\/-\/- and ending with
@@ -140,16 +124,16 @@ This can be a tricky pattern to master, but it is fundamental if you
 want to join the ranks of Open Source contributors and developers that
 enjoy the full power of Git and GitHub.
 
-\hypertarget{steps}{%
-\paragraph{Steps:}\label{steps}}
+
+\paragraph{Steps:}
 
 \begin{itemize}
-\tightlist
+
 \item
   From the original project page on github.com, click the "fork" button.
 
   \begin{itemize}
-  \tightlist
+
   \item
     This creates a copy of the original repository on your personal
     GitHub page.
@@ -171,11 +155,9 @@ enjoy the full power of Git and GitHub.
 To create a "remote" called upstream from your clone to the original
 repo, use this example command:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ remote add upstream git@github.com:hotpeppersec/rapid_secdev_framework.git}
-\end{Highlighting}
-\end{Shaded}
+\begin{mybox}{\thetcbcounter: Create Upstream Remote}
+git remote add upstream git@github.com:hotpeppersec/rapid\_secdev\_framework.git
+\end{mybox}
 
 After completing these steps you can easily submit pull requests (PRs)
 back to the original project.
@@ -196,7 +178,6 @@ branch in the main project repository. From the command line on the
 machine where your clone resides:
 
 \begin{itemize}
-\tightlist
 \item
   git checkout master
 \item
@@ -207,9 +188,10 @@ machine where your clone resides:
   git push origin master
 \end{itemize}
 
-\hypertarget{creating-repositories}{%
-\subsubsection{Creating Repositories}\label{creating-repositories}}
 
+\subsection{Creating Repositories}
+
+\justify
 If you are starting out on a new project, simply creating a repo is
 probably enough. Often I will start a repository on my personal account
 while I use the steps in this book to get the project of fthe ground.
@@ -217,6 +199,7 @@ Later I will move the repository into an organization where the
 responsibility for ownership and administration can be shared with other
 folks.
 
+\justify
 While the repository is owned by me, I use a much simpler process for
 managing my code check-ins.
 
@@ -224,7 +207,7 @@ managing my code check-ins.
 \paragraph{Steps}\label{steps-2}}
 
 \begin{itemize}
-\tightlist
+
 \item
   Create the repository on github.com from my personal account.
 \item
@@ -235,19 +218,20 @@ managing my code check-ins.
   Do a git pull to my master branch to keep my local clone up to date.
 \end{itemize}
 
-\hypertarget{example-repository}{%
-\subsubsection{Example Repository}\label{example-repository}}
 
+\subsection{Example Repository}
+
+\justify
 A GitHub Template Repository is available should you decide to follow
 along with the code examples in this book. The next sets of steps are
 predicated on having Docker installed and running as described in the
 previous chapter.
 
-\hypertarget{template-steps}{%
-\paragraph{Template Steps}\label{template-steps}}
+
+\paragraph{Template Steps}
 
 \begin{itemize}
-\tightlist
+
 \item
   Navigate to
   \url{https://github.com/hotpeppersec/rapid_secdev_framework}
@@ -260,13 +244,14 @@ previous chapter.
   Now click "Create repository from template"
 \end{itemize}
 
+\justify
 Now you have a repository in your GitHub account that you can use for
 testing and completing lab examples detailed in this book. For our first
 exercise, let's try to make a clone of the repository we generated from
 template.
 
-\hypertarget{cloning-steps}{%
-\paragraph{Cloning Steps}\label{cloning-steps}}
+
+\paragraph{Cloning Steps}
 
 \begin{itemize}
 \item
@@ -276,7 +261,7 @@ template.
   \item[Clone the repository to your local host by clicking on the green
   "Clone or download" button.]
   \begin{itemize}
-  \tightlist
+
   \item
     Be sure to clone with "SSH" and not "HTTPS".
   \end{itemize}
@@ -291,71 +276,64 @@ make docker to get to a command prompt within the container.
 Consider the following example. Notice that the command prompt changes
 to indicate that you have a BASH shell in the running container.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{user@devsecops}\NormalTok{:25%:~/rapid_secdev_framework$ make docker}
-\ExtensionTok{Building}\NormalTok{ test env with docker-compose}
-\ExtensionTok{docker-compose}\NormalTok{ -f docker/docker-compose.yml build devsecops}
-\ExtensionTok{Building}\NormalTok{ devsecops}
-\ExtensionTok{Step}\NormalTok{ 1/3 : FROM python:3.9-buster}
-\ExtensionTok{---}\OperatorTok{>}\NormalTok{ 4f7cd4269fa9}
-\ExtensionTok{Step}\NormalTok{ 2/3 : WORKDIR /home/secdevops}
-\ExtensionTok{---}\OperatorTok{>}\NormalTok{ Using cache}
-\ExtensionTok{---}\OperatorTok{>}\NormalTok{ 95dc84398bc2}
-\ExtensionTok{Step}\NormalTok{ 3/3 : RUN apt update }\KeywordTok{;}\ExtensionTok{apt}\NormalTok{ install -y apt-utils}
-\ExtensionTok{---}\OperatorTok{>}\NormalTok{ Using cache}
-\ExtensionTok{---}\OperatorTok{>}\NormalTok{ 83ea11278488}
-\ExtensionTok{Successfully}\NormalTok{ built 83ea11278488}
-\ExtensionTok{Successfully}\NormalTok{ tagged docker_devsecops:latest}
-\ExtensionTok{user@devsecops}\NormalTok{:/home/secdevops#}
-\end{Highlighting}
-\end{Shaded}
+\begin{mybox}{\thetcbcounter: Output from make docker command}
+user@devsecops:\~/rapid\_secdev\_framework\$ make docker\\
+Building test env with docker-compose\\
+docker-compose -f docker/docker-compose.yml build devsecops\\
+Building devsecops\\
+Step 1/3 : FROM python:3.9-buster\\
+---> 4f7cd4269fa9\\
+Step 2/3 : WORKDIR /home/secdevops\\
+---> Using cache\\
+---> 95dc84398bc2\\
+Step 3/3 : RUN apt update; apt install -y apt-utils\\
+---> Using cache\\
+---> 83ea11278488\\
+Successfully built 83ea11278488\\
+Successfully tagged docker\_devsecops:latest\\
+user@devsecops:/home/secdevops\#
+\end{mybox}
 
-\hypertarget{codeowners}{%
-\subsubsection{CODEOWNERS}\label{codeowners}}
 
-Creating a CODEOWNERS file\footnote{\url{https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners}}
+\subsection{CODEOWNERS}
+
+\justify
+Creating a CODEOWNERS\index{CODEOWNERS} file\footnote{\url{https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners}}
 is a good way to automatically tag folks in PRs to make them aware of
 changes to certain files or folders in your projects.
 
-single: CODEOWNERS
-
+\justify
 In it's most basic form, the CODEOWNERS file in the .github directory
 simply lists the file(s) and the owner(s) on a line together.
 
-Consider this exmaple where we add the @hotpeppersec to the CODEOWNERS
+\justify
+Consider this example where we add the @hotpeppersec to the CODEOWNERS
 file.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{user@devsecops}\NormalTok{:/home/secdevops# if [ ! -d }\StringTok{".github"}\NormalTok{ ]}\KeywordTok{;} \KeywordTok{then} \FunctionTok{mkdir}\NormalTok{ .github}\KeywordTok{;} \KeywordTok{fi}
-\ExtensionTok{user@devsecops}\NormalTok{:/home/secdevops# echo }\StringTok{"* @githubusername"} \OperatorTok{>>}\NormalTok{ .github/CODEOWNERS}
-\end{Highlighting}
-\end{Shaded}
+\begin{mybox}{\thetcbcounter: Adding a user to CODEOWNERS file}
+user@devsecops:/home/secdevops\# if [ ! -d ".github" ];then mkdir .github; fi\\
+user@devsecops:/home/secdevops\# echo "* @githubusername">> .github/CODEOWNERS
+\end{mybox}
 
 In this example, the @githubusername user will be tagged as a reviewer
 in all pull requests.
 
-\hypertarget{the-.gitignore-file}{%
-\subsubsection{The .gitignore file}\label{the-.gitignore-file}}
 
-Use this file to designate items that should be excluded from revision
+\subsection{The .gitignore file}
+\justify
+Use this file\index{.gitignore} to designate items that should be excluded from revision
 control. This is useful for helping keep credentials and other secrets
 out of the GitHub repository.
 
-single: .gitignore
-
+\justify
 Consider the following example .gitignore file. This will prevent you
 from checking in the .DS-Store that Macintosh creates in many folders.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{root@cloudlab}\NormalTok{:~/workspace/cloudlab# echo }\StringTok{".DS_Store"} \OperatorTok{>}\NormalTok{ .gitignore}
-\end{Highlighting}
-\end{Shaded}
+\begin{mybox}{\thetcbcounter: Example .gitignore file}
+root@cloudlab:\~/workspace/cloudlab\# echo ".DS\_Store" > .gitignore
+\end{mybox}
 
-\hypertarget{working-with-branches}{%
-\subsubsection{Working with Branches}\label{working-with-branches}}
+\subsection{Working with Branches}
 
 Naming your branches something useful is helpful (self documenting).
 
@@ -369,17 +347,16 @@ Let's look at how to create a branch
 
 When you make changes on a local branch, say on your personal laptop,
 you will eventually want those changes to flow back into the main
-project. Opening a pull request is a means of letting other people know
+project. Opening a pull request\index{Pull Request} is a means of letting other people know
 you've got a set of changes ready for review and potential
-changes\footnote{\url{https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests}}
-.
+changes\footnote{\url{https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests}}.
 
-single: Pull Request
-
+\justify
 Keeping pull requests smaller and more frequent makes it easier for your
 peers to review your changes. It also means you will be less likely to
 lose work.
 
+\justify
 Let's use our changes to the CODEOWNERS file to try making a change in
 our clone of the repository in GitHub, then pushing that change up to
 the repository.
@@ -388,7 +365,7 @@ the repository.
 \paragraph{Steps}\label{steps-4}}
 
 \begin{itemize}
-\tightlist
+
 \item
   Create a new branch, for example git checkout -b newbranch
 \item
@@ -404,9 +381,10 @@ the repository.
   Use the github.com website to open and merge the pull request.
 \end{itemize}
 
-\hypertarget{repository-settings}{%
-\subsubsection{Repository Settings}\label{repository-settings}}
 
+\subsection{Repository Settings}
+
+\justify
 When setting up a new repository in my GitHub account, I always click
 the Settings tab (with the little gear icon) and then choose the
 "Branches" section. The Default branch gets set to "master". Clicking
@@ -415,32 +393,30 @@ and then the green "Create" button sets up master as a protected branch.
 Consider the following example {myFig2}.
 
 \begin{figure}
-\centering
-\includegraphics{../images/github-branch-protection.png}
+\includegraphics[scale=0.50]{../images/github-branch-protection.png}
 \caption{Setting up branch protection.}
 \end{figure}
 
+\justify
 After we start to work with CI/CD tools (status checks, like GitHub
 Actions for example) new choices ({myFig3}) become available in this
 part of your repository for managing those checks.
 
 \begin{figure}
-\centering
-\includegraphics{../images/guthub-status-check.png}
+\includegraphics[scale=0.53]{../images/guthub-status-check.png}
 \caption{Requiring status checks.}
 \end{figure}
 
-\hypertarget{automated-repository-scanning}{%
-\subsubsection{Automated Repository
-Scanning}\label{automated-repository-scanning}}
+\subsection{Automated Repository Scanning}
 
+\justify
 There are many GitHub plugins that are free for
 single-user/non-commercial scenarios. a cursory search of the web of the
 GitHub Marketplace will turn up many of these. Let's leave some of the
 tedious work to the bots so we can focus on our journey to the cloud!
 
-\hypertarget{renovate}{%
-\paragraph{Renovate}\label{renovate}}
+
+\paragraph{Renovate}
 
 WhiteSource Renovate is what's known as a dependency scanner. It is free
 for single user to add from the GitHub Marketplace\footnote{\url{https://github.com/marketplace/renovate}}
@@ -472,9 +448,10 @@ obvious expectations.
 
 \clearpage
 
-\hypertarget{directory-structure}{%
-\subsubsection{Directory Structure}\label{directory-structure}}
 
+\subsection{Directory Structure}
+
+\justify
 Relevant files and folders mentioned in this chapter are organized as
 seen below.
 
