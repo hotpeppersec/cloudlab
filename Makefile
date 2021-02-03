@@ -44,6 +44,7 @@ clean: ## Cleanup all the things
 	cd book && make clean && cd -
 	cd proposal && make clean && cd -
 	rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
+	rm book/frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
 
 docker: ## build docker container for testing
 	$(MAKE) print-status MSG="Building with docker-compose"
