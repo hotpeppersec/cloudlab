@@ -43,14 +43,11 @@ the `make clean` command is issued.
 
 ```bash
 make docker
-#sphinx-build -M latexpdf . _build
-# Generate PDF with special Unicode characters:
-#sphinx-build -b latex -d _build/doctrees . _build/xetex && cd _build/xetex; xelatex *.tex
 make book
 ```
 
-- PDF will be in `docs/_build/latex/devsecopsquickstart.pdf`
-- Find the file in `file:///home/thedevilsvoice/workspace/devsecops_quickstart/docs/_build/latex/devsecopsquickstart.pdf`
+- PDF will be in `book/devsecopsquickstart.pdf`
+- Find the file in `file:///home/thedevilsvoice/workspace/devsecops_quickstart/book/devsecopsquickstart.pdf`
   - If you open in firefox you get a nice nav bar on the left side.
 
 ## Epub
@@ -62,7 +59,7 @@ make docker
 cd book && make epub
 ```
 
-The epub file will be in `docs/_build/epub/DevSecOpsQuickStart.epub`. It
+The epub file will be in `book/_build/epub/DevSecOpsQuickStart.epub`. It
 will persist outside the Docker container in the users filesystem until
 the `make clean` command is issued.
 

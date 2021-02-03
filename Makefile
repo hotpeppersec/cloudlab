@@ -4,6 +4,7 @@
 BLUE := "\\033[1\;36m"
 NC := "\\033[0m" # No color/default
 
+PROJECT_DIR := /project/book
 REQS := /project/python/requirements.txt
 REQS_TEST := /project/python/requirements-test.txt
 
@@ -22,21 +23,10 @@ export PRINT_HELP_PYSCRIPT
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-book: python ## Generate documentation
+book: python ## Generate LaTeX book in PDF
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make book inside docker container <***" && exit 1; fi
-	$(MAKE) print-status MSG="Building HTML"
-	cd book && make html && cd -
-	$(MAKE) print-status MSG="Building LaTeX"
-	if [ ! -d /project/book/_build/latex ]; then mkdir -p /project/book/_build/latex; fi
-	if [ ! -L /project/book/_build/latex/images ]; then ln -s /project/book/images /project/book/_build/latex/images; fi
-	cd book && make latexpdf && cd -
-	$(MAKE) print-status MSG="Building xeLaTeX"
-	cd book && \
-	sphinx-build -b latex -d _build/doctrees . _build/xetex && \
-	cd _build/xetex; xelatex *.tex && \
-	cd /project
-	$(MAKE) print-status MSG="Building EPUB"
-	cd book && make epub && cd -
+	dot -Tpdf -o ${PROJECT_DIR}/docker.pdf ${PROJECT_DIR}/docker.dot
+	cd ${PROJECT_DIR} && pdflatex -shell-escape -synctex=1 -interaction=nonstopmode ${PROJECT_DIR}/devsecops_quickstart.tex
 
 clean: ## Cleanup all the things
 	find . -name '*.pyc' | xargs rm -rf
@@ -67,6 +57,22 @@ python: ## setup python3
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make python inside docker container <***" && exit 1; fi
 	$(MAKE) print-status MSG="Set up the Python environment"
 	if [ -f '$(REQS)' ]; then python3 -m pip install -r$(REQS); fi
+
+sphinx: python ## Generate documentation
+	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make sphinx inside docker container <***" && exit 1; fi
+	$(MAKE) print-status MSG="Building HTML"
+	cd book && make html && cd -
+	$(MAKE) print-status MSG="Building LaTeX"
+	if [ ! -d /project/book/_build/latex ]; then mkdir -p /project/book/_build/latex; fi
+	if [ ! -L /project/book/_build/latex/images ]; then ln -s /project/book/images /project/book/_build/latex/images; fi
+	cd book && make latexpdf && cd -
+	$(MAKE) print-status MSG="Building xeLaTeX"
+	cd book && \
+	sphinx-build -b latex -d _build/doctrees . _build/xetex && \
+	cd _build/xetex; xelatex *.tex && \
+	cd /project
+	$(MAKE) print-status MSG="Building EPUB"
+	cd book && make epub && cd -
 
 test: python ## test all the things
 	if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="Run make test inside docker container" && exit 1; fi

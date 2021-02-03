@@ -1,19 +1,17 @@
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{tgbonum} % set the document font
-%\usepackage[english]{babel}
-
-\usepackage{ragged2e} % use flush and justify for text blocks
-
-% Code Blocks
-\usepackage{listings} % formatting for code block listings https://www.ctan.org/pkg/listings
-%\usepackage{pythonhighlight} % highlight python https://www.ctan.org/tex-archive/macros/latex/contrib/pythonhighlight
-
-\usepackage[most]{tcolorbox}
 \definecolor{myblue}{RGB}{0,163,243}
+\definecolor{mygrey}{RGB}{128,128,128}
+\definecolor{whitesmoke}{RGB}{245,245,245}
 
-% Graphing with Graphviz
-\usepackage[pdf]{graphviz} % support for graphviz
+\newtcolorbox[auto counter,number within=section]{mybox}[2][]{
+	colbacktitle=mygrey,
+	colback=whitesmoke,
+	title={#2},
+	fonttitle=\ttfamily\small,
+	fontupper=\sffamily\small,
+	halign=flush left,
+	rounded corners,
+	#1
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is to watermark the pages with DRAFT
@@ -23,9 +21,6 @@
 \SetWatermarkLightness{0.9}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{xcolor}
-\usepackage{booktabs}
-
 %%%add number to subsubsection 2=subsection, 3=subsubsection
 %%% below subsubsection is not good idea.
 \setcounter{secnumdepth}{3}
@@ -33,8 +28,7 @@
 %%%% Table of content upto 2=subsection, 3=subsubsection
 \setcounter{tocdepth}{2}
 
-\usepackage{amsmath,amsfonts,amssymb,amsthm}
-\usepackage{graphicx}\graphicspath{{images/}}
+
 
 %%% reduce spaces for Table of contents, figures and tables
 %%% it is used "\addtocontents{toc}{\vskip -1.2cm}" etc. in the document

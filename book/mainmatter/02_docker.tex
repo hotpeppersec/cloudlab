@@ -6,14 +6,12 @@
 Containerization is the process of generating a fully functioning
 software ecosystem that includes code and dependencies for part or all
 of a project. The most popular and common tool for realizing
-containerization is Docker. Using Docker, we can programatically build
+containerization is Docker\index{Docker}. Using Docker, we can programatically build
 an environment for our project, and pass the entirety of this
 encapsulated environment from our local development machine, into the
-Continuous Integration (CI) pipeline for testing, and eventually into
-our production environment. Containerization helps us by offering a
+Continuous Integration (CI)\index{Continuous Integraion} pipeline for testing, and eventually into
+our production environment. Containerization\index{containerization} helps us by offering a
 consistent operating experience across disparate environments.
-
-single: Continuous Integration single: Containerization single: Docker
 
 \justify
 It is more desirable to create projects that are built and replaced
@@ -34,17 +32,15 @@ There is obvious advantage of being able to quickly stand up new clones
 of our project to replace existing instances that may be outdated,
 insecure, etc. The idea of immutability\footnote{\url{https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure/}},
 in reference to software projects, is the degree to which something, our
-running project for example, can be changed. Immutability is desirable,
+running project for example, can be changed. Immutability\index{Immutability} is desirable,
 in that we wish to be able to simply replace outdated instances of our
 project in their entirety. Upgrading and patching are inherently
 problematic activities, high cost in terms of time, effort and money,
 that we have the technology to dissociate from. With containerization,
 we can more easily achieve immutability across the software lifecycle.
 
-single: Immutability
-
 \justify
-Ephemerality is the concept of something being transitory in nature,
+Ephemerality/index{Ephemerality} is the concept of something being transitory in nature,
 existing only briefly\footnote{\url{https://en.wikipedia.org/wiki/Ephemerality}}.
 Using immutable containers makes it easier to realize infrastructure and
 hosts that are ephemeral. Rather than spending a great deal of time
@@ -53,8 +49,6 @@ project stack that uses virtual machines or bare metal, we're going to
 use Docker to create a new container in place of the old one. In other
 words, we're running our project in containers that are immutable and
 ephemeral to the degree possible.
-
-single: Ephemerality
 
 \justify
 Docker images are "canned" (as in, prefabricated) or custom directives
@@ -90,26 +84,25 @@ Dockerfile. This Dockerfile will dictate how we provision resources and
 include operating system essentials and packages inside our container.
 Each Dockerfile is predicated on a base image, such as Python/Debian 10
 as shown in the example below.
+
 \justify
 Consider a directory named
 \href{https://github.com/hotpeppersec/rapid_secdev_framework/tree/master/docker}{Docker}
 and a file called
-\href{https://github.com/hotpeppersec/rapid_secdev_framework/blob/master/docker/Dockerfile}{Dockerfile}
+\href{https://github.com/hotpeppersec/rapid_secdev_framework/blob/master/docker/Dockerfile}{Dockerfile}\index{Dockerfile}
 within this directory. Note the capitalization of the first letter in the file name. Some IDE's will key off this file and allow for additional syntax highlighting.
 
-single: Dockerfile
-
-\begin{tcolorbox}[title=Example Dockerfile,height=6.0cm]
+\begin{mybox}{\thetcbcounter: Example Dockerfile}
 FROM python:3.9-buster\\
 LABEL maintainer "Kevin Flynn <user@example.com>"\\
-\\
+
 ENV DEBIAN\_FRONTEND noninteractive\\
-\\
+
 ADD . /project\\
 WORKDIR /project\\
 
 RUN apt update \&\& apt -y install apt-utils\\
-\end{tcolorbox}
+\end{mybox}
 
 \justify
 A valid Dockerfile begins with the \textbf{FROM} instruction. This
@@ -133,12 +126,11 @@ allows us to manage multiple Docker containers for one or more
 applications. We will add this file to our project to illustrate it's
 composition and give ourselves the ability to extend our work later, as
 needed.
+
 \justify
-A file called docker-compose.yml will exist alongside our Dockerfile in our docker directory.
+A file called docker-compose.yml\index{docker-compose.yml} will exist alongside our Dockerfile in our docker directory.
 
-single: docker-compose.yml
-
-\begin{tcolorbox}[title=Example Dockerfile,height=6.5cm]
+\begin{mybox}{\thetcbcounter: Example docker-compose.yml}
 version: '3'\\
 services:\\
 \hspace*{7mm}devsecops:\\
@@ -149,7 +141,7 @@ services:\\
 \hspace*{7mm}build:\\
 \hspace*{15mm}context: ..\\
 \hspace*{15mm}dockerfile: docker/Dockerfile
-\end{tcolorbox}
+\end{mybox}
 
 \justify
 The docker-compose.yml file begins with a version specification. It's
@@ -169,9 +161,8 @@ configuration files, we can now try out our configuration. See
 ({myFig1}) for an illustration of how to lay out the project files in your local filesystem.
 
 \begin{figure}
-	\centering
-
-\digraph{docker}{
+  \centering
+  \digraph{docker}{
 size="8,4";
 node [fontname="Helvetica" fontsize=14 shape=box];
 edge [fontname="Symbol" fontsize=10];
@@ -183,7 +174,7 @@ rapid_secdev_framework -> docker;
 docker -> dockercom;
 docker -> Dockerfile;
 }
-	\caption{Project Directory and Docker related files.}
+  \caption{Project Directory and Docker related files.}
 \end{figure}
 
 \clearpage
@@ -216,21 +207,21 @@ editor as needed. Note that typing the "docker-compose" command on line
 docker-compose.yml file.
 
 \justify
-\begin{tcolorbox}[title=Create files for Docker,height=3.5cm]
+\begin{mybox}{\thetcbcounter: Create files for Docker,height=3.5cm}
 mkdir rapid\_secdev\_framework\\
 cd rapid\_secdev\_framework\\
 mkdir docker\\
 vi docker/Dockerfile\\
 vi docker/docker-compose.yml
-\end{tcolorbox}
+\end{mybox}
 
 \justify
 With our files created and populated, we are ready to generate our
 container based on our specified configuration.
 
-\begin{tcolorbox}[title=Build from docker-compose.yml file,height=3.5cm]
+\begin{mybox}{\thetcbcounter: Build from docker-compose.yml }
 docker-compose -f docker/docker-compose.yml build devsecops
-\end{tcolorbox}
+\end{mybox}
 
 \justify
 If all went well, you should now have a shell prompt from "inside" the
@@ -243,17 +234,16 @@ It should be noted that the link to the GitHub repository for the accompanying p
 
 \section{Substituting Podman for Docker}
 \justify
-Podman is an Open Source container engine from the Open Containers Initiative (OCI). The Podman service is purportedly capable of being a drop-in replacement for Docker, although it only runs on Linux hosts at the time of this writing. Podman gives the user the ability to use traditional Docker commands, without the need to run a daemon to do so,
+Podman is an Open Source container engine from the Open Containers Initiative (OCI)\index{Open Containers Initiative (OCI)}. The Podman\index{Podman} service is purportedly capable of being a drop-in replacement for Docker, although it only runs on Linux hosts at the time of this writing. Podman gives the user the ability to use traditional Docker commands, without the need to run a daemon to do so,
 as is the case with Docker.
 \href{https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/}{According to William Henry of Red Hat Inc} , the Podman approach is simply to directly interact with the image registry, with the container and image storage, and with the Linux kernel through the runC container runtime process (rather than with a daemon).
 
-single: Podman single: Open Containers Initiative (OCI)
 \justify
 You can install Podman by \href{https://podman.io/getting-started/installation.html}{following the instructions} at their web site.
 \justify
 Here is the change for the unprivileged\_userns\_clone error:
 
-\begin{tcolorbox}[title=Change to bypass error,height=6.0cm]
+\begin{mybox}{\thetcbcounter: Change for unprivileged user namespace}
 user@devsecops:~\$ podman\\
 cannot clone: Operation not permitted\\
 user namespaces are not enabled in /proc/sys/kernel/unprivileged\_userns\_clone\\
@@ -261,7 +251,7 @@ Error: could not get runtime: cannot re-exec process\\
 user@devsecops:\~\$ sudo sysctl kernel.unprivileged\_userns\_clone=1\\
 user@devsecops:\~\$ podman-v\\
 podman version 1.9.1
-\end{tcolorbox}
+\end{mybox}
 
 \justify
 Once Podman is installed properly you should be able to
@@ -273,9 +263,10 @@ An orchestrator for containers can be thought of as an engine which
 allows for their provisioning, deployment, scaling, monitoring, load
 balancing, and more. The Container Orchestrator is meant to manage the
 lifecycle and visibility of a container at all stages.
+
 \justify
-Kubernetes is an example, perhaps the penultimate example, of a
-Container Orchestrator. Folks throughout the DevSecOps, Software and
+Kubernetes\index{Kubernetes} is an example, perhaps the penultimate example, of a
+Container Orchestrator\index{Orchestration}. Folks throughout the DevSecOps, Software and
 Security communities are using Kubernetes these days, and with good
 reason. It's adoption as a means to manage and replicate containers, and
 scale the applications they contain, has been nothing short of
@@ -283,10 +274,11 @@ revolutionary. System administrators and developers can do more, better
 work. Granted, this comes at the expense of introduction yet another
 framework to learn, and and no small amount of complexity.
 
-single: Kubernetes single: Orchestration
 \justify
 An orchestrator helps us achieve immutability, and scale to meet user demand quickly and easily by abstracting away concerns that come with operating workloads in a bare metal or VM environment.
+
 \justify
 Kubernetes and other orchestrators are rapidly evolving. To ignore this game-changing ecosystem is to be left behind in terms of technological prowess. That said, it's just beyond the scope of this book. Learning about containers, pipelines, infrastructure, and so on are the foundational elements you will want to become familiar with in preparation for expanding your mindset into the greater dimensionality that orchestration realizes.
+
 \justify
 For this stage of our journey to DevSecOps enlightenment, it is enough to know that orchestration exists and have a bit of familiarity with its purpose.
