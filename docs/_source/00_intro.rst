@@ -4,7 +4,7 @@
 DevSecOps Quick Start
 =====================
 
-.. image:: /project/images/sky-690293_1920.jpg
+.. image:: ../../images/sky-690293_1920.jpg
    :align: center
 
 |

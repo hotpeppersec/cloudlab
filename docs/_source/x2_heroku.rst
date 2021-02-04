@@ -4,7 +4,7 @@
 Heroku
 ======
 
-.. image:: /project/image/plouzane-1758197_1920.jpg
+.. image:: ../../images/plouzane-1758197_1920.jpg
    :align: center
 
 |

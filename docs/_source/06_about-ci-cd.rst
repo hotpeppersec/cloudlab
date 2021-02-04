@@ -4,7 +4,7 @@
 Continuous Integration & Deployment
 ===================================
 
-.. image:: /project/image/finland-905712_1920.jpg
+.. image:: ../../images/finland-905712_1920.jpg
    :align: center
 
 |

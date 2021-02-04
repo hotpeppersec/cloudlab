@@ -4,7 +4,7 @@
 Infrastructure
 ==============
 
-.. image:: /project/image/cologne-cathedral-1507854_1920.jpg
+.. image:: ../../images/cologne-cathedral-1507854_1920.jpg
    :align: center
 
 |
@@ -42,7 +42,7 @@ Amazon Web Services (AWS).
 .. index::
    single: Amazon Web Services
 
-.. figure:: /project/image/ddb-no-vpc-endpoint-1024x561.png
+.. figure:: ../../images/ddb-no-vpc-endpoint-1024x561.png
    :align: center
    :name: myFig4
    :alt: A simple Public Cloud configuration using AWS as a provider.

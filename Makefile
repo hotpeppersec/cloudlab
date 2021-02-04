@@ -32,10 +32,10 @@ book: python ## Generate LaTeX book in PDF
 clean: ## Cleanup all the things
 	find . -name '*.pyc' | xargs rm -rf
 	find . -name '__pycache__' | xargs rm -rf
-	cd book && $(MAKE) clean && cd -
+	cd $(SPHINX_DIR) && $(MAKE) clean && cd -
 	cd proposal && $(MAKE) clean && cd -
-	rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
-	rm book/frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
+	#rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
+	#rm book/frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
 
 docker: ## build docker container for testing
 	$(MAKE) print-status MSG="Building with docker-compose"
@@ -68,7 +68,7 @@ sphinx: python ## Generate documentation
 	$(MAKE) print-status MSG="Building xeLaTeX"
 	cd $(SPHINX_DIR) && \
 	sphinx-build -b latex -d $(SPHINX_DIR)/_build/doctrees . $(SPHINX_DIR)/_build/xetex && \
-	cd $(SPHINX_DIR)/_build/xetex; xelatex *.tex && \
+	cd $(SPHINX_DIR)/_build/xetex; xelatex *.tex
 	$(MAKE) print-status MSG="Building EPUB"
 	cd $(SPHINX_DIR) && make epub && cd -
 

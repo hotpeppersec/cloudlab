@@ -4,7 +4,7 @@
 Tools
 =====
 
-.. image:: /project/image/railway-4101305_1920.jpg
+.. image:: ../../images/railway-4101305_1920.jpg
    :align: center
 
 |
@@ -18,7 +18,7 @@ tools in greater depth.
    single: MTTD
    single: Terraform
 
-.. figure:: /project/image/infra_flow.png
+.. figure:: ../../images/infra_flow.png
    :align: center
    :name: myFig4
    :alt: alternate text

@@ -4,7 +4,7 @@
 Python
 ======
 
-.. image:: /project/image/snake-1634293_1920.jpg
+.. image:: ../../images/snake-1634293_1920.jpg
       :align: center
 
 |

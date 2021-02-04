@@ -4,7 +4,7 @@
 The Cloud Lab
 =============
 
-.. image:: /project/image/milky-way-984050_1920.jpg
+.. image:: ../../images/milky-way-984050_1920.jpg
    :align: center
 
 |

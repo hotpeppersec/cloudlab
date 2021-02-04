@@ -113,7 +113,7 @@ it's customizability and extensibility.
 
 |
 
-.. figure:: /project/images/setup-vscode.png
+.. figure:: ../../images/setup-vscode.png
    :align: center
    :name: myFig0a
    :alt: The VScode IDE.
@@ -156,7 +156,7 @@ local, test, and production environments. This is where the term "CI/CD Pipeline
 
 |
 
-.. figure:: ../images/flow.png
+.. figure:: ../../images/flow.png
    :align: center
    :name: myFig1
    :alt: A typical build pipeline

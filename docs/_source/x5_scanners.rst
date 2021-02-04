@@ -4,7 +4,7 @@
 Automated Repository Scanning
 =============================
 
-.. image:: /project/image/code-4333398_1920.jpg
+.. image:: ../../images/code-4333398_1920.jpg
    :align: center
 
 |

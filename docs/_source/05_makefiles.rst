@@ -4,7 +4,7 @@
 Makefiles
 =========
 
-.. image:: /project/image/books-1163695_1920.jpg
+.. image:: ../../images/books-1163695_1920.jpg
    :align: center
 
 |

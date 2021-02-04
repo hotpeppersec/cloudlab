@@ -4,7 +4,7 @@
 Ruby
 ====
 
-.. image:: /project/image/crab-298346_1920.jpg
+.. image:: ../../images/crab-298346_1920.jpg
    :align: center
 
 |

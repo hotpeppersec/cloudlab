@@ -4,7 +4,7 @@
 Revision Control
 ================
 
-.. image:: /project/image/owl-50267_1920.jpg
+.. image:: ../../images/owl-50267_1920.jpg
    :align: center
 
 |
@@ -359,7 +359,7 @@ gear icon) and then choose the "Branches" section. The Default branch gets set t
 pattern", and then the green "Create" button sets up master as a protected branch. Consider the
 following example :numref:`myFig2`.
 
-.. figure:: /project/image/github-branch-protection.png
+.. figure:: ../../images/github-branch-protection.png
    :align: center
    :name: myFig2
    :alt: Setting up branch protection.
@@ -373,7 +373,7 @@ After we start to work with CI/CD tools (status checks, like GitHub Actions for
 example) new choices (:numref:`myFig3`) become available in this part of your repository for
 managing those checks.
 
-.. figure:: /project/image/guthub-status-check.png
+.. figure:: ../../images/guthub-status-check.png
    :align: center
    :name: myFig3
    :alt: Requiring status checks.
