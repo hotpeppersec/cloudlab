@@ -3,15 +3,15 @@
    :maxdepth: 3
    :caption: DevSecOps Quickstart
 
-   mainmatter/00_intro
-   mainmatter/01_setup
-   mainmatter/02_docker
-   mainmatter/03_github
-   mainmatter/04_python
-   mainmatter/05_makefiles
-   mainmatter/06_about-ci-cd
-   mainmatter/07_infrastructure
-   mainmatter/08_tools
-   mainmatter/09_test-lab
-   mainmatter/pictures
-   mainmatter/glossary
+   _source/00_intro
+   _source/01_setup
+   _source/02_docker
+   _source/03_github
+   _source/04_python
+   _source/05_makefiles
+   _source/06_about-ci-cd
+   _source/07_infrastructure
+   _source/08_tools
+   _source/09_test-lab
+   _source/pictures
+   _source/glossary

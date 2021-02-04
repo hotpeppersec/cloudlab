@@ -4,7 +4,7 @@
 Tools
 =====
 
-.. image:: ../images/railway-4101305_1920.jpg
+.. image:: /project/image/railway-4101305_1920.jpg
    :align: center
 
 |
@@ -18,7 +18,7 @@ tools in greater depth.
    single: MTTD
    single: Terraform
 
-.. figure:: ../images/infra_flow.png
+.. figure:: /project/image/infra_flow.png
    :align: center
    :name: myFig4
    :alt: alternate text
@@ -28,8 +28,8 @@ tools in greater depth.
 
 |
 
-Consider the following diagram :numref:`myFig4` as we discuss the tools we'll use to 
-implement our infrastructure as coode and associated configurations in 
+Consider the following diagram :numref:`myFig4` as we discuss the tools we'll use to
+implement our infrastructure as coode and associated configurations in
 the cloud provider network.
 
 ******
@@ -40,7 +40,7 @@ Using Hashicorp Packer is a great way to nail down the contents of a machine
 image before we bring up an instance. Download Packer from the Hashicorp web
 site in preparation for the follwing steps [#]_ . We will focus on creating images
 for our cloud provider from the command line. Bear in mind it is also possible to
-use Terraform to manage the creation of Packer generated machine images. Generating 
+use Terraform to manage the creation of Packer generated machine images. Generating
 machine images on the fly using Terraform would increase our degree of ephepmerality
 and immutability.
 
@@ -52,7 +52,7 @@ and immutability.
 Packer Example Configuration for AWS
 ====================================
 
-Here is an example of how to set up a JSON file to build a Packer image in 
+Here is an example of how to set up a JSON file to build a Packer image in
 AWS. Save the contents of this file into `packer/aws-debian-host.json`:
 
 .. code-block:: bash
@@ -110,7 +110,7 @@ AWS. Save the contents of this file into `packer/aws-debian-host.json`:
 Packer Example Configuration for GCP
 ====================================
 
-Here is an example of how to set up a JSON file to build a Packer image in 
+Here is an example of how to set up a JSON file to build a Packer image in
 Google Compute. Save the contents of this file into `packer/gcp-debian-host.json`:
 
 .. code-block:: bash
@@ -147,8 +147,8 @@ Google Compute. Save the contents of this file into `packer/gcp-debian-host.json
 Validating Packer JSON Files
 ============================
 
-Once the JSON files are created and saved in the packer directory, 
-we can use the `packer` tool to validate them. Type 
+Once the JSON files are created and saved in the packer directory,
+we can use the `packer` tool to validate them. Type
 `packer validate <filename>` to validate each new JSON file. This gives you a
 chance to find and fix any errors before the next step, the build phase.
 
@@ -159,7 +159,7 @@ Building Images with Packer
 ===========================
 
 Finally, we are ready to build our new images. Try typing `packer build <filename>`
-to create the image. You shoudl see output similar to the following, but with a unique 
+to create the image. You shoudl see output similar to the following, but with a unique
 AMI ID.
 
 .. code-block:: bash
@@ -173,18 +173,18 @@ AMI ID.
    --> amazon-ebs: AMIs were created:
    us-west-2: ami-0e9e6427509a9d0b5
 
-The AMI ID "ami-0e9e6427509a9d0b5" is now a usable image that we can include in our 
-Terraform builds. 
+The AMI ID "ami-0e9e6427509a9d0b5" is now a usable image that we can include in our
+Terraform builds.
 
 Removing Packer Images from Cloud Provider
 ==========================================
 
 You may want to remove the images from AWS/GCP since storing them incurs additional cost, whether
-they are in use or not [#]_ . 
+they are in use or not [#]_ .
 
 .. [#] https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=name
 
-To remove stale machine images from AWS, you may try a tool such as aws-amicleaner [#]_ , which is 
+To remove stale machine images from AWS, you may try a tool such as aws-amicleaner [#]_ , which is
 available to be installed via Python/pip as well as from the GitHub repository for the project.
 
 .. [#] https://github.com/bonclay7/aws-amicleaner
@@ -198,8 +198,8 @@ Another AWS specfic tool is "lambda-packerjanitor" [#]_ from Trusworks.
 Terraform
 *********
 
-Terraform, created by Hashicorp in 2014, is a tool for building, changing, and versioning 
-infrastructure safely and efficiently [#]_ . Install the latest version of Terraform in preparation 
+Terraform, created by Hashicorp in 2014, is a tool for building, changing, and versioning
+infrastructure safely and efficiently [#]_ . Install the latest version of Terraform in preparation
 for the activities that follow.
 
 .. [#] https://www.terraform.io/intro/index.html
@@ -210,7 +210,7 @@ for the activities that follow.
 Consider the relevant Terraform files that we will include in our projects.
 
 .. graphviz::
-   :caption: Key Terraform Files 
+   :caption: Key Terraform Files
    :align: center
 
    digraph folders {
@@ -233,13 +233,13 @@ terraform.tfvars
 When working with AWS as cloud provider, life gets a bit easier if you save a copy of your
 console credentials in a file called `terraform.tfvars` as seen in the next example. You must
 be very careful not to commit these credentials to GitHub! Adding the line `terraform.tfvars`
-to your `.gitignore` file at the top level of your lab repository helps a lot. Keeping track of 
+to your `.gitignore` file at the top level of your lab repository helps a lot. Keeping track of
 your credentials is very important!
 
 .. index::
    single: terraform.tfvars
 
-An example of a local terraform.tfvars file follows. Remember that this file will never be 
+An example of a local terraform.tfvars file follows. Remember that this file will never be
 checked into GitHub or any other revision control toolset.
 
 .. code-block:: bash
@@ -253,7 +253,7 @@ main.tf
 =======
 
 This file will contain the bulk of our Terraform configurations. As with Python, we have the ability to
-reference modules, both internal and exteral. The main.tf file is the place the module references are made. 
+reference modules, both internal and exteral. The main.tf file is the place the module references are made.
 
 .. code-block:: bash
    :caption: Example of how to reference an external module
@@ -298,8 +298,8 @@ outputs.tf
 ==========
 
 We can display or export the resources we've created in `main.tf` using a file known as
-`outputs.tf`. We may have a need to display the IP address of host instances we've just 
-created, which is helpful to a user who needs to log in. We may also wish to make values 
+`outputs.tf`. We may have a need to display the IP address of host instances we've just
+created, which is helpful to a user who needs to log in. We may also wish to make values
 available to other Terraform modules.
 
 Consider the following output declarations from our example code.
@@ -326,8 +326,8 @@ variables.tf
 ============
 
 The `variables.tf` file is another common file seen in projects in AWS, GCP and other cloud providers.
-It contains declarations of variables, and often values for variables as well, that will be used in 
-the `main.tf` file. As an example there might be region information or even the name of the image we 
+It contains declarations of variables, and often values for variables as well, that will be used in
+the `main.tf` file. As an example there might be region information or even the name of the image we
 created previously with Packer.
 
 .. index::
@@ -348,7 +348,7 @@ Verification
 ============
 
 Terraform has some commands, `validate` and `fmt` (short for "format") that we can use to syntactically
-verify our configuration before sending it off to the cloud provider to act upon. Validating 
+verify our configuration before sending it off to the cloud provider to act upon. Validating
 your Terraform files is as easy as  typing `terraform validate` in the directory the files exist in.
 
 .. code-block:: bash
@@ -402,8 +402,8 @@ The `apply` action is where the rubber meets the proverbial road. This action wi
 configurations to the cloud provider and allocate the necessary resources to stand up our environment.
 
 With our plan in place, we can now "apply" that plan to the cloud provider. This can take a counsiderable
-amount of time, depending on the complexity of the desired configuration. Note that Terraform will 
-prompt you to enter "yes" before it will proceed. 
+amount of time, depending on the complexity of the desired configuration. Note that Terraform will
+prompt you to enter "yes" before it will proceed.
 
 .. code-block:: bash
    :caption: Applying a Terraform plan from file
@@ -437,8 +437,8 @@ prompt you to enter "yes" before it will proceed.
 Ansible
 *******
 
-Environments where you have a set of repeatable configuration steps can be deployed more quickly 
-with Ansible. Building a set of good Ansible playbooks over team means you can pick and choose 
+Environments where you have a set of repeatable configuration steps can be deployed more quickly
+with Ansible. Building a set of good Ansible playbooks over team means you can pick and choose
 the most useful patterns in future projects. A true force multiplier.
 
 .. index::
@@ -447,18 +447,18 @@ the most useful patterns in future projects. A true force multiplier.
 Installing Ansible
 ==================
 
-Simply adding "ansible" to `python/requirements.txt` will make Ansible available in our Docker 
-containers. Now when we type `make docker`, pip will take care of the installation for us. Then we can 
+Simply adding "ansible" to `python/requirements.txt` will make Ansible available in our Docker
+containers. Now when we type `make docker`, pip will take care of the installation for us. Then we can
 experiment with Ansible playbook runs.
 
 Ansible Playbooks
 =================
 
-Ansible breaks down it's execution runs into discrete workflows known as playbooks. Playbooks are 
-executed on the target hosts to implement configurations. It's quite useful to be able to kick off a 
-playbook run on the taget host every 15 minutes. This is a direct example of Continuous Deployment in 
-action. If somethings changes in the GitHub repository, we want that to propagate out to the targets 
-and the latest configuration to be applied to the server. We can also deploy a newer version of an 
+Ansible breaks down it's execution runs into discrete workflows known as playbooks. Playbooks are
+executed on the target hosts to implement configurations. It's quite useful to be able to kick off a
+playbook run on the taget host every 15 minutes. This is a direct example of Continuous Deployment in
+action. If somethings changes in the GitHub repository, we want that to propagate out to the targets
+and the latest configuration to be applied to the server. We can also deploy a newer version of an
 application and then stop and start the applicationto effect the change.
 
 Ansible playbooks break down target hosts into groupings known as roles.
@@ -485,8 +485,8 @@ Ansible Vault
 *************
 
 Vault is a tool that is included with Ansible. You may notice that `ansible-vault`
-is a symlink back to `ansible` on your system. Vault is an easy way to protect 
-secrets using AES-256 encryption in your GitHub repositories. For example, we can use it to secure data at 
+is a symlink back to `ansible` on your system. Vault is an easy way to protect
+secrets using AES-256 encryption in your GitHub repositories. For example, we can use it to secure data at
 rest in a repository, or protect system configuration data as it transits through
 our pipelines out to our cloud providers.
 
@@ -494,7 +494,7 @@ our pipelines out to our cloud providers.
    single: AES-256
    single: Vault
 
-Encrypting a File with Vault  
+Encrypting a File with Vault
 ============================
 
 .. index::
@@ -528,7 +528,7 @@ Decrypting a File with Vault
    single: decryption
 
 At some point, we are going to want to decrypt our data so it becomes usable, we can perform operations
-on it, and so on. As long as we keep or recreate the original key file on our host, or create an 
+on it, and so on. As long as we keep or recreate the original key file on our host, or create an
 identical copy of the key file some some target/remote host, we will be able to decrypt the data. This
 is quite useful to us indeed, when it comes to protecting our data.
 

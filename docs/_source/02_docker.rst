@@ -4,7 +4,7 @@
 Containers
 ==========
 
-.. image:: ../images/container-4203677_1920.jpg
+.. image:: /project/images/container-4203677_1920.jpg
    :align: center
 
 |

@@ -7,6 +7,7 @@ NC := "\\033[0m" # No color/default
 PROJECT_DIR := /project/book
 REQS := /project/python/requirements.txt
 REQS_TEST := /project/python/requirements-test.txt
+SPHINX_DIR := /project/docs
 
 define PRINT_HELP_PYSCRIPT
 import re, sys
@@ -25,14 +26,14 @@ help:
 
 book: python ## Generate LaTeX book in PDF
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make book inside docker container <***" && exit 1; fi
-	dot -Tpdf -o ${PROJECT_DIR}/docker.pdf ${PROJECT_DIR}/docker.dot
-	cd ${PROJECT_DIR} && pdflatex -shell-escape -synctex=1 -interaction=nonstopmode ${PROJECT_DIR}/devsecops_quickstart.tex
+	dot -Tpdf -o $(PROJECT_DIR)/docker.pdf $(PROJECT_DIR)/docker.dot
+	cd $(PROJECT_DIR) && pdflatex -shell-escape -synctex=1 -interaction=nonstopmode $(PROJECT_DIR)/devsecops_quickstart.tex
 
 clean: ## Cleanup all the things
 	find . -name '*.pyc' | xargs rm -rf
 	find . -name '__pycache__' | xargs rm -rf
-	cd book && make clean && cd -
-	cd proposal && make clean && cd -
+	cd book && $(MAKE) clean && cd -
+	cd proposal && $(MAKE) clean && cd -
 	rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
 	rm book/frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
 
@@ -49,9 +50,9 @@ print-status:
 proposal: python ## build the book proposal document
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make proposal inside docker container <***" && exit 1; fi
 	$(MAKE) print-status MSG="Building HTML book proposal"
-	cd proposal && make html && cd -
+	cd proposal && $(MAKE) html && cd -
 	$(MAKE) print-status MSG="Building LaTeX book proposal"
-	cd proposal && make latexpdf && cd -
+	cd proposal && $(MAKE) latexpdf && cd -
 
 python: ## setup python3
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make python inside docker container <***" && exit 1; fi
@@ -61,18 +62,15 @@ python: ## setup python3
 sphinx: python ## Generate documentation
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make sphinx inside docker container <***" && exit 1; fi
 	$(MAKE) print-status MSG="Building HTML"
-	cd book && make html && cd -
+	cd docs && $(MAKE) html && cd -
 	$(MAKE) print-status MSG="Building LaTeX"
-	if [ ! -d /project/book/_build/latex ]; then mkdir -p /project/book/_build/latex; fi
-	if [ ! -L /project/book/_build/latex/images ]; then ln -s /project/book/images /project/book/_build/latex/images; fi
-	cd book && make latexpdf && cd -
+	cd $(SPHINX_DIR) && $(MAKE) latexpdf && cd -
 	$(MAKE) print-status MSG="Building xeLaTeX"
-	cd book && \
-	sphinx-build -b latex -d _build/doctrees . _build/xetex && \
-	cd _build/xetex; xelatex *.tex && \
-	cd /project
+	cd $(SPHINX_DIR) && \
+	sphinx-build -b latex -d $(SPHINX_DIR)/_build/doctrees . $(SPHINX_DIR)/_build/xetex && \
+	cd $(SPHINX_DIR)/_build/xetex; xelatex *.tex && \
 	$(MAKE) print-status MSG="Building EPUB"
-	cd book && make epub && cd -
+	cd $(SPHINX_DIR) && make epub && cd -
 
 test: python ## test all the things
 	if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="Run make test inside docker container" && exit 1; fi

@@ -4,24 +4,24 @@
 Infrastructure
 ==============
 
-.. image:: ../images/cologne-cathedral-1507854_1920.jpg
+.. image:: /project/image/cologne-cathedral-1507854_1920.jpg
    :align: center
 
 |
 
 
-Software Infrastructure and Platforms are the foundations upon which our 
-scripts, code, and projects are founded. Infrastructure comprises the base upon 
+Software Infrastructure and Platforms are the foundations upon which our
+scripts, code, and projects are founded. Infrastructure comprises the base upon
 which our containers rest, and the connectivity that allows us to communicate
 with them and them with each other.
 
-This chapter details our ability to quickly and uniformly stand up 
+This chapter details our ability to quickly and uniformly stand up
 and tear down virtual domains and networks to connect our containers and route
-their workloads. We will look at some popular cloud computing providers to 
-prepare to explore ways we can leverage them to our benefit. 
+their workloads. We will look at some popular cloud computing providers to
+prepare to explore ways we can leverage them to our benefit.
 
 A Cloud Provider is a company that offers to host our containerized projects and
-virtual infrastructure so we dont have to do it ourselves. 
+virtual infrastructure so we dont have to do it ourselves.
 
 .. index::
    single: Cloud Provider
@@ -37,12 +37,12 @@ Amazon Web Services (AWS)
 *************************
 
 Consider (:numref:`myFig4`) which illustrates the connectivity of a basic project using
-Amazon Web Services (AWS). 
+Amazon Web Services (AWS).
 
 .. index::
    single: Amazon Web Services
 
-.. figure:: ../images/ddb-no-vpc-endpoint-1024x561.png
+.. figure:: /project/image/ddb-no-vpc-endpoint-1024x561.png
    :align: center
    :name: myFig4
    :alt: A simple Public Cloud configuration using AWS as a provider.
@@ -55,7 +55,7 @@ Amazon Web Services (AWS).
 Getting Set up in AWS
 =====================
 
-One of the very first things you should do (after creating an account, 
+One of the very first things you should do (after creating an account,
 that is) is to configure mutli-factor authentication [#]_ (MFA).
 
 .. [#] MFA: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html
@@ -72,30 +72,30 @@ Credentials
 ===========
 
 Amazon Web Services (AWS) credentials are stored in a hidden directory in your
-home directory called ".aws". The file `~/.aws/credentials` shoudl be modified to 
+home directory called ".aws". The file `~/.aws/credentials` shoudl be modified to
 contain your AWS access_id and secret_key as seen below.
 
 .. code-block:: bash
    :caption: Storing AWS Credentials in a flat file
    :name: Storing AWS Credentials in a flat file
 
-   $ cat ~/.aws/credentials 
+   $ cat ~/.aws/credentials
 
    [default]
    aws_access_key_id = AKIAJCQ6WHUXVOKZ8RQQ
    aws_secret_access_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
 
-Do not share this file with other people. Do not check this file into your GitHub 
+Do not share this file with other people. Do not check this file into your GitHub
 repositories under any circumstances.
 
 ***************************
 Google Cloud Platform (GCP)
 ***************************
 
-Google Cloud Platform (GCP) is a suite of cloud computing 
-services that runs on the same infrastructure that Google uses internally 
-for its end-user products [#]_ . If the resources we allocate on GCP were a pyramid, 
-the apex of that pyramid would be a "project". A project is made up of the settings, 
+Google Cloud Platform (GCP) is a suite of cloud computing
+services that runs on the same infrastructure that Google uses internally
+for its end-user products [#]_ . If the resources we allocate on GCP were a pyramid,
+the apex of that pyramid would be a "project". A project is made up of the settings,
 permissions, and other metadata that describe your applications [#]_ .
 
 .. [#] https://cloud.google.com/
@@ -105,7 +105,7 @@ permissions, and other metadata that describe your applications [#]_ .
    single: Google Cloud Platform
    single: GCP
 
-One of the very first things you should do (after creating an account, 
+One of the very first things you should do (after creating an account,
 that is) is to configure two-factor authentication [#]_ (2FA).
 
 .. [#] 2FA: https://www.google.com/landing/2step/
@@ -124,13 +124,13 @@ on your local machine [#]_ .
 Credentials
 ===========
 
-Once the `gcloud` SDK is installed, you are ready to set up local credentials 
-that allow interaction between your machine and the GCP application programming 
-interface (API). In other words, Google hosts a server that you can exchange 
+Once the `gcloud` SDK is installed, you are ready to set up local credentials
+that allow interaction between your machine and the GCP application programming
+interface (API). In other words, Google hosts a server that you can exchange
 commands with to configure your GCP projects from your local CLI.
 
-GCP credentials are stored in the directory `~/.config/gcloud` as a JSON file. 
-Do not share this file with other people. Do not check this file into your GitHub 
+GCP credentials are stored in the directory `~/.config/gcloud` as a JSON file.
+Do not share this file with other people. Do not check this file into your GitHub
 repositories under any circumstances.
 
 .. raw:: latex
@@ -142,7 +142,7 @@ Directory Structure
 *******************
 
 Relevant folders and files related to our build pipeline are shown below. The
-users home directory and `workspace` subdirectory is implied and removed 
+users home directory and `workspace` subdirectory is implied and removed
 from the diagram for clarity.
 
 .. graphviz::

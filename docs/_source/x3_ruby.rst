@@ -4,12 +4,12 @@
 Ruby
 ====
 
-.. image:: ../images/crab-298346_1920.jpg
+.. image:: /project/image/crab-298346_1920.jpg
    :align: center
 
 |
 
-"Ruby is simple in appearance, but is very complex inside, just 
+"Ruby is simple in appearance, but is very complex inside, just
 like our human body. [#]_ " Yukihiro “Matz” Matsumoto
 
 .. [#] Matz, speaking on the Ruby-Talk mailing list, May 12th, 2000.

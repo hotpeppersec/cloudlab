@@ -4,7 +4,7 @@
 Continuous Integration & Deployment
 ===================================
 
-.. image:: ../images/finland-905712_1920.jpg
+.. image:: /project/image/finland-905712_1920.jpg
    :align: center
 
 |
@@ -15,16 +15,16 @@ directly corresponds to our chances of success.
 .. index::
    single: CI
    single: Continuous Deployment
-   single: CD 
+   single: CD
    single: Continuous Integration
-   
+
 *******
 Linters
 *******
 
 There are small programs for most (every?) language that you can run before
 pushing your changes to GitHub that will catch syntactical and sometimes even
-programmatic issues. Consider Python, which is very sensitive with regard to 
+programmatic issues. Consider Python, which is very sensitive with regard to
 indentation. You can programatiacally detect and even correct issues before your
 work gets too far down the pipe. This is also a good way to make sure folks
 are not committing dirty code to your repositories.
@@ -32,7 +32,7 @@ are not committing dirty code to your repositories.
 .. index::
    single: lint
    single: linters
-   
+
 Here are some of the linters I have found useful for languages I encounter frequently.
 
 .. list-table:: Linters
@@ -63,9 +63,9 @@ Here are some of the linters I have found useful for languages I encounter frequ
 Linting with Tox
 ****************
 
-Recall that we are using Tox as our main test framework. 
-To set up Tox to do our linting work for us, we can add an environment 
-to our envlist called "pylint" and then declare it in a new stanza in 
+Recall that we are using Tox as our main test framework.
+To set up Tox to do our linting work for us, we can add an environment
+to our envlist called "pylint" and then declare it in a new stanza in
 tox.ini. Notice how we let "deps" do the work of installing the "pylint"
 dependency for us.
 
@@ -77,22 +77,22 @@ dependency for us.
    :name: Directing Tox to perform code linting
    :linenos:
 
-  [tox]
+   [tox]
    envlist = py38. pylint
    skip_missing_interpreters = true
 
-  [pylint]
-  deps =
-    pylint
-  commands=
-    # the -rn flag will suppress report output (warnings)
-    pylint -rn --rcfile=.pylintrc my_resume/my_resume.py
+   [pylint]
+   deps =
+     pylint
+   commands=
+     # the -rn flag will suppress report output (warnings)
+     pylint -rn --rcfile=.pylintrc my_resume/my_resume.py
 
 **************
 GitHub Actions
 **************
 
-GitHub Actions is a recent introduction to the github.com website that lets you perform 
+GitHub Actions is a recent introduction to the github.com website that lets you perform
 Continuous Integration on your repository, and Continuous Deployment as desired.
 
 .. index::
@@ -102,7 +102,7 @@ Docker
 ======
 
 Let's see how we can leverage Actions to build the docker target in our project. Save this
-YAML file under `codelab/.github/workflows/docker_compose.yml` to have GitHub Actions execute 
+YAML file under `codelab/.github/workflows/docker_compose.yml` to have GitHub Actions execute
 our `make docker` target from our custom Makefile.
 
 .. code-block:: yaml
@@ -136,14 +136,14 @@ our `make docker` target from our custom Makefile.
 Python
 ======
 
-Save this YAML file under `codelab/.github/workflows/python.yml` to have GitHub Actions execute 
+Save this YAML file under `codelab/.github/workflows/python.yml` to have GitHub Actions execute
 our `make python` target from our custom Makefile.
 
 .. code-block:: yaml
    :caption: Directing GitHub Actions to execute our make python directive
    :name: Directing GitHub Actions to execute our make python directive
    :linenos:
-  
+
   ---
   name: DevSecOps Python CI
   on:
@@ -220,7 +220,7 @@ and build our AMI image with Packer.
               command: validate
               arguments: -syntax-only
               target: packer/aws-debian-host.json
-    
+
           # build artifact
           - name: Build Artifact
             uses: operatehappy/packer-github-actions@master
@@ -281,7 +281,7 @@ level of our repository. This JSON file is used to skip certain checks by the ma
 Circle CI
 *********
 
-Circle CI is a Continuous Integation service free for non-commercial projects. 
+Circle CI is a Continuous Integation service free for non-commercial projects.
 
 .. index::
    single: Circle CI
@@ -292,9 +292,9 @@ Circle CI is a Continuous Integation service free for non-commercial projects.
    :linenos:
 
   # Python CircleCI 2.0 configuration file
-  # 
+  #
   # Check https://circleci.com/docs/2.0/language-python/ for more details
-  # 
+  #
   version: 2
   jobs:
     build:
@@ -340,7 +340,7 @@ Circle CI is a Continuous Integation service free for non-commercial projects.
               - v1-dependencies-{{ checksum "requirements/requirements.dev" }}
               # fallback to using the latest cache if no exact match is found
               - v1-dependencies-
-        - run: 
+        - run:
             name: run tests
             command: |
               python3 -m pip install --user virtualenv
@@ -364,8 +364,8 @@ Circle CI is a Continuous Integation service free for non-commercial projects.
 TravisCI
 ********
 
-Travis CI is a hosted continuous integration service used to build and test software projects 
-hosted at GitHub and Bitbucket. They have a great tutorial available [#]_ if you care to 
+Travis CI is a hosted continuous integration service used to build and test software projects
+hosted at GitHub and Bitbucket. They have a great tutorial available [#]_ if you care to
 dig a bit deeper.
 
 .. [#] https://docs.travis-ci.com/user/tutorial/
@@ -381,9 +381,9 @@ integrate their scanners with your repository.
 Docker
 ======
 
-You can test Docker containers in your CI/CD pipeline. As seen in the following example I 
-created a YAML file named `.travis.yml` to enable automatic molecule 
-testing of ansible roles in Travis CI. I also set a flag in the repo settings 
+You can test Docker containers in your CI/CD pipeline. As seen in the following example I
+created a YAML file named `.travis.yml` to enable automatic molecule
+testing of ansible roles in Travis CI. I also set a flag in the repo settings
 that prevent the PR from being merged until Travis CI flags the build as passing.
 
 .. index::
@@ -394,12 +394,12 @@ that prevent the PR from being merged until Travis CI flags the build as passing
    :caption: Testing Ansible using Molecule in Travis CI
    :name: Testing Ansible using Molecule in Travis CI
    :linenos:
-  
+
     ---
     sudo: required
     dist: xenial   # required for Python >= 3.7
     language: python
-    services: 
+    services:
       - docker
     python:
       - "3.7"
@@ -409,10 +409,10 @@ that prevent the PR from being merged until Travis CI flags the build as passing
       - python3 -m pip install wheel
       - python3 -m pip install -rrequirements.txt
       - python3 -m pip install -rrequirements-test.txt
-    script: 
+    script:
       - cd playbooks/roles/webserver && molecule test
 
-The contents of the requirements files and the example Ansible code is available in 
+The contents of the requirements files and the example Ansible code is available in
 the companion repo.
 
 Markdown
@@ -432,7 +432,7 @@ files in your repository.
     ---
     sudo: required
     services:
-      - docker    
+      - docker
     before_install:
       - sudo apt-get -qq update
       - gem install mdl --no-ri --no-rdoc
@@ -448,7 +448,7 @@ You can also create an `.mdlrc` file to give `mdl` direction on what to scan for
    :caption: An example .mdlrc file to configure the mdl (markdownlint) tool
    :name: An example .mdlrc file to configure the mdl (markdownlint) tool
 
-   rules "MD001" ,"MD002" ,"MD003" ,"MD004" ,"MD005" ,"MD006" ,"MD007" ,"MD009" ,"MD010" ,"MD011" ,"MD012" ,"MD014" ,"MD018" ,"MD019" ,"MD020" ,"MD021" ,"MD022" ,"MD023" ,"MD025" ,"MD026" ,"MD027" ,"MD028" ,"MD029" ,"MD030" ,"MD031" ,"MD032" ,"MD034" ,"MD035" ,"MD036" ,"MD037" ,"MD038" ,"MD039" 
+   rules "MD001" ,"MD002" ,"MD003" ,"MD004" ,"MD005" ,"MD006" ,"MD007" ,"MD009" ,"MD010" ,"MD011" ,"MD012" ,"MD014" ,"MD018" ,"MD019" ,"MD020" ,"MD021" ,"MD022" ,"MD023" ,"MD025" ,"MD026" ,"MD027" ,"MD028" ,"MD029" ,"MD030" ,"MD031" ,"MD032" ,"MD034" ,"MD035" ,"MD036" ,"MD037" ,"MD038" ,"MD039"
 
 .. raw:: latex
 
@@ -459,7 +459,7 @@ Directory Structure
 *******************
 
 Relevant folders and files related to our build pipeline are shown below. The
-users home directory and `workspace` subdirectory is implied and removed from 
+users home directory and `workspace` subdirectory is implied and removed from
 the diagram for clarity.
 
 .. graphviz::
