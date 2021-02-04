@@ -113,7 +113,7 @@ it's customizability and extensibility.
 
 |
 
-.. figure:: ../images/setup-vscode.png
+.. figure:: /project/images/setup-vscode.png
    :align: center
    :name: myFig0a
    :alt: The VScode IDE.

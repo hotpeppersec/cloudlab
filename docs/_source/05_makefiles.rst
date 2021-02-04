@@ -4,32 +4,32 @@
 Makefiles
 =========
 
-.. image:: ../images/books-1163695_1920.jpg
+.. image:: /project/image/books-1163695_1920.jpg
    :align: center
 
 |
 
-A Makefile is a good way to put shorts sets of oft repeated steps 
-at the fingertips of the developer. Rather than typing three complicated and 
-possibly hard to recall strings to kick off your Docker container, you 
-can simply type `make docker` and have everything build as desired. We're 
+A Makefile is a good way to put shorts sets of oft repeated steps
+at the fingertips of the developer. Rather than typing three complicated and
+possibly hard to recall strings to kick off your Docker container, you
+can simply type `make docker` and have everything build as desired. We're
 going to be using GNU Make for our projects.
 
 .. index::
    single: Makefile
 
 *******************
-The PHONY Directive 
+The PHONY Directive
 *******************
 
-If a file or directory exists with the same name as a stanza in the 
+If a file or directory exists with the same name as a stanza in the
 Makefile, you will need to specify it under the *PHONY* directive. This
 will allow the Makefile to find and run the desired commands.
 
 .. index::
    single: PHONY
 
-Consider this example, where we have three directories (docker, docs, 
+Consider this example, where we have three directories (docker, docs,
 and python) and we also have three Makefile directives of the same name:
 
 .. code-block:: bash
@@ -42,8 +42,8 @@ and python) and we also have three Makefile directives of the same name:
 Targets
 *******
 
-Makefiles are comprised of various stanzas, know as targets. This is where 
-the work gets done. Let's add a target for Docker and a target for Python 
+Makefiles are comprised of various stanzas, know as targets. This is where
+the work gets done. Let's add a target for Docker and a target for Python
 to make our lives easier in the future. Consider the two target stanzas below.
 
 .. index::
@@ -70,23 +70,23 @@ to make our lives easier in the future. Consider the two target stanzas below.
 When the user types `make docker` at the CLI to invoke the `docker` target in
 the Makefile, the fist thing that happens is the `python` target is called. If the file
 `python/requirements.txt` exists, we attempt to install the modules listed
-within that reuiqirements file using the Python "pip" package manager. Once completed, the thread of 
+within that reuiqirements file using the Python "pip" package manager. Once completed, the thread of
 execution returns to the docker target. A message is sent to the user via STDOUT that
 we will be building with docker-compose. An empty file at the root of the containers filesystem
-named `/.dockerenv` is a convention that indicates we are operating inside a containerized environment. 
-After a quick check for existence of the file `/.dockerenv`, we use docker-compose to build 
+named `/.dockerenv` is a convention that indicates we are operating inside a containerized environment.
+After a quick check for existence of the file `/.dockerenv`, we use docker-compose to build
 from our Dockerfile, and then start a BASH shell in our "cloudlab" container. The user now has the
 ability to run BASH commands "inside" the Docker container.
 
 Be sure when you indent in a Makefile that you use tabs, not spaces.
-You can use the backslash character in a Makefile to combine two consecutive lines into 
+You can use the backslash character in a Makefile to combine two consecutive lines into
 one logical line.
 
 *********************
 Full Example Makefile
 *********************
 
-Here is a full example of a working Makefile. 
+Here is a full example of a working Makefile.
 
 .. code-block:: bash
    :caption: Full Makefile example
@@ -140,11 +140,11 @@ Here is a full example of a working Makefile.
       $(MAKE) print-status MSG="Set up the test harness"
       if [ -f '$(REQS_TEST)' ]; then python3 -m pip install -r$(REQS_TEST); fi
       #tox
-   
+
 .. raw:: latex
 
     \clearpage
-    
+
 *********************************
 Directory Structure with Makefile
 *********************************

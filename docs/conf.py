@@ -15,8 +15,8 @@
 
 # General information about the project.
 project = u'DevSecOps Quickstart'
-copyright = u'Copyright © 2021 by Franklin Diaz'
-author = u'© 2021 by Franklin Diaz'
+copyright = u'Copyright © 2020 by Franklin Diaz'
+author = u'© 2020 by Franklin Diaz'
 
 # The short X.Y version
 version = '0.0.3'
@@ -71,6 +71,7 @@ pygments_style = 'colorful'
 
 show_authors = True
 
+
 # -- Options for HTML output -------------------------------------------------
 # The Read the Docs theme is available from
 # - https://github.com/snide/sphinx_rtd_theme
@@ -97,10 +98,10 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['/project/book/_static']
+html_static_path = ['theme/static']
 html_context = {
     'css_files': [
-        '/project/book/_static/colorful.css',
+        'theme/static/colorful.css',
     ],
 }
 
@@ -119,12 +120,56 @@ html_domain_indices = False
 
 # -- Options for LaTeX output --------------------------------------------------
 
+# The paper size ('letter' or 'a4').
+latex_paper_size = 'letter'
+
+# The font size ('10pt', '11pt' or '12pt').
+latex_font_size = '10pt'
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, document class [howto/manual]).
-#latex_documents = [(/project/book/devsecops_quickstart.tex, test.pdf,test, franklin, book)]
+#latex_documents = [(master_doc, 'calibre.tex', title, 'Franklin Diaz', 'manual', False)]
 
+# Additional stuff for the LaTeX preamble.
+# latex_preamble = ''
+
+# Documents to append as an appendix to all manuals.
+# latex_appendices = []
+
+# If false, no module index is generated.
+# latex_use_modindex = True
+
+#latex_elements = { 'maketitle': copyright,
+# 'extraclassoptions': 'openany,oneside' }
+# The name of an image file (relative to this directory) to place at the top of
+# the title page.
+latex_logo = 'images/plouzane-1758197_1920.jpg'
+latex_show_pagerefs = True
+latex_show_urls = 'footnote'
+#latex_additional_files = ['sphinxmanual.cls']
+#latex_additional_files = ['copyrights.cls']
 latex_elements = {
-  'preamble': r'\input{/project/book/devsecops_quickstart.tex}'
+    'inputenc': '',
+    'utf8extra': '',
+    'papersize':'letterpaper',
+    #'fontenc':r'\usepackage[T2A,T1]{fontenc}',
+    'preamble': r'\input{../../_static/mypreamble.tex}',
+    'maketitle': r'\input{../../_static/maketitle.tex}',
+    'footer': r'''
+      \small \textit{Follow along code project available from }{\href{https://github.com/hotpeppersec/rapid_secdev_framework}{RapidSecDevFramework}}
+    ''',
+    # Latex figure (float) alignment
+    #
+    # 'figure_align': 'htbp',
+    'sphinxsetup': \
+        'hmargin={0.7in,0.7in}, vmargin={1in,1in}, \
+        verbatimwithframe=true, \
+        TitleColor={rgb}{0,0,0}, \
+        HeaderFamily=\\rmfamily\\bfseries, \
+        InnerLinkColor={rgb}{0,0,1}, \
+        OuterLinkColor={rgb}{0,0,1}',
+
+        'tableofcontents':' ',
 }
 
 # -- Options for PDF output --------------------------------------------------
@@ -137,7 +182,7 @@ epub_theme = 'theme'
 epub_basename = 'DevSecOpsQuickStart'
 epub_title = u'DevSecOps Quickstart'
 epub_author = 'Franklin Diaz'
-epub_copyright = u'© 2021 by Franklin Diaz'
+epub_copyright = u'© 2020 by Franklin Diaz'
 epub_publisher = 'http://sphinx-doc.org/'
 # A unique identification for the text.
 epub_uid = 'web-site'
@@ -154,12 +199,12 @@ epub_identifier = epub_publisher
 #epub_post_files = [('usage/installation.xhtml', 'Installing Sphinx'), ('develop.xhtml', 'Sphinx development')]
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['/project/book/mainmatter/global.rst',
-                      '/project/book/mainmatter/x2_heroku.rst',
-                      '/project/book/mainmatter/x3_ruby.rst',
-                      '/project/book/mainmatter/x1_extras.rst',
-                      '/project/book/mainmatter/x4_resources.rst',
-                      '/project/book/mainmatter/x5_scanners.rst'
+epub_exclude_files = ['_source/global.rst',
+                      '_source/x2_heroku.rst',
+                      '_source/x3_ruby.rst',
+                      '_source/x1_extras.rst',
+                      '_source/x4_resources.rst',
+                      '_source/x5_scanners.rst'
                       ]
 epub_fix_images = False
 epub_max_image_width = 0
@@ -169,7 +214,7 @@ epub_use_index = False
 epub_description = 'A workbook to get you started with secure development.'
 
 # A tuple containing the cover image and cover page html template filenames.
-epub_cover = ('', '/project/book/_templates/epub-cover.html')
+epub_cover = ('', 'epub-cover.html')
 # The depth of the table of contents in toc.ncx.
 epub_tocdepth = 3
 # Allow duplicate toc entries.
@@ -181,7 +226,7 @@ mobi_theme = "mobi"
 mobi_title = u'DevSecOps Quickstart'
 mobi_author = u'Franklin Diaz'
 mobi_publisher = u'Franklin Diaz'
-mobi_copyright = u'© 2021 by Franklin Diaz'
+mobi_copyright = u'© 2020 by Franklin Diaz'
 
 # The scheme of the identifier. Typical schemes are ISBN or URL.
 #mobi_scheme = ''
@@ -204,14 +249,9 @@ mobi_copyright = u'© 2021 by Franklin Diaz'
 #mobi_post_files = []
 
 # A list of files that should not be packed into the mobi file.
-mobi_exclude_files = [
-  '/project/book/_static/opensearch.xml',
-  '/project/book/_static/doctools.js',
-  '/project/book/_static/jquery.js',
-  '/project/book/_static/searchtools.js',
-  '/project/book/_static/underscore.js',
-  '/project/book/_static/basic.css',
-  '/project/book/_static/websupport.js']
+mobi_exclude_files = ['_static/opensearch.xml', '_static/doctools.js',
+    '_static/jquery.js', '_static/searchtools.js', '_static/underscore.js',
+    '_static/basic.css', 'search.html', '_static/websupport.js']
 
 # The depth of the table of contents in toc.ncx.
 mobi_tocdepth = 2
