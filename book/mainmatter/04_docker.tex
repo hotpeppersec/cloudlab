@@ -27,28 +27,7 @@ since the package features have also changed. The result is most likely
 angry end users and customers. Certainly not a situation we ever like to
 find ourselves in.
 
-\justify
-There is obvious advantage of being able to quickly stand up new clones
-of our project to replace existing instances that may be outdated,
-insecure, etc. The idea of immutability\footnote{\url{https://www.hashicorp.com/resources/what-is-mutable-vs-immutable-infrastructure/}},
-in reference to software projects, is the degree to which something, our
-running project for example, can be changed. Immutability\index{Immutability} is desirable,
-in that we wish to be able to simply replace outdated instances of our
-project in their entirety. Upgrading and patching are inherently
-problematic activities, high cost in terms of time, effort and money,
-that we have the technology to dissociate from. With containerization,
-we can more easily achieve immutability across the software lifecycle.
 
-\justify
-Ephemerality/index{Ephemerality} is the concept of something being transitory in nature,
-existing only briefly\footnote{\url{https://en.wikipedia.org/wiki/Ephemerality}}.
-Using immutable containers makes it easier to realize infrastructure and
-hosts that are ephemeral. Rather than spending a great deal of time
-patching and upgrading one or more hosts as we might in a traditional
-project stack that uses virtual machines or bare metal, we're going to
-use Docker to create a new container in place of the old one. In other
-words, we're running our project in containers that are immutable and
-ephemeral to the degree possible.
 
 \justify
 Docker images are "canned" (as in, prefabricated) or custom directives

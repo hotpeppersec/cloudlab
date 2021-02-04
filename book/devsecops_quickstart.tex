@@ -18,6 +18,8 @@
 \usepackage{graphicx}\graphicspath{{../images}}
 \usepackage{makeidx}\makeindex
 \usepackage[nottoc]{tocbibind} % add index and bib to ToC
+\usepackage{pgfplots} % testing X axis pic
+\pgfplotsset{compat = newest} % testing X axis pic
 
 \include{preamble}
 
@@ -27,6 +29,7 @@
 \frontmatter
 \include{frontmatter/maketitle}
 \include{frontmatter/colophon}
+\include{frontmatter/epigraph}
 \pagenumbering{Roman}
 \include{frontmatter/preface} %preface and acknowledgements
 \include{frontmatter/about_author}
@@ -37,10 +40,11 @@
 
 % mainmatter: parts and chapters
 \mainmatter
-\include{mainmatter/00_intro}
-\include{mainmatter/01_setup}
-\include{mainmatter/02_docker}
-\include{mainmatter/03_github}
+\include{mainmatter/01_introduction}
+\include{mainmatter/02_big_ideas}
+\include{mainmatter/03_setup}
+\include{mainmatter/04_docker}
+\include{mainmatter/05_github}
 
 % backmatter: appendix, bibliography, index, postface
 \backmatter

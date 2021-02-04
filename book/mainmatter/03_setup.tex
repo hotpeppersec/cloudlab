@@ -1,4 +1,4 @@
-\chapter{Getting Acclimated}
+\chapter{Getting Ready to Get Tactical}
 
 \justify
 Let's start by considering the objectives for this book:
@@ -56,7 +56,7 @@ version of Docker.
 Let's take a look at some of the other foundational environmental
 elements we need in place to be successful.
 
-\subsubsection{Windows Specific Prerequisites}
+\subsection{Windows Specific Prerequisites}
 
 \begin{itemize}
 \item installation of power shell
@@ -64,7 +64,7 @@ elements we need in place to be successful.
 \item installation of gh or github command line client
 \end{itemize}
 
-\subsubsection{Linux Specific Prerequisites}
+\subsection{Linux Specific Prerequisites}
 \justify
 When installing Docker on Linux hosts, it should be noted that docker-compose must be installed separately.
 
@@ -103,75 +103,7 @@ single: Sublime
 \caption{The VScode IDE.}
 \end{figure}
 
-\section{The Flow (Pipelines)}
-
-\justify
-Work products such as code and documents begin their life on developer workstations. We will refer to these developer environments where this takes place as the "local" environment. These work products are created, reviewed and checked into Revision Control Systems (RCS), GitHub for example, by the DevSecOps practitioner. Other revison control systems include GitLab and BitBucket.
-
-single: Revsion Control System (RCS)
-
-\justify
-Test cases are created and run against the work products at check-in time, to ensure stability, security, and compatibility with the existing code base. The automation required to execute tests every time work is checked in is also typically the responsibility of the DevSecOps engineers. As seen in {myFig1} work typically "flows" from the local environments, into a test environment, and finally to production where
-it is available for use by the entire user base.
-
-\justify
-We will refer to the entirety of this three-stage flow as one example of
-a "pipeline". Code from one or more local environments is checked in to
-the revision control system throughout a typical DevSecOps workday, and
-continuously tested and integrated with the main code base. That is to
-say, work undergoes "Continuous Integration" (CI) with the main code base, and often "Continuous Delivery" (CD) between local, test, and production environments. This is where the term "CI/CD Pipeline" comes from.
-
-single: pipeline single: CI single: Continuous Deployment single: CD
-single: Continuous Integration
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.63]{../images/flow.png}
-\caption{Typical build pipeline.}
-\end{figure}
-
-\justify
-While the CI/CD Pipeline is often the primary focus of the DevSecOps
-engineer, other pipelines exist as well. For example, let's assume our
-organization maintains a vast pool of raw data, also known as a data
-lake. The staff Data Engineers build and maintain Data Science pipelines
-to facilitate the smooth flow of logs and other data into that data
-lake. Now Data Scientists are able to create machine learning models
-that rely on that data to produce useful insights. As another example,
-consider code changes as they move from developer workstations into a
-code repository for storage. Accessing this code for the purpose of
-testing will differ from how it is accessed for the purposes of
-deployment. The order of operations and flow between differing
-functions might be said to comprise two different pipelines.
-
-single: Data Lake single: Data Science
-
-\subsection{Shifting Left}
-\justify
-We now have a mental picture of how software will flow from Development,
-to Test, and to Production.
-
-single: Shift Left
-
-\subsection{Automation}
-\justify
-Consider what may happen when we want to apply the lessons from this book across a large environment made up of many hosts, containers, pieces of application software, etc. It becomes a huge challenge to log in to each host or container individually. Typing, or even cutting and pasting commands to keep things up and running properly, look at logs,
-and so on becomes problematic.
-
-\justify
-This is where automation comes in. Automation is a way to provision and maintain some or many hosts in a programmatic and touchless manner. Automation is the force multiplier we use to achieve scaling.
-
-single: Automation single: scaling
-
-\subsection{Agile Methodologies}
-
-\justify
-The concept of Agile Software development is an expansive topic unto itself. Although we won't implicitly dedicate a lot of our time to these ideas, agile is widely regarded as an underpinning of a successful
-DevSecOps program.
-
-single: Agile
-
-\subsection{Lab Exercises}
+\section{Lab Exercises}
 \justify
 This book is meant to be a workbook as much as it is meant to be read. You are encouraged to jump ahead, go back and re-read, do the exercises you think you can apply the learning objective from right away, and skip the parts you don't think you will ever use. Learning can be a non-linear experience and you are encouraged to "color outside the lines" to the extent you feel comfortable doing so.
 
