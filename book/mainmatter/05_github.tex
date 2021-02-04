@@ -51,7 +51,7 @@ Enter same passphrase again: [Type passphrase again]
 \justify
 Now you can add your public key half to github.com\footnote{\url{https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account}}.
 
-\subsubsection{GPG Key Setup}
+\subsection{GPG Key Setup}
 
 \justify
 Using a GPG key to sign your commits\footnote{\url{https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key}}
@@ -87,38 +87,30 @@ your GitHub account.
 Next let's take a look at two of the key methods of interacting with
 projects and other people on github.com.
 
-\hypertarget{forking-and-cloning-repositories}{%
-\subsubsection{Forking and Cloning
-Repositories}\label{forking-and-cloning-repositories}}
+\subsection{Forking and Cloning Repositories}
 
-When someone else has a project on github.com that you would like to
-make changes to, you can make a "fork" of that project. Forking a
-repository means you are making a copy of that repository to your
-personal account on the GitHub web site.
+When someone else has a project on github.com that you would like to make changes to, you can make a "fork" of that project. Forking\index{forking} a repository means you are making a copy of that repository to your personal account on the GitHub web site.
 
-single: Forking
+Creating a "clone"\index{cloning a repo} of your fork to your local machine is done so that
+you can make changes without altering the original project before testing and review of the changes takes place.
 
-Creating a "clone" of your fork to your local machine is done so that
-you can make changes without altering the original project before
-testing and reivew of the changes takes place.
+Adding a "remote" is a git convention to easily push changes from your clone back to the original source repository.
 
-single: Cloning
-
-Adding a "remote" is a git convention to easily push changes from your
-clone back to the original source repository.
-
-\begin{description}
-\item[digraph forking \{]
-"Original Repository on github.com" {[}shape=rectangle{]}; "Your fork on
-github.com" {[}shape=rectangle{]}; "Local Clone" {[}shape=rectangle{]};
-"Original Repository on github.com" -\textgreater{} "Your fork on
-github.com"{[}arrowhead=normal{]}; "Your fork on github.com"
--\textgreater{} "Local Clone"{[}arrowhead=normal{]}; "Local Clone"
--\textgreater{} "Original Repository on github.com"{[}arrowhead=normal
-label="add remote called upstream"{]};
-\end{description}
-
-\}
+\begin{figure}
+	\centering
+	\digraph{forking}{
+		size="8,4";
+		node [fontname="Helvetica" fontsize=14 shape=box];
+		edge [fontname="Symbol" fontsize=10];
+		orig [fontname="Symbol" label="Original Repository on github.com"];
+		fork [fontname="Symbol" label="Your fork on github.com"];
+		clone [fontname="Symbol" label="Local Clone"];
+		orig -> fork;
+		fork -> clone;
+        clone -> orig;
+	}
+	\caption{Project Directory and related files.}
+\end{figure}
 
 This can be a tricky pattern to master, but it is fundamental if you
 want to join the ranks of Open Source contributors and developers that
@@ -163,7 +155,7 @@ After completing these steps you can easily submit pull requests (PRs)
 back to the original project.
 
 \hypertarget{keeping-a-clone-in-sync}{%
-\subsubsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
+\subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
 
 The process of performing a pull request (PR) and merging changes is
 covered fairly extensively on the Web. Let's take a quick look at how to

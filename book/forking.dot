@@ -1,0 +1,11 @@
+digraph forking {
+size="8,4";
+node [fontname="Helvetica" fontsize=14 shape=box];
+edge [fontname="Symbol" fontsize=10];
+orig [fontname="Symbol" label="Original Repository on github.com"];
+fork [fontname="Symbol" label="Your fork on github.com"];
+clone [fontname="Symbol" label="Local Clone"];
+orig -> fork;
+fork -> clone;
+clone -> orig;
+}
