@@ -42,10 +42,10 @@ github.com website\footnote{\url{https://help.github.com/en/github/authenticatin
 are perfect for this task.
 
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
-  ssh-keygen -t rsa -b 4096 -C "user@example.com"\\
-  Enter a file in which to save the key (/home/user/.ssh/id\_rsa): [Press enter]\\
-  Enter passphrase (empty for no passphrase): [Type a passphrase]\\
-  Enter same passphrase again: [Type passphrase again]
+      ssh-keygen -t rsa -b 4096 -C "user@example.com"\\
+      Enter a file in which to save the key (/home/user/.ssh/id\_rsa): [Press enter]\\
+      Enter passphrase (empty for no passphrase): [Type a passphrase]\\
+      Enter same passphrase again: [Type passphrase again]
 \end{mybox}
 
 \justify
@@ -65,18 +65,18 @@ Take a few minutes to set up a GPG key and add it to your profile on
 GitHub.
 
 \begin{mybox}{\thetcbcounter: GPG Key Setup}
-  user@devsecops:\~\# gpg --default-new-key-algo rsa4096 --gen-key\\
-  public and secret key created and signed.\\
-  Note that this key cannot be used for encryption.  You may want to use
-  the command "--edit-key" to generate a subkey for this purpose.\\
-  pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]\\
-  \hspace*{15mm}      848943CDCE488F138BF91079E81498874E59648D\\
-  uid\\
-  \hspace*{25mm}                     Kevin Flynn <user@example.com>\\
+      user@devsecops:\~\# gpg --default-new-key-algo rsa4096 --gen-key\\
+      public and secret key created and signed.\\
+      Note that this key cannot be used for encryption.  You may want to use
+      the command "--edit-key" to generate a subkey for this purpose.\\
+      pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]\\
+      \hspace*{15mm}      848943CDCE488F138BF91079E81498874E59648D\\
+      uid\\
+      \hspace*{25mm}                     Kevin Flynn <user@example.com>\\
 
-  user@devsecops:\~\# gpg --list-secret-keys --keyid-format LONG |grep sec| cut -f2 -d'/'|cut -f1 -d' '\\
-  E81498874E59648D\\
-  user@devsecops:\~\# gpg --armor --export E81498874E59648D
+      user@devsecops:\~\# gpg --list-secret-keys --keyid-format LONG |grep sec| cut -f2 -d'/'|cut -f1 -d' '\\
+      E81498874E59648D\\
+      user@devsecops:\~\# gpg --armor --export E81498874E59648D
 \end{mybox}
 
 Copy your GPG key, beginning with
@@ -97,8 +97,8 @@ you can make changes without altering the original project before testing and re
 Adding a "remote" is a git convention to easily push changes from your clone back to the original source repository.
 
 \begin{figure}[!htb]
-  \input{dot/githubdirectory.tex}
-  \caption{Forking and cloning.}
+      \input{dot/forking.tex}
+      \caption{Forking and cloning.}
 \end{figure}
 
 This can be a tricky pattern to master, but it is fundamental if you
@@ -110,41 +110,41 @@ enjoy the full power of Git and GitHub.
 
 \begin{itemize}
 
-  \item
-        From the original project page on github.com, click the "fork" button.
+      \item
+            From the original project page on github.com, click the "fork" button.
 
-        \begin{itemize}
+            \begin{itemize}
 
-          \item
-                This creates a copy of the original repository on your personal
-                GitHub page.
-        \end{itemize}
-  \item
-        Now from your page, make a clone of that fork from github.com to your
-        machine.
+                  \item
+                        This creates a copy of the original repository on your personal
+                        GitHub page.
+            \end{itemize}
+      \item
+            Now from your page, make a clone of that fork from github.com to your
+            machine.
 
-        \begin{description}
-          \item[- This will allow you to add, update and test code and
-                documentation without]
-                altering the original project.
-        \end{description}
-  \item
-        On your local machine, create a "remote" connection back to the
-        original repo.
+            \begin{description}
+                  \item[- This will allow you to add, update and test code and
+                        documentation without]
+                        altering the original project.
+            \end{description}
+      \item
+            On your local machine, create a "remote" connection back to the
+            original repo.
 \end{itemize}
 
 To create a "remote" called upstream from your clone to the original
 repo, use this example command:
 
 \begin{mybox}{\thetcbcounter: Create Upstream Remote}
-  git remote add upstream git@github.com:hotpeppersec/rapid\_secdev\_framework.git
+      git remote add upstream git@github.com:hotpeppersec/rapid\_secdev\_framework.git
 \end{mybox}
 
 After completing these steps you can easily submit pull requests (PRs)
 back to the original project.
 
 \hypertarget{keeping-a-clone-in-sync}{%
-  \subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
+      \subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
 
 The process of performing a pull request (PR) and merging changes is
 covered fairly extensively on the Web. Let's take a quick look at how to
@@ -152,21 +152,21 @@ keep your local clone of a repository, as well as your clone on
 github.com, up to date.
 
 \hypertarget{steps-1}{%
-  \paragraph{Steps}\label{steps-1}}
+      \paragraph{Steps}\label{steps-1}}
 
 These are the steps to take once your pull request is merged to the main
 branch in the main project repository. From the command line on the
 machine where your clone resides:
 
 \begin{itemize}
-  \item
-        git checkout master
-  \item
-        git fetch upstream
-  \item
-        git rebase upstream/master
-  \item
-        git push origin master
+      \item
+            git checkout master
+      \item
+            git fetch upstream
+      \item
+            git rebase upstream/master
+      \item
+            git push origin master
 \end{itemize}
 
 
@@ -185,18 +185,18 @@ While the repository is owned by me, I use a much simpler process for
 managing my code check-ins.
 
 \hypertarget{steps-2}{%
-  \paragraph{Steps}\label{steps-2}}
+      \paragraph{Steps}\label{steps-2}}
 
 \begin{itemize}
 
-  \item
-        Create the repository on github.com from my personal account.
-  \item
-        Make a clone of that new repository from github.com to my local host.
-  \item
-        Do my pull requests and merges as desired.
-  \item
-        Do a git pull to my master branch to keep my local clone up to date.
+      \item
+            Create the repository on github.com from my personal account.
+      \item
+            Make a clone of that new repository from github.com to my local host.
+      \item
+            Do my pull requests and merges as desired.
+      \item
+            Do a git pull to my master branch to keep my local clone up to date.
 \end{itemize}
 
 
@@ -213,16 +213,16 @@ previous chapter.
 
 \begin{itemize}
 
-  \item
-        Navigate to
-        \url{https://github.com/hotpeppersec/rapid_secdev_framework}
-  \item
-        Click the green button "Use this template"
-  \item
-        Select a "Repository name", like "rapid\_secdev\_framework" for
-        example.
-  \item
-        Now click "Create repository from template"
+      \item
+            Navigate to
+            \url{https://github.com/hotpeppersec/rapid_secdev_framework}
+      \item
+            Click the green button "Use this template"
+      \item
+            Select a "Repository name", like "rapid\_secdev\_framework" for
+            example.
+      \item
+            Now click "Create repository from template"
 \end{itemize}
 
 \justify
@@ -235,20 +235,20 @@ template.
 \paragraph{Cloning Steps}
 
 \begin{itemize}
-  \item
-        Navigate to the main page for our new repository on github.com.
-  \item
-        \begin{description}
-          \item[Clone the repository to your local host by clicking on the green
-                "Clone or download" button.]
-                \begin{itemize}
+      \item
+            Navigate to the main page for our new repository on github.com.
+      \item
+            \begin{description}
+                  \item[Clone the repository to your local host by clicking on the green
+                        "Clone or download" button.]
+                        \begin{itemize}
 
-                  \item
-                        Be sure to clone with "SSH" and not "HTTPS".
-                \end{itemize}
-        \end{description}
-  \item
-        Change to the clone directory with the "cd" command.
+                              \item
+                                    Be sure to clone with "SSH" and not "HTTPS".
+                        \end{itemize}
+            \end{description}
+      \item
+            Change to the clone directory with the "cd" command.
 \end{itemize}
 
 From the rapid\_secdev\_framework directory, execute the command
@@ -258,21 +258,21 @@ Consider the following example. Notice that the command prompt changes
 to indicate that you have a BASH shell in the running container.
 
 \begin{mybox}{\thetcbcounter: Output from make docker command}
-  user@devsecops:\~/rapid\_secdev\_framework\$ make docker\\
-  Building test env with docker-compose\\
-  docker-compose -f docker/docker-compose.yml build devsecops\\
-  Building devsecops\\
-  Step 1/3 : FROM python:3.9-buster\\
-  ---> 4f7cd4269fa9\\
-  Step 2/3 : WORKDIR /home/secdevops\\
-  ---> Using cache\\
-  ---> 95dc84398bc2\\
-  Step 3/3 : RUN apt update; apt install -y apt-utils\\
-  ---> Using cache\\
-  ---> 83ea11278488\\
-  Successfully built 83ea11278488\\
-  Successfully tagged docker\_devsecops:latest\\
-  user@devsecops:/home/secdevops\#
+      user@devsecops:\~/rapid\_secdev\_framework\$ make docker\\
+      Building test env with docker-compose\\
+      docker-compose -f docker/docker-compose.yml build devsecops\\
+      Building devsecops\\
+      Step 1/3 : FROM python:3.9-buster\\
+      ---> 4f7cd4269fa9\\
+      Step 2/3 : WORKDIR /home/secdevops\\
+      ---> Using cache\\
+      ---> 95dc84398bc2\\
+      Step 3/3 : RUN apt update; apt install -y apt-utils\\
+      ---> Using cache\\
+      ---> 83ea11278488\\
+      Successfully built 83ea11278488\\
+      Successfully tagged docker\_devsecops:latest\\
+      user@devsecops:/home/secdevops\#
 \end{mybox}
 
 
@@ -292,8 +292,8 @@ Consider this example where we add the @hotpeppersec to the CODEOWNERS
 file.
 
 \begin{mybox}{\thetcbcounter: Adding a user to CODEOWNERS file}
-  user@devsecops:/home/secdevops\# if [ ! -d ".github" ];then mkdir .github; fi\\
-  user@devsecops:/home/secdevops\# echo "* @githubusername">> .github/CODEOWNERS
+      user@devsecops:/home/secdevops\# if [ ! -d ".github" ];then mkdir .github; fi\\
+      user@devsecops:/home/secdevops\# echo "* @githubusername">> .github/CODEOWNERS
 \end{mybox}
 
 In this example, the @githubusername user will be tagged as a reviewer
@@ -311,7 +311,7 @@ Consider the following example .gitignore file. This will prevent you
 from checking in the .DS-Store that Macintosh creates in many folders.
 
 \begin{mybox}{\thetcbcounter: Example .gitignore file}
-  root@cloudlab:\~/workspace/cloudlab\# echo ".DS\_Store" > .gitignore
+      root@cloudlab:\~/workspace/cloudlab\# echo ".DS\_Store" > .gitignore
 \end{mybox}
 
 \subsection{Working with Branches}
@@ -321,7 +321,7 @@ Naming your branches something useful is helpful (self documenting).
 Let's look at how to create a branch
 
 \hypertarget{steps-3}{%
-  \paragraph{Steps}\label{steps-3}}
+      \paragraph{Steps}\label{steps-3}}
 
 
 \subsection{Pull Requests}
@@ -344,23 +344,23 @@ our clone of the repository in GitHub, then pushing that change up to
 the repository.
 
 \hypertarget{steps-4}{%
-  \paragraph{Steps}\label{steps-4}}
+      \paragraph{Steps}\label{steps-4}}
 
 \begin{itemize}
 
-  \item
-        Create a new branch, for example git checkout -b newbranch
-  \item
-        Create the .github directory if it does not exist, then the CODEOWNERS
-        file in that directory.
-  \item
-        Use git to add the file to the commit: git add CODEOWNERS
-  \item
-        Commit the file with git, git commit -S -m 'add CODEOWNERS file'
-  \item
-        Push this commit to github.com, git push origin newbranch
-  \item
-        Use the github.com website to open and merge the pull request.
+      \item
+            Create a new branch, for example git checkout -b newbranch
+      \item
+            Create the .github directory if it does not exist, then the CODEOWNERS
+            file in that directory.
+      \item
+            Use git to add the file to the commit: git add CODEOWNERS
+      \item
+            Commit the file with git, git commit -S -m 'add CODEOWNERS file'
+      \item
+            Push this commit to github.com, git push origin newbranch
+      \item
+            Use the github.com website to open and merge the pull request.
 \end{itemize}
 
 
@@ -375,8 +375,8 @@ and then the green "Create" button sets up master as a protected branch.
 Consider the following example {myFig2}.
 
 \begin{figure}
-  \includegraphics[scale=0.50]{../images/github-branch-protection.png}
-  \caption{Setting up branch protection.}
+      \includegraphics[scale=0.50]{../images/github-branch-protection.png}
+      \caption{Setting up branch protection.}
 \end{figure}
 
 \justify
@@ -385,8 +385,8 @@ Actions for example) new choices ({myFig3}) become available in this
 part of your repository for managing those checks.
 
 \begin{figure}
-  \includegraphics[scale=0.53]{../images/guthub-status-check.png}
-  \caption{Requiring status checks.}
+      \includegraphics[scale=0.53]{../images/guthub-status-check.png}
+      \caption{Requiring status checks.}
 \end{figure}
 
 \subsection{Automated Repository Scanning}
@@ -438,6 +438,6 @@ Relevant files and folders mentioned in this chapter are organized as
 seen below.
 
 \begin{figure}[!htb]
-  \input{dot/githubdirectory.tex}
-  \caption{GitHub related files.}
+      \input{dot/githubdirectory.tex}
+      \caption{GitHub related files.}
 \end{figure}
