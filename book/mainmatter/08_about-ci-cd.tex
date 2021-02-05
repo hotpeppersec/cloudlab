@@ -1,60 +1,19 @@
-\makeatletter
-\@removefromreset{figure}{section}
-\@addtoreset{figure}{chapter}
-\renewcommand{\thefigure}{\thechapter.\@arabic\c@figure}
-\makeatother
+\chapter{Continuous Integration \& Deployment}
 
-\hypertarget{continuous-integration-deployment}{%
-\section{Continuous Integration \&
-Deployment}\label{continuous-integration-deployment}}
+\includegraphics[scale=0.85]{../images/finland-905712_1920.jpg}
 
-\includegraphics{../images/finland-905712_1920.jpg}
+Accommodations for Continuous Integration (CI) and Continuous Deployment (CD) in our projects directly corresponds to our chances of success.
 
-Accomodations for Continuous Integration (CI) \& Continuous Deployment
-(CD) in our projects directly corresponds to our chances of success.
+\section{Linters}
 
-single: CI single: Continuous Deployment single: CD single: Continuous
-Integration
+There are small programs for most (every?) language that you can run before pushing your changes to GitHub that will catch syntactical and sometimes even programmatic issues. Consider Python, which is very sensitive with regard to indentation. You can programatically detect and even correct issues before your work gets too far down the pipe.
+This is also a good way to make sure folks are not committing dirty code to your repositories.
 
-\hypertarget{linters}{%
-\subsection{Linters}\label{linters}}
+Here are some of the linters I have found useful for languages I encounter frequently.
 
-There are small programs for most (every?) language that you can run
-before pushing your changes to GitHub that will catch syntactical and
-sometimes even programmatic issues. Consider Python, which is very
-sensitive with regard to indentation. You can programatiacally detect
-and even correct issues before your work gets too far down the pipe.
-This is also a good way to make sure folks are not committing dirty code
-to your repositories.
+TABLE
 
-single: lint single: linters
-
-Here are some of the linters I have found useful for languages I
-encounter frequently.
-
-\begin{longtable}[]{@{}lll@{}}
-\caption{Linters}\tabularnewline
-\toprule
-Language & Name & Source\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-Language & Name & Source\tabularnewline
-\midrule
-\endhead
-Ansible & ansible-lint & python (pip install
-ansible-lint)\tabularnewline
-Markdown & mdl & ruby (gem install mdl)\tabularnewline
-Puppet & puppet-lint & ruby (gem install puppet-lint)\footnote{\url{http://puppet-lint.com/}}\tabularnewline
-Python & pylint/flake8 & python (pip install
-pylint/flake8)\tabularnewline
-Terraform & tflint &
-\url{https://github.com/terraform-linters/tflint}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\hypertarget{linting-with-tox}{%
-\subsection{Linting with Tox}\label{linting-with-tox}}
+\subsection{Linting with Tox}
 
 Recall that we are using Tox as our main test framework. To set up Tox
 to do our linting work for us, we can add an environment to our envlist
@@ -62,34 +21,17 @@ called "pylint" and then declare it in a new stanza in tox.ini. Notice
 how we let "deps" do the work of installing the "pylint" dependency for
 us.
 
-single: pylint
+\begin{mybox}{\thetcbcounter: A Makefile Target}
+	\lstinputlisting{code/toxfile-pylint}
+\end{mybox}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{[tox]}
-\NormalTok{ envlist }\OperatorTok{=}\NormalTok{ py38. pylint}
-\NormalTok{ skip_missing_interpreters }\OperatorTok{=}\NormalTok{ true}
+\section{GitHub Actions}
 
-\NormalTok{[pylint]}
-\NormalTok{deps }\OperatorTok{=}
-\NormalTok{  pylint}
-\NormalTok{commands}\OperatorTok{=}
-  \CommentTok{# the -rn flag will suppress report output (warnings)}
-\NormalTok{  pylint }\OperatorTok{-}\NormalTok{rn }\OperatorTok{--}\NormalTok{rcfile}\OperatorTok{=}\NormalTok{.pylintrc my_resume}\OperatorTok{/}\NormalTok{my_resume.py}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{github-actions}{%
-\subsection{GitHub Actions}\label{github-actions}}
-
+\justify
 GitHub Actions is a recent introduction to the github.com website that
-lets you perform Continuous Integration on your repository, and
-Continuous Deployment as desired.
+lets you perform Continuous Integration on your repository, and Continuous Deployment as desired.
 
-single: GitHub Actions
-
-\hypertarget{docker}{%
-\subsubsection{Docker}\label{docker}}
+\subsection{Docker}
 
 Let's see how we can leverage Actions to build the docker target in our
 project. Save this YAML file under
@@ -124,7 +66,7 @@ execute our make docker target from our custom Makefile.
 \end{Shaded}
 
 \hypertarget{python}{%
-\subsubsection{Python}\label{python}}
+\subsection{Python}\label{python}}
 
 Save this YAML file under codelab/.github/workflows/python.yml to have
 GitHub Actions execute our make python target from our custom Makefile.
@@ -164,8 +106,7 @@ GitHub Actions execute our make python target from our custom Makefile.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{packer}{%
-\subsubsection{Packer}\label{packer}}
+\subsection{Packer}
 
 Save this YAML file under devsecops/.github/workflows/packer.yml to have
 GitHub Actions validate and build our AMI image with Packer.
@@ -216,13 +157,10 @@ single: Packer
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{markdown}{%
-\subsubsection{Markdown}\label{markdown}}
+\subsection{Markdown}
 
 The following example YAML file illustrates how to validate GitHub
 flavored Markdown text files using a GitHub Action.
-
-single: Markdown single: markdownlint
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -245,6 +183,7 @@ single: Markdown single: markdownlint
 \end{Highlighting}
 \end{Shaded}
 
+\justify
 Note the designation of a configuration file named .markdownlint.json at
 the top level of our repository. This JSON file is used to skip certain
 checks by the markdownlint tool.
@@ -318,7 +257,7 @@ single: Circle CI
       \KeywordTok{-} \FunctionTok{restore_cache:}
           \FunctionTok{keys:}
             \KeywordTok{-}\NormalTok{ v1-dependencies-}\KeywordTok{\{}\NormalTok{\{ checksum }\StringTok{"requirements/requirements.dev"} \KeywordTok{\}}\NormalTok{\}}
-            \CommentTok{# fallback to using the latest cache if no exact match is found}
+            \# fallback to using the latest cache if no exact match is found\\
             \KeywordTok{-}\NormalTok{ v1-dependencies-}
       \KeywordTok{-} \FunctionTok{run:}\AttributeTok{ }
           \FunctionTok{name:}\AttributeTok{ run tests}
@@ -341,30 +280,27 @@ single: Circle CI
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{travisci}{%
-\subsection{TravisCI}\label{travisci}}
+\section{TravisCI}
 
+\justify
 Travis CI is a hosted continuous integration service used to build and
 test software projects hosted at GitHub and Bitbucket. They have a great
 tutorial available\footnote{\url{https://docs.travis-ci.com/user/tutorial/}}
 if you care to dig a bit deeper.
 
+\justify
 By enabling Travis CI integration through the GitHub
 Marketplace\footnote{\url{https://github.com/marketplace/travis-ci}} you
 can integrate their scanners with your repository.
 
-single: Travis CI
+\subsubsection{Docker}
 
-\hypertarget{docker-1}{%
-\subsubsection{Docker}\label{docker-1}}
-
+\justify
 You can test Docker containers in your CI/CD pipeline. As seen in the
 following example I created a YAML file named .travis.yml to enable
 automatic molecule testing of ansible roles in Travis CI. I also set a
 flag in the repo settings that prevent the PR from being merged until
 Travis CI flags the build as passing.
-
-single: Docker single: Molecule
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -390,13 +326,10 @@ single: Docker single: Molecule
 The contents of the requirements files and the example Ansible code is
 available in the companion repo.
 
-\hypertarget{markdown-1}{%
-\subsubsection{Markdown}\label{markdown-1}}
 
-Save these lines to a file named .travis.yml to scan all the markdown
-files in your repository.
+\subsection{Markdown}
 
-single: Markdown
+Save these lines to a file named .travis.yml to scan all the markdown files in your repository.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -412,10 +345,8 @@ single: Markdown
 \end{Highlighting}
 \end{Shaded}
 
-You can also create an .mdlrc file to give mdl direction on what to scan
-for.
-
-single: .mdlrc
+\justify
+You can also create an .mdlrc file to give mdl direction on what to scan for.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -425,15 +356,12 @@ single: .mdlrc
 
 \clearpage
 
-\hypertarget{directory-structure}{%
-\subsection{Directory Structure}\label{directory-structure}}
+\section{Directory Structure}
 
-Relevant folders and files related to our build pipeline are shown
-below. The users home directory and workspace subdirectory is implied
-and removed from the diagram for clarity.
+\justify
+Relevant folders and files related to our build pipeline are shown below. The users home directory and workspace subdirectory is implied and removed from the diagram for clarity.
 
-\begin{description}
-\item[digraph folders \{]
+
 "devsecops" {[}shape=folder{]}; ".github" {[}shape=folder{]};
 "workflows" {[}shape=folder{]}; ".circleci" {[}shape=folder{]};
 "config.yml" {[}shape=rectangle;{]} "docker\_compose.yml"
@@ -450,4 +378,23 @@ and removed from the diagram for clarity.
 "packer.yml"; "workflows" -\textgreater{} "python.yml";
 \end{description}
 
-\}
+\begin{figure}
+	\centering
+	\digraph{cicd}{
+		node [shape=rectangle];
+		% nodes
+		devsecops [label="devsecops"]; 
+		dotgh [label=".github"];
+		workflows [label="workflows"]; 
+		dotcircleci [label=".circleci"];
+		cy [label="config.yml"];
+		dcy [label="docker\_compose.yml]"; 
+		py [label="packer.yml]"; 
+		pyyml [label="python.yml"];
+		mdy [label="markdown.yml"];
+		dottr [label=".travis.yml"];
+		mdlrc [label=".mdlrc"];
+		mdjson [label=".markdownlint.json"];
+    }
+	\caption{Project Directory and related files.}
+\end{figure}

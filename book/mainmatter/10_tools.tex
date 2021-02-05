@@ -20,9 +20,10 @@ Consider the following diagram {myFig4} as we discuss the tools we'll
 use to implement our infrastructure as coode and associated
 configurations in the cloud provider network.
 
-\hypertarget{packer}{%
-   \subsection{Packer}\label{packer}}
 
+\section{Packer}
+
+\justify
 Using Hashicorp Packer is a great way to nail down the contents of a
 machine image before we bring up an instance. Download Packer from the
 Hashicorp web site in preparation for the follwing steps\footnote{\url{https://github.com/bonclay7/aws-amicleaner}}
@@ -32,11 +33,7 @@ manage the creation of Packer generated machine images. Generating
 machine images on the fly using Terraform would increase our degree of
 ephepmerality and immutability.
 
-single: Packer
-
-\hypertarget{packer-example-configuration-for-aws}{%
-   \subsubsection{Packer Example Configuration for
-      AWS}\label{packer-example-configuration-for-aws}}
+\subsection{Packer Example Configuration for AWS}
 
 Here is an example of how to set up a JSON file to build a Packer image
 in AWS. Save the contents of this file into
@@ -93,10 +90,9 @@ in AWS. Save the contents of this file into
    \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{packer-example-configuration-for-gcp}{%
-   \subsubsection{Packer Example Configuration for
-      GCP}\label{packer-example-configuration-for-gcp}}
+\subsection{Packer Example Configuration for GCP}
 
+\justify
 Here is an example of how to set up a JSON file to build a Packer image
 in Google Compute. Save the contents of this file into
 `packer/gcp-debian-host.json`:
@@ -131,10 +127,10 @@ in Google Compute. Save the contents of this file into
    \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{validating-packer-json-files}{%
-   \subsubsection{Validating Packer JSON
-      Files}\label{validating-packer-json-files}}
 
+\subsection{Validating Packer JSON Files}
+
+\justify
 Once the JSON files are created and saved in the packer directory, we
 can use the packer tool to validate them. Type
 packer validate \textless{}filename\textgreater{} to validate each new
@@ -144,10 +140,10 @@ next step, the build phase.
 Note that your validation commands may fail if the cloud provider
 credentials have not been configured at this point.
 
-\hypertarget{building-images-with-packer}{%
-   \subsubsection{Building Images with
-      Packer}\label{building-images-with-packer}}
 
+\subsection{Building Images with Packer}
+
+\justify
 Finally, we are ready to build our new images. Try typing
 packer build \textless{}filename\textgreater{} to create the image. You
 shoudl see output similar to the following, but with a unique AMI ID.
@@ -162,17 +158,18 @@ shoudl see output similar to the following, but with a unique AMI ID.
    \end{Highlighting}
 \end{Shaded}
 
+\justify
 The AMI ID "ami-0e9e6427509a9d0b5" is now a usable image that we can
 include in our Terraform builds.
 
-\hypertarget{removing-packer-images-from-cloud-provider}{%
-   \subsubsection{Removing Packer Images from Cloud
-      Provider}\label{removing-packer-images-from-cloud-provider}}
 
+\subsection{Removing Packer Images from Cloud Provider}
+
+\justify
 You may want to remove the images from AWS/GCP since storing them incurs
 additional cost, whether they are in use or not\footnote{\url{https://registry.terraform.io/modules/trussworks/lambda-packerjanitor/aws/1.0.0}}
 .
-
+\justify
 To remove stale machine images from AWS, you may try a tool such as
 aws-amicleaner\footnote{\url{https://www.terraform.io/intro/index.html}}
 , which is available to be installed via Python/pip as well as from the
@@ -180,16 +177,13 @@ GitHub repository for the project.
 
 Another AWS specfic tool is "lambda-packerjanitor" from Trusworks.
 
-\hypertarget{terraform}{%
-   \subsection{Terraform}\label{terraform}}
 
-Terraform, created by Hashicorp in 2014, is a tool for building,
-changing, and versioning infrastructure safely and efficiently . Install
-the latest version of Terraform in preparation for the activities that
-follow.
+\section{Terraform}
 
-single: Terraform
+\justify
+Terraform, created by Hashicorp in 2014, is a tool for building, changing, and versioning infrastructure safely and efficiently . Install the latest version of Terraform in preparation for the activities that follow.
 
+\justify
 Consider the relevant Terraform files that we will include in our
 projects.
 
@@ -204,8 +198,8 @@ projects.
 
 \}
 
-\hypertarget{terraform.tfvars}{%
-   \subsubsection{terraform.tfvars}\label{terraform.tfvars}}
+
+\subsection{terraform.tfvars}
 
 When working with AWS as cloud provider, life gets a bit easier if you
 save a copy of your console credentials in a file called
@@ -215,8 +209,7 @@ terraform.tfvars to your .gitignore file at the top level of your lab
 repository helps a lot. Keeping track of your credentials is very
 important!
 
-single: terraform.tfvars
-
+\justify
 An example of a local terraform.tfvars file follows. Remember that this
 file will never be checked into GitHub or any other revision control
 toolset.
@@ -228,9 +221,10 @@ toolset.
    \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{main.tf}{%
-   \subsubsection{main.tf}\label{main.tf}}
 
+\subsection{main.tf}
+
+\justify
 This file will contain the bulk of our Terraform configurations. As with
 Python, we have the ability to reference modules, both internal and
 exteral. The main.tf file is the place the module references are made.
@@ -252,6 +246,7 @@ exteral. The main.tf file is the place the module references are made.
    \end{Highlighting}
 \end{Shaded}
 
+\justify
 We can also designate our data sources in the main.tf file. Consider the
 following Terraform data sources. These AWS data sources reference our
 Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
@@ -268,17 +263,17 @@ Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
    \end{Highlighting}
 \end{Shaded}
 
-single: main.tf
 
-\hypertarget{outputs.tf}{%
-   \subsubsection{outputs.tf}\label{outputs.tf}}
+\subsection{outputs.tf}\label{outputs.tf}}
 
+\justify
 We can display or export the resources we've created in main.tf using a
 file known as outputs.tf. We may have a need to display the IP address
 of host instances we've just created, which is helpful to a user who
 needs to log in. We may also wish to make values available to other
 Terraform modules.
 
+\justify
 Consider the following output declarations from our example code.
 
 \begin{Shaded}
@@ -295,19 +290,17 @@ Consider the following output declarations from our example code.
    \end{Highlighting}
 \end{Shaded}
 
-single: outputs.tf
 
-\hypertarget{variables.tf}{%
-   \subsubsection{variables.tf}\label{variables.tf}}
+\subsection{variables.tf}
 
+\justify
 The variables.tf file is another common file seen in projects in AWS,
 GCP and other cloud providers. It contains declarations of variables,
 and often values for variables as well, that will be used in the main.tf
 file. As an example there might be region information or even the name
 of the image we created previously with Packer.
 
-single: variables.tf
-
+\justify
 Consider the following example. Here we declare a "region" variable in
 the file variables.tf.
 
@@ -320,9 +313,10 @@ the file variables.tf.
    \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{verification}{%
-   \subsubsection{Verification}\label{verification}}
 
+\subsection{Verification}
+
+\justify
 Terraform has some commands, validate and fmt (short for "format") that
 we can use to syntactically verify our configuration before sending it
 off to the cloud provider to act upon. Validating your Terraform files
@@ -340,8 +334,8 @@ To get your Terrform files into a clean standard format, the
 terraform fmt command works well. There is also the option to do this
 formatting from inside the VSCode window on a per-file basis.
 
-\hypertarget{plan}{%
-   \subsubsection{Plan}\label{plan}}
+
+\subsection{Plan}
 
 First we will will create a "plan" in preparation for application.
 
@@ -373,8 +367,7 @@ First we will will create a "plan" in preparation for application.
    \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{apply}{%
-   \subsubsection{Apply}\label{apply}}
+\subsection{Apply}
 
 The apply action is where the rubber meets the proverbial road. This
 action will transmit our configurations to the cloud provider and
@@ -412,9 +405,9 @@ you to enter "yes" before it will proceed.
    \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ansible}{%
-   \subsection{Ansible}\label{ansible}}
+\section{Ansible}
 
+\justify
 Environments where you have a set of repeatable configuration steps can
 be deployed more quickly with Ansible. Building a set of good Ansible
 playbooks over team means you can pick and choose the most useful
@@ -462,9 +455,10 @@ single: Molecule
    \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ansible-vault}{%
-   \subsection{Ansible Vault}\label{ansible-vault}}
 
+\section{Ansible Vault}
+
+\justify
 Vault is a tool that is included with Ansible. You may notice that
 ansible-vault is a symlink back to ansible on your system. Vault is an
 easy way to protect secrets using AES-256 encryption in your GitHub
@@ -474,12 +468,9 @@ our pipelines out to our cloud providers.
 
 single: AES-256 single: Vault
 
-\hypertarget{encrypting-a-file-with-vault}{%
-   \subsubsection{Encrypting a File with
-      Vault}\label{encrypting-a-file-with-vault}}
+\subsection{Encrypting a File with Vault}
 
-single: encryption
-
+\justify
 Let's try encrypting a file... using another file! Create a text file
 with some random contents. For example, create a file in your home
 directory called my\_dog.txt with the following contents:
@@ -503,12 +494,10 @@ data\_to\_protect.txt that we would like to encrypt.
 Now when we view the data\_to\_protect.txt file, we can see it has been
 encrypted and appears as a long series of seemingly nonsense characters.
 
-\hypertarget{decrypting-a-file-with-vault}{%
-   \subsubsection{Decrypting a File with
-      Vault}\label{decrypting-a-file-with-vault}}
 
-single: decryption
+\subsection{Decrypting a File with Vault}
 
+\justify
 At some point, we are going to want to decrypt our data so it becomes
 usable, we can perform operations on it, and so on. As long as we keep
 or recreate the original key file on our host, or create an identical
@@ -524,8 +513,7 @@ protecting our data.
 
 \clearpage
 
-\hypertarget{tool-directory-structure}{%
-   \subsection{Tool Directory Structure}\label{tool-directory-structure}}
+\section{Tool Directory Structure}
 
 Files and folders relevant to this chapter are organized as shown below.
 

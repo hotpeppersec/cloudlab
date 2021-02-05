@@ -1,0 +1,32 @@
+\begin{figure}
+	\centering
+	\digraph{mypython}{
+		node [shape=rectangle];
+		% nodes
+	    py [label="python" shape=folder];
+	    devsecops [label="devsecops" shape=folder];
+	    lib [label="lib" shape=folder];
+	    req [label="requirements.txt"];
+	    tst [label="requirements-test.txt"];
+
+	    8 [label="test" shape=folder];
+	    9 [label="devsecops.py"];
+
+	    C [label="tox.ini"];
+	    D [label="helper\_functions.py"];
+
+	    % edges
+	    py        -> devsecops;
+
+		devsecops -> lib;
+		py        -> req;
+		py        -> tst;
+
+		py        -> 8;
+		devsecops -> 9;
+
+		py        -> C;
+		lib       -> D;
+    }
+	\caption{Project Directory and related files.}
+\end{figure}
