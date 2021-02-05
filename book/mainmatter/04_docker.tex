@@ -133,20 +133,9 @@ With Docker properly installed and an understanding of the necessary
 configuration files, we can now try out our configuration. See
 ({myFig1}) for an illustration of how to lay out the project files in your local filesystem.
 
-\begin{figure}
-  \centering
-  \digraph{docker}{
-	size="8,4";
-	node [fontname="Helvetica" fontsize=14 shape=box];
-	edge [fontname="Symbol" fontsize=10];
-	framework [shape=folder fontname="Symbol" label="rapid_secdev_framework"];
-	docker [shape=folder fontname="Symbol" label="docker"];
-	dockercom [fontname="Symbol" label="docker-compose.yml"];
-	Dockerfile [fontname="Symbol" label="Dockerfile"];
-	framework -> docker;
-	docker -> dockercom;
-	docker -> Dockerfile;
-	}
+
+\begin{figure}[!htb]
+	\input{dot/githubdirectory.tex}
 	\caption{Project Directory and Docker related files.}
 \end{figure}
 

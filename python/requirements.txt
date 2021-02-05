@@ -4,3 +4,4 @@ rst2pdf
 restructuredtext-lint
 recommonmark
 sphinx-markdown-tables
+dot2tex

@@ -1,0 +1,42 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: framework -> docker
+  \draw [->] (154.5bp,143.83bp) .. controls (154.5bp,136.13bp) and (154.5bp,126.97bp)  .. (154.5bp,108.41bp);
+  % Edge: docker -> dockercom
+  \draw [->] (136.33bp,71.831bp) .. controls (127.78bp,63.285bp) and (117.44bp,52.944bp)  .. (100.91bp,36.413bp);
+  % Edge: docker -> Dockerfile
+  \draw [->] (172.92bp,71.831bp) .. controls (181.65bp,63.219bp) and (192.23bp,52.785bp)  .. (209.08bp,36.163bp);
+  % Node: framework
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (253.0bp,180.0bp) -- (250.0bp,184.0bp) -- (229.0bp,184.0bp) -- (226.0bp,180.0bp) -- (56.0bp,180.0bp) -- (56.0bp,144.0bp) -- (253.0bp,144.0bp) -- cycle;
+  \draw (154.5bp,162.0bp) node {rapid\_secdev\_framework};
+\end{scope}
+  % Node: docker
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (187.0bp,108.0bp) -- (184.0bp,112.0bp) -- (163.0bp,112.0bp) -- (160.0bp,108.0bp) -- (122.0bp,108.0bp) -- (122.0bp,72.0bp) -- (187.0bp,72.0bp) -- cycle;
+  \draw (154.5bp,90.0bp) node {docker};
+\end{scope}
+  % Node: dockercom
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (165.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (165.0bp,0.0bp) -- cycle;
+  \draw (82.5bp,18.0bp) node {docker-compose.yml};
+\end{scope}
+  % Node: Dockerfile
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (272.0bp,36.0bp) -- (183.0bp,36.0bp) -- (183.0bp,0.0bp) -- (272.0bp,0.0bp) -- cycle;
+  \draw (227.5bp,18.0bp) node {Dockerfile};
+\end{scope}
+%
+\end{tikzpicture}
+

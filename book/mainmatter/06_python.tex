@@ -3,9 +3,9 @@
 \includegraphics[scale=0.85]{../images/snake-1634293_1920.jpg}
 
 \justify
-Getting started in writing programs is easy with Python. It is highly extensible since 
-there are many add on modules available from a collection known as Pypi. Python is fairly 
-easy to learn, especially when compared to other languages. Python runs "everywhere", for 
+Getting started in writing programs is easy with Python. It is highly extensible since
+there are many add on modules available from a collection known as Pypi. Python is fairly
+easy to learn, especially when compared to other languages. Python runs "everywhere", for
 all intents and purposes. For all these reasons, Python is a great choice.
 
 \justify
@@ -22,28 +22,28 @@ example, try adding this quick and dirty logging function to
 python/devsecops/lib/\_\_init\_\_.py
 
 \begin{mybox}{\thetcbcounter: python/devsecops/lib/\_\_init\_\_.py}
-import logging\\
-from pathlib import Path\\
+  import logging\\
+  from pathlib import Path\\
 
-Path("/var/log/devsecops").mkdir(parents=True, exist\_ok=True)\\
-logging.basicConfig(\\
-   filename="/var/log/devsecops/devsecops.log",\\
-   level=logging.DEBUG,\\
-   format="[\%(asctime)s] [\%(filename):\%(lineno) - \%(funcName) - \%(processName)] \%(levelname) - \%(message)"\\
-   )
+  Path("/var/log/devsecops").mkdir(parents=True, exist\_ok=True)\\
+  logging.basicConfig(\\
+  filename="/var/log/devsecops/devsecops.log",\\
+  level=logging.DEBUG,\\
+  format="[\%(asctime)s] [\%(filename):\%(lineno) - \%(funcName) - \%(processName)] \%(levelname) - \%(message)"\\
+  )
 \end{mybox}
 
 \justify
 Now we can create a Python file log\_test.py and call the logger from within like so:
 
 \begin{mybox}{\thetcbcounter: log\_test.py}
-import logging\\
-from pathlib import Path\\
+  import logging\\
+  from pathlib import Path\\
 
-def main():\\
-   logging.debug('Loggy Loggerton')\\
-   if \_\_name\_\_=="\_\_main\_\_":\\
-   main()
+  def main():\\
+  logging.debug('Loggy Loggerton')\\
+  if \_\_name\_\_=="\_\_main\_\_":\\
+  main()
 \end{mybox}
 
 \justify
@@ -52,7 +52,7 @@ Check the results in the file /var/log/devsecops/devsecops.log.
 \section{Requirements File}
 
 \justify
-A requirements file under python/requirements.txt\index{requirements.txt} lists 
+A requirements file under python/requirements.txt\index{requirements.txt} lists
 the required Python modules needed to build and run any Python portions of our  project.
 We also add a check in the Makefile to verify the existence of the requirements.txt file.
 The intention is, so we can quickly cut and paste the Makefile into a new project, but not break anything if no requirements are present yet.
@@ -76,7 +76,7 @@ can easily wind up making it into the build pipeline when folks are under a time
 There are many test frameworks out there, lots of great ideas put forth by the community. For our current
 efforts, we've settled on Tox\index{Tox} as the framework of choice. It dovetails nicely with the rest of
 our patterns. Tox allows us to manage requirements for virtual environments when testing, acts as a front
-end to pytest and coverage modules, and much more. It is highly configurable and extensible. For example 
+end to pytest and coverage modules, and much more. It is highly configurable and extensible. For example
 we can test that an application is compatible with multiple versions of Python.
 
 \justify
@@ -87,18 +87,18 @@ An example tox.ini\index{tox.ini} file follows. Take notice of the "deps" sectio
 Python module requirements can be specified. In our current configuration, these are in lieu of test harness requirements specified in our python/requirements-test.txt file.
 
 \begin{mybox}{\thetcbcounter: An example tox.ini file}
-[tox]\\
-envlist = py38\\
-skip\_missing\_interpreters = true\\
+  [tox]\\
+  envlist = py38\\
+  skip\_missing\_interpreters = true\\
 
-[testenv]\\
-setenv =\\
+  [testenv]\\
+  setenv =\\
   PYTHONPATH = .\\
   PYTHONHTTPSVERIFY=0\\
-deps =\\
+  deps =\\
   coverage\\
   pytest\\
-commands =\\
+  commands =\\
   coverage run -m pytest -v --capture=sys\\
   coverage report --omit="*/test*,.tox/*"
 \end{mybox}
@@ -115,11 +115,11 @@ Consider the following example unit test case. The purpose is to test
 that the function check\_docker() in the file python/devsecops/lib/helper\_functions.py returns True when called from inside a Docker container.
 
 \begin{mybox}{\thetcbcounter: An example Unit test case}
-import pytest\\
-from devsecops.lib.helper\_functions import check\_docker\\
+  import pytest\\
+  from devsecops.lib.helper\_functions import check\_docker\\
 
-def test\_check\_docker():\\
-   assert(check\_docker())
+  def test\_check\_docker():\\
+  assert(check\_docker())
 \end{mybox}
 
 \section{Test Coverage}
@@ -130,38 +130,12 @@ our code is "covered" by test cases in python/test.
 
 \section{Python Directory Structure}
 
-\justify
 Files and folders relevant to the Python portions of our project are shown in the diagram below.
 
 \begin{figure}[!htb]
-	\centering
-	\digraph{mypython}{
-		rankdir=LR;
-		node [shape=rectangle];
-		% nodes
-		py [label="python" shape=folder];
-		devsecops [label="devsecops" shape=folder];
-		lib [label="lib" shape=folder];
-		req [label="requirements.txt"];
-		tst [label="requirements-test.txt"];
-		8 [label="test" shape=folder];
-		9 [label="devsecops.py"];
-		C [label="tox.ini"];
-		
-		% edges
-		{ rank = same; devsecops; 8;}
-		{rank = same; req; tst;}
-		py        -> devsecops;
-		devsecops -> lib;
-		py        -> req;
-		py        -> tst;
-		py        -> 8;
-		devsecops -> 9;	
-		py        -> C;
-	    {rank=same; req tst C}
-		{rank=same; devsecops 8}
-		{rank=smae; lib 9}
-		
-	}
-	\caption{Project Directory and related files.}
+  \centering
+  \input{dot/pythondirectory.tex}
+  \caption{Project Directory and related files.}
 \end{figure}
+
+

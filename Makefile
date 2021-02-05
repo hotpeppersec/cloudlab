@@ -26,16 +26,24 @@ help:
 
 book: python ## Generate LaTeX book in PDF
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make book inside docker container <***" && exit 1; fi
-	dot -Tpdf -o $(PROJECT_DIR)/docker.pdf $(PROJECT_DIR)/docker.dot
-	cd $(PROJECT_DIR) && pdflatex -shell-escape -synctex=1 -interaction=nonstopmode $(PROJECT_DIR)/devsecops_quickstart.tex
+	chown -R 1000:1000 $(PROJECT_DIR)
+	dot -Txdot $(PROJECT_DIR)/dot/docker.dot | dot2tex --figonly > $(PROJECT_DIR)/dot/docker.tex
+	dot -Txdot $(PROJECT_DIR)/dot/forking.dot | dot2tex --figonly > $(PROJECT_DIR)/dot/forking.tex
+	dot -Txdot $(PROJECT_DIR)/dot/githubdirectory.dot | dot2tex --figonly > $(PROJECT_DIR)/dot/githubdirectory.tex
+	dot -Txdot $(PROJECT_DIR)/dot/pythondirectory.dot | dot2tex --figonly > $(PROJECT_DIR)/dot/pythondirectory.tex
+	dot -Txdot $(PROJECT_DIR)/dot/makefile.dot | dot2tex --figonly > $(PROJECT_DIR)/dot/makefile.tex
+	cd $(PROJECT_DIR) && pdflatex -shell-escape -synctex=1 -interaction=nonstopmode devsecops_quickstart.tex
+	chown -R 1000:1000 $(PROJECT_DIR)
+	#cd $(PROJECT_DIR) && bibtex devsecops_quickstart.aux
+
 
 clean: ## Cleanup all the things
 	find . -name '*.pyc' | xargs rm -rf
 	find . -name '__pycache__' | xargs rm -rf
 	cd $(SPHINX_DIR) && $(MAKE) clean && cd -
 	cd proposal && $(MAKE) clean && cd -
-	#rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
-	#rm book/frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
+	rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
+	rm book/frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
 
 docker: ## build docker container for testing
 	$(MAKE) print-status MSG="Building with docker-compose"

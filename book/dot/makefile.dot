@@ -1,0 +1,18 @@
+digraph makefile {
+node [shape=rectangle];
+
+devsecops [shape=folder label="devsecops"];
+python [shape=folder label="python"];
+docker [shape=folder label="docker"];
+terraform [shape=folder label="terraform"];
+Makefile [label="Makefile"];
+comp [label="docker-compose.yml"];
+Dockerfile [label="Dockerfile"];
+
+devsecops -> python;
+devsecops -> terraform;
+devsecops -> docker;
+devsecops -> Makefile;
+docker -> Dockerfile;
+docker -> comp;
+}

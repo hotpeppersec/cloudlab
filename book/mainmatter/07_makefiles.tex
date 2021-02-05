@@ -65,25 +65,7 @@ Let's look at the example projet repo to see a full eaxample of a working Makefi
 Relevant files and folders related to our Makefile are organized as seen
 below.
 
-\justify
 \begin{figure}[!htb]
-	\centering
-	\digraph{makefile}{
-		node [shape=rectangle];
-		devsecops [shape=folder label="devsecops"];
-		python [shape=folder label="python"];
-		docker [shape=folder label="docker"];
-		terraform [shape=folder label="terraform"];
-		Makefile [label="Makefile"];
-		comp [label="docker-compose.yml"];
-		Dockerfile [label="Dockerfile"];
-		devsecops -> python;
-		devsecops -> terraform;
-		devsecops -> docker;
-		devsecops -> Makefile;
-		docker    -> Dockerfile;
-		docker    -> comp;
-	}
-	\caption{Project Directory and related files.}
+	\input{dot/makefile.tex}
+	\caption{Makefile and related files.}
 \end{figure}
-

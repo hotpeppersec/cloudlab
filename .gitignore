@@ -19,6 +19,7 @@ _build
 *.pyg
 *.synctex.gz
 *.toc
+core
 devsecops_quickstart.txt
 __*_temp.tex
 pygments-css

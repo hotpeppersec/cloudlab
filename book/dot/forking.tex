@@ -1,0 +1,35 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: orig -> fork
+  \draw [->] (178.26bp,143.83bp) .. controls (169.13bp,135.07bp) and (158.04bp,124.42bp)  .. (140.85bp,107.91bp);
+  % Edge: fork -> clone
+  \draw [->] (140.73bp,72.202bp) .. controls (150.06bp,63.242bp) and (161.52bp,52.241bp)  .. (179.12bp,35.345bp);
+  % Edge: clone -> orig
+  \draw [->] (222.15bp,34.664bp) .. controls (233.94bp,44.073bp) and (246.8bp,56.959bp)  .. (253.19bp,72.0bp) .. controls (259.45bp,86.726bp) and (259.45bp,93.274bp)  .. (253.19bp,108.0bp) .. controls (248.45bp,119.15bp) and (240.16bp,129.12bp)  .. (223.62bp,144.15bp);
+  % Node: orig
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (197.19bp,162.0bp) ellipse (168.97bp and 18.0bp);
+  \draw (197.19bp,162.0bp) node {Original Repository on github.com};
+\end{scope}
+  % Node: fork
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (122.19bp,90.0bp) ellipse (122.38bp and 18.0bp);
+  \draw (122.19bp,90.0bp) node {Your fork on github.com};
+\end{scope}
+  % Node: clone
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (197.19bp,18.0bp) ellipse (64.19bp and 18.0bp);
+  \draw (197.19bp,18.0bp) node {Local Clone};
+\end{scope}
+%
+\end{tikzpicture}
+
