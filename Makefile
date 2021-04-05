@@ -29,18 +29,9 @@ book: ## Generate LaTeX book in PDF
 	pdflatex -shell-escape -synctex=1 -interaction=nonstopmode devsecops_quickstart.tex
 
 clean: ## Cleanup all the things
-	find . -name '*.pyc' | xargs rm -rf
-	find . -name '__pycache__' | xargs rm -rf
-	cd $(SPHINX_DIR) && $(MAKE) clean && cd -
-	cd proposal && $(MAKE) clean && cd -
 	rm book/*.aux book/*.bbl book/*.blg book/*.lof book/*.log book/*.lot book/*.out book/*.pdf book/*.synctex.gz book/*.toc
 	rm book/frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
 
 print-status:
 	@:$(call check_defined, MSG, Message to print)
 	@echo "$(BLUE)$(MSG)$(NC)"
-
-proposal: python ## build the book proposal document
-	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make proposal inside docker container <***" && exit 1; fi
-	$(MAKE) print-status MSG="Building LaTeX book proposal"
-	cd proposal && $(MAKE) latexpdf && cd -
