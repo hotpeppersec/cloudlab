@@ -7,6 +7,7 @@
 ## Linux Dev Environment Setup
 
 ```bash
+apy install -y graphviz
 cd python && nix-shell
 python -m pip install -rrequirements.txt
 /usr/bin/texstudio &
