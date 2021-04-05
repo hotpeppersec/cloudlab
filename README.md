@@ -6,8 +6,13 @@
 
 ## Linux Dev Environment Setup
 
-- docker-compose
-- Docker
+```bash
+cd python && nix-shell
+python -m pip install -rrequirements.txt
+/usr/bin/texstudio &
+exit
+nix-collect-garbage -d
+```
 
 ## Windows Dev Environment Setup
 

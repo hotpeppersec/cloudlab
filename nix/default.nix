@@ -10,11 +10,8 @@ stdenv.mkDerivation {
   buildInputs = [ (texlive.combine {
                     inherit (texlive)
                       scheme-small
-
                       # Add other LaTeX libraries (packages) here as needed, e.g:
                       # stmaryrd amsmath pgf
-                      #tgbonum
-                      
                       # build tools
                       latexmk
                       ;

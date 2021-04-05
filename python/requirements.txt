@@ -1,4 +1,4 @@
-pygments
+pygments==2.7.4
 rst2pdf
 restructuredtext-lint
 recommonmark

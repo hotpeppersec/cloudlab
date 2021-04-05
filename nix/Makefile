@@ -8,6 +8,7 @@
 DOCNAME=devsecops_quickstart
 
 PDFLATEX="pdflatex -interaction=nonstopmode -synctex=1"
+PDFLATEX="pdflatex --shell-escape -synctex=1 -interaction=nonstopmode devsecops_quickstart.tex"
 
 # You want latexmk to *always* run, because make does not have all the info.
 # Also, include non-file targets in .PHONY so they are run regardless of any
