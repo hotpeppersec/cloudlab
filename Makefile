@@ -65,7 +65,7 @@ proposal: python ## build the book proposal document
 python: ## setup python3
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make python inside docker container <***" && exit 1; fi
 	$(MAKE) print-status MSG="Set up the Python environment"
-	if [ -f '$(REQS)' ]; then python3 -m pip install -r$(REQS); fi
+	if [ -f '$(REQS)' ]; then /usr/local/bin/python -m pip install -r$(REQS); fi
 
 sphinx: python ## Generate documentation
 	@if [ ! -f /.dockerenv ]; then $(MAKE) print-status MSG="***> Run make sphinx inside docker container <***" && exit 1; fi

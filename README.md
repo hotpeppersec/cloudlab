@@ -9,10 +9,6 @@
 - docker-compose
 - Docker
 
-```bash
-sudo apt install make python3-pip
-```
-
 ## Windows Dev Environment Setup
 
 - Docker (includes docker-compose)
