@@ -1,5 +1,5 @@
 #FROM debian:buster-slim
-FROM python:3.8-slim-buster
+FROM python:3.9-slim-buster
 LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
 
 ENV DEBIAN_FRONTEND noninteractive
