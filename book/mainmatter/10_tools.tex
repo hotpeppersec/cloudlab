@@ -8,7 +8,8 @@ programatically, and with scripting languages such as HCL, which
 Terraform\footnote{\url{https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2\#Images:sort=name}}
 is based on. In this section we examine these tools in greater depth.
 
-single: MTTD single: Terraform
+single: MTTD
+single: Terraform
 
 \begin{figure}
    \centering
@@ -17,17 +18,16 @@ single: MTTD single: Terraform
 \end{figure}
 
 Consider the following diagram {myFig4} as we discuss the tools we'll
-use to implement our infrastructure as coode and associated
+use to implement our infrastructure as code and associated
 configurations in the cloud provider network.
-
 
 \section{Packer}
 
 \justify
 Using Hashicorp Packer is a great way to nail down the contents of a
 machine image before we bring up an instance. Download Packer from the
-Hashicorp web site in preparation for the follwing steps\footnote{\url{https://github.com/bonclay7/aws-amicleaner}}
-. We will focus on creating images for our cloud provider from the
+Hashicorp web site in preparation for the following steps\footnote{\url{https://github.com/bonclay7/aws-amicleaner}}. 
+We will focus on creating images for our cloud provider from the
 command line. Bear in mind it is also possible to use Terraform to
 manage the creation of Packer generated machine images. Generating
 machine images on the fly using Terraform would increase our degree of
@@ -39,56 +39,10 @@ Here is an example of how to set up a JSON file to build a Packer image
 in AWS. Save the contents of this file into
 `packer/aws-debian-host.json`:
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \KeywordTok{\{}
-      \StringTok{"variables"}\NormalTok{: }\KeywordTok{\{}
-      \StringTok{"aws_access_key"}\NormalTok{: }\StringTok{""}\NormalTok{,}
-      \StringTok{"aws_secret_key"}\NormalTok{: }\StringTok{""}
-      \KeywordTok{\}}\NormalTok{,}
-      \StringTok{"builders"}\NormalTok{:}\BuiltInTok{ [}
-      \NormalTok{   \{}
-      \StringTok{"type"}\NormalTok{: }\StringTok{"amazon-ebs"}\NormalTok{,}
-      \StringTok{"access_key"}\NormalTok{: }\StringTok{"\{\{user }\KeywordTok{`}\ExtensionTok{aws_access_key}\KeywordTok{`}\StringTok{\}\}"}\NormalTok{,}
-      \StringTok{"secret_key"}\NormalTok{: }\StringTok{"\{\{user }\KeywordTok{`}\ExtensionTok{aws_secret_key}\KeywordTok{`}\StringTok{\}\}"}\NormalTok{,}
-      \StringTok{"region"}\NormalTok{: }\StringTok{"us-west-2"}\NormalTok{,}
-      \StringTok{"source_ami_filter"}\NormalTok{: \{}
-      \StringTok{"filters"}\NormalTok{: \{}
-      \StringTok{"virtualization-type"}\NormalTok{: }\StringTok{"hvm"}\NormalTok{,}
-      \StringTok{"name"}\NormalTok{: }\StringTok{"ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"}\NormalTok{,}
-      \StringTok{"root-device-type"}\NormalTok{: }\StringTok{"ebs"}
-      \NormalTok{      \},}
-      \StringTok{"owners"}\NormalTok{: [}
-      \StringTok{"099720109477"}
-      \NormalTok{      ],}
-      \StringTok{"most_recent"}\NormalTok{: true}
-      \NormalTok{      \},}
-      \StringTok{"instance_type"}\NormalTok{: }\StringTok{"t2.micro"}\NormalTok{,}
-      \StringTok{"ssh_username"}\NormalTok{: }\StringTok{"ubuntu"}\NormalTok{,}
-      \StringTok{"ami_name"}\NormalTok{: }\StringTok{"generic-lab-host \{\{timestamp\}\}"}\NormalTok{,}
-      \StringTok{"tags"}\NormalTok{: \{}
-      \StringTok{"Name"}\NormalTok{: }\StringTok{"Packer-Ansible"}\NormalTok{,}
-      \StringTok{"Project"}\NormalTok{: }\StringTok{"DevSecOps"}\NormalTok{,}
-      \StringTok{"Commit"}\NormalTok{: }\StringTok{"unknown"}
-      \NormalTok{      \}}
-      \NormalTok{   \}}
-      \NormalTok{],}
-      \StringTok{"provisioners"}\NormalTok{: [}
-      \NormalTok{   \{}
-      \StringTok{"type"}\NormalTok{: }\StringTok{"shell"}\NormalTok{,}
-      \StringTok{"execute_command"}\NormalTok{: }\StringTok{"echo 'packer' | sudo -S sh -c '\{\{ .Vars \}\} \{\{ .Path \}\}'"}\NormalTok{,}
-      \StringTok{"inline"}\NormalTok{: [}
-      \StringTok{"mkdir -p /home/secdevops/.ssh"}\NormalTok{,}
-      \StringTok{"chmod 700 /home/secdevops/.ssh"}\NormalTok{,}
-      \StringTok{"cd /home/secdevops && git clone https://github.com/wwce/ctf_scoreboard.git"}\NormalTok{,}
-      \StringTok{"cp /home/secdevops/rapid_secdev_framework/packer/authorized_keys /home/secdevops/.ssh"}\NormalTok{,}
-      \StringTok{"chown -R ubuntu /home/ubuntu"}\NormalTok{,}
-      \StringTok{"cp /home/ubuntu/rapid_secdev_framework/packer/ctfd.service /etc/systemd/system"}
-      \NormalTok{   ]\}}
-      \BuiltInTok{]}
-      \KeywordTok{\}}
-   \end{Highlighting}
-\end{Shaded}
+\justify
+\begin{mybox}{\thetcbcounter: aws-debian-host.json}
+	\lstinputlisting{code/aws-debian-host.json}
+\end{mybox}
 
 \subsection{Packer Example Configuration for GCP}
 
@@ -97,35 +51,10 @@ Here is an example of how to set up a JSON file to build a Packer image
 in Google Compute. Save the contents of this file into
 `packer/gcp-debian-host.json`:
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \KeywordTok{\{}
-      \StringTok{"builders"}\NormalTok{:}\BuiltInTok{ [}
-      \NormalTok{      \{}
-      \StringTok{"type"}\NormalTok{: }\StringTok{"googlecompute"}\NormalTok{,}
-      \StringTok{"account_file"}\NormalTok{: }\StringTok{"/home/secdevops/.config/gcloud/my-gcloud-creds-file.json"}\NormalTok{,}
-      \StringTok{"project_id"}\NormalTok{: }\StringTok{"sec-dev-ops-000378"}\NormalTok{,}
-      \StringTok{"source_image_family"}\NormalTok{: }\StringTok{"debian-10"}\NormalTok{,}
-      \StringTok{"zone"}\NormalTok{: }\StringTok{"us-central1-a"}\NormalTok{,}
-      \StringTok{"image_description"}\NormalTok{: }\StringTok{"SecDevOps Debian Host"}\NormalTok{,}
-      \StringTok{"image_name"}\NormalTok{: }\StringTok{"generic-lab-host"}\NormalTok{,}
-      \StringTok{"ssh_username"}\NormalTok{: }\StringTok{"root"}\NormalTok{,}
-      \StringTok{"metadata"}\NormalTok{: \{ }\StringTok{"enable-oslogin"}\NormalTok{: }\StringTok{"false"}\NormalTok{ \}}
-      \NormalTok{      \}}
-      \NormalTok{   ],}
-      \StringTok{"provisioners"}\NormalTok{: [}
-      \NormalTok{      \{}
-      \StringTok{"type"}\NormalTok{: }\StringTok{"shell"}\NormalTok{,}
-      \StringTok{"inline"}\NormalTok{: [}
-      \StringTok{"sleep 10"}\NormalTok{,}
-      \StringTok{"mkdir -p /home/secdevops/.ssh"}\NormalTok{,}
-      \StringTok{"chmod 700 /home/secdevops/.ssh"}
-      \NormalTok{         ]}
-      \NormalTok{      \}}
-      \NormalTok{   ]}
-      \NormalTok{\}}
-   \end{Highlighting}
-\end{Shaded}
+\justify
+\begin{mybox}{\thetcbcounter: gcp-debian-host.json}
+	\lstinputlisting{code/gcp-debian-host.json}
+\end{mybox}
 
 
 \subsection{Validating Packer JSON Files}
@@ -137,31 +66,28 @@ packer validate \textless{}filename\textgreater{} to validate each new
 JSON file. This gives you a chance to find and fix any errors before the
 next step, the build phase.
 
+\justify
 Note that your validation commands may fail if the cloud provider
 credentials have not been configured at this point.
-
 
 \subsection{Building Images with Packer}
 
 \justify
 Finally, we are ready to build our new images. Try typing
 packer build \textless{}filename\textgreater{} to create the image. You
-shoudl see output similar to the following, but with a unique AMI ID.
+should see output similar to the following, but with a unique AMI ID.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{Build} \StringTok{'amazon-ebs'}\NormalTok{ finished.}
+\begin{mybox}{\thetcbcounter: packer build}
+Build 'amazon-ebs' finished.
 
-      \NormalTok{==}\OperatorTok{>} \ExtensionTok{Builds}\NormalTok{ finished. The artifacts of successful builds are:}
-      \ExtensionTok{--}\OperatorTok{>}\NormalTok{ amazon-ebs: AMIs were created:}
-      \ExtensionTok{us-west-2}\NormalTok{: ami-0e9e6427509a9d0b5}
-   \end{Highlighting}
-\end{Shaded}
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs: AMIs were created:
+    us-west-2: ami-0e9e6427509a9d0b5
+\end{mybox}
 
 \justify
 The AMI ID "ami-0e9e6427509a9d0b5" is now a usable image that we can
 include in our Terraform builds.
-
 
 \subsection{Removing Packer Images from Cloud Provider}
 
@@ -175,8 +101,8 @@ aws-amicleaner\footnote{\url{https://www.terraform.io/intro/index.html}}
 , which is available to be installed via Python/pip as well as from the
 GitHub repository for the project.
 
+\jusitfy
 Another AWS specfic tool is "lambda-packerjanitor" from Trusworks.
-
 
 \section{Terraform}
 
@@ -187,17 +113,10 @@ Terraform, created by Hashicorp in 2014, is a tool for building, changing, and v
 Consider the relevant Terraform files that we will include in our
 projects.
 
-\begin{description}
-   \item[digraph folders \{]
-         "aws" {[}shape=folder{]}; "main.tf" {[}shape=rect{]}; "output.tf"
-         {[}shape=rect{]}; "terraform.tfvars" {[}shape=rect{]}; "variables.tf"
-         {[}shape=rect{]}; "aws" -\textgreater{} "main.tf"; "aws" -\textgreater{}
-         "output.tf"; "aws" -\textgreater{} "terraform.tfvars"; "aws"
-         -\textgreater{} "variables.tf";
-\end{description}
-
-\}
-
+\begin{figure}[!htb]
+	\input{dot/terraform.tex}
+	\caption{Terraform related files and folders.}
+\end{figure}
 
 \subsection{terraform.tfvars}
 

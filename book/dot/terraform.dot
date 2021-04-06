@@ -1,0 +1,18 @@
+digraph terraform {
+    size="8,4";
+    node [fontname="Helvetica" fontsize=14 shape=box];
+    edge [fontname="Symbol" fontsize=10];
+    home [shape=folder fontname="Symbol" label="/home"];
+    devsecops [shape=folder fontname="Symbol" label="/home/devsecops"];
+
+    "aws" {[}shape=folder{]};
+    "main.tf" {[}shape=rect{]};
+    "output.tf" {[}shape=rect{]};
+    "terraform.tfvars" {[}shape=rect{]};
+    "variables.tf" {[}shape=rect{]};
+
+    "aws" -\textgreater{} "main.tf";
+    "aws" -\textgreater{} "output.tf";
+    "aws" -\textgreater{} "terraform.tfvars";
+    "aws"-\textgreater{} "variables.tf";
+}

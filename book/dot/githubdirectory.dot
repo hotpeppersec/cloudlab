@@ -1,14 +1,14 @@
 digraph githubdirectory {
-size="8,4";
-node [fontname="Helvetica" fontsize=14 shape=box];
-edge [fontname="Symbol" fontsize=10];
-home [shape=folder fontname="Symbol" label="/home"];
-devsecops [shape=folder fontname="Symbol" label="/home/devsecops"];
-github [shape=folder fontname="Symbol" label=".github"];
-codeowners [fontname="Symbol" label="CODEOWNERS"];
-gitignore [fontname="Symbol" label=".gitignore"];
-home -> devsecops;
-devsecops -> github;
-github -> codeowners;
-devsecops -> gitignore;
+    size="8,4";
+    node [fontname="Helvetica" fontsize=14 shape=box];
+    edge [fontname="Symbol" fontsize=10];
+    home [shape=folder fontname="Symbol" label="/home"];
+    devsecops [shape=folder fontname="Symbol" label="/home/devsecops"];
+    github [shape=folder fontname="Symbol" label=".github"];
+    codeowners [fontname="Symbol" label="CODEOWNERS"];
+    gitignore [fontname="Symbol" label=".gitignore"];
+    home -> devsecops;
+    devsecops -> github;
+    github -> codeowners;
+    devsecops -> gitignore;
 }

@@ -1,0 +1,47 @@
+{
+   "variables": {
+      "aws_access_key": "",
+      "aws_secret_key": ""
+   },
+   "builders": [
+      {
+         "type": "amazon-ebs",
+         "access_key": "{{user `aws_access_key`}}",
+         "secret_key": "{{user `aws_secret_key`}}",
+         "region": "us-west-2",
+         "source_ami_filter": {
+            "filters": {
+               "virtualization-type": "hvm",
+               "name": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*",
+               "root-device-type": "ebs"
+            },
+            "owners": [
+               "099720109477"
+            ],
+            "most_recent": true
+         },
+         "instance_type": "t2.micro",
+         "ssh_username": "ubuntu",
+         "ami_name": "cloudlab-test-host {{timestamp}}",
+         "ami_groups": "all",
+         "tags": {
+            "Name": "Cloud Lab",
+            "Project": "CloudLab",
+            "Terraform": "true",
+            "Environment": "dev"
+         }
+      }
+   ],
+   "provisioners": [
+      {
+         "type": "shell",
+         "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+         "inline": [
+            "mkdir -p /home/secdevops/.ssh",
+            "chmod 700 /home/secdevops/.ssh",
+            "cd /home/secdevops && git clone https://github.com/hotpeppersec/rapid_secdev_framework.git",
+            "chown -R ubuntu /home/ubuntu"
+         ]
+      }
+   ]
+}

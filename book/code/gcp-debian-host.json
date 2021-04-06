@@ -1,0 +1,26 @@
+
+{
+   "builders": [
+      {
+         "type": "googlecompute",
+         "account_file": "/home/thedevilsvoice/.config/gcloud/my-gcloud-creds-file.json",
+         "project_id": "sec-dev-ops-000378",
+         "source_image_family": "debian-10",
+         "zone": "us-central1-a",
+         "image_description": "SecDevOps Debian Host",
+         "image_name": "generic-lab-host",
+         "ssh_username": "root",
+         "metadata": { "enable-oslogin": "false" }
+      }
+   ],
+   "provisioners": [
+      {
+         "type": "shell",
+         "inline": [
+         "sleep 10",
+         "mkdir -p /home/secdevops/.ssh",
+         "chmod 700 /home/secdevops/.ssh"
+         ]
+      }
+   ]
+}
