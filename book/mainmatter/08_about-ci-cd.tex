@@ -1,17 +1,24 @@
 \chapter{Continuous Integration \& Deployment}
 
-\includegraphics[scale=0.85]{../images/finland-905712_1920.jpg}
+\includegraphics[scale=0.45]{../images/finland-905712_1920.jpg}
 
 \justify
-Accommodations for Continuous Integration (CI) and Continuous Deployment (CD) in our projects directly corresponds to our chances of success.
+Accommodations for Continuous Integration (CI) and Continuous Deployment
+(CD) in our projects directly corresponds to our chances of success.
 
 \section{Linters}
 
 \justify
-There are small programs for most (every?) language that you can run before pushing your changes to GitHub that will catch syntactical and sometimes even programmatic issues. Consider Python, which is very sensitive with regard to indentation. You can programatically detect and even correct issues before your work gets too far down the pipe. This is also a good way to make sure folks are not committing dirty code to your repositories.
+There are small programs for most (every?) language that you can run before
+pushing your changes to GitHub that will catch syntactical and sometimes
+even programmatic issues. Consider Python, which is very sensitive with
+regard to indentation. You can programatically detect and even correct issues
+before your work gets too far down the pipe. This is also a good way to
+make sure folks are not committing dirty code to your repositories.
 
 \justify
-Here are some of the linters I have found useful for languages I encounter frequently.
+Here are some of the linters I have found useful for languages I encounter
+frequently.
 
 \begin{table}[h]
 \begin{center}
@@ -160,40 +167,10 @@ You can also create an .mdlrc file to give mdl direction on what to scan for.
 \section{Directory Structure}
 
 \justify
-Relevant folders and files related to our build pipeline are shown below. The users home directory and workspace subdirectory is implied and removed from the diagram for clarity.
-
-
-
-%"devsecops" -\textgreater{}
-%".github"; "devsecops" -\textgreater{} ".mdlrc"; 
-%"devsecops"-\textgreater{} ".travis.yml"; 
-%"devsecops" -\textgreater{} ".markdownlint.json";
-%"devsecops" -\textgreater{} ".circleci";
-%".circleci" -\textgreater{} "config.yml";
-%".github" -\textgreater{} "workflows";
-%"workflows" -\textgreater{} "docker\_compose.yml";
-%"workflows" -\textgreater{} "markdown.yml"; "workflows" -\textgreater{}
-%"packer.yml"; "workflows" -\textgreater{} "python.yml";
-
+Relevant folders and files related to our build pipeline are shown below. The users home directory
+and workspace subdirectory is implied and removed from the diagram for clarity.
 
 \begin{figure}[!htb]
-	\centering
-	\digraph{cicd}{
-		node [shape=rectangle];
-		
-		% nodes
-		devsecops [label="devsecops"]; 
-		dotgh [label=".github"];
-		workflows [label="workflows"]; 
-		dotcircleci [label=".circleci"];
-		cy [label="config.yml"];
-		dcy [label="docker\_compose.yml]"; 
-		py [label="packer.yml]"; 
-		pyyml [label="python.yml"];
-		mdy [label="markdown.yml"];
-		dottr [label=".travis.yml"];
-		mdlrc [label=".mdlrc"];
-		mdjson [label=".markdownlint.json"];
-    }
-	\caption{Project Directory and related files.}
+	\input{dot/cicd.tex}
+	\caption{CI/CD related files and folders.}
 \end{figure}

@@ -1,0 +1,51 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: framework -> dotcfg
+  \draw [->] (170.41bp,215.83bp) .. controls (166.17bp,207.79bp) and (161.09bp,198.17bp)  .. (151.72bp,180.41bp);
+  % Edge: framework -> aws
+  \draw [->] (189.84bp,215.83bp) .. controls (194.2bp,207.79bp) and (199.41bp,198.17bp)  .. (209.03bp,180.41bp);
+  % Edge: dotcfg -> gcloud
+  \draw [->] (142.0bp,143.83bp) .. controls (142.0bp,136.13bp) and (142.0bp,126.97bp)  .. (142.0bp,108.41bp);
+  % Edge: gcloud -> sdo
+  \draw [->] (142.0bp,71.831bp) .. controls (142.0bp,64.131bp) and (142.0bp,54.974bp)  .. (142.0bp,36.413bp);
+  % Node: framework
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (278.5bp,252.0bp) -- (275.5bp,256.0bp) -- (254.5bp,256.0bp) -- (251.5bp,252.0bp) -- (81.5bp,252.0bp) -- (81.5bp,216.0bp) -- (278.5bp,216.0bp) -- cycle;
+  \draw (180.0bp,234.0bp) node {rapid\_secdev\_framework};
+\end{scope}
+  % Node: dotcfg
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (174.0bp,180.0bp) -- (171.0bp,184.0bp) -- (150.0bp,184.0bp) -- (147.0bp,180.0bp) -- (110.0bp,180.0bp) -- (110.0bp,144.0bp) -- (174.0bp,144.0bp) -- cycle;
+  \draw (142.0bp,162.0bp) node {.config};
+\end{scope}
+  % Node: aws
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (246.0bp,180.0bp) -- (243.0bp,184.0bp) -- (222.0bp,184.0bp) -- (219.0bp,180.0bp) -- (192.0bp,180.0bp) -- (192.0bp,144.0bp) -- (246.0bp,144.0bp) -- cycle;
+  \draw (219.0bp,162.0bp) node {.aws};
+\end{scope}
+  % Node: gcloud
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (174.0bp,108.0bp) -- (171.0bp,112.0bp) -- (150.0bp,112.0bp) -- (147.0bp,108.0bp) -- (110.0bp,108.0bp) -- (110.0bp,72.0bp) -- (174.0bp,72.0bp) -- cycle;
+  \draw (142.0bp,90.0bp) node {gcloud};
+\end{scope}
+  % Node: sdo
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (284.0bp,36.0bp) -- (281.0bp,40.0bp) -- (260.0bp,40.0bp) -- (257.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (284.0bp,0.0bp) -- cycle;
+  \draw (142.0bp,18.0bp) node {secdevops-my-proj-000101-420240.json};
+\end{scope}
+%
+\end{tikzpicture}
+

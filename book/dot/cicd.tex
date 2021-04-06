@@ -1,0 +1,114 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: framework -> dotgh
+  \draw [->] (438.57bp,215.83bp) .. controls (409.75bp,204.43bp) and (372.85bp,189.83bp)  .. (335.21bp,174.94bp);
+  % Edge: framework -> dotcircleci
+  \draw [->] (460.78bp,215.83bp) .. controls (449.09bp,206.88bp) and (434.83bp,195.96bp)  .. (414.21bp,180.16bp);
+  % Edge: framework -> dottr
+  \draw [->] (484.5bp,215.83bp) .. controls (484.5bp,208.13bp) and (484.5bp,198.97bp)  .. (484.5bp,180.41bp);
+  % Edge: framework -> mdlrc
+  \draw [->] (508.22bp,215.83bp) .. controls (519.91bp,206.88bp) and (534.17bp,195.96bp)  .. (554.79bp,180.16bp);
+  % Edge: framework -> mdjson
+  \draw [->] (539.48bp,215.92bp) .. controls (569.68bp,206.0bp) and (607.31bp,193.63bp)  .. (648.5bp,180.08bp);
+  % Edge: dotgh -> workflows
+  \draw [->] (299.22bp,143.83bp) .. controls (297.83bp,136.13bp) and (296.18bp,126.97bp)  .. (292.82bp,108.41bp);
+  % Edge: workflows -> dcy
+  \draw [->] (244.8bp,74.377bp) .. controls (215.52bp,64.145bp) and (176.88bp,50.637bp)  .. (135.01bp,36.004bp);
+  % Edge: workflows -> py
+  \draw [->] (275.12bp,71.831bp) .. controls (268.55bp,63.539bp) and (260.65bp,53.557bp)  .. (247.08bp,36.413bp);
+  % Edge: workflows -> pyyml
+  \draw [->] (303.88bp,71.831bp) .. controls (310.45bp,63.539bp) and (318.35bp,53.557bp)  .. (331.92bp,36.413bp);
+  % Edge: workflows -> mdy
+  \draw [->] (334.28bp,72.571bp) .. controls (359.73bp,62.668bp) and (391.81bp,50.183bp)  .. (428.2bp,36.021bp);
+  % Edge: dotcircleci -> cy
+  \draw [->] (392.27bp,143.83bp) .. controls (393.02bp,136.13bp) and (393.91bp,126.97bp)  .. (395.71bp,108.41bp);
+  % Node: framework
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (583.0bp,252.0bp) -- (580.0bp,256.0bp) -- (559.0bp,256.0bp) -- (556.0bp,252.0bp) -- (386.0bp,252.0bp) -- (386.0bp,216.0bp) -- (583.0bp,216.0bp) -- cycle;
+  \draw (484.5bp,234.0bp) node {rapid\_secdev\_framework};
+\end{scope}
+  % Node: dotgh
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (335.0bp,180.0bp) -- (332.0bp,184.0bp) -- (311.0bp,184.0bp) -- (308.0bp,180.0bp) -- (270.0bp,180.0bp) -- (270.0bp,144.0bp) -- (335.0bp,144.0bp) -- cycle;
+  \draw (302.5bp,162.0bp) node {.github};
+\end{scope}
+  % Node: dotcircleci
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (421.5bp,180.0bp) -- (418.5bp,184.0bp) -- (397.5bp,184.0bp) -- (394.5bp,180.0bp) -- (359.5bp,180.0bp) -- (359.5bp,144.0bp) -- (421.5bp,144.0bp) -- cycle;
+  \draw (390.5bp,162.0bp) node {.circleci};
+\end{scope}
+  % Node: dottr
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (529.5bp,180.0bp) -- (439.5bp,180.0bp) -- (439.5bp,144.0bp) -- (529.5bp,144.0bp) -- cycle;
+  \draw (484.5bp,162.0bp) node {.travis.yml};
+\end{scope}
+  % Node: mdlrc
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (609.0bp,180.0bp) -- (548.0bp,180.0bp) -- (548.0bp,144.0bp) -- (609.0bp,144.0bp) -- cycle;
+  \draw (578.5bp,162.0bp) node {.mdlrc};
+\end{scope}
+  % Node: mdjson
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (779.5bp,180.0bp) -- (627.5bp,180.0bp) -- (627.5bp,144.0bp) -- (779.5bp,144.0bp) -- cycle;
+  \draw (703.5bp,162.0bp) node {.markdownlint.json};
+\end{scope}
+  % Node: workflows
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (334.0bp,108.0bp) -- (331.0bp,112.0bp) -- (310.0bp,112.0bp) -- (307.0bp,108.0bp) -- (245.0bp,108.0bp) -- (245.0bp,72.0bp) -- (334.0bp,72.0bp) -- cycle;
+  \draw (289.5bp,90.0bp) node {workflows};
+\end{scope}
+  % Node: dcy
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (167.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (167.0bp,0.0bp) -- cycle;
+  \draw (83.5bp,18.0bp) node {docker\_compose.yml};
+\end{scope}
+  % Node: py
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (280.0bp,36.0bp) -- (185.0bp,36.0bp) -- (185.0bp,0.0bp) -- (280.0bp,0.0bp) -- cycle;
+  \draw (232.5bp,18.0bp) node {packer.yml};
+\end{scope}
+  % Node: pyyml
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (394.5bp,36.0bp) -- (298.5bp,36.0bp) -- (298.5bp,0.0bp) -- (394.5bp,0.0bp) -- cycle;
+  \draw (346.5bp,18.0bp) node {python.yml};
+\end{scope}
+  % Node: mdy
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (536.0bp,36.0bp) -- (413.0bp,36.0bp) -- (413.0bp,0.0bp) -- (536.0bp,0.0bp) -- cycle;
+  \draw (474.5bp,18.0bp) node {markdown.yml};
+\end{scope}
+  % Node: cy
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (442.5bp,108.0bp) -- (352.5bp,108.0bp) -- (352.5bp,72.0bp) -- (442.5bp,72.0bp) -- cycle;
+  \draw (397.5bp,90.0bp) node {config.yml};
+\end{scope}
+%
+\end{tikzpicture}
+
