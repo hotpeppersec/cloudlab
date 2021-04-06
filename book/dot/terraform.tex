@@ -1,0 +1,69 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: home -> devsecops
+  \draw [->] (181.5bp,215.7bp) .. controls (181.5bp,207.98bp) and (181.5bp,198.71bp)  .. (181.5bp,180.1bp);
+  % Edge: devsecops -> aws
+  \draw [->] (181.5bp,143.7bp) .. controls (181.5bp,135.98bp) and (181.5bp,126.71bp)  .. (181.5bp,108.1bp);
+  % Edge: aws -> main
+  \draw [->] (144.81bp,71.876bp) .. controls (122.95bp,61.676bp) and (95.159bp,48.708bp)  .. (63.242bp,33.813bp);
+  % Edge: aws -> out
+  \draw [->] (166.17bp,71.697bp) .. controls (158.74bp,63.305bp) and (149.68bp,53.07bp)  .. (134.65bp,36.104bp);
+  % Edge: aws -> tfvars
+  \draw [->] (196.83bp,71.697bp) .. controls (204.26bp,63.305bp) and (213.32bp,53.07bp)  .. (228.35bp,36.104bp);
+  % Edge: aws -> var
+  \draw [->] (223.22bp,74.326bp) .. controls (251.93bp,64.225bp) and (290.47bp,50.669bp)  .. (331.83bp,36.122bp);
+  % Node: home
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (208.5bp,252.0bp) -- (205.5bp,256.0bp) -- (184.5bp,256.0bp) -- (181.5bp,252.0bp) -- (154.5bp,252.0bp) -- (154.5bp,216.0bp) -- (208.5bp,216.0bp) -- cycle;
+  \draw (181.5bp,234.0bp) node {/home};
+\end{scope}
+  % Node: devsecops
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (242.5bp,180.0bp) -- (239.5bp,184.0bp) -- (218.5bp,184.0bp) -- (215.5bp,180.0bp) -- (120.5bp,180.0bp) -- (120.5bp,144.0bp) -- (242.5bp,144.0bp) -- cycle;
+  \draw (181.5bp,162.0bp) node {/home/devsecops};
+\end{scope}
+  % Node: aws
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (223.0bp,108.0bp) -- (220.0bp,112.0bp) -- (199.0bp,112.0bp) -- (196.0bp,108.0bp) -- (140.0bp,108.0bp) -- (140.0bp,72.0bp) -- (223.0bp,72.0bp) -- cycle;
+  \draw (181.5bp,90.0bp) node {terraform};
+\end{scope}
+  % Node: main
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (63.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (63.0bp,0.0bp) -- cycle;
+  \draw (31.5bp,18.0bp) node {main.tf};
+\end{scope}
+  % Node: out
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (158.0bp,36.0bp) -- (81.0bp,36.0bp) -- (81.0bp,0.0bp) -- (158.0bp,0.0bp) -- cycle;
+  \draw (119.5bp,18.0bp) node {output.tf};
+\end{scope}
+  % Node: tfvars
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (311.0bp,36.0bp) -- (176.0bp,36.0bp) -- (176.0bp,0.0bp) -- (311.0bp,0.0bp) -- cycle;
+  \draw (243.5bp,18.0bp) node {terraform.tfvars};
+\end{scope}
+  % Node: var
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (432.0bp,36.0bp) -- (329.0bp,36.0bp) -- (329.0bp,0.0bp) -- (432.0bp,0.0bp) -- cycle;
+  \draw (380.5bp,18.0bp) node {variables.tf};
+\end{scope}
+%
+\end{tikzpicture}
+
