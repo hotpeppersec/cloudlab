@@ -83,6 +83,11 @@ elements we need in place to be successful.
 When installing Docker on Linux hosts, it should be noted that docker-compose must be installed separately.
 
 \section{The Workhorse (IDE)}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45]{../images/setup-vscode.png}
+	\caption{The VScode IDE.}
+\end{figure}
 \justify
 It is quite helpful to have a piece of software on your workstation that
 makes code creation and edits easier. This software is commonly known as
@@ -110,15 +115,67 @@ can execute shell commands without leaving the IDE screen.
 Folks also seem to be quite fond of the Sublime\footnote{\url{https://www.sublimetext.com/}}
 IDE for similar reasons, including it's customizability and extensibility.
 
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.45]{../images/setup-vscode.png}
-  \caption{The VScode IDE.}
-\end{figure}
-
 \section{Lab Exercises}
 \justify
-This book is meant to be a workbook as much as it is meant to be read. You are encouraged to jump ahead, go back and re-read, do the exercises you think you can apply the learning objective from right away, and skip the parts you don't think you will ever use. Learning can be a non-linear experience and you are encouraged to "color outside the lines" to the extent you feel comfortable doing so.
+This book is meant to be a workbook as much as it is meant to be read. You are encouraged to jump ahead,
+go back and re-read, do the exercises you think you can apply the learning objective from right away, 
+and skip the parts you don't think you will ever use. Learning can be a non-linear experience and you 
+are encouraged to "color outside the lines" to the extent you feel comfortable doing so.
 
 \justify
-That said, I've attempted to give this book a feel of moving the reader along towards a final project. This project is meant to guide the reader through applying the information introduced between this chapter and that.
+That said, I've attempted to give this book a feel of moving the reader along towards a final project. 
+This project is meant to guide the reader through applying the information introduced between this chapter 
+and that.
+
+\section{SSH Key Setup}
+\justify
+Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have
+one. We will be using it at various stages to log in to various sites
+and hosts. The directions for generating an SSH keypair found on the
+github.com website\footnote{\url{https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent}}
+are perfect for this task.
+
+\begin{mybox}{\thetcbcounter: SSH Key Generation}
+	ssh-keygen -t rsa -b 4096 -C "user@example.com"\\
+	Enter a file in which to save the key (/home/user/.ssh/id\_rsa): [Press enter]\\
+	Enter passphrase (empty for no passphrase): [Type a passphrase]\\
+	Enter same passphrase again: [Type passphrase again]
+\end{mybox}
+
+\justify
+Now you can add your public key half to github.com\footnote{\url{https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account}}.
+
+\section{GPG Key Setup}
+\justify
+Gnu Privacy Guard (GPG) is a replacement for Symantec's PGP software. It allows you
+to generate and asymetric key pair that can be exchanged with other users, encrypt your
+personal files, or verify your identity. 
+\justify
+We will user a GPG key to sign commits\footnote{\url{https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key}}
+to GitHub. This will help others verify that work you check in to revision control did 
+actually come from you. It's not strictly necessary but is considered good practice.
+Some repositories require that you sign your pull requests with your GPG key\index{GPG key}.
+\justify
+Take a few minutes to set up a GPG key. Once you have an account setup, you can add
+it to your profile on GitHub.
+
+\begin{mybox}{\thetcbcounter: GPG Key Setup}
+	user@devsecops:\~\# gpg --default-new-key-algo rsa4096 --gen-key\\
+	public and secret key created and signed.\\
+	Note that this key cannot be used for encryption.  You may want to use
+	the command "--edit-key" to generate a subkey for this purpose.\\
+	pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]\\
+	\hspace*{15mm}      848943CDCE488F138BF91079E81498874E59648D\\
+	uid\\
+	\hspace*{25mm}                     Kevin Flynn <user@example.com>\\
+	
+	user@devsecops:\~\# gpg --list-secret-keys --keyid-format LONG |grep sec| cut -f2 -d'/'|cut -f1 -d' '\\
+	E81498874E59648D\\
+	user@devsecops:\~\# gpg --armor --export E81498874E59648D
+\end{mybox}
+\justify
+Copy your GPG key, beginning with the string
+-\/-\/-\/-\/-BEGIN PGP PUBLIC KEY BLOCK-\/-\/-\/-\/- and ending with the string
+-\/-\/-\/-\/-END PGP PUBLIC KEY BLOCK-\/-\/-\/-\/-. Add the GPG key to
+your GitHub account.
+

@@ -5,7 +5,7 @@
 We can reduce our Mean Time To Deploy (MTTD)\footnote{\url{https://www.packer.io/downloads/}}
 by using tools to prepare and generate our machine images
 programatically, and with scripting languages such as HCL, which
-Terraform\footnote{\url{https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2\#Images:sort=name}}
+Terraform\footnote{\url{https://www.terraform.io/intro/index.html}}
 is based on. In this section we examine these tools in greater depth.
 
 single: MTTD
@@ -105,9 +105,10 @@ GitHub repository for the project.
 Another AWS specfic tool is "lambda-packerjanitor" from Trusworks.
 
 \section{Terraform}
-
 \justify
-Terraform, created by Hashicorp in 2014, is a tool for building, changing, and versioning infrastructure safely and efficiently . Install the latest version of Terraform in preparation for the activities that follow.
+Terraform, created by Hashicorp in 2014, is a tool for building, changing, and versioning 
+infrastructure safely and efficiently . Install the latest version of Terraform
+in preparation for the activities that follow.
 
 \justify
 Consider the relevant Terraform files that we will include in our
@@ -148,40 +149,14 @@ This file will contain the bulk of our Terraform configurations. As with
 Python, we have the ability to reference modules, both internal and
 exteral. The main.tf file is the place the module references are made.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{module} \StringTok{"security_group"}\NormalTok{ \{}
-      \BuiltInTok{source}\NormalTok{  = }\StringTok{"terraform-aws-modules/security-group/aws"}
-      \ExtensionTok{version}\NormalTok{ = }\StringTok{"~> 3.0"}
-
-      \ExtensionTok{name}\NormalTok{        = }\StringTok{"DevSecOps"}
-      \ExtensionTok{description}\NormalTok{ = }\StringTok{"Security group for the cloud lab"}
-      \ExtensionTok{vpc_id}\NormalTok{      = data.aws_vpc.default.id}
-
-      \ExtensionTok{ingress_cidr_blocks}\NormalTok{ = [}\StringTok{"0.0.0.0/0"}\NormalTok{]}
-      \ExtensionTok{ingress_rules}\NormalTok{       = [}\StringTok{"http-80-tcp"}\NormalTok{, }\StringTok{"all-icmp"}\NormalTok{, }\StringTok{"ssh-tcp"}\NormalTok{]}
-      \ExtensionTok{egress_rules}\NormalTok{        = [}\StringTok{"all-all"}\NormalTok{]}
-      \NormalTok{\}}
-   \end{Highlighting}
-\end{Shaded}
+Put and example of main.tf here.
 
 \justify
 We can also designate our data sources in the main.tf file. Consider the
 following Terraform data sources. These AWS data sources reference our
 Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{data} \StringTok{"aws_vpc"} \StringTok{"default"}\NormalTok{ \{}
-      \ExtensionTok{default}\NormalTok{ = true}
-      \NormalTok{\}}
-
-      \ExtensionTok{data} \StringTok{"aws_subnet_ids"} \StringTok{"all"}\NormalTok{ \{}
-      \ExtensionTok{vpc_id}\NormalTok{ = data.aws_vpc.default.id}
-      \NormalTok{\}}
-   \end{Highlighting}
-\end{Shaded}
-
+put an example VPC in here
 
 \subsection{outputs.tf}\label{outputs.tf}}
 
@@ -195,20 +170,7 @@ Terraform modules.
 \justify
 Consider the following output declarations from our example code.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{output} \StringTok{"web_public_ip"}\NormalTok{ \{}
-      \ExtensionTok{description}\NormalTok{ = }\StringTok{"Public IPs assigned to the web instance"}
-      \ExtensionTok{value}\NormalTok{       = aws_instance.web.public_ip}
-      \NormalTok{\}}
-
-      \ExtensionTok{output} \StringTok{"kali_public_ip"}\NormalTok{ \{}
-      \ExtensionTok{description}\NormalTok{ = }\StringTok{"Public IPs assigned to the kali instance"}
-      \ExtensionTok{value}\NormalTok{       = aws_instance.kali.public_ip}
-      \NormalTok{\}}
-   \end{Highlighting}
-\end{Shaded}
-
+put some example outputs here.
 
 \subsection{variables.tf}
 
@@ -223,15 +185,7 @@ of the image we created previously with Packer.
 Consider the following example. Here we declare a "region" variable in
 the file variables.tf.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{variable} \StringTok{"region"}\NormalTok{ \{}
-      \ExtensionTok{description}\NormalTok{ = }\StringTok{"AWS region to launch servers."}
-      \ExtensionTok{default}\NormalTok{     = }\StringTok{"us-west-2"}
-      \NormalTok{\}}
-   \end{Highlighting}
-\end{Shaded}
-
+put an example variables file here.
 
 \subsection{Verification}
 
@@ -242,49 +196,17 @@ off to the cloud provider to act upon. Validating your Terraform files
 is as easy as typing terraform validate in the directory the files exist
 in.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{user@devsecops}\NormalTok{::~/workspace/rapid_secdev_framework/aws$ terraform validate}
-      \ExtensionTok{Success}\NormalTok{! The configuration is valid.}
-   \end{Highlighting}
-\end{Shaded}
+do an example terraform validate here
 
 To get your Terrform files into a clean standard format, the
 terraform fmt command works well. There is also the option to do this
 formatting from inside the VSCode window on a per-file basis.
 
-
 \subsection{Plan}
 
 First we will will create a "plan" in preparation for application.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{user@devsecops}\NormalTok{::~/workspace/rapid_secdev_framework/aws$ terraform plan -out franklin.out}
-      \ExtensionTok{Refreshing}\NormalTok{ Terraform state in-memory prior to plan...}
-      \ExtensionTok{The}\NormalTok{ refreshed state will be used to calculate this plan, but will not be}
-      \ExtensionTok{persisted}\NormalTok{ to local or remote state storage.}
-
-      \ExtensionTok{data.aws_vpc.default}\NormalTok{: Refreshing state...}
-      \ExtensionTok{data.aws_subnet_ids.all}\NormalTok{: Refreshing state...}
-
-      \ExtensionTok{------------------------------------------------------------------------}
-
-      \ExtensionTok{An}\NormalTok{ execution plan has been generated and is shown below.}
-      \ExtensionTok{Resource}\NormalTok{ actions are indicated with the following symbols:}
-      \ExtensionTok{+}\NormalTok{ create}
-
-
-      \ExtensionTok{Plan}\NormalTok{: 8 to add, 0 to change, 0 to destroy.}
-
-      \ExtensionTok{------------------------------------------------------------------------}
-
-      \ExtensionTok{This}\NormalTok{ plan was saved to: franklin.out}
-
-      \ExtensionTok{To}\NormalTok{ perform exactly these actions, run the following command to apply:}
-      \ExtensionTok{terraform}\NormalTok{ apply }\StringTok{"franklin.out"}
-   \end{Highlighting}
-\end{Shaded}
+do an example plan here.
 
 \subsection{Apply}
 
@@ -297,32 +219,7 @@ provider. This can take a counsiderable amount of time, depending on the
 complexity of the desired configuration. Note that Terraform will prompt
 you to enter "yes" before it will proceed.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{user@devsecops}\NormalTok{::~/workspace/rapid_secdev_framework/aws$ terraform apply}
-      \ExtensionTok{data.aws_vpc.default}\NormalTok{: Refreshing state...}
-      \ExtensionTok{data.aws_subnet_ids.all}\NormalTok{: Refreshing state...}
-
-      \ExtensionTok{An}\NormalTok{ execution plan has been generated and is shown below.}
-      \ExtensionTok{Resource}\NormalTok{ actions are indicated with the following symbols:}
-      \ExtensionTok{+}\NormalTok{ create}
-
-      \ExtensionTok{Plan}\NormalTok{: 8 to add, 0 to change, 0 to destroy.}
-
-      \ExtensionTok{Do}\NormalTok{ you want to perform these actions?}
-      \ExtensionTok{Terraform}\NormalTok{ will perform the actions described above.}
-      \ExtensionTok{Only} \StringTok{'yes'}\NormalTok{ will be accepted to approve.}
-
-      \ExtensionTok{Enter}\NormalTok{ a value: yes}
-
-      \ExtensionTok{Apply}\NormalTok{ complete! Resources: 8 added, 0 changed, 0 destroyed.}
-
-      \ExtensionTok{Outputs}\NormalTok{:}
-
-      \ExtensionTok{kali_public_ip}\NormalTok{ = 34.221.121.11}
-      \ExtensionTok{web_public_ip}\NormalTok{ = 54.186.129.232}
-   \end{Highlighting}
-\end{Shaded}
+do an example apply here
 
 \section{Ansible}
 
@@ -334,17 +231,15 @@ patterns in future projects. A true force multiplier.
 
 single: Ansible
 
-\hypertarget{installing-ansible}{%
-   \subsubsection{Installing Ansible}\label{installing-ansible}}
-
+\subsubsection{Installing Ansible}
+\justify
 Simply adding "ansible" to python/requirements.txt will make Ansible
 available in our Docker containers. Now when we type make docker, pip
 will take care of the installation for us. Then we can experiment with
 Ansible playbook runs.
 
-\hypertarget{ansible-playbooks}{%
-   \subsubsection{Ansible Playbooks}\label{ansible-playbooks}}
-
+\subsubsection{Ansible Playbooks}
+\justify
 Ansible breaks down it's execution runs into discrete workflows known as
 playbooks. Playbooks are executed on the target hosts to implement
 configurations. It's quite useful to be able to kick off a playbook run
@@ -354,29 +249,19 @@ repository, we want that to propagate out to the targets and the latest
 configuration to be applied to the server. We can also deploy a newer
 version of an application and then stop and start the applicationto
 effect the change.
-
+\justify
 Ansible playbooks break down target hosts into groupings known as roles.
 
-\hypertarget{testing-ansible-playbooks}{%
-   \subsubsection{Testing Ansible
-      Playbooks}\label{testing-ansible-playbooks}}
-
+\subsubsection{Testing Ansible Playbooks}
+\justify
 There is a test framework known as "molecule" that can be used to test
 ansible playbooks.
 
 single: Molecule
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \NormalTok{$ }\ExtensionTok{molecule}\NormalTok{ init role -r logfwd}
-      \ExtensionTok{--}\OperatorTok{>}\NormalTok{ Initializing new role logfwd...}
-      \ExtensionTok{Initialized}\NormalTok{ role in /ansible/roles/logfwd successfully.}
-   \end{Highlighting}
-\end{Shaded}
-
+put molecule code snippet here.
 
 \section{Ansible Vault}
-
 \justify
 Vault is a tool that is included with Ansible. You may notice that
 ansible-vault is a symlink back to ansible on your system. Vault is an
@@ -394,28 +279,19 @@ Let's try encrypting a file... using another file! Create a text file
 with some random contents. For example, create a file in your home
 directory called my\_dog.txt with the following contents:
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{My}\NormalTok{ dog has fleas.}
-   \end{Highlighting}
-\end{Shaded}
+example contents
 
+\justify
 Now we can encrypt some data using this file as the encryption key. For
 the sake of example, let's assume we have a file called
 data\_to\_protect.txt that we would like to encrypt.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{ansible-vault}\NormalTok{ encrypt --vault-password-file ~/my_dog.txt data_to_protect.txt}
-   \end{Highlighting}
-\end{Shaded}
-
+example here
+\justify
 Now when we view the data\_to\_protect.txt file, we can see it has been
 encrypted and appears as a long series of seemingly nonsense characters.
 
-
 \subsection{Decrypting a File with Vault}
-
 \justify
 At some point, we are going to want to decrypt our data so it becomes
 usable, we can perform operations on it, and so on. As long as we keep
@@ -424,31 +300,15 @@ copy of the key file some some target/remote host, we will be able to
 decrypt the data. This is quite useful to us indeed, when it comes to
 protecting our data.
 
-\begin{Shaded}
-   \begin{Highlighting}[]
-      \ExtensionTok{ansible-vault}\NormalTok{ decrypt --vault-password-file ~/my_dog.txt data_to_protect.txt}
-   \end{Highlighting}
-\end{Shaded}
+another example here
 
 \clearpage
 
 \section{Tool Directory Structure}
-
+\justify
 Files and folders relevant to this chapter are organized as shown below.
 
-\begin{description}
-   \item[digraph folders \{]
-         "devsecops" {[}shape=folder{]}; "ansible" {[}shape=folder{]}; "aws"
-         {[}shape=folder{]}; "packer" {[}shape=folder{]}; "aws-debian-host.json"
-         {[}shape=rect{]}; "gcp-debian-host.json" {[}shape=rect{]}; "main.tf"
-         {[}shape=rect{]}; "outputs.tf" {[}shape=rect{]}; "terraform.tfvars"
-         {[}shape=rect{]}; "variables.tf" {[}shape=rect{]}; "devsecops"
-         -\textgreater{} "ansible"; "devsecops" -\textgreater{} "aws";
-         "devsecops" -\textgreater{} "packer"; "aws" -\textgreater{} "main.tf";
-         "aws" -\textgreater{} "outputs.tf"; "aws" -\textgreater{}
-         "terraform.tfvars"; "aws" -\textgreater{} "variables.tf"; "packer"
-         -\textgreater{} "aws-debian-host.json"; "packer" -\textgreater{}
-         "gcp-debian-host.json";
-\end{description}
-
-\}
+\begin{figure}[!htb]
+	\input{dot/tools.tex}
+	\caption{Tool related files and folders.}
+\end{figure}

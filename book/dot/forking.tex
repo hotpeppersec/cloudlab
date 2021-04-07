@@ -4,31 +4,31 @@
 %%
 \pgfsetcolor{black}
   % Edge: orig -> fork
-  \draw [->] (167.55bp,144.05bp) .. controls (158.87bp,135.5bp) and (148.18bp,124.96bp)  .. (131.26bp,108.28bp);
+  \draw [->] (178.26bp,143.83bp) .. controls (169.13bp,135.07bp) and (158.04bp,124.42bp)  .. (140.85bp,107.91bp);
   % Edge: fork -> clone
-  \draw [->] (130.93bp,72.055bp) .. controls (139.82bp,63.285bp) and (150.83bp,52.432bp)  .. (167.71bp,35.789bp);
+  \draw [->] (140.73bp,72.202bp) .. controls (150.06bp,63.242bp) and (161.52bp,52.241bp)  .. (179.12bp,35.345bp);
   % Edge: clone -> orig
-  \draw [->] (207.14bp,34.94bp) .. controls (218.3bp,44.306bp) and (230.69bp,57.203bp)  .. (236.74bp,72.0bp) .. controls (242.79bp,86.811bp) and (242.79bp,93.189bp)  .. (236.74bp,108.0bp) .. controls (232.21bp,119.08bp) and (224.14bp,129.09bp)  .. (208.22bp,144.14bp);
+  \draw [->] (222.15bp,34.664bp) .. controls (233.94bp,44.073bp) and (246.8bp,56.959bp)  .. (253.19bp,72.0bp) .. controls (259.45bp,86.726bp) and (259.45bp,93.274bp)  .. (253.19bp,108.0bp) .. controls (248.45bp,119.15bp) and (240.16bp,129.12bp)  .. (223.62bp,144.15bp);
   % Node: orig
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (184.74bp,162.0bp) ellipse (155.17bp and 18.0bp);
-  \draw (184.74bp,162.0bp) node {Original Repository on github.com};
+  \draw (197.19bp,162.0bp) ellipse (168.17bp and 18.0bp);
+  \draw (197.19bp,162.0bp) node {Original Repository on github.com};
 \end{scope}
   % Node: fork
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (113.74bp,90.0bp) ellipse (113.98bp and 18.0bp);
-  \draw (113.74bp,90.0bp) node {Your fork on github.com};
+  \draw (122.19bp,90.0bp) ellipse (122.38bp and 18.0bp);
+  \draw (122.19bp,90.0bp) node {Your fork on github.com};
 \end{scope}
   % Node: clone
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (184.74bp,18.0bp) ellipse (64.99bp and 18.0bp);
-  \draw (184.74bp,18.0bp) node {Local Clone};
+  \draw (197.19bp,18.0bp) ellipse (64.19bp and 18.0bp);
+  \draw (197.19bp,18.0bp) node {Local Clone};
 \end{scope}
 %
 \end{tikzpicture}

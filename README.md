@@ -6,11 +6,29 @@
 
 ## Linux Dev Environment Setup
 
-```bash
-apy install -y graphviz
-cd python && nix-shell
+Testing out nix & python build env.
+* https://github.com/dnadales/nix-latex-template
+
+Set up nix env in BASH:
+
+```sh
+nix-shell -I nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
+``
+
+Set up the nix env in my fish shell:
+
+```sh
+set -x NIX_PATH (echo $NIX_PATH:)nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
+```
+
+Now start nix shell
+
+```sh
+nix-shell
 python -m pip install -rrequirements.txt
-/usr/bin/texstudio &
+for my_x in `ls book/dot|cut -f1 -d'.'|uniq`; do dot -Txdot book/dot/${my_x}.dot | dot2tex --figonly > book/dot/${my_x}.tex;done
+#/usr/bin/texstudio &
+pdflatex --shell-escape -synctex=1 -interaction=nonstopmode book/devsecops_quickstart.tex
 exit
 nix-collect-garbage -d
 ```
@@ -37,41 +55,6 @@ docker-compose -f docker\docker-compose.yml run devsecops /bin/bash
 - VScode
   - drawio plugin
 
-## To generate PDF of book
-
-Should be done from inside the Docker container. The PDF will persist
-outside the Docker container in the users filesystem until
-the `make clean` command is issued.
-
-```bash
-make docker
-make book
-```
-
-- PDF will be in `book/devsecopsquickstart.pdf`
-- Find the file in `file:///home/thedevilsvoice/workspace/devsecops_quickstart/book/devsecopsquickstart.pdf`
-  - If you open in firefox you get a nice nav bar on the left side.
-
-## Epub
-
-Should be done from inside the docker container.
-
-```bash
-make docker
-cd book && make epub
-```
-
-The epub file will be in `book/_build/epub/DevSecOpsQuickStart.epub`. It
-will persist outside the Docker container in the users filesystem until
-the `make clean` command is issued.
-
-Now you can use Calibre to view the epub file, and Sigil to edit the
-epub file as needed.
-
-```bash
-sudo apt -y install calibre sigil
-```
-
 ## Images
 
 The images at pixabay.com are free for commercial use.
@@ -80,16 +63,3 @@ Down load the images to docs/images and save the HTML credits
 for the photograph as a file with .html extension. Then run the
 `generate_pic_ref.sh` script to make the picture credits file
 in the references section.
-
-## Kindle (deprecated)
-
-Now you can generate the kindle .mobi file. Note that [kindlegen is no longer
-available](https://www.amazon.com/gp/feature.html?docId=1000765211)). Note that
-the .mobi format is for testing on older devices that do not support
-Enhanced Typesetting.
-
-```bash
-kindlegen _build/epub/CloudLab.epub
-```
-
-Results in a file called `CloudLab.mobi`

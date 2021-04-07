@@ -33,67 +33,17 @@ that is) is to configure two-factor authentication\footnote{\url{https://help.gi
 
 single: two-factor authentication
 
-\subsection{SSH Key Setup}
-
-Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have
-one. We will be using it at various stages to log in to various sites
-and hosts. The directions for generating an SSH keypair found on the
-github.com website\footnote{\url{https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent}}
-are perfect for this task.
-
-\begin{mybox}{\thetcbcounter: SSH Key Generation}
-      ssh-keygen -t rsa -b 4096 -C "user@example.com"\\
-      Enter a file in which to save the key (/home/user/.ssh/id\_rsa): [Press enter]\\
-      Enter passphrase (empty for no passphrase): [Type a passphrase]\\
-      Enter same passphrase again: [Type passphrase again]
-\end{mybox}
-
 \justify
-Now you can add your public key half to github.com\footnote{\url{https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account}}.
-
-\subsection{GPG Key Setup}
-
-\justify
-Using a GPG key to sign your commits\footnote{\url{https://help.github.com/en/github/authenticating-to-github/generating-a-new-gpg-key}}
-will help others verify that work you check in to revision control did
-actually come from you. It's not strictly necessary but is considered
-good practice. Some repositories require that you sign your pull
-requests with your GPG key\index{GPG key}.
-
-\justify
-Take a few minutes to set up a GPG key and add it to your profile on
-GitHub.
-
-\begin{mybox}{\thetcbcounter: GPG Key Setup}
-      user@devsecops:\~\# gpg --default-new-key-algo rsa4096 --gen-key\\
-      public and secret key created and signed.\\
-      Note that this key cannot be used for encryption.  You may want to use
-      the command "--edit-key" to generate a subkey for this purpose.\\
-      pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]\\
-      \hspace*{15mm}      848943CDCE488F138BF91079E81498874E59648D\\
-      uid\\
-      \hspace*{25mm}                     Kevin Flynn <user@example.com>\\
-
-      user@devsecops:\~\# gpg --list-secret-keys --keyid-format LONG |grep sec| cut -f2 -d'/'|cut -f1 -d' '\\
-      E81498874E59648D\\
-      user@devsecops:\~\# gpg --armor --export E81498874E59648D
-\end{mybox}
-
-Copy your GPG key, beginning with
--\/-\/-\/-\/-BEGIN PGP PUBLIC KEY BLOCK-\/-\/-\/-\/- and ending with
--\/-\/-\/-\/-END PGP PUBLIC KEY BLOCK-\/-\/-\/-\/-. Add the GPG key to
-your GitHub account.
-
 Next let's take a look at two of the key methods of interacting with
 projects and other people on github.com.
 
 \subsection{Forking and Cloning Repositories}
-
+\justify
 When someone else has a project on github.com that you would like to make changes to, you can make a "fork" of that project. Forking\index{forking} a repository means you are making a copy of that repository to your personal account on the GitHub web site.
-
+\justify
 Creating a "clone"\index{cloning a repo} of your fork to your local machine is done so that
 you can make changes without altering the original project before testing and review of the changes takes place.
-
+\justify
 Adding a "remote" is a git convention to easily push changes from your clone back to the original source repository.
 
 \begin{figure}[!htb]
@@ -101,15 +51,14 @@ Adding a "remote" is a git convention to easily push changes from your clone bac
       \caption{Forking and cloning.}
 \end{figure}
 
+\justify
 This can be a tricky pattern to master, but it is fundamental if you
 want to join the ranks of Open Source contributors and developers that
 enjoy the full power of Git and GitHub.
 
-
 \paragraph{Steps:}
 
 \begin{itemize}
-
       \item
             From the original project page on github.com, click the "fork" button.
 
@@ -146,6 +95,7 @@ back to the original project.
 \hypertarget{keeping-a-clone-in-sync}{%
       \subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
 
+\justify
 The process of performing a pull request (PR) and merging changes is
 covered fairly extensively on the Web. Let's take a quick look at how to
 keep your local clone of a repository, as well as your clone on

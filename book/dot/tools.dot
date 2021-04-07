@@ -1,0 +1,30 @@
+digraph toolss {
+    rankdir=LR;
+    size="8,4";
+    node [fontname="Helvetica" fontsize=14 shape=box];
+    edge [fontname="Symbol" fontsize=10];
+
+    home [shape=folder fontname="Symbol" label="/home"];
+    devsecops [shape=folder fontname="Symbol" label="/home/devsecops"];
+
+    ansible [shape=folder fontname="Symbol" label="ansible"];
+    packer [shape=folder fontname="Symbol" label="packer"];
+    adh [fontname="Symbol" lael="aws-debian-host.json"];
+    gdh [fontname="Symbol" label="gcp-debian-host.json"];
+    aws [shape=folder fontname="Symbol" label="aws"];
+    main [fontname="Symbol" label="main.tf"];
+    out [fontname="Symbol" label="output.tf"] ;
+    tfvars [fontname="Symbol" label="terraform.tfvars"];
+    var [fontname="Symbol" label="variables.tf"];
+
+    home -> devsecops;
+    devsecops -> aws;
+    devsecops -> ansible;
+    devsecops -> packer;
+    aws -> main;
+    aws -> out;
+    aws -> tfvars
+    aws -> var;
+    packer -> adh;
+    packer -> gdh;
+}
