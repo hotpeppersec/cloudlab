@@ -119,6 +119,50 @@ projects.
 	\caption{Terraform related files and folders.}
 \end{figure}
 
+\subsection{Using AWS Credentials with Terraform}
+
+ Using the "pass" manager means you can remove plain text credentials
+  from the local file system.
+  * Prevents credentials from being committed to revision control by accident.
+  * When using pass, your credentials are still encrypted with your private key, even
+    if they are accidentally committed to revision control.
+  * With pass, you can use your own GPG key, Keybase key, etc. to protect
+    your secrets.
+
+Macintosh:
+
+```sh
+brew install pass gpg2
+gpg2 --list-keys # get your public key id
+pass init C25565E4701F4ED36A0711AA114F3606EFD923BB # id of your public GPG key
+pass insert aws-access-key-id
+pass ls
+pass insert aws-secret-access-key
+pass ls
+pass show aws-secret-access-key
+```
+
+Docker/Alpine Linux:
+
+```sh
+apk update && apk add --no-cache pass gnupg
+gpg --list-keys # get your public key id
+pass init C25565E4701F4ED36A0711AA114F3606EFD923BB # id of your public GPG key
+pass insert aws-access-key-id
+pass ls
+pass insert aws-secret-access-key
+pass ls
+pass show aws-secret-access-key
+```
+
+* Create Terraform plan, apply, etc.
+
+```sh
+export AWS_ACCESS_KEY_ID=$(pass aws-access-key-id) # your creds come from the vault
+export AWS_SECRET_ACCESS_KEY=$(pass aws-secret-access-key) # your creds come from the vault
+terraform plan # should be able to get your creds from your shell
+```
+
 \subsection{terraform.tfvars}
 
 When working with AWS as cloud provider, life gets a bit easier if you
