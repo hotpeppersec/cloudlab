@@ -9,7 +9,7 @@
 
 There is a page that explains [how to contribute](CONTRIBUTING.md)
 
-## Generate the Book
+## :blue_book: Generate the Book :orange_book:
 
 - Set up the dev environment [as explained in the docs](docs/nix.md)
 - change to the book directory and type `make book`
@@ -20,5 +20,5 @@ The images at pixabay.com are free for commercial use.
 
 Down load the images to docs/images and save the HTML credits
 for the photograph as a file with .html extension. Then run the
-`generate_pic_ref.sh` script to make the picture credits file
+[bin/generate_pic_ref.sh](bin/generate_pic_ref.sh) script to make the picture credits file
 in the references section.
