@@ -4,65 +4,65 @@
 %%
 \pgfsetcolor{black}
   % Edge: devsecops -> python
-  \draw [->] (137.99bp,143.83bp) .. controls (123.71bp,134.57bp) and (106.18bp,123.2bp)  .. (82.234bp,107.67bp);
+  \draw [->] (167.95bp,143.88bp) .. controls (150.51bp,134.55bp) and (128.73bp,122.92bp)  .. (101.17bp,108.19bp);
   % Edge: devsecops -> docker
-  \draw [->] (156.16bp,143.83bp) .. controls (151.8bp,135.79bp) and (146.59bp,126.17bp)  .. (136.97bp,108.41bp);
+  \draw [->] (188.38bp,143.7bp) .. controls (182.86bp,135.47bp) and (176.15bp,125.48bp)  .. (164.48bp,108.1bp);
   % Edge: devsecops -> terraform
-  \draw [->] (176.09bp,143.83bp) .. controls (180.56bp,135.79bp) and (185.91bp,126.17bp)  .. (195.77bp,108.41bp);
+  \draw [->] (211.62bp,143.7bp) .. controls (217.14bp,135.47bp) and (223.85bp,125.48bp)  .. (235.52bp,108.1bp);
   % Edge: devsecops -> Makefile
-  \draw [->] (197.54bp,143.83bp) .. controls (213.68bp,134.54bp) and (233.5bp,123.12bp)  .. (259.47bp,108.16bp);
+  \draw [->] (235.96bp,143.88bp) .. controls (255.88bp,134.39bp) and (280.82bp,122.51bp)  .. (311.16bp,108.07bp);
   % Edge: docker -> comp
-  \draw [->] (111.61bp,71.831bp) .. controls (104.51bp,63.454bp) and (95.952bp,53.353bp)  .. (81.6bp,36.413bp);
+  \draw [->] (135.2bp,71.697bp) .. controls (126.4bp,63.135bp) and (115.62bp,52.656bp)  .. (98.593bp,36.104bp);
   % Edge: docker -> Dockerfile
-  \draw [->] (142.14bp,71.831bp) .. controls (149.12bp,63.454bp) and (157.54bp,53.353bp)  .. (171.66bp,36.413bp);
+  \draw [->] (170.8bp,71.697bp) .. controls (179.6bp,63.135bp) and (190.38bp,52.656bp)  .. (207.41bp,36.104bp);
   % Node: devsecops
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (202.0bp,180.0bp) -- (199.0bp,184.0bp) -- (178.0bp,184.0bp) -- (175.0bp,180.0bp) -- (130.0bp,180.0bp) -- (130.0bp,144.0bp) -- (202.0bp,144.0bp) -- cycle;
-  \draw (166.0bp,162.0bp) node {devsecops};
+  \draw (245.0bp,180.0bp) -- (242.0bp,184.0bp) -- (221.0bp,184.0bp) -- (218.0bp,180.0bp) -- (155.0bp,180.0bp) -- (155.0bp,144.0bp) -- (245.0bp,144.0bp) -- cycle;
+  \draw (200.0bp,162.0bp) node {devsecops};
 \end{scope}
   % Node: python
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (82.0bp,108.0bp) -- (79.0bp,112.0bp) -- (58.0bp,112.0bp) -- (55.0bp,108.0bp) -- (28.0bp,108.0bp) -- (28.0bp,72.0bp) -- (82.0bp,72.0bp) -- cycle;
-  \draw (55.0bp,90.0bp) node {python};
+  \draw (102.0bp,108.0bp) -- (99.0bp,112.0bp) -- (78.0bp,112.0bp) -- (75.0bp,108.0bp) -- (36.0bp,108.0bp) -- (36.0bp,72.0bp) -- (102.0bp,72.0bp) -- cycle;
+  \draw (69.0bp,90.0bp) node {python};
 \end{scope}
   % Node: docker
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (154.0bp,108.0bp) -- (151.0bp,112.0bp) -- (130.0bp,112.0bp) -- (127.0bp,108.0bp) -- (100.0bp,108.0bp) -- (100.0bp,72.0bp) -- (154.0bp,72.0bp) -- cycle;
-  \draw (127.0bp,90.0bp) node {docker};
+  \draw (185.5bp,108.0bp) -- (182.5bp,112.0bp) -- (161.5bp,112.0bp) -- (158.5bp,108.0bp) -- (120.5bp,108.0bp) -- (120.5bp,72.0bp) -- (185.5bp,72.0bp) -- cycle;
+  \draw (153.0bp,90.0bp) node {docker};
 \end{scope}
   % Node: terraform
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (240.0bp,108.0bp) -- (237.0bp,112.0bp) -- (216.0bp,112.0bp) -- (213.0bp,108.0bp) -- (172.0bp,108.0bp) -- (172.0bp,72.0bp) -- (240.0bp,72.0bp) -- cycle;
-  \draw (206.0bp,90.0bp) node {terraform};
+  \draw (290.0bp,108.0bp) -- (287.0bp,112.0bp) -- (266.0bp,112.0bp) -- (263.0bp,108.0bp) -- (204.0bp,108.0bp) -- (204.0bp,72.0bp) -- (290.0bp,72.0bp) -- cycle;
+  \draw (247.0bp,90.0bp) node {terraform};
 \end{scope}
   % Node: Makefile
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (324.0bp,108.0bp) -- (258.0bp,108.0bp) -- (258.0bp,72.0bp) -- (324.0bp,72.0bp) -- cycle;
-  \draw (291.0bp,90.0bp) node {Makefile};
+  \draw (385.5bp,108.0bp) -- (308.5bp,108.0bp) -- (308.5bp,72.0bp) -- (385.5bp,72.0bp) -- cycle;
+  \draw (347.0bp,90.0bp) node {Makefile};
 \end{scope}
   % Node: comp
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (132.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (132.0bp,0.0bp) -- cycle;
-  \draw (66.0bp,18.0bp) node {docker-compose.yml};
+  \draw (162.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (162.0bp,0.0bp) -- cycle;
+  \draw (81.0bp,18.0bp) node {docker-compose.yml};
 \end{scope}
   % Node: Dockerfile
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (224.0bp,36.0bp) -- (150.0bp,36.0bp) -- (150.0bp,0.0bp) -- (224.0bp,0.0bp) -- cycle;
-  \draw (187.0bp,18.0bp) node {Dockerfile};
+  \draw (269.5bp,36.0bp) -- (180.5bp,36.0bp) -- (180.5bp,0.0bp) -- (269.5bp,0.0bp) -- cycle;
+  \draw (225.0bp,18.0bp) node {Dockerfile};
 \end{scope}
 %
 \end{tikzpicture}

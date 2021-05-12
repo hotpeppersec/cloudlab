@@ -4,47 +4,47 @@
 %%
 \pgfsetcolor{black}
   % Edge: home -> devsecops
-  \draw [->] (107.0bp,215.83bp) .. controls (107.0bp,208.13bp) and (107.0bp,198.97bp)  .. (107.0bp,180.41bp);
+  \draw [->] (96.5bp,215.7bp) .. controls (96.5bp,207.98bp) and (96.5bp,198.71bp)  .. (96.5bp,180.1bp);
   % Edge: devsecops -> github
-  \draw [->] (95.392bp,143.83bp) .. controls (90.202bp,135.71bp) and (83.977bp,125.96bp)  .. (72.764bp,108.41bp);
+  \draw [->] (85.871bp,143.7bp) .. controls (80.872bp,135.56bp) and (74.809bp,125.69bp)  .. (64.007bp,108.1bp);
   % Edge: devsecops -> gitignore
-  \draw [->] (118.86bp,143.83bp) .. controls (124.16bp,135.71bp) and (130.52bp,125.96bp)  .. (141.98bp,108.41bp);
+  \draw [->] (107.38bp,143.7bp) .. controls (112.49bp,135.56bp) and (118.7bp,125.69bp)  .. (129.75bp,108.1bp);
   % Edge: github -> codeowners
-  \draw [->] (61.0bp,71.831bp) .. controls (61.0bp,64.131bp) and (61.0bp,54.974bp)  .. (61.0bp,36.413bp);
+  \draw [->] (53.5bp,71.697bp) .. controls (53.5bp,63.983bp) and (53.5bp,54.712bp)  .. (53.5bp,36.104bp);
   % Node: home
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (138.0bp,252.0bp) -- (135.0bp,256.0bp) -- (114.0bp,256.0bp) -- (111.0bp,252.0bp) -- (76.0bp,252.0bp) -- (76.0bp,216.0bp) -- (138.0bp,216.0bp) -- cycle;
-  \draw (107.0bp,234.0bp) node {/home};
+  \draw (123.5bp,252.0bp) -- (120.5bp,256.0bp) -- (99.5bp,256.0bp) -- (96.5bp,252.0bp) -- (69.5bp,252.0bp) -- (69.5bp,216.0bp) -- (123.5bp,216.0bp) -- cycle;
+  \draw (96.5bp,234.0bp) node {/home};
 \end{scope}
   % Node: devsecops
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (177.5bp,180.0bp) -- (174.5bp,184.0bp) -- (153.5bp,184.0bp) -- (150.5bp,180.0bp) -- (36.5bp,180.0bp) -- (36.5bp,144.0bp) -- (177.5bp,144.0bp) -- cycle;
-  \draw (107.0bp,162.0bp) node {/home/devsecops};
+  \draw (157.5bp,180.0bp) -- (154.5bp,184.0bp) -- (133.5bp,184.0bp) -- (130.5bp,180.0bp) -- (35.5bp,180.0bp) -- (35.5bp,144.0bp) -- (157.5bp,144.0bp) -- cycle;
+  \draw (96.5bp,162.0bp) node {/home/devsecops};
 \end{scope}
   % Node: github
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (93.5bp,108.0bp) -- (90.5bp,112.0bp) -- (69.5bp,112.0bp) -- (66.5bp,108.0bp) -- (28.5bp,108.0bp) -- (28.5bp,72.0bp) -- (93.5bp,72.0bp) -- cycle;
-  \draw (61.0bp,90.0bp) node {.github};
+  \draw (84.0bp,108.0bp) -- (81.0bp,112.0bp) -- (60.0bp,112.0bp) -- (57.0bp,108.0bp) -- (23.0bp,108.0bp) -- (23.0bp,72.0bp) -- (84.0bp,72.0bp) -- cycle;
+  \draw (53.5bp,90.0bp) node {.github};
 \end{scope}
   % Node: gitignore
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (196.0bp,108.0bp) -- (112.0bp,108.0bp) -- (112.0bp,72.0bp) -- (196.0bp,72.0bp) -- cycle;
-  \draw (154.0bp,90.0bp) node {.gitignore};
+  \draw (178.5bp,108.0bp) -- (102.5bp,108.0bp) -- (102.5bp,72.0bp) -- (178.5bp,72.0bp) -- cycle;
+  \draw (140.5bp,90.0bp) node {.gitignore};
 \end{scope}
   % Node: codeowners
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (122.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (122.0bp,0.0bp) -- cycle;
-  \draw (61.0bp,18.0bp) node {CODEOWNERS};
+  \draw (107.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (107.0bp,0.0bp) -- cycle;
+  \draw (53.5bp,18.0bp) node {CODEOWNERS};
 \end{scope}
 %
 \end{tikzpicture}

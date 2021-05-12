@@ -4,101 +4,101 @@
 %%
 \pgfsetcolor{black}
   % Edge: home -> devsecops
-  \draw [->] (62.201bp,234.0bp) .. controls (69.973bp,234.0bp) and (78.668bp,234.0bp)  .. (97.873bp,234.0bp);
+  \draw [->] (54.172bp,234.0bp) .. controls (61.803bp,234.0bp) and (70.527bp,234.0bp)  .. (89.778bp,234.0bp);
   % Edge: devsecops -> ansible
-  \draw [->] (215.68bp,252.13bp) .. controls (231.65bp,258.27bp) and (249.42bp,265.1bp)  .. (274.61bp,274.78bp);
+  \draw [->] (195.15bp,252.13bp) .. controls (209.13bp,258.01bp) and (224.61bp,264.51bp)  .. (247.83bp,274.27bp);
   % Edge: devsecops -> packer
-  \draw [->] (239.16bp,234.0bp) .. controls (248.39bp,234.0bp) and (257.61bp,234.0bp)  .. (276.28bp,234.0bp);
+  \draw [->] (212.11bp,234.0bp) .. controls (221.69bp,234.0bp) and (231.39bp,234.0bp)  .. (250.5bp,234.0bp);
   % Edge: devsecops -> aws
-  \draw [->] (192.02bp,215.92bp) .. controls (215.42bp,197.93bp) and (251.49bp,170.21bp)  .. (285.41bp,144.14bp);
+  \draw [->] (173.51bp,215.92bp) .. controls (194.73bp,198.09bp) and (227.33bp,170.69bp)  .. (258.92bp,144.14bp);
   % Edge: packer -> adh
-  \draw [->] (341.64bp,246.98bp) .. controls (353.37bp,251.54bp) and (366.73bp,256.62bp)  .. (379.0bp,261.0bp) .. controls (393.65bp,266.23bp) and (409.9bp,271.66bp)  .. (433.92bp,279.46bp);
+  \draw [->] (312.74bp,246.25bp) .. controls (324.62bp,250.98bp) and (338.41bp,256.36bp)  .. (351.0bp,261.0bp) .. controls (364.79bp,266.09bp) and (380.06bp,271.41bp)  .. (403.23bp,279.29bp);
   % Edge: packer -> gdh
-  \draw [->] (341.61bp,234.0bp) .. controls (349.83bp,234.0bp) and (359.07bp,234.0bp)  .. (378.79bp,234.0bp);
+  \draw [->] (312.6bp,234.0bp) .. controls (321.04bp,234.0bp) and (330.68bp,234.0bp)  .. (350.84bp,234.0bp);
   % Edge: aws -> main
-  \draw [->] (336.14bp,136.83bp) .. controls (349.06bp,141.9bp) and (364.77bp,147.92bp)  .. (379.0bp,153.0bp) .. controls (391.47bp,157.46bp) and (405.11bp,162.05bp)  .. (427.36bp,169.34bp);
+  \draw [->] (308.74bp,136.66bp) .. controls (321.45bp,141.74bp) and (336.97bp,147.82bp)  .. (351.0bp,153.0bp) .. controls (363.38bp,157.57bp) and (376.94bp,162.32bp)  .. (398.82bp,169.8bp);
   % Edge: aws -> out
-  \draw [->] (336.17bp,126.0bp) .. controls (357.26bp,126.0bp) and (387.05bp,126.0bp)  .. (422.35bp,126.0bp);
+  \draw [->] (308.78bp,126.0bp) .. controls (329.01bp,126.0bp) and (357.52bp,126.0bp)  .. (391.85bp,126.0bp);
   % Edge: aws -> tfvars
-  \draw [->] (336.14bp,115.17bp) .. controls (349.06bp,110.1bp) and (364.77bp,104.08bp)  .. (379.0bp,99.0bp) .. controls (384.2bp,97.141bp) and (389.61bp,95.257bp)  .. (404.85bp,90.074bp);
+  \draw [->] (308.74bp,115.34bp) .. controls (321.45bp,110.26bp) and (336.97bp,104.18bp)  .. (351.0bp,99.0bp) .. controls (355.86bp,97.207bp) and (360.91bp,95.385bp)  .. (375.76bp,90.131bp);
   % Edge: aws -> var
-  \draw [->] (320.48bp,107.67bp) .. controls (332.84bp,89.359bp) and (354.1bp,61.601bp)  .. (379.0bp,45.0bp) .. controls (386.34bp,40.106bp) and (394.64bp,36.036bp)  .. (412.59bp,29.159bp);
+  \draw [->] (293.69bp,107.73bp) .. controls (305.74bp,89.464bp) and (326.53bp,61.743bp)  .. (351.0bp,45.0bp) .. controls (356.67bp,41.118bp) and (362.96bp,37.745bp)  .. (379.0bp,30.869bp);
   % Node: home
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (62.0bp,252.0bp) -- (59.0bp,256.0bp) -- (38.0bp,256.0bp) -- (35.0bp,252.0bp) -- (0.0bp,252.0bp) -- (0.0bp,216.0bp) -- (62.0bp,216.0bp) -- cycle;
-  \draw (31.0bp,234.0bp) node {/home};
+  \draw (54.0bp,252.0bp) -- (51.0bp,256.0bp) -- (30.0bp,256.0bp) -- (27.0bp,252.0bp) -- (0.0bp,252.0bp) -- (0.0bp,216.0bp) -- (54.0bp,216.0bp) -- cycle;
+  \draw (27.0bp,234.0bp) node {/home};
 \end{scope}
   % Node: devsecops
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (239.0bp,252.0bp) -- (236.0bp,256.0bp) -- (215.0bp,256.0bp) -- (212.0bp,252.0bp) -- (98.0bp,252.0bp) -- (98.0bp,216.0bp) -- (239.0bp,216.0bp) -- cycle;
-  \draw (168.5bp,234.0bp) node {/home/devsecops};
+  \draw (212.0bp,252.0bp) -- (209.0bp,256.0bp) -- (188.0bp,256.0bp) -- (185.0bp,252.0bp) -- (90.0bp,252.0bp) -- (90.0bp,216.0bp) -- (212.0bp,216.0bp) -- cycle;
+  \draw (151.0bp,234.0bp) node {/home/devsecops};
 \end{scope}
   % Node: ansible
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (343.0bp,306.0bp) -- (340.0bp,310.0bp) -- (319.0bp,310.0bp) -- (316.0bp,306.0bp) -- (275.0bp,306.0bp) -- (275.0bp,270.0bp) -- (343.0bp,270.0bp) -- cycle;
-  \draw (309.0bp,288.0bp) node {ansible};
+  \draw (315.0bp,306.0bp) -- (312.0bp,310.0bp) -- (291.0bp,310.0bp) -- (288.0bp,306.0bp) -- (248.0bp,306.0bp) -- (248.0bp,270.0bp) -- (315.0bp,270.0bp) -- cycle;
+  \draw (281.5bp,288.0bp) node {ansible};
 \end{scope}
   % Node: packer
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (341.5bp,252.0bp) -- (338.5bp,256.0bp) -- (317.5bp,256.0bp) -- (314.5bp,252.0bp) -- (276.5bp,252.0bp) -- (276.5bp,216.0bp) -- (341.5bp,216.0bp) -- cycle;
-  \draw (309.0bp,234.0bp) node {packer};
+  \draw (312.5bp,252.0bp) -- (309.5bp,256.0bp) -- (288.5bp,256.0bp) -- (285.5bp,252.0bp) -- (250.5bp,252.0bp) -- (250.5bp,216.0bp) -- (312.5bp,216.0bp) -- cycle;
+  \draw (281.5bp,234.0bp) node {packer};
 \end{scope}
   % Node: aws
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (336.0bp,144.0bp) -- (333.0bp,148.0bp) -- (312.0bp,148.0bp) -- (309.0bp,144.0bp) -- (282.0bp,144.0bp) -- (282.0bp,108.0bp) -- (336.0bp,108.0bp) -- cycle;
-  \draw (309.0bp,126.0bp) node {aws};
+  \draw (308.5bp,144.0bp) -- (305.5bp,148.0bp) -- (284.5bp,148.0bp) -- (281.5bp,144.0bp) -- (254.5bp,144.0bp) -- (254.5bp,108.0bp) -- (308.5bp,108.0bp) -- cycle;
+  \draw (281.5bp,126.0bp) node {aws};
 \end{scope}
   % Node: adh
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (488.0bp,306.0bp) -- (434.0bp,306.0bp) -- (434.0bp,270.0bp) -- (488.0bp,270.0bp) -- cycle;
-  \draw (461.0bp,288.0bp) node {adh};
+  \draw (457.5bp,306.0bp) -- (403.5bp,306.0bp) -- (403.5bp,270.0bp) -- (457.5bp,270.0bp) -- cycle;
+  \draw (430.5bp,288.0bp) node {adh};
 \end{scope}
   % Node: gdh
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (543.0bp,252.0bp) -- (379.0bp,252.0bp) -- (379.0bp,216.0bp) -- (543.0bp,216.0bp) -- cycle;
-  \draw (461.0bp,234.0bp) node {gcp-debian-host.json};
+  \draw (510.0bp,252.0bp) -- (351.0bp,252.0bp) -- (351.0bp,216.0bp) -- (510.0bp,216.0bp) -- cycle;
+  \draw (430.5bp,234.0bp) node {gcp-debian-host.json};
 \end{scope}
   % Node: main
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (494.5bp,198.0bp) -- (427.5bp,198.0bp) -- (427.5bp,162.0bp) -- (494.5bp,162.0bp) -- cycle;
-  \draw (461.0bp,180.0bp) node {main.tf};
+  \draw (462.0bp,198.0bp) -- (399.0bp,198.0bp) -- (399.0bp,162.0bp) -- (462.0bp,162.0bp) -- cycle;
+  \draw (430.5bp,180.0bp) node {main.tf};
 \end{scope}
   % Node: out
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (499.5bp,144.0bp) -- (422.5bp,144.0bp) -- (422.5bp,108.0bp) -- (499.5bp,108.0bp) -- cycle;
-  \draw (461.0bp,126.0bp) node {output.tf};
+  \draw (469.0bp,144.0bp) -- (392.0bp,144.0bp) -- (392.0bp,108.0bp) -- (469.0bp,108.0bp) -- cycle;
+  \draw (430.5bp,126.0bp) node {output.tf};
 \end{scope}
   % Node: tfvars
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (526.5bp,90.0bp) -- (395.5bp,90.0bp) -- (395.5bp,54.0bp) -- (526.5bp,54.0bp) -- cycle;
-  \draw (461.0bp,72.0bp) node {terraform.tfvars};
+  \draw (498.0bp,90.0bp) -- (363.0bp,90.0bp) -- (363.0bp,54.0bp) -- (498.0bp,54.0bp) -- cycle;
+  \draw (430.5bp,72.0bp) node {terraform.tfvars};
 \end{scope}
   % Node: var
 \begin{scope}
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (509.0bp,36.0bp) -- (413.0bp,36.0bp) -- (413.0bp,0.0bp) -- (509.0bp,0.0bp) -- cycle;
-  \draw (461.0bp,18.0bp) node {variables.tf};
+  \draw (482.0bp,36.0bp) -- (379.0bp,36.0bp) -- (379.0bp,0.0bp) -- (482.0bp,0.0bp) -- cycle;
+  \draw (430.5bp,18.0bp) node {variables.tf};
 \end{scope}
 %
 \end{tikzpicture}
