@@ -131,7 +131,7 @@ projects.
 
 Macintosh:
 
-```sh
+\begin{mybox}{\thetcbcounter: Macintosh}
 brew install pass gpg2
 gpg2 --list-keys # get your public key id
 pass init C25565E4701F4ED36A0711AA114F3606EFD923BB # id of your public GPG key
@@ -140,11 +140,11 @@ pass ls
 pass insert aws-secret-access-key
 pass ls
 pass show aws-secret-access-key
-```
+\end{mybox}
 
 Docker/Alpine Linux:
 
-```sh
+\begin{mybox}{\thetcbcounter: Docker/Alpine Linux}
 apk update && apk add --no-cache pass gnupg
 gpg --list-keys # get your public key id
 pass init C25565E4701F4ED36A0711AA114F3606EFD923BB # id of your public GPG key
@@ -153,15 +153,15 @@ pass ls
 pass insert aws-secret-access-key
 pass ls
 pass show aws-secret-access-key
-```
+\end{mybox}
 
 * Create Terraform plan, apply, etc.
 
-```sh
+\begin{mybox}{\thetcbcounter: Terraform}
 export AWS_ACCESS_KEY_ID=$(pass aws-access-key-id) # your creds come from the vault
 export AWS_SECRET_ACCESS_KEY=$(pass aws-secret-access-key) # your creds come from the vault
 terraform plan # should be able to get your creds from your shell
-```
+\end{mybox}
 
 \subsection{terraform.tfvars}
 
@@ -202,7 +202,7 @@ Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
 
 put an example VPC in here
 
-\subsection{outputs.tf}\label{outputs.tf}}
+\subsection{outputs.tf}\label{outputs.tf}
 
 \justify
 We can display or export the resources we've created in main.tf using a
