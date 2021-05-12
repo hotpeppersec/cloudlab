@@ -2,10 +2,10 @@
 
 \includegraphics{../images/school-tools-3596680_1920.jpg}
 
-We can reduce our Mean Time To Deploy (MTTD)\footnote{\url{https://www.packer.io/downloads/}}
+We can reduce our Mean Time To Deploy (MTTD)
 by using tools to prepare and generate our machine images
 programatically, and with scripting languages such as HCL, which
-Terraform\footnote{\url{https://www.terraform.io/intro/index.html}}
+Terraform
 is based on. In this section we examine these tools in greater depth.
 
 single: MTTD
@@ -26,7 +26,7 @@ configurations in the cloud provider network.
 \justify
 Using Hashicorp Packer is a great way to nail down the contents of a
 machine image before we bring up an instance. Download Packer from the
-Hashicorp web site in preparation for the following steps\footnote{\url{https://github.com/bonclay7/aws-amicleaner}}. 
+Hashicorp web site in preparation for the following steps. 
 We will focus on creating images for our cloud provider from the
 command line. Bear in mind it is also possible to use Terraform to
 manage the creation of Packer generated machine images. Generating
@@ -93,12 +93,11 @@ include in our Terraform builds.
 
 \justify
 You may want to remove the images from AWS/GCP since storing them incurs
-additional cost, whether they are in use or not\footnote{\url{https://registry.terraform.io/modules/trussworks/lambda-packerjanitor/aws/1.0.0}}
-.
+additional cost, whether they are in use or not.
+
 \justify
 To remove stale machine images from AWS, you may try a tool such as
-aws-amicleaner\footnote{\url{https://www.terraform.io/intro/index.html}}
-, which is available to be installed via Python/pip as well as from the
+aws-amicleaner, which is available to be installed via Python/pip as well as from the
 GitHub repository for the project.
 
 \jusitfy

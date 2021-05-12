@@ -4,16 +4,14 @@
 
 Let's talk about some things.
 
-## Run Markdown Linter & Spell Check
+Markdown Linter and Spell Check
 
 Please run the linter and spell check on MD files before merging into this
 repository.
 
-* Run the command `curl -L https://nixos.org/nix/install | sh` to install nix shell.
-* Now do this:
-
-```sh
+\begin{mybox}{\thetcbcounter: terraform.tfvars}
+curl -L https://nixos.org/nix/install | sh
 nix-shell -p "ruby.withPackages (ps: with ps; [ mdl hunspell ])"
 mdl .
 hunspell fiename.md
-```
+\end{mybox}

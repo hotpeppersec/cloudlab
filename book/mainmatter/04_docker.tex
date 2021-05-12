@@ -40,7 +40,7 @@ should the need arise.
 
 \justify
 See the Docker website for instructions on how to install and configure
-Docker\footnote{\url{https://docs.docker.com/get-docker/}} . A properly
+Docker. A properly
 functioning Docker setup on your local machine is a requirement for the
 exercises we will do later. Note that Podman is an acceptable substitute
 for Docker, as detailed later in this chapter.
@@ -194,14 +194,14 @@ new container. Recall that we set our \textbf{WORKDIR} variable to /project in t
 
 \subsubsection{Testing from GitHub}
 \justify
-It should be noted that the link to the GitHub repository for the accompanying project for this book is
-\url{https://github.com/hotpeppersec/rapid_secdev_framework}. In the next chapter we will explore how to "clone" the project repository and do our work directory from there.
+It should be noted that the link to the GitHub repository
+for the accompanying project for this book is xxx. In the next chapter 
+we will explore how to "clone" the project repository and do our work directory from there.
 
 \section{Substituting Podman for Docker}
 \justify
 Podman is an Open Source container engine from the Open Containers Initiative (OCI)\index{Open Containers Initiative (OCI)}. The Podman\index{Podman} service is purportedly capable of being a drop-in replacement for Docker, although it only runs on Linux hosts at the time of this writing. Podman gives the user the ability to use traditional Docker commands, without the need to run a daemon to do so,
 as is the case with Docker.
-\href{https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/}{According to William Henry of Red Hat Inc} , the Podman approach is simply to directly interact with the image registry, with the container and image storage, and with the Linux kernel through the runC container runtime process (rather than with a daemon).
 
 \justify
 You can install Podman by \href{https://podman.io/getting-started/installation.html}{following the instructions} at their web site.

@@ -24,10 +24,10 @@ frequently.
 	\begin{center}
 		\begin{tabular}{| p{2.5cm}| p{2.5cm} | p{2.5cm} |}
 			\hline
-			\textbf{Language} & \textbf{Name} & \textbf{Source}                                                        \\
+			\textbf{Language} & \textbf{Name} & \textbf{Source}\hfill                                                        \\
 			Ansible           & ansible-lint  & python (pip install ansible-lint)                                      \\
 			Markdown          & mdl           & ruby (gem install mdl)                                                 \\
-			Puppet            & puppet-lint   & ruby (gem install puppet-lint)\footnote{\url{http://puppet-lint.com/}} \\
+			Puppet            & puppet-lint   & ruby (gem install puppet-lint)\url{http://puppet-lint.com/}} \\
 			Python            & pylint/flake8 & python (pip install pylint/flake8)                                     \\
 			Terraform         & tflint        & \url{https://github.com/terraform-linters/tflint}
 		\end{tabular}
@@ -75,7 +75,7 @@ GitHub Actions execute our make python target from our custom Makefile.
 
 \subsection{Packer}
 
-Save this YAML file under devsecops_tactical/.github/workflows/packer.yml to have
+Save this YAML file under devsecops\_tactical/.github/workflows/packer.yml to have
 GitHub Actions validate and build our AMI image with Packer.
 
 \begin{mybox}{\thetcbcounter: AWS Debian host with packer}
@@ -118,12 +118,11 @@ single: Circle CI
 \justify
 Travis CI is a hosted continuous integration service used to build and
 test software projects hosted at GitHub and Bitbucket. They have a great
-tutorial available\footnote{\url{https://docs.travis-ci.com/user/tutorial/}}
+tutorial available
 if you care to dig a bit deeper.
 
 \justify
-By enabling Travis CI integration through the GitHub
-Marketplace\footnote{\url{https://github.com/marketplace/travis-ci}} you
+By enabling Travis CI integration through the GitHub Marketplace you
 can integrate their scanners with your repository.
 
 \subsubsection{Docker}
