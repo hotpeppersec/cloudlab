@@ -1,9 +1,9 @@
 clean: 
 	@find . -name '*.pyc' | xargs rm -rf
 	@find . -name '__pycache__' | xargs rm -rf
-	@for trash in _build *.aux *.bbl *.blg *.lof *.log *.lot *.out *.pdf *.synctex.gz *.toc ; do \
-		if [ -f $$trash ] || [ -d $$trash ]; then \
-					rm -rf $$trash ; \
+	@for trash in *.aux *.bbl *.blg *.lof *.log *.lot *.out *.pdf *.synctex.gz *.toc ; do \
+		if [ -f book/$$trash ] || [ -d book/$$trash ]; then \
+					rm -rf book/$$trash ; \
 		fi ; \
 	done
-	rm frontmatter/*.aux mainmatter/*.aux backmatter/*.aux
+	rm book/frontmatter/*.aux book/mainmatter/*.aux book/backmatter/*.aux
