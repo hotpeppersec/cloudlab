@@ -1,1 +1,0 @@
-../../docs/_source/global.rst
