@@ -19,4 +19,4 @@ fi
 
 # Run the actual conversion. 
 $GS -sDEVICE=pdfwrite -q -dNOPAUSE -dBATCH -sOutputFile=$3 \
-	-dFirstPage=$1 -dLastPage=$2 ./book/_build/latex/devsecopsquickstart.pdf
+	-dFirstPage=$1 -dLastPage=$2 ./book/_build/latex/devsecops_tactical.pdf

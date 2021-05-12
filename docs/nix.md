@@ -24,7 +24,7 @@ nix-shell
 python -m pip install -rpython/requirements.txt
 for my_x in `ls book/dot|cut -f1 -d'.'|uniq`; do dot -Txdot book/dot/${my_x}.dot | dot2tex --figonly > book/dot/${my_x}.tex;done
 #/usr/bin/texstudio &
-pdflatex --shell-escape -synctex=1 -interaction=nonstopmode book/devsecops_quickstart.tex
+pdflatex --shell-escape -synctex=1 -interaction=nonstopmode book/devsecops_tactical.tex
 exit
 nix-collect-garbage -d
 ```

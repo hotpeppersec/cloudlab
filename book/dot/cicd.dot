@@ -5,7 +5,7 @@ digraph cicd {
     node [fontname="Helvetica" fontsize=14 shape=box];
     edge [fontname="Symbol" fontsize=10];
 
-    framework [shape=folder fontname="Symbol" label="rapid_secdev_framework"];
+    framework [shape=folder fontname="Symbol" label="devsecops_tactical"];
     dotgh [shape=folder fontname="Symbol" label=".github"];
     workflows [shape=folder fontname="Symbol" label="workflows"];
     dotcircleci [shape=folder label=".circleci"];

@@ -2,7 +2,7 @@ digraph docker {
 size="8,4";
 node [fontname="Helvetica" fontsize=14 shape=box];
 edge [fontname="Symbol" fontsize=10];
-framework [shape=folder fontname="Symbol" label="rapid_secdev_framework"];
+framework [shape=folder fontname="Symbol" label="devsecops_tactical"];
 docker [shape=folder fontname="Symbol" label="docker"];
 dockercom [fontname="Symbol" label="docker-compose.yml"];
 Dockerfile [fontname="Symbol" label="Dockerfile"];

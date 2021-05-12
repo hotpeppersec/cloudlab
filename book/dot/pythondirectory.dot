@@ -2,7 +2,7 @@ digraph mypython {
     rankdir=LR;
     node [shape=rectangle];
     py [label="python" shape=folder];
-    devsecops [label="devsecops" shape=folder];
+    devsecops [label="devsecops_tactical" shape=folder];
     lib [label="lib" shape=folder];
     req [label="requirements.txt"];
     tst [label="requirements-test.txt"];

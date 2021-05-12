@@ -1,7 +1,7 @@
 digraph makefile {
 node [shape=rectangle];
 
-devsecops [shape=folder label="devsecops"];
+devsecops [shape=folder label="devsecops_tactical"];
 python [shape=folder label="python"];
 docker [shape=folder label="docker"];
 terraform [shape=folder label="terraform"];
