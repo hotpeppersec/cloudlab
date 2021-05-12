@@ -50,6 +50,12 @@
 %%%%%%%%%%% datetime
 \usepackage{datetime}
 
+% Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+% Make it at least 14.49998pt.
+% We now make it that large for the rest of the document.
+% This may cause the page layout to be inconsistent, however.
+\usepackage[headheight=110pt]{geometry}
+
 \newdateformat{MonthYearFormat}{%
 	\monthname[\THEMONTH], \THEYEAR}
 
@@ -57,6 +63,7 @@
 %% Change oneside to twoside in document class
 \usepackage{fancyhdr}\pagestyle{fancy}
 \fancyhf{}
+
 %%% Alternating Header for oneside
 \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{ \small \nouppercase{\leftmark} }{}}
 \fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{}{ \small \nouppercase{\rightmark} }}
@@ -73,6 +80,7 @@
 
 %%% page number
 \fancyfoot[CO, CE]{\thepage}
+
 
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
