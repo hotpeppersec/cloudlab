@@ -1,37 +1,9 @@
 # DevSecOps Quickstart
 
-![Docker Image CI](https://github.com/thedevilsvoice/devsecops_quickstart/workflows/Docker%20Image%20CI/badge.svg?branch=master)
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">DevSecOps Tactical</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/thedevilsvoice/devsecops_tactical_book" property="cc:attributionName" rel="cc:attributionURL">Franklin Diaz</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 ![Cloudy](https://github.com/thedevilsvoice/devsecops_quickstart/blob/master/docs/images/sky-690293_1920.jpg)
 
-## Linux Dev Environment Setup
-
-Testing out nix & python build env.
-* https://github.com/dnadales/nix-latex-template
-
-Set up nix env in BASH:
-
-```sh
-nix-shell -I nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
-``
-
-Set up the nix env in my fish shell:
-
-```sh
-set -x NIX_PATH (echo $NIX_PATH:)nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
-```
-
-Now start nix shell
-
-```sh
-nix-shell
-python -m pip install -rrequirements.txt
-for my_x in `ls book/dot|cut -f1 -d'.'|uniq`; do dot -Txdot book/dot/${my_x}.dot | dot2tex --figonly > book/dot/${my_x}.tex;done
-#/usr/bin/texstudio &
-pdflatex --shell-escape -synctex=1 -interaction=nonstopmode book/devsecops_quickstart.tex
-exit
-nix-collect-garbage -d
-```
 
 ## Windows Dev Environment Setup
 
