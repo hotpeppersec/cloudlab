@@ -67,17 +67,11 @@ and a file called
 \href{https://github.com/hotpeppersec/rapid_secdev_framework/blob/master/docker/Dockerfile}{Dockerfile}\index{Dockerfile}
 within this directory. Note the capitalization of the first letter in the file name. Some IDE's will key off this file and allow for additional syntax highlighting.
 
-\begin{mybox}{\thetcbcounter: Example Dockerfile}
-FROM python:3.9-buster\\
-LABEL maintainer "Kevin Flynn <user@example.com>"\\
-
-ENV DEBIAN\_FRONTEND noninteractive\\
-
-ADD . /project\\
-WORKDIR /project\\
-
-RUN apt update \&\& apt -y install apt-utils\\
+\justify
+\begin{mybox}{\thetcbcounter: Dockerfile}
+        \lstinputlisting{code/04_docker/Dockerfile}
 \end{mybox}
+
 
 \justify
 A valid Dockerfile begins with the \textbf{FROM} instruction. This
