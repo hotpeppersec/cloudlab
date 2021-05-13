@@ -16,14 +16,14 @@ jobs:
       - name: bibtex main
         uses: dante-ev/latex-action@latest
         with:
-          root_file: devsecops_tactical.tex
+          root_file: devsecops_tactical
           working_directory: book
           compiler: bibtex
           args: 
       - name: pdflatex main
         uses: dante-ev/latex-action@latest
         with:
-          root_file: devsecops_tactical.tex
+          root_file: devsecops_tactical
           working_directory: book
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
