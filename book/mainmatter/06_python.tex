@@ -3,13 +3,16 @@
 \includegraphics[scale=0.85]{../images/snake-1634293_1920.jpg}
 
 \justify
-Getting started in writing programs is easy with Python. It is highly extensible since
-there are many add on modules available from a collection known as Pypi. Python is fairly
-easy to learn, especially when compared to other languages. Python runs "everywhere", for
-all intents and purposes. For all these reasons, Python is a great choice.
+Getting started in writing programs is easy with Python. It is a highly 
+extensible language, since there are many add on modules available. 
+There is a collection known as Pypi where many of these are hosted.
+Python is fairly easy to learn, especially when compared to other languages.
+Python runs "everywhere", for all intents and purposes. For all these reasons,
+Python is a great choice.
 
 \justify
-An item of note, Python3 is our only choice at this point. Python 2.x End of Life was January 1st, 2020.
+An item of note, Python3 is our only choice at this point. Python 2.x End of Life was
+January 1st, 2020.
 
 \section{The \_\_init\_\_.py File}
 
@@ -21,29 +24,16 @@ python code files in the directory, we can use it to our advantage. For
 example, try adding this quick and dirty logging function to
 python/devsecops/lib/\_\_init\_\_.py
 
-\begin{mybox}{\thetcbcounter: python/devsecops/lib/\_\_init\_\_.py}
-  import logging\\
-  from pathlib import Path\\
-
-  Path("/var/log/devsecops").mkdir(parents=True, exist\_ok=True)\\
-  logging.basicConfig(\\
-  filename="/var/log/devsecops/devsecops.log",\\
-  level=logging.DEBUG,\\
-  format="[\%(asctime)s] [\%(filename):\%(lineno) - \%(funcName) - \%(processName)] \%(levelname) - \%(message)"\\
-  )
+\justify
+\begin{mybox}{\thetcbcounter: \_\_init\_\_.py}
+        \lstinputlisting{code/06_python/init.py}
 \end{mybox}
 
 \justify
 Now we can create a Python file log\_test.py and call the logger from within like so:
 
 \begin{mybox}{\thetcbcounter: log\_test.py}
-  import logging\\
-  from pathlib import Path\\
-
-  def main():\\
-  logging.debug('Loggy Loggerton')\\
-  if \_\_name\_\_=="\_\_main\_\_":\\
-  main()
+        \lstinputlisting{code/06_python/log\_test.py}
 \end{mybox}
 
 \justify
