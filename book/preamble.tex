@@ -1,3 +1,17 @@
+% Important Packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgbonum} % set the document font
+\usepackage{ragged2e} % use flush and justify for text blocks
+\usepackage[listings, minted]{tcolorbox}
+\usepackage[pdf]{graphviz} % support for graphviz
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{graphicx}\graphicspath{{../images}}
+\usepackage{pgfplots} % testing X axis pic
+\pgfplotsset{compat = newest} % testing X axis pic
+\usepackage{bookmark}% http://ctan.org/pkg/bookmark
+
 \definecolor{myblue}{RGB}{0,163,243}
 \definecolor{mygrey}{RGB}{128,128,128}
 \definecolor{whitesmoke}{RGB}{245,245,245}
@@ -27,8 +41,6 @@
 %
 %%%% Table of content upto 2=subsection, 3=subsubsection
 \setcounter{tocdepth}{2}
-
-
 
 %%% reduce spaces for Table of contents, figures and tables
 %%% it is used "\addtocontents{toc}{\vskip -1.2cm}" etc. in the document

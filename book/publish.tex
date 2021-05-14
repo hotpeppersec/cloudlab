@@ -1,0 +1,22 @@
+% !TeX root = devsecops_tactical.tex
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+
+\documentclass[12pt,a4paper]{book}
+
+
+% Important Packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgbonum} % set the document font
+\usepackage{ragged2e} % use flush and justify for text blocks
+\usepackage[listings, minted]{tcolorbox}
+\usepackage[pdf]{graphviz} % support for graphviz
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{graphicx}\graphicspath{{../images}}
+
+\begin{document}
+
+% frontmatter: half title, title page, colophon (copyright page), epigraph, toc, preface, acknowledgements
+\frontmatter
+\include{frontmatter/maketitle}
