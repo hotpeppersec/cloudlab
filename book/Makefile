@@ -3,6 +3,7 @@
 book: 
 	@if [ ! -d /nix ]; then  echo "***> Where is your nix installation? <***" && exit 1; fi
 	pdflatex -shell-escape -synctex=1 -interaction=nonstopmode devsecops_tactical
+	makeindex devsecops_tactical
 	bibtex devsecops_tactical
 
 dot:
