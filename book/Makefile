@@ -8,3 +8,9 @@ book:
 
 dot:
 	for myfile in $(shell ls dot/*.dot |cut -f1 -d'.'|uniq); do dot -Txdot $$myfile.dot | $(shell which dot2tex) --figonly > $$myfile.tex;done
+
+publish:
+	pdflatex -shell-escape -synctex=1 -interaction=nonstopmode publish
+	#makeindex publish
+	#bibtex publish
+

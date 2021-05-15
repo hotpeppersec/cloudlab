@@ -1,0 +1,60 @@
+\documentclass[11pt]{book}
+
+%%% FONTS %%%
+\usepackage{anyfontsize}% https://www.texfaq.org/FAQ-fontsize (allow arbitrary font sizes)
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgbonum} % set the document font
+
+%%% SPACING %%%
+\usepackage[notlot,nottoc,notlof]{} % reduce spaces for ToC, figs and tables % used like so "\addtocontents{toc}{\vskip -1.2cm}"
+\linespread{1.25} % 1.5 spacing on lines of text
+\usepackage{ragged2e} % use flush and justify for text blocks
+\usepackage{enumitem} % reduce spacing for itemize
+\setlist{nosep}
+
+\usepackage[listings, minted]{tcolorbox}
+\usepackage[pdf]{graphviz} % support for graphviz
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{graphicx}\graphicspath{{../images}}
+\usepackage{pgfplots} % testing X axis pic
+\pgfplotsset{compat = newest} % testing X axis pic
+\usepackage{bookmark} % http://ctan.org/pkg/bookmark
+
+\definecolor{myblue}{RGB}{0,163,243}
+\definecolor{mygrey}{RGB}{128,128,128}
+\definecolor{whitesmoke}{RGB}{245,245,245}
+
+\newtcolorbox[auto counter,number within=section]{mybox}[2][]{
+	colbacktitle=mygrey,
+	colback=whitesmoke,
+	title={#2},
+	fonttitle=\ttfamily\small,
+	fontupper=\sffamily\small,
+	halign=flush left,
+	rounded corners,
+	#1
+}
+
+%%%add number to subsubsection 2=subsection, 3=subsubsection
+%%% below subsubsection is not good idea.
+%\setcounter{secnumdepth}{3}
+%
+%%%% Table of content upto 2=subsection, 3=subsubsection
+%\setcounter{tocdepth}{2}
+
+
+
+\usepackage{color}
+\usepackage{transparent}
+\usepackage{eso-pic}
+\usepackage{datetime}
+\newdateformat{MonthYearFormat}{%
+	\monthname[\THEMONTH], \THEYEAR}
+
+
+
+%%% INDEX %%%
+\usepackage{makeidx}\makeindex
+\usepackage[nottoc]{tocbibind} % add index and bib to ToC
