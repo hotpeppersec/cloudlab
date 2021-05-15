@@ -62,11 +62,7 @@
 \usepackage{lipsum}
 \usepackage{datetime}
 
-%% spacing between line
-\usepackage{setspace}
-%%%%\onehalfspacing
-%%%%\doublespacing
-\singlespacing
+\linespread{1.25}
 
 \newdateformat{MonthYearFormat}{%
 	\monthname[\THEMONTH], \THEYEAR}
@@ -82,15 +78,6 @@
 
 %%% page number
 \fancyfoot[CO, CE]{\thepage}
-
-%\renewcommand{\headrulewidth}{0.5pt}
-%\renewcommand{\footrulewidth}{0.5pt}
-
-%\RequirePackage{tocbibind} %%% comment this to remove page number for following
-%\addto\captionsenglish{\renewcommand{\contentsname}{Table of contents}}
-%\addto\captionsenglish{\renewcommand{\listfigurename}{List of figures}}
-%\addto\captionsenglish{\renewcommand{\listtablename}{List of tables}}
-% \addto\captionsenglish{\renewcommand{\chaptername}{Chapter}}
 
 %%reduce spacing for itemize
 \usepackage{enumitem}

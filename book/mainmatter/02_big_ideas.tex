@@ -1,6 +1,6 @@
 \chapter{Some Big Ideas}
 
-\includegraphics[scale=0.85]{../images/book-5104342_1920.jpg}
+\includegraphics{../images/book-5104342_1920.jpg}
 
 \justify
 There are some key precepts that will serve the aspiring DevSecOps
@@ -13,16 +13,16 @@ of the modern day DevSecOps engineer in a world gone cloudy.
 
 \justify
 Code, documents, test cases, and other software work products begin
-their life on developer workstations. In this book we will refer to
-the environments where this takes place as the "local" environment. 
-These work products are created, reviewed and checked into Revision 
-Control Systems (RCS)\index{Revsion Control System (RCS)}, 
+their lives on the workstations of creators and developers. In this
+book we will refer to the environments where this takes place as the
+"local" environment. These work products are typically created, reviewed and
+checked into Revision Control Systems (RCS)\index{Revsion Control System (RCS)}, 
 GitHub\index{GitHub} for example, by the DevSecOps practitioner. 
-Other revision control systems include GitLab\index{GitLab} and 
+Other popular revision control systems include GitLab\index{GitLab} and 
 BitBucket\index{BitBucket}.
 
 \justify
-We will delve into various types and spects of testing 
+We will delve into various types and aspects of testing 
 throughout this book. For now it is enough to understand the idea of
 a test case as a discrete check, or grouping of similar types of 
 checks, that we use to ensure our work products meet certain minimum
@@ -45,11 +45,12 @@ for use by the entire user base.
 
 \justify
 We will refer to the entirety of this three-stage flow as one example of
-a "build pipeline"\index{pipeline}. Code from one or more local environments is checked in to
-the revision control system throughout a typical DevSecOps workday, and
-continuously tested and integrated with the main code base. That is to
-say, work undergoes "Continuous Integration" (CI)\index{Continuous Integration (CI)}
-with the main code base, and often "Continuous Delivery" (CD)\index{Continuous Delivery (CD)}
+a "build pipeline"\index{pipeline}. Code from one or more local
+environments is checked in to the revision control system throughout a
+typical DevSecOps workday, and continuously tested and integrated with
+the main code base. That is to say, work undergoes "Continuous Integration"
+(CI)\index{Continuous Integration (CI)} with the main code base, 
+and often "Continuous Delivery" (CD)\index{Continuous Delivery (CD)}
 between local, test, and production environments. This is where the term
 "CI/CD Pipeline" comes from. A business unit may choose to designate more
 than just the three "dev", "test", and "prod" environments mentioned here,
@@ -94,13 +95,31 @@ figure \ref{fig:shift}.
 
 \section{Zero Trust}
 
+Starting from the assumption that all the computers and networks are
+inherently unsafe and/or already compromised, the Zero Trust
+model gives organizations a way of thinking when establishing a security
+posture.
+
 \section{Automation}
 
 \justify
-Consider what may happen when we want to apply the lessons from this book across a large environment made up of many hosts, containers, pieces of application software, etc. It becomes a huge challenge for an operator to log in to each host or container individually. Typing, or even cutting and pasting commands to keep things up and running properly, look at logs, and so on becomes problematic. Creating shell scripts can be quite helpful, but is an outdated modality when we consider the daunting size and complexity of the modern administrative domain.
+Consider what may happen when we want to apply the lessons from this book
+across a large environment made up of many hosts, containers, pieces of
+application software, etc. It becomes a huge challenge for an operator
+to log in to each host or container individually. Typing, or even cutting
+and pasting commands to keep things up and running properly, look at logs,
+and so on becomes problematic. Creating shell scripts can be quite helpful,
+but is an outdated modality when we consider the daunting size and complexity
+of the modern administrative domain.
 
 \justify
-This is where automation comes in. Automation\index{automation} is a way to provision and maintain some or many hosts in a programmatic manner. Another desirable goal, and hopefully result of automation is to reduce the amount of per-host interaction that comes with the work of administering systems. Automation is the force multiplier we use to achieve scaling\index{scaling}. Couple this precept with the explosive automation tooling ecosystem and you are on the path to doing more, better work in less time with a smaller staff. 
+This is where automation comes in. Automation\index{automation} is a way
+to provision and maintain some or many hosts in a programmatic manner. Another
+desirable goal, and hopefully result of automation is to reduce the amount of
+per-host interaction that comes with the work of administering systems.
+Automation is the force multiplier we use to achieve scaling\index{scaling}.
+Couple this precept with the explosive automation tooling ecosystem and you
+are on the path to doing more, better work in less time with a smaller staff. 
 
 \section{Ephemerality}
 

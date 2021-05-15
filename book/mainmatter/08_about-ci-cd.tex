@@ -42,7 +42,7 @@ how we let "deps" do the work of installing the "pylint" dependency for
 us.
 
 \begin{mybox}{\thetcbcounter: An Example tox.ini file}
-	\lstinputlisting{code/toxfile-pylint}
+	\lstinputlisting{code/08cicd/toxfile-pylint}
 \end{mybox}
 
 \section{GitHub Actions}
@@ -58,9 +58,9 @@ project. Save this YAML file under
 codelab/.github/workflows/docker\_compose.yml to have GitHub Actions
 execute our make docker target from our custom Makefile.
 
-\begin{mybox}{\thetcbcounter: A Makefile Target}
-	\lstinputlisting{code/makefile-target}
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: A Makefile Target}
+%	\lstinputlisting{code/makefile-target}
+%\end{mybox}
 
 
 \section{Python}
@@ -68,27 +68,27 @@ execute our make docker target from our custom Makefile.
 Save this YAML file under codelab/.github/workflows/python.yml to have
 GitHub Actions execute our make python target from our custom Makefile.
 
-\begin{mybox}{\thetcbcounter: Python GitHub action}
-	\lstinputlisting{code/makefile-target}
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: Python GitHub action}
+%	\lstinputlisting{code/makefile-target}
+%\end{mybox}
 
 \subsection{Packer}
 
 Save this YAML file under devsecops\_tactical/.github/workflows/packer.yml to have
 GitHub Actions validate and build our AMI image with Packer.
 
-\begin{mybox}{\thetcbcounter: AWS Debian host with packer}
-	\lstinputlisting{code/aws-debian-host.json}
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: AWS Debian host with packer}
+%	\lstinputlisting{code/aws-debian-host.json}
+%\end{mybox}
 
 \subsection{Markdown}
 
 The following example YAML file illustrates how to validate GitHub
 flavored Markdown text files using a GitHub Action.
 
-\begin{mybox}{\thetcbcounter: A GitHub Action for linting markdown files}
-	\lstinputlisting{code/makefile-target}
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: A GitHub Action for linting markdown files}
+%	\lstinputlisting{code/makefile-target}
+%\end{mybox}
 
 \justify
 Note the designation of a configuration file named .markdownlint.json at
@@ -96,9 +96,9 @@ the top level of our repository. This JSON file is used to skip certain
 checks by the markdownlint tool.
 
 \justify
-\begin{mybox}{\thetcbcounter: The .markdownlint.json config file}
-	\lstinputlisting{code/makefile-target}
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: The .markdownlint.json config file}
+%	\lstinputlisting{code/makefile-target}
+%\end{mybox}
 
 \section{Circle CI}
 
@@ -108,9 +108,9 @@ projects.
 single: Circle CI
 
 \justify
-\begin{mybox}{\thetcbcounter: A Circle CI configuration file}
-	\lstinputlisting{code/makefile-target} 
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: A Circle CI configuration file}
+%	\lstinputlisting{code/makefile-target} 
+%\end{mybox}
 
 \section{TravisCI}
 
@@ -134,9 +134,9 @@ flag in the repo settings that prevent the PR from being merged until
 Travis CI flags the build as passing.
 
 \justify
-\begin{mybox}{\thetcbcounter: A Docker container test}
-	\lstinputlisting{code/makefile-target}
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: A Docker container test}
+%	\lstinputlisting{code/makefile-target}
+%\end{mybox}
 
 The contents of the requirements files and the example Ansible code is
 available in the companion repo.
@@ -147,17 +147,17 @@ available in the companion repo.
 Save these lines to a file named .travis.yml to scan all the markdown files in your repository.
 
 \justify
-\begin{mybox}{\thetcbcounter: A Travis config file}
-	\lstinputlisting{code/makefile-target}
-\end{mybox}
+%begin{mybox}{\thetcbcounter: A Travis config file}
+%	\lstinputlisting{code/makefile-target}
+%\end{mybox}
 
 \justify
 You can also create an .mdlrc file to give mdl direction on what to scan for.
 
 \justify
-\begin{mybox}{\thetcbcounter: A Markdown lint config file}
-	\lstinputlisting{code/makefile-target}
-\end{mybox}
+%\begin{mybox}{\thetcbcounter: A Markdown lint config file}
+%	\lstinputlisting{code/makefile-target}
+%\end{mybox}
 
 \clearpage
 
