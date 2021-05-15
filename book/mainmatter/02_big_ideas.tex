@@ -5,7 +5,7 @@
 \justify
 There are some key precepts that will serve the aspiring DevSecOps
 engineer well. In this chapter we will explore some of these in
-an attempt to levelset our understanding of the domain. We will also
+an attempt to level-set our understanding of the domain. We will also
 continue to introduce the reader to the vernacular
 of the modern day DevSecOps engineer in a world gone cloudy.
 
@@ -95,10 +95,14 @@ figure \ref{fig:shift}.
 
 \section{Zero Trust}
 
+\justify
 Starting from the assumption that all the computers and networks are
 inherently unsafe and/or already compromised, the Zero Trust
 model gives organizations a way of thinking when establishing a security
-posture.
+posture. \cite{zerotrust} This premise, while rather simple from 
+the conceptual standpoint, can be anything but when it comes to
+application. The difficulties in scaling this mindset up for larger
+organizations can quickly become anything but simple. 
 
 \section{Automation}
 
@@ -113,26 +117,20 @@ but is an outdated modality when we consider the daunting size and complexity
 of the modern administrative domain.
 
 \justify
-This is where automation comes in. Automation\index{automation} is a way
+This is a great use-case for automation. Automation\index{automation} is a way
 to provision and maintain some or many hosts in a programmatic manner. Another
 desirable goal, and hopefully result of automation is to reduce the amount of
 per-host interaction that comes with the work of administering systems.
 Automation is the force multiplier we use to achieve scaling\index{scaling}.
-Couple this precept with the explosive automation tooling ecosystem and you
+As DevSecOps practitioners, we are on a never-ending quest to achieve 
+scale-invariance, 
+to borrow a term from the mathematical realm. That is to say, the tools we
+build and processes we engender should work just as well for three machines
+as they do for three thousand.
+
+\justify 
+Couple this principle with the explosive automation tooling ecosystem and you
 are on the path to doing more, better work in less time with a smaller staff. 
-
-\section{Ephemerality}
-
-\justify
-Ephemerality\index{Ephemerality} is the concept of something being transitory in nature,
-existing only briefly.
-Using immutable containers makes it easier to realize infrastructure and
-hosts that are ephemeral. Rather than spending a great deal of time
-patching and upgrading one or more hosts as we might in a traditional
-project stack that uses virtual machines or bare metal, we're going to
-use Docker to create a new container in place of the old one. In other
-words, we're running our project in containers that are immutable and
-ephemeral to the degree possible.
 
 \section{Immutability}
 
@@ -148,10 +146,23 @@ problematic activities, high cost in terms of time, effort and money,
 that we have the technology to dissociate from. With containerization,
 we can more easily achieve immutability across the software life cycle.
 
+\section{Ephemerality}
+
+\justify
+Ephemerality\index{Ephemerality} is the concept of something being inherently
+transitory in nature. For something to be considered ephemeral, it can exist
+only briefly. Using immutable containers makes it easier to realize
+infrastructure and hosts that are ephemeral. Rather than spending a
+great deal of time patching and upgrading systems as we might in a traditional
+project stack that uses bare metal hosts or even virtual machines, we're going to
+use Docker to create a new container in place of the old one. In other
+words, we're running our project in containers that are immutable and
+ephemeral to the degree possible.
+
 \section{Agile Methodologies}
 
 \justify
 The concept of Agile\index{agile} Software development is an expansive topic
-unto itself. Although we won't implicitly dedicate a lot of our time to these
-ideas, agile is widely regarded as an underpinning of a successful
-DevSecOps program.
+unto itself. Although we won't implicitly dedicate a lot space to these
+ideas, Agile practices are widely regarded as an underpinning of a successful
+DevSecOps program. 
