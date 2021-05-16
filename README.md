@@ -14,5 +14,4 @@ There is a page that explains [how to contribute](CONTRIBUTING.md)
 - Set up the dev environment [as explained in the docs](docs/nix.md)
 - change to the book directory and type `make book`
 
-<iframe width='160' height='400' src='https://leanpub.com/devopsquickstart/embed' frameborder='0' allowtransparency='true'></iframe>
-  
+![](./franklin.svg)
