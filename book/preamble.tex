@@ -1,12 +1,19 @@
-\documentclass[11pt]{book}
-\usepackage[a4paper,verbose]{geometry}
+\documentclass{book}
 
+\usepackage{geometry}
 \geometry{
   inner=4cm,outer=1cm,
   top=\dimexpr 1in+24pt+13.6pt+19.8738pt,% standard offset+topmargin+headheight+headsep
   headheight=13.6pt,
-  headsep=19.8738pt,
-  textheight=595.80026pt,
+  marginparwidth=0.5cm,
+  a4paper,
+  verbose,
+  tmargin=1cm,
+  bmargin=1cm,
+  lmargin=1cm,
+  rmargin=1cm,
+  headsep=0cm,
+  footskip=13.6cm
 }
 
 %%% DRAFT watermark %%%
@@ -34,7 +41,7 @@
 \definecolor{mygrey}{RGB}{128,128,128}
 \definecolor{whitesmoke}{RGB}{245,245,245}
 
-\newtcolorbox[auto counter,number within=section]{mybox}[2][]{
+\newtcolorbox[auto counter, number within=section]{mybox}[2][]{
 	colbacktitle=mygrey,
 	colback=whitesmoke,
 	title={#2},

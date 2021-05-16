@@ -1,5 +1,4 @@
-pillow==8.2.0
-pygments==2.8.1
+Pygments
 rst2pdf
 restructuredtext-lint
 recommonmark

@@ -3,6 +3,9 @@
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
 
 \include{preamble}
+
+\bibliographystyle{plain}
+
 \begin{document}
 
 % frontmatter: half title, title page, colophon (copyright page), epigraph, toc, preface, acknowledgements
@@ -39,15 +42,12 @@
 
 % backmatter: appendix, bibliography, index, postface
 \backmatter
-\bibliographystyle{apalike}
-\nocite{*}
 \printindex
+\nocite{*}
 \bibliography{backmatter/mybib}
 \include{backmatter/postface}
 \include{backmatter/about_author}
 
 %%% front cover, spline, back cover
 % front_cover
-
 \end{document}
-

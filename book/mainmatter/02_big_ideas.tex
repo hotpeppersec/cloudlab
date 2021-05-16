@@ -30,17 +30,19 @@ work products at the time they are checked in to the revision control
 system. This is meant to ensure stability, security, and compatibility
 with the existing code base in revision control. The automation required 
 to execute tests every time work is checked in to revision control is 
-typically the responsibility of the DevSecOps engineers. As seen in 
-figure \ref{fig:pipeline}, work typically "flows" from the local environments, 
-into a test environment, and finally to production where it is available 
-for use by the entire user base.
+typically the responsibility of the DevSecOps engineers.
 
-\begin{figure}[!htb]
+\begin{figure}
 	\centering
 	\includegraphics[scale=0.63]{../images/flow.png}
 	\caption{Typical build pipeline.}
 	\label{fig:pipeline}
 \end{figure}
+
+\justify
+As seen in figure \ref{fig:pipeline}, work typically "flows" from the
+local environments, into a test environment, and finally to production 
+where it is available for use by the entire user base.
 
 \justify
 We will refer to the entirety of this three-stage flow as one example of
