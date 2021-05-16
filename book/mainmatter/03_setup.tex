@@ -2,7 +2,7 @@
 \includegraphics[scale=0.20]{../images/ingredients-498199_1920.jpg}
 
 \justify
-Think of this chapter as the \emph{mise en place} of our DevSecOps souffle. 
+Think of this chapter as the \emph{mise en place} of our DevSecOps souffle.
 
 \pagebreak
 
@@ -11,26 +11,26 @@ Let's start our preparations by outlining our overall objectives. We want to:
 
 \justify
 \begin{itemize}
-\item
-  Create an extensible lab environment for rapid prototyping and
-  development.
-\item
-  Keep our lab costs down while meeting the rest of the objectives.
-  Utilize free services and open source tools to the extent possible.
-\item
-  Use the published best practices for each tooling, operations, or 
-  development ecosystem we choose to employ.
-\item
-  Always leave our projects in a functional state.
-\item
-  Get out of our old comfort zone, into a new one.
+	\item
+	      Create an extensible lab environment for rapid prototyping and
+	      development.
+	\item
+	      Keep our lab costs down while meeting the rest of the objectives.
+	      Utilize free services and open source tools to the extent possible.
+	\item
+	      Use the published best practices for each tooling, operations, or
+	      development ecosystem we choose to employ.
+	\item
+	      Always leave our projects in a functional state.
+	\item
+	      Get out of our old comfort zone, into a new one.
 \end{itemize}
 
 \justify
 The ideas captured here are not a means to any particular end. Rather,
 these are meant to be starting points, giving you a frame of reference
-with novel technologies and techniques that will streamline your 
-workflows and give your projects a productivity boost. The hope is the 
+with novel technologies and techniques that will streamline your
+workflows and give your projects a productivity boost. The hope is the
 reader will gain momentum to pursue these new ideas by following
 along with the examples outlined in this book.
 
@@ -46,7 +46,7 @@ technical repertoire.
 Companies often make their services free in the hopes that you will see the
 value and usefulness of their products. The thinking goes that hopefully
 you will see enough utility that you will recommend them to your
-enterprise clients and integrate their products into your workflows. 
+enterprise clients and integrate their products into your workflows.
 Not a bad trade-off! It only makes sense to avail yourself of free-tier
 cloud services, build and test platforms, and low or no-cost hosting
 environments. There are plenty of these out there and we will explore
@@ -56,17 +56,17 @@ some of these as we dive further into the topics.
 When we choose to use a tool, say Ansible for example, we must adopt the
 most up-to-date and best practices for using that tool.
 File system layout, naming conventions, script syntax and organization,
-and so on. We get to enjoy the clear and safe path forged by the folks 
+and so on. We get to enjoy the clear and safe path forged by the folks
 that came before us, and with whom we share many goals. As your skills
 mature over time, you may want to consider donating time back to the
-open source and other communities upon which your knowledge has been 
+open source and other communities upon which your knowledge has been
 built.
 
 \justify
-Finally, I find it very helpful for my own personal peace of mind to 
-leave projects clean and green, to the extent possible. In other words, 
-there is mental benefit to tidying up your physical and virtual workspace 
-before walking away from the keyboard for the day. Perhaps you would 
+Finally, I find it very helpful for my own personal peace of mind to
+leave projects clean and green, to the extent possible. In other words,
+there is mental benefit to tidying up your physical and virtual workspace
+before walking away from the keyboard for the day. Perhaps you would
 find similar benefit should you choose to adopt this practice.
 
 \section{Prerequisites}
@@ -78,11 +78,11 @@ of certain concepts. We will be exploring new ways of working for folks who
 are somewhat familiar with:
 
 \begin{itemize}
-\item
-  Linux (UI and command line)
-\item Python 3
-\item
-  Familiarity with github.com and the concepts of pull requests and branching.
+	\item
+	      Linux (UI and command line)
+	\item Python 3
+	\item
+	      Familiarity with github.com and the concepts of pull requests and branching.
 \end{itemize}
 
 \justify
@@ -110,31 +110,31 @@ alternate ways of writing your code.
 
 \justify
 Visual Studio Code from Microsoft is quite a popular choice these
-days in a large sea of commercial and Open Source candidates. 
+days in a large sea of commercial and Open Source candidates.
 VSCode\index{VSCode} works well on Linux, Mac and other operating systems.
 The environment is easily extensible to support most any language,
 linter, or syntax checker we may have a need
 for, thanks to their easy to use and well integrated "Extensions"
-feature. VSCode also has an integrated terminal window\index{Terminal Window} 
+feature. VSCode also has an integrated terminal window\index{Terminal Window}
 so the developer can execute shell commands without leaving the IDE screen.
 
 \justify
-Another extensible Open Source IDE of note is Atom. 
+Another extensible Open Source IDE of note is Atom.
 
 \section{Lab Exercises}
 \justify
-This book is meant to be a workbook as much as it is meant to be read. 
+This book is meant to be a workbook as much as it is meant to be read.
 You are encouraged to jump ahead, go back and re-read, do the exercises
-you think you can apply the learning objective from right away, 
-and skip the parts you don't think you will ever use. Learning can 
-be a non-linear experience and you 
-are encouraged to "color outside the lines" to the extent you feel 
+you think you can apply the learning objective from right away,
+and skip the parts you don't think you will ever use. Learning can
+be a non-linear experience and you
+are encouraged to "color outside the lines" to the extent you feel
 comfortable doing so.
 
 \justify
 That said, I've attempted to give this book a feel of moving the reader
-along towards a final project. 
-This project is meant to guide the reader through applying the information 
+along towards a final project.
+This project is meant to guide the reader through applying the information
 introduced between this chapter and that.
 
 \section{Popular VSCode Plugins}
@@ -150,10 +150,7 @@ github.com website
 are perfect for this task.
 
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
-	ssh-keygen -t rsa -b 4096 -C "user@example.com"\\
-	Enter a file in which to save the key (/home/user/.ssh/id\_rsa): [Press enter]\\
-	Enter passphrase (empty for no passphrase): [Type a passphrase]\\
-	Enter same passphrase again: [Type passphrase again]
+	\lstinputlisting{code/03_setup/ssh-key-generation}
 \end{mybox}
 
 \justify
@@ -163,33 +160,23 @@ Now you can add your public key half to github.com.
 \justify
 Gnu Privacy Guard (GPG) is a replacement for Symantec's PGP software. It allows you
 to generate and asymmetric key pair that can be exchanged with other users, encrypt your
-personal files, or verify your identity. 
+personal files, or verify your identity.
 \justify
 We will use a GPG key to sign commits
-to GitHub. This will help others verify that work you check in to revision control did 
+to GitHub. This will help others verify that work you check in to revision control did
 actually come from you. It's not strictly necessary but is considered good practice.
 Some repositories require that you sign your pull requests with your GPG key\index{GPG key}.
 \justify
 Take a few minutes to set up a GPG key. Once you have an account setup, you can add
 it to your profile on GitHub.
 
+\justify
 \begin{mybox}{\thetcbcounter: GPG Key Setup}
-	user@devsecops:\~\# gpg --default-new-key-algo rsa4096 --gen-key\\
-	public and secret key created and signed.\\
-	Note that this key cannot be used for encryption.  You may want to use
-	the command "--edit-key" to generate a subkey for this purpose.\\
-	pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]\\
-	\hspace*{15mm}      848943CDCE488F138BF91079E81498874E59648D\\
-	uid\\
-	\hspace*{25mm}                     Kevin Flynn <user@example.com>\\
-	
-	user@devsecops:\~\# gpg --list-secret-keys --keyid-format LONG |grep sec| cut -f2 -d'/'|cut -f1 -d' '\\
-	E81498874E59648D\\
-	user@devsecops:\~\# gpg --armor --export E81498874E59648D
+	\lstinputlisting{code/03_setup/gpg-key-setup}
 \end{mybox}
+
 \justify
 Copy your GPG key, beginning with the string
 -\/-\/-\/-\/-BEGIN PGP PUBLIC KEY BLOCK-\/-\/-\/-\/- and ending with the string
 -\/-\/-\/-\/-END PGP PUBLIC KEY BLOCK-\/-\/-\/-\/-. Add the GPG key to
 your GitHub account.
-

@@ -15,21 +15,21 @@ Code, documents, test cases, and other software work products begin
 their lives on the workstations of creators and developers. In this
 book we will refer to the environments where this takes place as the
 "local" environment. These work products are typically created, reviewed and
-checked into Revision Control Systems (RCS)\index{Revsion Control System (RCS)}, 
-GitHub\index{GitHub} for example, by the DevSecOps practitioner. 
-Other popular revision control systems include GitLab\index{GitLab} and 
+checked into Revision Control Systems (RCS)\index{Revsion Control System (RCS)},
+GitHub\index{GitHub} for example, by the DevSecOps practitioner.
+Other popular revision control systems include GitLab\index{GitLab} and
 BitBucket\index{BitBucket}.
 
 \justify
-We will delve into various types and aspects of testing 
+We will delve into various types and aspects of testing
 throughout this book. For now it is enough to understand the idea of
-a test case as a discrete check, or grouping of similar types of 
+a test case as a discrete check, or grouping of similar types of
 checks, that we use to ensure our work products meet certain minimum
 standards.  Test cases are created with and often run against our
 work products at the time they are checked in to the revision control
 system. This is meant to ensure stability, security, and compatibility
-with the existing code base in revision control. The automation required 
-to execute tests every time work is checked in to revision control is 
+with the existing code base in revision control. The automation required
+to execute tests every time work is checked in to revision control is
 typically the responsibility of the DevSecOps engineers.
 
 \begin{figure}
@@ -41,7 +41,7 @@ typically the responsibility of the DevSecOps engineers.
 
 \justify
 As seen in figure \ref{fig:pipeline}, work typically "flows" from the
-local environments, into a test environment, and finally to production 
+local environments, into a test environment, and finally to production
 where it is available for use by the entire user base.
 
 \justify
@@ -50,18 +50,18 @@ a "build pipeline"\index{pipeline}. Code from one or more local
 environments is checked in to the revision control system throughout a
 typical DevSecOps workday, and continuously tested and integrated with
 the main code base. That is to say, work undergoes "Continuous Integration"
-(CI)\index{Continuous Integration (CI)} with the main code base, 
+(CI)\index{Continuous Integration (CI)} with the main code base,
 and often "Continuous Delivery" (CD)\index{Continuous Delivery (CD)}
 between local, test, and production environments. This is where the term
 "CI/CD Pipeline" comes from. A business unit may choose to designate more
 than just the three "dev", "test", and "prod" environments mentioned here,
-depending on their particular use cases and ways of working. 
+depending on their particular use cases and ways of working.
 
 \justify
 While the CI/CD Pipeline is often the primary focus of the DevSecOps
 engineer, other pipelines exist as well. For example, let's assume our
 organization maintains a vast pool of raw data, also known as a data
-lake\index{Data Lake}. The staff Data Engineers build and maintain 
+lake\index{Data Lake}. The staff Data Engineers build and maintain
 Data Science\index{Data Science} pipelines to facilitate the smooth flow
 of logs and other data into that data lake. Now Data Scientists are able
 to create machine learning models that rely on that data to produce useful
@@ -76,14 +76,14 @@ between differing functions might be said to comprise two different pipelines.
 \justify
 We now have a mental picture of how software will flow through our
 three environments, from Development, to Test, and finally into Production
-where it is accessible to the widest base of consumers. Integration of 
-best security practices into this flow, as early and as often as possible, 
-is highly desirable. 
+where it is accessible to the widest base of consumers. Integration of
+best security practices into this flow, as early and as often as possible,
+is highly desirable.
 
 \justify
-Imagine our software life cycle occurring along a temporal 
-axis, t. Intentionally moving security to the left on this axis (lower 
-values of t) is known as "Shifting Left"\index{Shift Left} as seen in 
+Imagine our software life cycle occurring along a temporal
+axis, t. Intentionally moving security to the left on this axis (lower
+values of t) is known as "Shifting Left"\index{Shift Left} as seen in
 figure \ref{fig:shift}.
 
 \justify
@@ -100,10 +100,10 @@ figure \ref{fig:shift}.
 Starting from the assumption that all the computers and networks are
 inherently unsafe and/or already compromised, the Zero Trust
 model gives organizations a way of thinking when establishing a security
-posture. \cite{zerotrust} This premise, while rather simple from 
+posture. \cite{zerotrust} This premise, while rather simple from
 the conceptual standpoint, can be anything but when it comes to
 application. The difficulties in scaling this mindset up for larger
-organizations can quickly become anything but simple. 
+organizations can quickly become anything but simple.
 
 \section{Automation}
 
@@ -123,15 +123,15 @@ to provision and maintain some or many hosts in a programmatic manner. Another
 desirable goal, and hopefully result of automation is to reduce the amount of
 per-host interaction that comes with the work of administering systems.
 Automation is the force multiplier we use to achieve scaling\index{scaling}.
-As DevSecOps practitioners, we are on a never-ending quest to achieve 
-scale-invariance, 
+As DevSecOps practitioners, we are on a never-ending quest to achieve
+scale-invariance,
 to borrow a term from the mathematical realm. That is to say, the tools we
 build and processes we engender should work just as well for three machines
 as they do for three thousand.
 
-\justify 
+\justify
 Couple this principle with the explosive automation tooling ecosystem and you
-are on the path to doing more, better work in less time with a smaller staff. 
+are on the path to doing more, better work in less time with a smaller staff.
 
 \section{Immutability}
 

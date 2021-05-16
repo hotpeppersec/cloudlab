@@ -69,7 +69,7 @@ within this directory. Note the capitalization of the first letter in the file n
 
 \justify
 \begin{mybox}{\thetcbcounter: Dockerfile}
-        \lstinputlisting{code/04_docker/Dockerfile}
+  \lstinputlisting{code/04_docker/Dockerfile}
 \end{mybox}
 
 
@@ -100,16 +100,16 @@ needed.
 A file called docker-compose.yml\index{docker-compose.yml} will exist alongside our Dockerfile in our docker directory.
 
 \begin{mybox}{\thetcbcounter: Example docker-compose.yml}
-version: '3'\\
-services:\\
-\hspace*{7mm}devsecops:\\
-\hspace*{15mm}hostname: devsecops\\
-\hspace*{15mm}container\_name: devsecops\\
-\hspace*{7mm}volumes:\\
-\hspace*{15mm}- ..:/project\\
-\hspace*{7mm}build:\\
-\hspace*{15mm}context: ..\\
-\hspace*{15mm}dockerfile: docker/Dockerfile
+  version: '3'\\
+  services:\\
+  \hspace*{7mm}devsecops:\\
+  \hspace*{15mm}hostname: devsecops\\
+  \hspace*{15mm}container\_name: devsecops\\
+  \hspace*{7mm}volumes:\\
+  \hspace*{15mm}- ..:/project\\
+  \hspace*{7mm}build:\\
+  \hspace*{15mm}context: ..\\
+  \hspace*{15mm}dockerfile: docker/Dockerfile
 \end{mybox}
 
 \justify
@@ -132,8 +132,8 @@ configuration files, we can now try out our configuration. See
 
 \begin{figure}[!htb]
   \centering
-	\input{dot/githubdirectory.tex}
-	\caption{Project Directory and Docker related files.}
+  \input{dot/githubdirectory.tex}
+  \caption{Project Directory and Docker related files.}
 \end{figure}
 
 \clearpage
@@ -167,11 +167,11 @@ docker-compose.yml file.
 
 \justify
 \begin{mybox}{\thetcbcounter: Create files for Docker,height=3.5cm}
-mkdir rapid\_secdev\_framework\\
-cd rapid\_secdev\_framework\\
-mkdir docker\\
-vi docker/Dockerfile\\
-vi docker/docker-compose.yml
+  mkdir rapid\_secdev\_framework\\
+  cd rapid\_secdev\_framework\\
+  mkdir docker\\
+  vi docker/Dockerfile\\
+  vi docker/docker-compose.yml
 \end{mybox}
 
 \justify
@@ -179,7 +179,7 @@ With our files created and populated, we are ready to generate our
 container based on our specified configuration.
 
 \begin{mybox}{\thetcbcounter: Build from docker-compose.yml }
-docker-compose -f docker/docker-compose.yml build devsecops
+  docker-compose -f docker/docker-compose.yml build devsecops
 \end{mybox}
 
 \justify
@@ -189,7 +189,7 @@ new container. Recall that we set our \textbf{WORKDIR} variable to /project in t
 \subsubsection{Testing from GitHub}
 \justify
 It should be noted that the link to the GitHub repository
-for the accompanying project for this book is xxx. In the next chapter 
+for the accompanying project for this book is xxx. In the next chapter
 we will explore how to "clone" the project repository and do our work directory from there.
 
 \section{Substituting Podman for Docker}
@@ -203,13 +203,13 @@ You can install Podman by \href{https://podman.io/getting-started/installation.h
 Here is the change for the unprivileged\_userns\_clone error:
 
 \begin{mybox}{\thetcbcounter: Change for unprivileged user namespace}
-user@devsecops:~\$ podman\\
-cannot clone: Operation not permitted\\
-user namespaces are not enabled in /proc/sys/kernel/unprivileged\_userns\_clone\\
-Error: could not get runtime: cannot re-exec process\\
-user@devsecops:\~\$ sudo sysctl kernel.unprivileged\_userns\_clone=1\\
-user@devsecops:\~\$ podman-v\\
-podman version 1.9.1
+  user@devsecops:~\$ podman\\
+  cannot clone: Operation not permitted\\
+  user namespaces are not enabled in /proc/sys/kernel/unprivileged\_userns\_clone\\
+  Error: could not get runtime: cannot re-exec process\\
+  user@devsecops:\~\$ sudo sysctl kernel.unprivileged\_userns\_clone=1\\
+  user@devsecops:\~\$ podman-v\\
+  podman version 1.9.1
 \end{mybox}
 
 \justify

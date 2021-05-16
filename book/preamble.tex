@@ -42,14 +42,14 @@
 \definecolor{whitesmoke}{RGB}{245,245,245}
 
 \newtcolorbox[auto counter, number within=section]{mybox}[2][]{
-	colbacktitle=mygrey,
-	colback=whitesmoke,
-	title={#2},
-	fonttitle=\ttfamily\small,
-	fontupper=\sffamily\small,
-	halign=flush left,
-	rounded corners,
-	#1
+  colbacktitle=mygrey,
+  colback=whitesmoke,
+  title={#2},
+  fonttitle=\ttfamily\small,
+  fontupper=\sffamily\small,
+  halign=flush left,
+  rounded corners,
+  #1
 }
 
 %%% SPACING %%%
@@ -65,7 +65,7 @@
 \usepackage{datetime}
 
 \newdateformat{MonthYearFormat}{%
-	\monthname[\THEMONTH], \THEYEAR}
+  \monthname[\THEMONTH], \THEYEAR}
 
 %% RO, LE will not work for 'oneside' layout.
 %% Change oneside to twoside in document class

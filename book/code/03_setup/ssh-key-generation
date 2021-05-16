@@ -1,0 +1,4 @@
+	ssh-keygen -t rsa -b 4096 -C "user@example.com"
+	Enter a file in which to save the key (/home/user/.ssh/id\_rsa): [Press enter]
+	Enter passphrase (empty for no passphrase): [Type a passphrase]
+	Enter same passphrase again: [Type passphrase again]
