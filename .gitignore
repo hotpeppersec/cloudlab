@@ -15,7 +15,7 @@ _build
 *.log
 *.lot
 *.out
-*.pdf
+book/*.pdf
 *.pyg
 *.synctex.gz
 *.toc

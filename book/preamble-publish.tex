@@ -1,7 +1,15 @@
 \documentclass[11pt]{book}
+\usepackage[a4paper,verbose]{geometry}
+
+\geometry{
+  inner=4cm,outer=1cm,
+  top=\dimexpr 1in+24pt+13.6pt+19.8738pt,% standard offset+topmargin+headheight+headsep
+  headheight=13.6pt,
+  headsep=19.8738pt,
+  textheight=595.80026pt,
+}
 
 %%% FONTS %%%
-\usepackage{anyfontsize}% https://www.texfaq.org/FAQ-fontsize (allow arbitrary font sizes)
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{tgbonum} % set the document font
@@ -10,8 +18,7 @@
 \usepackage[notlot,nottoc,notlof]{} % reduce spaces for ToC, figs and tables % used like so "\addtocontents{toc}{\vskip -1.2cm}"
 \linespread{1.25} % 1.5 spacing on lines of text
 \usepackage{ragged2e} % use flush and justify for text blocks
-\usepackage{enumitem} % reduce spacing for itemize
-\setlist{nosep}
+\usepackage{enumitem}\setlist{nosep} % reduce spacing for itemize
 
 \usepackage[listings, minted]{tcolorbox}
 \usepackage[pdf]{graphviz} % support for graphviz
@@ -44,16 +51,12 @@
 %%%% Table of content upto 2=subsection, 3=subsubsection
 %\setcounter{tocdepth}{2}
 
-
-
 \usepackage{color}
 \usepackage{transparent}
 \usepackage{eso-pic}
 \usepackage{datetime}
 \newdateformat{MonthYearFormat}{%
 	\monthname[\THEMONTH], \THEYEAR}
-
-
 
 %%% INDEX %%%
 \usepackage{makeidx}\makeindex
