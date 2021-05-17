@@ -3,27 +3,39 @@
 \includegraphics[scale=0.85]{../images/container-4203677_1920.jpg}
 
 \justify
-Containerization is the process of generating a fully functioning
-software ecosystem that includes code and dependencies for part or all
-of a project. The most popular and common tool for realizing
-containerization is Docker\index{Docker}. Using Docker, we can programatically build
-an environment for our project, and pass the entirety of this
-encapsulated environment from our local development machine, into the
-Continuous Integration (CI)\index{Continuous Integraion} pipeline for testing, and eventually into
-our production environment. Containerization\index{containerization} helps us by offering a
-consistent operating experience across disparate environments.
+Containerization is the process of encapsulating the
+code and dependencies for part or all of a project. 
+The most popular and common tool for realizing
+containerization is Docker\index{Docker}. Using Docker,
+we can programatically build an environment for our project,
+and pass the entirety of this encapsulated environment
+from our local development machine, into the
+Continuous Integration (CI)\index{Continuous Integraion}
+pipeline for testing, and eventually into our production
+environment. Containerization\index{containerization}
+helps us by offering a consistent operating experience
+across disparate environments.
 
 \justify
-It is more desirable to create projects that are built and replaced
-frequently, than it is to attempt to upgrade and repair the
-infrastructure, platforms, and project code. Attempts to patch and
-upgrade project hosts "in place", such as with bare metal platforms for
-example, quickly reveal great difficulty in maintaining consistency with
-the project source. This also introduces issues keeping operating system
-packages current, yet still compatible with the project. Imagine a situation where an upgrade to a package is necessary to meet security requirements, but this very same upgrade means the project stop working
-since the package features have also changed. The result is most likely
-angry end users and customers. Certainly not a situation we ever like to
-find ourselves in.
+Recall our earlier discussion on the topics of immutability\index{immutability}
+and ephemerality\index{ephemerality}. 
+It is more desirable to create projects that are built
+and replaced frequently, than it is to attempt to upgrade
+and repair the infrastructure, platforms, and project code
+on an on-going basis. The reason this is more desirable 
+is that attempts to patch and upgrade project
+hosts "in place", quickly reveal great difficulty in maintaining consistency
+with the project source. This is our only option when it comes 
+to "bare metal" hosts, and some confgurations of hosts using
+certain virtualization technologies. A lesser degree of immutability
+and ephemerality also introduces issues keeping
+operating system packages current, yet still compatible with
+the project. Imagine a situation where an upgrade to a package
+is necessary to meet security requirements, but this very same
+upgrade means the project will stop working since the package
+features that your application depends on have also changed.
+The result is most likely angry end users and customers. 
+Certainly not a situation we ever like to find ourselves in.
 
 \justify
 Docker images are "canned" (as in, prefabricated) or custom directives
@@ -31,7 +43,8 @@ for provisioning the operating system of a Docker container. One or more
 images can be used as building blocks when configuring our containers.
 For example, a base Linux image and base Python image might be combined
 with our customizations that describe and point to our application code,
-all of which make up a single containerized "server". We get the added
+all of which make up a single container that provides the functions of
+a fully provisioned server. We get the added
 benefit of being able to switch quickly between base operating system
 images with just a few lines of code change to our project. For example,
 we could easily modify our container image to be predicated on Debian
@@ -71,7 +84,6 @@ within this directory. Note the capitalization of the first letter in the file n
 \begin{mybox}{\thetcbcounter: Dockerfile}
   \lstinputlisting{code/04_docker/Dockerfile}
 \end{mybox}
-
 
 \justify
 A valid Dockerfile begins with the \textbf{FROM} instruction. This
@@ -188,33 +200,33 @@ new container. Recall that we set our \textbf{WORKDIR} variable to /project in t
 
 \subsubsection{Testing from GitHub}
 \justify
-It should be noted that the link to the GitHub repository
-for the accompanying project for this book is xxx. In the next chapter
-we will explore how to "clone" the project repository and do our work directory from there.
+In the next chapter
+we will explore how to "clone" a project repository from 
+\href{github.com} and
+do our work directory from there.
+
+\section{Security Scanning Our Containers}
+The \href{trivy container scanner}{https://github.com/aquasecurity/trivy} bills itself as "A Simple and
+Comprehensive Vulnerability Scanner for Containers and other
+Artifacts, Suitable for CI".
 
 \section{Substituting Podman for Docker}
 \justify
-Podman is an Open Source container engine from the Open Containers Initiative (OCI)\index{Open Containers Initiative (OCI)}. The Podman\index{Podman} service is purportedly capable of being a drop-in replacement for Docker, although it only runs on Linux hosts at the time of this writing. Podman gives the user the ability to use traditional Docker commands, without the need to run a daemon to do so,
-as is the case with Docker.
+Podman is an Open Source tool from the Open
+Containers Initiative (OCI)\index{Open Containers Initiative
+(OCI)}. The Podman\index{Podman} service is said to be capable
+of being a drop-in replacement for Docker, although it only
+runs on Linux hosts at the time of this writing. Podman gives
+the user the ability to use traditional Docker commands,
+without the need to run a daemon to do so\cite{podman}, as is
+the case with Docker.
 
 \justify
-You can install Podman by \href{https://podman.io/getting-started/installation.html}{following the instructions} at their web site.
-\justify
-Here is the change for the unprivileged\_userns\_clone error:
-
-\begin{mybox}{\thetcbcounter: Change for unprivileged user namespace}
-  user@devsecops:~\$ podman\\
-  cannot clone: Operation not permitted\\
-  user namespaces are not enabled in /proc/sys/kernel/unprivileged\_userns\_clone\\
-  Error: could not get runtime: cannot re-exec process\\
-  user@devsecops:\~\$ sudo sysctl kernel.unprivileged\_userns\_clone=1\\
-  user@devsecops:\~\$ podman-v\\
-  podman version 1.9.1
-\end{mybox}
-
-\justify
-Once Podman is installed properly you should be able to
-alias docker=podman and use it as a drop in replacement for docker.
+You can install Podman by 
+\href{https://podman.io/getting-started/installation.html}{following the instructions}
+at their web site. Once Podman is installed properly you
+should be able to alias docker=podman and use it as a
+drop-in replacement for Docker and it's associated daemon.
 
 \section{Container Orchestration}
 \justify
@@ -224,28 +236,33 @@ balancing, and more. The Container Orchestrator is meant to manage the
 lifecycle and visibility of a container at all stages.
 
 \justify
-Kubernetes\index{Kubernetes} is an example, perhaps the penultimate example, of a
-Container Orchestrator\index{Orchestration}. Folks throughout the DevSecOps, Software and
-Security communities are using Kubernetes these days, and with good
-reason. It's adoption as a means to manage and replicate containers, and
-scale the applications they contain, has been nothing short of
-revolutionary. System administrators and developers can do more, better
-work. Granted, this comes at the expense of introduction yet another
-framework to learn, and and no small amount of complexity.
+Kubernetes\index{Kubernetes} is an example, perhaps even the
+penultimate example, of a Container Orchestrator\index{Orchestration}.
+Folks throughout the DevSecOps, Software and
+Security communities are using Kubernetes these days, and
+with good reason. It's adoption as a means to manage and
+replicate containers, and scale the applications they contain,
+has been nothing short of revolutionary. System administrators
+and developers can do more, better work. Granted, this comes at
+the expense of introduction yet another framework to learn, and
+no small amount of complexity.
 
 \justify
-An orchestrator helps us achieve immutability, and scale to meet user
-demand quickly and easily by abstracting away concerns that come with
-operating workloads in a bare metal or VM environment.
+An orchestrator helps us achieve immutability, and scale
+to meet user demand quickly and easily by abstracting away
+concerns that come with operating workloads in a bare metal
+or VM environment.
 
 \justify
 Kubernetes and other orchestrators are rapidly evolving. To ignore this
 game-changing ecosystem is to be left behind in terms of technological
-prowess. That said, it's just beyond the scope of this book. Learning
-about containers, pipelines, infrastructure, and so on are the foundational
-elements you will want to become familiar with in preparation for expanding
-your mindset into the greater dimensionality that orchestration realizes.
+prowess. Learning about containers, pipelines, infrastructure, and
+so on are the foundational elements you will want to become familiar
+with in preparation for expanding your mindset into the greater
+dimensionality that orchestration realizes.
 
 \justify
-For this stage of our journey to DevSecOps enlightenment, it is enough
-to know that orchestration exists and have a bit of familiarity with its purpose.
+Later we will look more closely at the sprawling and vibrant 
+topic of Kubernetes. For this stage of our journey to DevSecOps
+enlightenment, it is enough to know that orchestration exists
+and have a bit of familiarity with its purpose.
