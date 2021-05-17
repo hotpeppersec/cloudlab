@@ -4,7 +4,7 @@
 
 ![Cloudy](https://github.com/thedevilsvoice/devsecops_tactical_book/blob/main/images/sky-690293_1920.jpg)
 
-## LeanPub 
+## LeanPub
 
 This book [is available on leanpub.com](https://leanpub.com/devops_tacktical_book/).
 
