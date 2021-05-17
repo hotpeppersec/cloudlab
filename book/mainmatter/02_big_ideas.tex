@@ -1,6 +1,6 @@
 \chapter{Some Big Ideas}
 \includegraphics{../images/book-5104342_1920.jpg}
-\justify
+\justify{}
 There are some key precepts that will serve the aspiring DevSecOps engineer well. In this
 chapter we will explore some of these in an attempt to level-set our understanding of the
 domain. We will also continue to introduce the reader to the vernacular of the modern day
@@ -8,7 +8,7 @@ DevSecOps engineer in a world gone cloudy. You certainly don't need to memorize 
 these terms, but the thinking is they are prevalent enough that you should have a passing 
 familiarity with them. 
 \section{Pipelines (a.k.a. The Flow)}
-\justify
+\justify{}
 Code, documents, test cases, and other software work products begin their lives on the
 workstations of creators and developers. In this book we will refer to the environments
 where this takes place as the "local" environment. These work products are typically created,
@@ -17,7 +17,7 @@ checked into Revision Control Systems (RCS)\index{Revsion Control System (RCS)},
 GitHub\index{GitHub} for example, by the DevSecOps practitioner.
 Other popular revision control systems include GitLab\index{GitLab} and
 BitBucket\index{BitBucket}.
-\justify
+\justify{}
 We will delve into various types and aspects of testing
 throughout this book. For now it is enough to understand the idea of
 a test case as a discrete check, or grouping of similar types of
@@ -34,12 +34,11 @@ typically the responsibility of the DevSecOps engineers.
 	\caption{Typical build pipeline.}
 	\label{fig:pipeline}
 \end{figure}
-\justify
+\justify{}
 As seen in figure \ref{fig:pipeline}, work typically "flows" from the
 local environments, into a test environment, and finally to production
 where it is available for use by the entire user base.
-
-\justify
+\justify{}
 We will refer to the entirety of this three-stage flow as one example of
 a "build pipeline"\index{pipeline}. Code from one or more local
 environments is checked in to the revision control system throughout a
@@ -51,7 +50,7 @@ between local, test, and production environments. This is where the term
 "CI/CD Pipeline" comes from. A business unit may choose to designate more
 than just the three "dev", "test", and "prod" environments mentioned here,
 depending on their particular use cases and ways of working.
-\justify
+\justify{}
 While the CI/CD Pipeline is often the primary focus of the DevSecOps
 engineer, other pipelines exist as well. For example, let's assume our
 organization maintains a vast pool of raw data, also known as a data
@@ -65,30 +64,26 @@ this code for the purpose of testing will differ from how it is accessed
 for the purposes of deployment. The order of operations and flow
 between differing functions might be said to comprise two different pipelines.
 \section{Shifting Left}
-\justify
+\justify{}
 We now have a mental picture of how software will flow through our
 three environments, from Development, to Test, and finally into Production
 where it is accessible to the widest base of consumers. Integration of
 best security practices into this flow, as early and as often as possible,
 is highly desirable.
-
-\justify
+\justify{}
 Imagine our software life cycle occurring along a temporal
 axis, t. Intentionally moving security to the left on this axis (lower
 values of t) is known as "Shifting Left"\index{Shift Left} as seen in
 figure \ref{fig:shift}.
-
-\justify
+\justify{}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics{../images/shift_left.png}
 	\caption{Shifting Left}
 	\label{fig:shift}
 \end{figure}
-
 \section{Zero Trust}
-
-\justify
+\justify{}
 Starting from the assumption that all the computers and networks are
 inherently unsafe and/or already compromised, the Zero Trust
 model gives organizations a way of thinking when establishing a security
@@ -96,10 +91,8 @@ posture. \cite{zerotrust} This premise, while rather simple from
 the conceptual standpoint, can be anything but when it comes to
 application. The difficulties in scaling this mindset up for larger
 organizations can quickly become anything but simple.
-
 \section{Automation}
-
-\justify
+\justify{}
 Consider what may happen when we want to apply the lessons from this book
 across a large environment made up of many hosts, containers, pieces of
 application software, etc. It becomes a huge challenge for an operator
@@ -109,25 +102,22 @@ and so on becomes problematic. Creating shell scripts can be quite helpful,
 but is an outdated modality when we consider the daunting size and complexity
 of the modern administrative domain.
 
-\justify
+\justify{}
 This is a great use-case for automation. Automation\index{automation} is a way
 to provision and maintain some or many hosts in a programmatic manner. Another
 desirable goal, and hopefully result of automation is to reduce the amount of
 per-host interaction that comes with the work of administering systems.
 Automation is the force multiplier we use to achieve scaling\index{scaling}.
 As DevSecOps practitioners, we are on a never-ending quest to achieve
-scale-invariance,
+scale-invariance\index{scale-invariance},
 to borrow a term from the mathematical realm. That is to say, the tools we
 build and processes we engender should work just as well for three machines
 as they do for three thousand.
-
-\justify
+\justify{}
 Couple this principle with the explosive automation tooling ecosystem and you
 are on the path to doing more, better work in less time with a smaller staff.
-
 \section{Immutability}
-
-\justify
+\justify{}
 There is obvious advantage of being able to quickly stand up new clones
 of our project to replace existing instances that may be outdated,
 insecure, etc. The idea of immutability,
@@ -138,10 +128,8 @@ project in their entirety. Upgrading and patching are inherently
 problematic activities, high cost in terms of time, effort and money,
 that we have the technology to dissociate from. With containerization,
 we can more easily achieve immutability across the software life cycle.
-
 \section{Ephemerality}
-
-\justify
+\justify{}
 Ephemerality\index{ephemerality} is the concept of something being inherently
 transitory in nature. For something to be considered ephemeral, it can exist
 only briefly. Using immutable containers makes it easier to realize
@@ -151,10 +139,8 @@ project stack that uses bare metal hosts or even virtual machines, we're going t
 use Docker to create a new container in place of the old one. In other
 words, we're running our project in containers that are immutable and
 ephemeral to the degree possible.
-
 \section{Agile Methodologies}
-
-\justify
+\justify{}
 The concept of Agile\index{agile} Software development is an expansive topic
 unto itself. Although we won't implicitly dedicate a lot space to these
 ideas, Agile practices are widely regarded as an underpinning of a successful
