@@ -35,20 +35,20 @@ typically the responsibility of the DevSecOps engineers.
 	\label{fig:pipeline}
 \end{figure}
 \justify{}
-As seen in figure \ref{fig:pipeline}, work typically "flows" from the
+As seen in figure\ref{fig:pipeline}, work typically flows from the
 local environments, into a test environment, and finally to production
 where it is available for use by the entire user base.
 \justify{}
 We will refer to the entirety of this three-stage flow as one example of
-a "build pipeline"\index{pipeline}. Code from one or more local
+what is known as a build pipeline\index{pipeline}. Code from one or more local
 environments is checked in to the revision control system throughout a
 typical DevSecOps workday, and continuously tested and integrated with
-the main code base. That is to say, work undergoes "Continuous Integration"
+the main code base. That is to say, work undergoes Continuous Integration
 (CI)\index{Continuous Integration (CI)} with the main code base,
-and often "Continuous Delivery" (CD)\index{Continuous Delivery (CD)}
+and often Continuous Delivery (CD)\index{Continuous Delivery (CD)}
 between local, test, and production environments. This is where the term
 "CI/CD Pipeline" comes from. A business unit may choose to designate more
-than just the three "dev", "test", and "prod" environments mentioned here,
+than just the three dev, test, and prod environments mentioned here,
 depending on their particular use cases and ways of working.
 \justify{}
 While the CI/CD Pipeline is often the primary focus of the DevSecOps
@@ -74,7 +74,7 @@ is highly desirable.
 Imagine our software life cycle occurring along a temporal
 axis, t. Intentionally moving security to the left on this axis (lower
 values of t) is known as "Shifting Left"\index{Shift Left} as seen in
-figure \ref{fig:shift}.
+figure\ref{fig:shift}.
 \justify{}
 \begin{figure}[!htb]
 	\centering
@@ -84,10 +84,10 @@ figure \ref{fig:shift}.
 \end{figure}
 \section{Zero Trust}
 \justify{}
-Starting from the assumption that all the computers and networks are
-inherently unsafe and/or already compromised, the Zero Trust
-model gives organizations a way of thinking when establishing a security
-posture. \cite{zerotrust} This premise, while rather simple from
+Starting from the assumption that all the computers and networks are inherently unsafe and/or
+already compromised, the Zero Trust model gives organizations a way of thinking when establishing
+a security
+posture.\cite{zerotrust} This premise, while rather simple from
 the conceptual standpoint, can be anything but when it comes to
 application. The difficulties in scaling this mindset up for larger
 organizations can quickly become anything but simple.
@@ -101,7 +101,6 @@ and pasting commands to keep things up and running properly, look at logs,
 and so on becomes problematic. Creating shell scripts can be quite helpful,
 but is an outdated modality when we consider the daunting size and complexity
 of the modern administrative domain.
-
 \justify{}
 This is a great use-case for automation. Automation\index{automation} is a way
 to provision and maintain some or many hosts in a programmatic manner. Another
@@ -145,11 +144,7 @@ The concept of Agile\index{agile} Software development is an expansive topic
 unto itself. Although we won't implicitly dedicate a lot space to these
 ideas, Agile practices are widely regarded as an underpinning of a successful
 DevSecOps program.
-
 \subsection{The Backlog}
-
 \subsection{the Kanban Board}
-
 \section{Microservices}
-
 \section{Serverless Compute Functions}
