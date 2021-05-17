@@ -1,25 +1,22 @@
 \chapter{Some Big Ideas}
 \includegraphics{../images/book-5104342_1920.jpg}
-
 \justify
-There are some key precepts that will serve the aspiring DevSecOps
-engineer well. In this chapter we will explore some of these in
-an attempt to level-set our understanding of the domain. We will also
-continue to introduce the reader to the vernacular
-of the modern day DevSecOps engineer in a world gone cloudy.
-
+There are some key precepts that will serve the aspiring DevSecOps engineer well. In this
+chapter we will explore some of these in an attempt to level-set our understanding of the
+domain. We will also continue to introduce the reader to the vernacular of the modern day
+DevSecOps engineer in a world gone cloudy. You certainly don't need to memorize all of 
+these terms, but the thinking is they are prevalent enough that you should have a passing 
+familiarity with them. 
 \section{Pipelines (a.k.a. The Flow)}
-
 \justify
-Code, documents, test cases, and other software work products begin
-their lives on the workstations of creators and developers. In this
-book we will refer to the environments where this takes place as the
-"local" environment. These work products are typically created, reviewed and
+Code, documents, test cases, and other software work products begin their lives on the
+workstations of creators and developers. In this book we will refer to the environments
+where this takes place as the "local" environment. These work products are typically created,
+reviewed and
 checked into Revision Control Systems (RCS)\index{Revsion Control System (RCS)},
 GitHub\index{GitHub} for example, by the DevSecOps practitioner.
 Other popular revision control systems include GitLab\index{GitLab} and
 BitBucket\index{BitBucket}.
-
 \justify
 We will delve into various types and aspects of testing
 throughout this book. For now it is enough to understand the idea of
@@ -31,14 +28,12 @@ system. This is meant to ensure stability, security, and compatibility
 with the existing code base in revision control. The automation required
 to execute tests every time work is checked in to revision control is
 typically the responsibility of the DevSecOps engineers.
-
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.63]{../images/flow.png}
 	\caption{Typical build pipeline.}
 	\label{fig:pipeline}
 \end{figure}
-
 \justify
 As seen in figure \ref{fig:pipeline}, work typically "flows" from the
 local environments, into a test environment, and finally to production
@@ -56,7 +51,6 @@ between local, test, and production environments. This is where the term
 "CI/CD Pipeline" comes from. A business unit may choose to designate more
 than just the three "dev", "test", and "prod" environments mentioned here,
 depending on their particular use cases and ways of working.
-
 \justify
 While the CI/CD Pipeline is often the primary focus of the DevSecOps
 engineer, other pipelines exist as well. For example, let's assume our
@@ -70,9 +64,7 @@ developer workstations into a code repository for storage. Accessing
 this code for the purpose of testing will differ from how it is accessed
 for the purposes of deployment. The order of operations and flow
 between differing functions might be said to comprise two different pipelines.
-
 \section{Shifting Left}
-
 \justify
 We now have a mental picture of how software will flow through our
 three environments, from Development, to Test, and finally into Production
