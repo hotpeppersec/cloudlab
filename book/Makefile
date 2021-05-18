@@ -19,7 +19,3 @@ clean:
 
 dot:
 	for myfile in $(shell ls dot/*.dot |cut -f1 -d'.'|uniq); do dot -Txdot $$myfile.dot | $(shell which dot2tex) --figonly > $$myfile.tex;done
-
-publish:
-	@pdflatex -shell-escape -synctex=1 -interaction=nonstopmode publish
-	@[ -f publish.pdf ] && mv publish.pdf ../devsecops_tactical_book.pdf

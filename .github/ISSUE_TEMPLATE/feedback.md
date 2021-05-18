@@ -9,7 +9,7 @@ assignees: thedevilsvoice
 
 # Feedback on your Book
 
-Please type in your feedback here. 
+Please type in your feedback here.
 
 ## Location (optional)
 
