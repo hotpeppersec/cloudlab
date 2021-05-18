@@ -81,10 +81,10 @@ version of Docker.
 Let's take a look at some of the other foundational environmental
 elements we need in place to be successful.
 \section{The Workhorse (IDE)}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.45]{../images/setup-vscode.png}
-	\caption{The VScode IDE.}
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.45]{../images/setup-vscode.png}
+\caption{The VScode IDE.}
 \end{figure}
 \justify{}
 It is quite helpful to have a piece of software on your workstation that
@@ -130,7 +130,7 @@ and hosts. The directions for generating an SSH keypair found on the
 github.com website
 are perfect for this task.
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
-	\lstinputlisting{code/03_setup/ssh-key-generation}
+\lstinputlisting{code/03_setup/ssh-key-generation}
 \end{mybox}
 \justify{}
 Now you can add your public key half to github.com.
@@ -149,7 +149,7 @@ Take a few minutes to set up a GPG key. Once you have an account setup, you can 
 it to your profile on GitHub.
 \justify{}
 \begin{mybox}{\thetcbcounter: GPG Key Setup}
-	\lstinputlisting{code/03_setup/gpg-key-setup}
+\lstinputlisting{code/03_setup/gpg-key-setup}
 \end{mybox}
 \justify{}
 Copy your GPG key, beginning with the string ``BEGIN PGP PUBLIC KEY BLOCK'' and ending with the string
