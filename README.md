@@ -7,6 +7,10 @@ This book [is available as a PDF download on leanpub.com](https://leanpub.com/de
 
 ![Cloudy](https://github.com/thedevilsvoice/devsecops_tactical_book/blob/main/images/sky-690293_1920.jpg)
 
+## :incoming_envelope: Feedback :thought_balloon:
+
+Questions? Comments? Your [feedback is welcome!](https://github.com/thedevilsvoice/devsecops_tactical_book/issues/new?assignees=thedevilsvoice&labels=feedback&template=feedback.md&title=). 
+
 ## :blue_book: Generate the Book :orange_book:
 
 - Set up the dev environment [as explained in the docs](docs/nix.md)
