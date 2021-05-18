@@ -1,0 +1,5 @@
+mkdir devsecops
+cd devsecops
+mkdir docker
+vi docker/Dockerfile
+vi docker/docker-compose.yml

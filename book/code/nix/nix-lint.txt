@@ -1,0 +1,4 @@
+curl -L https://nixos.org/nix/install | sh
+nix-shell -p "ruby.withPackages (ps: with ps; [ mdl hunspell ])"
+mdl .
+hunspell fiename.md

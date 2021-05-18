@@ -47,7 +47,8 @@ should the need arise.
 \justify{}
 See the Docker website for instructions on how to install and configure
 Docker. A properly functioning Docker setup on your local machine is a requirement
-for the exercises we will do later. Note that Podman is an acceptable substitute
+for the exercises we will do later. Note that Podman\index{Podman} is an
+acceptable substitute
 for Docker, as detailed later in this chapter.
 
 \justify{}
@@ -74,7 +75,7 @@ within this directory. Note the capitalization of the first letter in the file n
 
 \justify{}
 \begin{mybox}{\thetcbcounter: Dockerfile}
-  \lstinputlisting{code/04_docker/Dockerfile}
+  \lstinputlisting{code/04_containers/Dockerfile}
 \end{mybox}
 
 \justify{}
@@ -86,9 +87,9 @@ project on. These base images come from the
 \textbf{DEBIAN\_FRONEND} to the value of noninteractive, which will
 cause the apt command to skip or ignore any interactive menus that are
 encountered during execution of the apt command, since these would cause
-our builds to "hang up" at an inaccessible interactive prompt. The
+our builds to ``hang up'' at an inaccessible interactive prompt. The
 \textbf{ADD} and \textbf{WORKDIR} directives are meant to cause Docker
-to use the /workdir directory as the root of the project "inside" the
+to use the /workdir directory as the root of the project ``inside'' the
 container. Finally, we are directing Docker to \textbf{RUN} and apt
 update and install the apt-utils package.
 
@@ -103,19 +104,11 @@ composition and give ourselves the ability to extend our work later, as
 needed.
 
 \justify{}
-A file called docker-compose.yml\index{docker-compose.yml} will exist alongside our Dockerfile in our docker directory.
+A file called docker-compose.yml\index{docker-compose.yml} will exist
+alongside our Dockerfile in our docker directory.
 
 \begin{mybox}{\thetcbcounter: Example docker-compose.yml}
-  version: '3'\\
-  services:\\
-  \hspace*{7mm}devsecops:\\
-  \hspace*{15mm}hostname: devsecops\\
-  \hspace*{15mm}container\_name: devsecops\\
-  \hspace*{7mm}volumes:\\
-  \hspace*{15mm}- ..:/project\\
-  \hspace*{7mm}build:\\
-  \hspace*{15mm}context: ..\\
-  \hspace*{15mm}dockerfile: docker/Dockerfile
+  \lstinputlisting{code/04_containers/docker-compose.yml}
 \end{mybox}
 
 \justify
@@ -126,82 +119,83 @@ all version are valid with respect to docker-compose itself. We specify
 a service named ``devsecops'', and assign a host and container name. Under
 ``volumes'' we are mounting the base of the project directory in the host
 filesystem as "/project" in the container filesystem. The build
-"directive" tells docker-compose how to locate the Dockerfile we wish to
+``directive'' tells docker-compose how to locate the Dockerfile we wish to
 use for the containers.
 
 \subsection{Exercise: Testing Out Docker}
 \justify{}
 With Docker properly installed and an understanding of the necessary
-configuration files, we can now try out our configuration. See
-({myFig1}) for an illustration of how to lay out the project files in your local filesystem.
+configuration files, we can now try out our configuration. See the 
+figure\ref{githubdirectory} for an illustration of how to lay out the
+project files in your local filesystem.
 
 \begin{figure}[!htb]
   \centering
   \input{dot/githubdirectory.tex}
   \caption{Project Directory and Docker related files.}
+\label{githubdirectory}
 \end{figure}
 
 \clearpage
 \justify{}
-Here is a step by step description of how to prepare the creation of our first container:
+Here is a step by step description of how to prepare the creation of
+our first container:
 
 \begin{itemize}
-  \item Create the "rapid\_secdev\_framework" folder.
+  \item Create the ``devsecops'' folder.
         \begin{itemize}
           \item When creating folders, note that capitalization matters.
         \end{itemize}
-  \item In that folder, create another folder called "docker".
-  \item Now in the docker folder, create a text file with the name "Dockerfile".
+  \item In that folder, create another folder called ``docker''.
+  \item Now in the docker folder, create a text file with the name ``Dockerfile''.
         \begin{itemize}
           \item
                 Copy and paste the example Dockerfile from earlier in this chapter
                 into your text file.
         \end{itemize}
-  \item Also in the docker folder, create a text file with the name "docker-compose.yml"
+  \item Also in the docker folder, create a text file with the name ``docker-compose.yml''
         \begin{itemize}
-          \item Copy and paste the example docker-compose.yml file from earlier in this chapter into your second text file.
+          \item Copy and paste the example docker-compose.yml file from earlier
+          in this chapter into your second text file.
         \end{itemize}
 \end{itemize}
 
 \justify{}
 Here is an example of the BASH shell commands you can use to accomplish
 the steps of the exercise. You can substitue vi for your favorite text
-editor as needed. Note that typing the "docker-compose" command on line
-6 will reference the devsecops "service" we specified on line 3 of the
+editor as needed. Note that typing the ``docker-compose'' command on line
+6 will reference the devsecops ``service'' we specified on line 3 of the
 docker-compose.yml file.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: Create files for Docker,height=3.5cm}
-  mkdir rapid\_secdev\_framework\\
-  cd rapid\_secdev\_framework\\
-  mkdir docker\\
-  vi docker/Dockerfile\\
-  vi docker/docker-compose.yml
+  \lstinputlisting{code/04_containers/create-files.txt}
 \end{mybox}
 
 \justify{}
 With our files created and populated, we are ready to generate our
 container based on our specified configuration.
 
-\begin{mybox}{\thetcbcounter: Build from docker-compose.yml }
+\begin{mybox}{\thetcbcounter: Build from docker-compose.yml}
   docker-compose -f docker/docker-compose.yml build devsecops
 \end{mybox}
 
 \justify{}
-If all went well, you should now have a shell prompt from "inside" the
-new container. Recall that we set our \textbf{WORKDIR} variable to /project in the Dockerfile. Following that example, we now have Dockerfile and docker-compose.yml in the directory /project/docker, having mounted the project directory from the host machine "inside" the container.
+If all went well, you should now have a shell prompt from ``inside'' the
+new container. Recall that we set our \textbf{WORKDIR} variable to 
+/project in the Dockerfile. Following that example, we now have Dockerfile
+and docker-compose.yml in the directory /project/docker, having mounted the
+project directory from the host machine ``inside'' the container.
 
 \subsubsection{Testing from GitHub}
 \justify{}
-In the next chapter
-we will explore how to ``clone'' a project repository from 
-\href{github.com} and
-do our work directory from there.
+In the next chapter we will explore how to ``clone'' a project repository from 
+\href{github.com} and do our work directory from there.
 
 \section{Security Scanning Our Containers}
-The \href{trivy container scanner}{https://github.com/aquasecurity/trivy} bills itself as "A Simple and
-Comprehensive Vulnerability Scanner for Containers and other
-Artifacts, Suitable for CI".
+The \href{trivy container scanner}{https://github.com/aquasecurity/trivy} bills itself
+as ``A Simple and Comprehensive Vulnerability Scanner for Containers and other
+Artifacts, Suitable for CI''.
 
 \section{Substituting Podman for Docker}
 \justify{}
@@ -260,6 +254,8 @@ topic of Kubernetes. For this stage of our journey to DevSecOps
 enlightenment, it is enough to know that orchestration exists
 and have a bit of familiarity with its purpose.
 
-\section{Container Security}
+\section{Container Security} 
+
+% https://www.paloaltonetworks.com/cyberpedia/what-is-container-security
 
 \section{Further Reading}

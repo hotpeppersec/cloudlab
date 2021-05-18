@@ -41,9 +41,9 @@ Adding a ``remote'' is a git convention to easily push changes from your clone b
 the original source repository.
 
 \begin{figure}[!htb]
-      \input{dot/forking.tex}
-      \caption{Forking and cloning.}
-      \label{forkandclone}
+\input{dot/forking.tex}
+\caption{Forking and cloning.}
+\label{forkandclone}
 \end{figure}
 
 \justify{}
@@ -55,7 +55,7 @@ enjoy the full power of Git and GitHub.
 
 \begin{itemize}
       \item
-            From the original project page on github.com, click the "fork" button.
+            From the original project page on github.com, click the ``fork'' button.
             \begin{itemize}
                   \item
                         This creates a copy of the original repository on your personal
@@ -67,7 +67,7 @@ enjoy the full power of Git and GitHub.
       \item
             This will allow you to add, update and test code and documentation without altering the original project.
       \item
-            On your local machine, create a "remote" connection back to the
+            On your local machine, create a ``remote'' connection back to the
             original repo.
 \end{itemize}
 
@@ -75,7 +75,7 @@ To create a ``remote'' called upstream from your clone to the original
 repo, use this example command:
 
 \begin{mybox}{\thetcbcounter: Create Upstream Remote}
-      git remote add upstream git@github.com:hotpeppersec/rapid\_secdev\_framework.git
+git remote add upstream git@github.com:hotpeppersec/devsecops.git
 \end{mybox}
 \justify{}
 After completing these steps you can easily submit pull requests (PRs)
@@ -112,7 +112,7 @@ machine where your clone resides:
 \justify{}
 If you are starting out on a new project, simply creating a repo is
 probably enough. Often I will start a repository on my personal account
-while I use the steps in this book to get the project of fthe ground.
+while I use the steps in this book to get the project off the ground.
 Later I will move the repository into an organization where the
 responsibility for ownership and administration can be shared with other
 folks.
@@ -144,14 +144,14 @@ previous chapter.
 \paragraph{Template Steps}
 \begin{itemize}
       \item
-            Navigate to "https://github.com/hotpeppersec/rapid\_secdev\_framework"
+            Navigate to ``https://github.com/hotpeppersec/rapid\_secdev\_framework''
       \item
-            Click the green button "Use this template"
+            Click the green button ``Use this template''
       \item
-            Select a "Repository name", like "rapid\_secdev\_framework" for
+            Select a repository name, like ``devsecops'' for
             example.
       \item
-            Now click "Create repository from template"
+            Now click ``Create repository from template''
 \end{itemize}
 
 \justify{}
@@ -169,40 +169,26 @@ template.
       \item
             \begin{description}
                   \item[Clone the repository to your local host by clicking on the green
-                        "Clone or download" button.]
+                        ``Clone or download'' button.]
                         \begin{itemize}
 
                               \item
-                                    Be sure to clone with "SSH" and not "HTTPS".
+                                    Be sure to clone with ``SSH'' and not ``HTTPS''.
                         \end{itemize}
             \end{description}
       \item
-            Change to the clone directory with the "cd" command.
+            Change to the clone directory with the ``cd'' command.
 \end{itemize}
 
 \justify{}
-From the rapid\_secdev\_framework directory, execute the command
-make docker to get to a command prompt within the container.
+From the devsecops directory, execute the command
+``make docker'' to get to a command prompt within the container.
 \justify{}
 Consider the following example. Notice that the command prompt changes
 to indicate that you have a BASH shell in the running container.
 
 \begin{mybox}{\thetcbcounter: Output from make docker command}
-      user@devsecops:\~/rapid\_secdev\_framework\$ make docker\\
-      Building test env with docker-compose\\
-      docker-compose -f docker/docker-compose.yml build devsecops\\
-      Building devsecops\\
-      Step 1/3 : FROM python:3.9-buster\\
-      ---> 4f7cd4269fa9\\
-      Step 2/3 : WORKDIR /home/secdevops\\
-      ---> Using cache\\
-      ---> 95dc84398bc2\\
-      Step 3/3 : RUN apt update; apt install -y apt-utils\\
-      ---> Using cache\\
-      ---> 83ea11278488\\
-      Successfully built 83ea11278488\\
-      Successfully tagged docker\_devsecops:latest\\
-      user@devsecops:/home/secdevops\#
+  \lstinputlisting{code/05_github/make-docker-output.txt}
 \end{mybox}
 
 \subsection{CODEOWNERS}
@@ -221,13 +207,11 @@ Consider this example where we add the @hotpeppersec to the CODEOWNERS
 file.
 
 \begin{mybox}{\thetcbcounter: Adding a user to CODEOWNERS file}
-      user@devsecops:/home/secdevops\# if [ ! -d ".github" ];then mkdir .github; fi\\
-      user@devsecops:/home/secdevops\# echo "* @githubusername">> .github/CODEOWNERS
+      \lstinputlisting{code/05_github/create-codeowners.txt}
 \end{mybox}
 \justify{}
 In this example, the @githubusername user will be tagged as a reviewer
 in all pull requests.
-
 
 \subsection{The .gitignore file}
 \justify{}
@@ -240,7 +224,7 @@ Consider the following example .gitignore file. This will prevent you
 from checking in the .DS-Store that Macintosh creates in many folders.
 
 \begin{mybox}{\thetcbcounter: Example .gitignore file}
-      root@cloudlab:\~/workspace/cloudlab\# echo ".DS\_Store" > .gitignore
+      \lstinputlisting{code/05_github/create-gitignore.txt}
 \end{mybox}
 
 \subsection{Working with Branches}
@@ -251,19 +235,16 @@ to create a branch.
 \hypertarget{steps-3}{%
       \paragraph{Steps}\label{steps-3}}
 
-
 \subsection{Pull Requests}
 \justify{}
 When you make changes on a local branch, say on your personal laptop,
 you will eventually want those changes to flow back into the main
-project. Opening a pull request\index{Pull Request} is a means of letting other people know
-you've got a set of changes ready for review and potential
-changes.
+project. Opening a pull request\index{Pull Request} is a means of letting other
+people know you've got a set of changes ready for review and potential changes.
 
 \justify{}
 Keeping pull requests smaller and more frequent makes it easier for your
-peers to review your changes. It also means you will be less likely to
-lose work.
+peers to review your changes. It also means you will be less likely to lose work.
 \justify{}
 Let's use our changes to the CODEOWNERS file to try making a change in
 our clone of the repository in GitHub, then pushing that change up to
@@ -317,7 +298,7 @@ part of your repository for managing those checks.
 There are many GitHub plugins that are free for
 single-user/non-commercial scenarios. a cursory search of the web of the
 GitHub Marketplace will turn up many of these. Let's leave some of the
-tedious work to the bots so we can focus on our journey to the cloud!
+tedious work to the bots, allowing us to focus on our DevSecOps journey to the cloud!
 
 \subsubsection{Renovate}
 \justify{}

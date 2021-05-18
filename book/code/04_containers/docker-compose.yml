@@ -1,0 +1,10 @@
+version: '3'
+services:
+  devsecops:
+    hostname: devsecops
+    container_name: devsecops
+  volumes:
+    - ..:/project
+  build:
+    context: ..
+    dockerfile: docker/Dockerfile

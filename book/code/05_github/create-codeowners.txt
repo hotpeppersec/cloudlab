@@ -1,0 +1,2 @@
+kflynn@devsecops:/home/devsecops\# if [ ! -d ".github" ];then mkdir .github; fi
+kflynn@devsecops:/home/devsecops\# echo "* @kevinflynn">> .github/CODEOWNERS

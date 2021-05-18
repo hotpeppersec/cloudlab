@@ -1,0 +1,1 @@
+kflynn@devsecops:/home/devsecops/workspace/devsecops: echo ".DS\_Store" > .gitignore

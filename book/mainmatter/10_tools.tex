@@ -177,8 +177,7 @@ file will never be checked into GitHub or any other revision control
 toolset.
 
 \begin{mybox}{\thetcbcounter: terraform.tfvars}
-aws\_access\_key = AKIAJCQ6WHUXVOKZ8RQQ
-aws\_secret\_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
+  \lstinputlisting{code/10_tools/terraform.tfvars}
 \end{mybox}
 
 \subsection{main.tf}
@@ -221,7 +220,7 @@ file. As an example there might be region information or even the name
 of the image we created previously with Packer.
 
 \justify{}
-Consider the following example. Here we declare a "region" variable in
+Consider the following example. Here we declare a ``region'' variable in
 the file variables.tf.
 
 put an example variables file here.
@@ -238,12 +237,12 @@ in.
 do an example terraform validate here
 
 To get your Terrform files into a clean standard format, the
-terraform fmt command works well. There is also the option to do this
+``terraform fmt'' command works well. There is also the option to do this
 formatting from inside the VSCode window on a per-file basis.
 
 \subsection{Plan}
 
-First we will will create a "plan" in preparation for application.
+First we will will create a ``plan'' in preparation for application.
 
 do an example plan here.
 
@@ -253,10 +252,10 @@ The apply action is where the rubber meets the proverbial road. This
 action will transmit our configurations to the cloud provider and
 allocate the necessary resources to stand up our environment.
 
-With our plan in place, we can now "apply" that plan to the cloud
+With our plan in place, we can now ``apply'' that plan to the cloud
 provider. This can take a counsiderable amount of time, depending on the
 complexity of the desired configuration. Note that Terraform will prompt
-you to enter "yes" before it will proceed.
+you to enter ``yes'' before it will proceed.
 
 do an example apply here
 
@@ -272,7 +271,7 @@ single: Ansible
 
 \subsubsection{Installing Ansible}
 \justify{}
-Simply adding "ansible" to python/requirements.txt will make Ansible
+Simply adding ``ansible'' to python/requirements.txt will make Ansible
 available in our Docker containers. Now when we type make docker, pip
 will take care of the installation for us. Then we can experiment with
 Ansible playbook runs.
@@ -283,17 +282,17 @@ Ansible breaks down it's execution runs into discrete workflows known as
 playbooks. Playbooks are executed on the target hosts to implement
 configurations. It's quite useful to be able to kick off a playbook run
 on the taget host every 15 minutes. This is a direct example of
-Continuous Deployment in action. If somethings changes in the GitHub
+Continuous Deployment in action. If something changes in the GitHub
 repository, we want that to propagate out to the targets and the latest
 configuration to be applied to the server. We can also deploy a newer
-version of an application and then stop and start the applicationto
+version of an application and then stop and start the application to
 effect the change.
 \justify{}
 Ansible playbooks break down target hosts into groupings known as roles.
 
 \subsubsection{Testing Ansible Playbooks}
 \justify{}
-There is a test framework known as "molecule" that can be used to test
+There is a test framework known as ``molecule''\index{molecule} that can be used to test
 ansible playbooks.
 
 single: Molecule

@@ -76,43 +76,30 @@ we can test that an application is compatible with multiple versions of Python.
 Use the make test command inside the docker container to run the test suite for the project.
 
 \justify{}
-An example tox.ini\index{tox.ini} file follows. Take notice of the "deps" section, where
-Python module requirements can be specified. In our current configuration, these are in lieu of test harness requirements specified in our python/requirements-test.txt file.
+An example tox.ini\index{tox.ini} file follows. Take notice of the ``deps'' section,
+where Python module requirements can be specified. In our current configuration,
+these are in lieu of test harness requirements specified in our
+python/requirements-test.txt file.
 
 \begin{mybox}{\thetcbcounter: An example tox.ini file}
-  [tox]\\
-  envlist = py38\\
-  skip\_missing\_interpreters = true\\
-
-  [testenv]\\
-  setenv =\\
-  PYTHONPATH = .\\
-  PYTHONHTTPSVERIFY=0\\
-  deps =\\
-  coverage\\
-  pytest\\
-  commands =\\
-  coverage run -m pytest -v --capture=sys\\
-  coverage report --omit="*/test*,.tox/*"
+  \lstinputlisting{code/06_python/tox.ini}
 \end{mybox}
 
 \section{Test Cases}
 
 \justify{}
 Unit and functional testing is foundational in developing robust, secure
-code. We want to be sure that when we create new code, we are also adding test cases to our test suite that fully cover the new classes, functions, and so on.
+code. We want to be sure that when we create new code, we are also adding
+test cases to our test suite that fully cover the new classes, functions, and so on.
 
 
 \justify{}
 Consider the following example unit test case. The purpose is to test
-that the function check\_docker() in the file python/devsecops/lib/helper\_functions.py returns True when called from inside a Docker container.
+that the function check\_docker() in the file python/devsecops/lib/helper\_functions.py 
+returns True when called from inside a Docker container.
 
 \begin{mybox}{\thetcbcounter: An example Unit test case}
-  import pytest\\
-  from devsecops.lib.helper\_functions import check\_docker\\
-
-  def test\_check\_docker():\\
-  assert(check\_docker())
+  \lstinputlisting{code/06_python/test-unit-example.py}
 \end{mybox}
 
 \section{Test Coverage}
