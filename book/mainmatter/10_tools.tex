@@ -2,28 +2,26 @@
 
 \includegraphics{../images/school-tools-3596680_1920.jpg}
 
-We can reduce our Mean Time To Deploy (MTTD)
+We can reduce our Mean Time To Deploy\index{mean time to deploy} (MTTD)
 by using tools to prepare and generate our machine images
 programatically, and with scripting languages such as HCL, which
-Terraform
+Terraform\index{Terraform}
 is based on. In this section we examine these tools in greater depth.
-
-single: MTTD
-single: Terraform
 
 \begin{figure}
    \centering
    \includegraphics{../images/infra_flow.png}
    \caption{The pipeline flow.}
+  \label{infraflow}
 \end{figure}
 
-Consider the following diagram {myFig4} as we discuss the tools we'll
+Consider the following diagram\ref{infraflow} as we discuss the tools we'll
 use to implement our infrastructure as code and associated
 configurations in the cloud provider network.
 
 \section{Packer}
 
-\justify
+\justify{}
 Using Hashicorp Packer is a great way to nail down the contents of a
 machine image before we bring up an instance. Download Packer from the
 Hashicorp web site in preparation for the following steps. 
@@ -34,24 +32,24 @@ machine images on the fly using Terraform would increase our degree of
 ephepmerality and immutability.
 
 \subsection{Packer Example Configuration for AWS}
-
+\justify{}
 Here is an example of how to set up a JSON file to build a Packer image
 in AWS. Save the contents of this file into
 `packer/aws-debian-host.json`:
 
-\justify
+\justify{}
 \begin{mybox}{\thetcbcounter: aws-debian-host.json}
 	\lstinputlisting{code/aws-debian-host.json}
 \end{mybox}
 
 \subsection{Packer Example Configuration for GCP}
 
-\justify
+\justify{}
 Here is an example of how to set up a JSON file to build a Packer image
 in Google Compute. Save the contents of this file into
 `packer/gcp-debian-host.json`:
 
-\justify
+\justify{}
 \begin{mybox}{\thetcbcounter: gcp-debian-host.json}
 	\lstinputlisting{code/gcp-debian-host.json}
 \end{mybox}
@@ -59,20 +57,20 @@ in Google Compute. Save the contents of this file into
 
 \subsection{Validating Packer JSON Files}
 
-\justify
+\justify{}
 Once the JSON files are created and saved in the packer directory, we
 can use the packer tool to validate them. Type
 packer validate \textless{}filename\textgreater{} to validate each new
 JSON file. This gives you a chance to find and fix any errors before the
 next step, the build phase.
 
-\justify
+\justify{}
 Note that your validation commands may fail if the cloud provider
 credentials have not been configured at this point.
 
 \subsection{Building Images with Packer}
 
-\justify
+\justify{}
 Finally, we are ready to build our new images. Try typing
 packer build \textless{}filename\textgreater{} to create the image. You
 should see output similar to the following, but with a unique AMI ID.
@@ -85,41 +83,42 @@ Build 'amazon-ebs' finished.
     us-west-2: ami-0e9e6427509a9d0b5
 \end{mybox}
 
-\justify
-The AMI ID "ami-0e9e6427509a9d0b5" is now a usable image that we can
+\justify{}
+The AMI ID ``ami-0e9e6427509a9d0b5'' is now a usable image that we can
 include in our Terraform builds.
 
 \subsection{Removing Packer Images from Cloud Provider}
 
-\justify
+\justify{}
 You may want to remove the images from AWS/GCP since storing them incurs
 additional cost, whether they are in use or not.
 
-\justify
+\justify{}
 To remove stale machine images from AWS, you may try a tool such as
 aws-amicleaner, which is available to be installed via Python/pip as well as from the
 GitHub repository for the project.
 
 \jusitfy
-Another AWS specfic tool is "lambda-packerjanitor" from Trusworks.
+Another AWS specfic tool is ``lambda-packerjanitor'' from Trusworks.
 
 \section{Terraform}
-\justify
-Terraform, created by Hashicorp in 2014, is a tool for building, changing, and versioning 
-infrastructure safely and efficiently . Install the latest version of Terraform
-in preparation for the activities that follow.
+\justify{}
+Terraform, created by Hashicorp in 2014, is a tool for building, changing, and
+versioning infrastructure safely and efficiently. Install the latest version of
+Terraform in preparation for the activities that follow.
 
-\justify
+\justify{}
 Consider the relevant Terraform files that we will include in our
 projects.
 
 \begin{figure}[!htb]
 	\input{dot/terraform.tex}
 	\caption{Terraform related files and folders.}
+\label{terrafiles}
 \end{figure}
 
 \subsection{Using AWS Credentials with Terraform}
-
+\justify{}
  Using the "pass" manager means you can remove plain text credentials
   from the local file system.
   * Prevents credentials from being committed to revision control by accident.
@@ -172,7 +171,7 @@ terraform.tfvars to your .gitignore file at the top level of your lab
 repository helps a lot. Keeping track of your credentials is very
 important!
 
-\justify
+\justify{}
 An example of a local terraform.tfvars file follows. Remember that this
 file will never be checked into GitHub or any other revision control
 toolset.
@@ -184,14 +183,14 @@ aws\_secret\_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ
 
 \subsection{main.tf}
 
-\justify
+\justify{}
 This file will contain the bulk of our Terraform configurations. As with
 Python, we have the ability to reference modules, both internal and
 exteral. The main.tf file is the place the module references are made.
 
 Put and example of main.tf here.
 
-\justify
+\justify{}
 We can also designate our data sources in the main.tf file. Consider the
 following Terraform data sources. These AWS data sources reference our
 Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
@@ -200,28 +199,28 @@ put an example VPC in here
 
 \subsection{outputs.tf}\label{outputs.tf}
 
-\justify
+\justify{}
 We can display or export the resources we've created in main.tf using a
 file known as outputs.tf. We may have a need to display the IP address
 of host instances we've just created, which is helpful to a user who
 needs to log in. We may also wish to make values available to other
 Terraform modules.
 
-\justify
+\justify{}
 Consider the following output declarations from our example code.
 
 put some example outputs here.
 
 \subsection{variables.tf}
 
-\justify
+\justify{}
 The variables.tf file is another common file seen in projects in AWS,
 GCP and other cloud providers. It contains declarations of variables,
 and often values for variables as well, that will be used in the main.tf
 file. As an example there might be region information or even the name
 of the image we created previously with Packer.
 
-\justify
+\justify{}
 Consider the following example. Here we declare a "region" variable in
 the file variables.tf.
 
@@ -229,7 +228,7 @@ put an example variables file here.
 
 \subsection{Verification}
 
-\justify
+\justify{}
 Terraform has some commands, validate and fmt (short for "format") that
 we can use to syntactically verify our configuration before sending it
 off to the cloud provider to act upon. Validating your Terraform files
@@ -263,7 +262,7 @@ do an example apply here
 
 \section{Ansible}
 
-\justify
+\justify{}
 Environments where you have a set of repeatable configuration steps can
 be deployed more quickly with Ansible. Building a set of good Ansible
 playbooks over team means you can pick and choose the most useful
@@ -272,14 +271,14 @@ patterns in future projects. A true force multiplier.
 single: Ansible
 
 \subsubsection{Installing Ansible}
-\justify
+\justify{}
 Simply adding "ansible" to python/requirements.txt will make Ansible
 available in our Docker containers. Now when we type make docker, pip
 will take care of the installation for us. Then we can experiment with
 Ansible playbook runs.
 
 \subsubsection{Ansible Playbooks}
-\justify
+\justify{}
 Ansible breaks down it's execution runs into discrete workflows known as
 playbooks. Playbooks are executed on the target hosts to implement
 configurations. It's quite useful to be able to kick off a playbook run
@@ -289,11 +288,11 @@ repository, we want that to propagate out to the targets and the latest
 configuration to be applied to the server. We can also deploy a newer
 version of an application and then stop and start the applicationto
 effect the change.
-\justify
+\justify{}
 Ansible playbooks break down target hosts into groupings known as roles.
 
 \subsubsection{Testing Ansible Playbooks}
-\justify
+\justify{}
 There is a test framework known as "molecule" that can be used to test
 ansible playbooks.
 
@@ -302,7 +301,7 @@ single: Molecule
 put molecule code snippet here.
 
 \section{Ansible Vault}
-\justify
+\justify{}
 Vault is a tool that is included with Ansible. You may notice that
 ansible-vault is a symlink back to ansible on your system. Vault is an
 easy way to protect secrets using AES-256 encryption in your GitHub
@@ -314,25 +313,25 @@ single: AES-256 single: Vault
 
 \subsection{Encrypting a File with Vault}
 
-\justify
+\justify{}
 Let's try encrypting a file... using another file! Create a text file
 with some random contents. For example, create a file in your home
 directory called my\_dog.txt with the following contents:
 
 example contents
 
-\justify
+\justify{}
 Now we can encrypt some data using this file as the encryption key. For
 the sake of example, let's assume we have a file called
 data\_to\_protect.txt that we would like to encrypt.
 
 example here
-\justify
+\justify{}
 Now when we view the data\_to\_protect.txt file, we can see it has been
 encrypted and appears as a long series of seemingly nonsense characters.
 
 \subsection{Decrypting a File with Vault}
-\justify
+\justify{}
 At some point, we are going to want to decrypt our data so it becomes
 usable, we can perform operations on it, and so on. As long as we keep
 or recreate the original key file on our host, or create an identical
@@ -345,10 +344,12 @@ another example here
 \clearpage
 
 \section{Tool Directory Structure}
-\justify
-Files and folders relevant to this chapter are organized as shown below.
+\justify{}
+Files and folders relevant to this chapter are organized as shown in
+the figure\ref{toolsfiles}.
 
 \begin{figure}[!htb]
 	\input{dot/tools.tex}
 	\caption{Tool related files and folders.}
+\label{toolsfiles}
 \end{figure}

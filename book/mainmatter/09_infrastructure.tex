@@ -1,28 +1,26 @@
 \chapter{Infrastructure}
 
-\justify
+\justify{}
 \includegraphics{../images/cologne-cathedral-1507854_1920.jpg}
 
-\justify
+\justify{}
 Software Infrastructure and Platforms are the foundations upon which our
 scripts, code, and projects are founded. Infrastructure comprises the
 base upon which our containers rest, and the connectivity that allows us
 to communicate with them and them with each other.
 
-\justify
+\justify{}
 This chapter details our ability to quickly and uniformly stand up and
 tear down virtual domains and networks to connect our containers and
 route their workloads. We will look at some popular cloud computing
 providers to prepare to explore ways we can leverage them to our
 benefit.
 
-\justify
-A Cloud Provider is a company that offers to host our containerized
+\justify{}
+A Public Cloud Provider is a company that offers to host our containerized
 projects and virtual infrastructure so we don't have to do it ourselves.
 
-single: Cloud Provider
-
-\justify
+\justify{}
 The virtual resources we subscribe to will be distributed across cloud
 provider hardware in data centers around the world with very little
 oversight or interaction from us. For example, we can choose a Region of
@@ -32,33 +30,28 @@ is located.
 
 \section{Amazon Web Services (AWS)}
 
-\justify
-Consider ({myFig4}) which illustrates the connectivity of a basic
-project using Amazon Web Services (AWS).
-
-single: Amazon Web Services
+\justify{}
+Consider\fig{aws} which illustrates the connectivity of a basic
+project using Amazon Web Services (AWS)\index{Amazon Web Services}.
 
 \begin{figure}
   \includegraphics[scale=0.45]{../images/ddb-no-vpc-endpoint-1024x561.png}
   \caption{A simple Public Cloud configuration using AWS as a provider.}
+\label{aws}
 \end{figure}
 
 \subsection{Getting Set up in AWS}
 
-\justify
+\justify{}
 One of the very first things you should do (after creating an account,
-that is) is to configure mutli-factor authentication (MFA).
+that is) is to configure mutli-factor authentication (MFA)\index{multi-factor authentication}.
 
-single: multi-factor authentication
-single: AWS single: Amazon Web Services
-
-\justify
+\justify{}
 Amazon's AWS is one of the more prevalent cloud providers in terms of
 popularity and simultaneously mature and ever-expanding feature set.
 
 \subsection{Credentials}
-
-\justify
+\justify{}
 Amazon Web Services (AWS) credentials are stored in a hidden directory
 in your home directory called ".aws". The file
 \textasciitilde{}/.aws/credentials should be modified to contain your
@@ -70,44 +63,41 @@ AWS access\_id and secret\_key as seen below.
   aws\_secret\_access\_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ\\
 \end{mybox}
 
-\justify
+\justify{}
 Do not share this file with other people. Do not check this file into
 your GitHub repositories under any circumstances.
 
 \section{Google Cloud Platform (GCP)}
 
-\justify
+\justify{}
 Google Cloud Platform (GCP) is a suite of cloud computing services that
 runs on the same infrastructure that Google uses internally for its
 end-user products. If the
 resources we allocate on GCP were a pyramid, the apex of that pyramid
-would be a "project". A project is made up of the settings, permissions,
+would be a ``project''. A project is made up of the settings, permissions,
 and other metadata that describe your application.
 
 single: Google Cloud Platform single: GCP
 
-\justify
+\justify{}
 One of the very first things you should do (after creating an account,
-that is) is to configure two-factor authentication (2FA).
+that is) is to configure two-factor authentication\index{two-factor authentication}
+(2FA)\index{2FA}.
 
-single: two-factor authentication
-
-\justify
-At this point you are ready to install the gcloud software development
+\justify{}
+At this point you are ready to install the gcloud\index{gcloud} software development
 kit (SDK) on your local machine.
-
-single: gcloud
 
 \subsection{Credentials}
 
-\justify
+\justify{}
 Once the gcloud SDK is installed, you are ready to set up local
 credentials that allow interaction between your machine and the GCP
 application programming interface (API). In other words, Google hosts a
 server that you can exchange commands with to configure your GCP
 projects from your local CLI.
 
-\justify
+\justify{}
 GCP credentials are stored in the directory
 \textasciitilde{}/.config/gcloud as a JSON file. Do not share this file
 with other people. Do not check this file into your GitHub repositories
@@ -116,7 +106,7 @@ under any circumstances.
 \clearpage
 \subsection{Directory Structure}
 
-\justify
+\justify{}
 Relevant folders and files related to our build pipeline are shown
 below. The users home directory and workspace subdirectory is implied
 and removed from the diagram for clarity.
@@ -124,4 +114,5 @@ and removed from the diagram for clarity.
 \begin{figure}[!htb]
   \input{dot/infra.tex}
   \caption{IaC related files and folders.}
+\label{infra}
 \end{figure}
