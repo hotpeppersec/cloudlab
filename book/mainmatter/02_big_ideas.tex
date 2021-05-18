@@ -11,7 +11,7 @@ familiarity with them.
 \justify{}
 Code, documents, test cases, and other software work products begin their lives on the
 workstations of creators and developers. In this book we will refer to the environments
-where this takes place as the "local" environment. These work products are typically created,
+where this takes place as the ``local'' environment. These work products are typically created,
 reviewed and
 checked into Revision Control Systems (RCS)\index{Revsion Control System (RCS)},
 GitHub\index{GitHub} for example, by the DevSecOps practitioner.
@@ -32,10 +32,10 @@ typically the responsibility of the DevSecOps engineers.
 	\centering
 	\includegraphics[scale=0.63]{../images/flow.png}
 	\caption{Typical build pipeline.}
-	\label{fig:pipeline}
+\label{pipeline}
 \end{figure}
 \justify{}
-As seen in figure\ref{fig:pipeline}, work typically flows from the
+As seen in figure\ref{pipeline}, work typically flows from the
 local environments, into a test environment, and finally to production
 where it is available for use by the entire user base.
 \justify{}
@@ -47,7 +47,7 @@ the main code base. That is to say, work undergoes Continuous Integration
 (CI)\index{Continuous Integration (CI)} with the main code base,
 and often Continuous Delivery (CD)\index{Continuous Delivery (CD)}
 between local, test, and production environments. This is where the term
-"CI/CD Pipeline" comes from. A business unit may choose to designate more
+``CI/CD Pipeline'' comes from. A business unit may choose to designate more
 than just the three dev, test, and prod environments mentioned here,
 depending on their particular use cases and ways of working.
 \justify{}
@@ -73,14 +73,14 @@ is highly desirable.
 \justify{}
 Imagine our software life cycle occurring along a temporal
 axis, t. Intentionally moving security to the left on this axis (lower
-values of t) is known as "Shifting Left"\index{Shift Left} as seen in
-figure\ref{fig:shift}.
+values of t) is known as ``Shifting Lef''\index{Shift Left} as seen in
+figure\ref{shift}.
 \justify{}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics{../images/shift_left.png}
 	\caption{Shifting Left}
-	\label{fig:shift}
+	\label{shift}
 \end{figure}
 \section{Zero Trust}
 \justify{}
