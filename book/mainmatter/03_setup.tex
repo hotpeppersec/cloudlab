@@ -1,13 +1,15 @@
 \chapter{Getting Ready to Get Tactical}
-\begin{figure}[!htb]
+
 \centering
 \includegraphics[scale=0.20]{../images/ingredients-498199_1920.jpg}
-\end{figure}
+
+
 \justify{}
 Think of this chapter as the \emph{mise en place} of our DevSecOps souffle.
-\pagebreak
+
 \justify{}
 Let's start our preparations by outlining our overall objectives. We want to:
+
 \justify{}
 \begin{itemize}
 	\item
@@ -24,6 +26,7 @@ Let's start our preparations by outlining our overall objectives. We want to:
 	\item
 	      Get out of our old comfort zone, into a new one.
 \end{itemize}
+
 \justify{}
 The ideas captured here are not a means to any particular end. Rather,
 these are meant to be starting points, giving you a frame of reference
@@ -31,6 +34,7 @@ with novel technologies and techniques that will streamline your
 workflows and give your projects a productivity boost. The hope is the
 reader will gain momentum to pursue these new ideas by following
 along with the examples outlined in this book.
+
 \justify{}
 You should work to build up a solid base of code examples and problem solving
 techniques that will greatly increase your efficacy. Over time, new tools and
@@ -38,6 +42,7 @@ processes will rotate in and out of your toolbox as technology progresses. Keep
 in mind that your job is to maintain that momentum, to keep experimenting and
 to see what is useful enough to stick with you and make a permanent part of your
 technical repertoire.
+
 \justify{}
 Companies often make their services free in the hopes that you will see the
 value and usefulness of their products. The thinking goes that hopefully
@@ -47,6 +52,7 @@ Not a bad trade-off! It only makes sense to avail yourself of free-tier
 cloud services, build and test platforms, and low or no-cost hosting
 environments. There are plenty of these out there and we will explore
 some of these as we dive further into the topics.
+
 \justify{}
 When we choose to use a tool, say Ansible\index{Ansible} for example, we must adopt the
 most up-to-date and best practices for using that tool.
@@ -56,6 +62,7 @@ that came before us, and with whom we share many goals. As your skills
 mature over time, you may want to consider donating time back to the
 open source and other communities upon which your knowledge has been
 built.
+
 \justify{}
 Finally, I find it very helpful for my own personal peace of mind to
 leave projects clean and green, to the extent possible. In other words,
@@ -63,6 +70,7 @@ there is mental benefit to tidying up your physical and virtual workspace
 before walking away from the keyboard for the day. Perhaps you would
 find similar benefit should you choose to adopt this practice.
 \section{Prerequisites}
+
 \justify{}
 This book intends to be a practical treatment of common and popular technologies
 from the DevSecOps world. As such, we assume the reader has some basic knowledge
@@ -76,18 +84,23 @@ are somewhat familiar with:
 	\item
 	    Familiarity with github.com and the concepts of pull requests and branching.
 \end{itemize}
+
 \justify{}
 The examples in this book have been tested on Linux running the latest
 version of Docker.
+
 \justify{}
 Let's take a look at some of the other foundational environmental
 elements we need in place to be successful.
+
 \section{The Workhorse (IDE)}
+
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.45]{../images/setup-vscode.png}
 \caption{The VScode IDE.}
 \end{figure}
+
 \justify{}
 It is quite helpful to have a piece of software on your workstation that
 makes code and document creation and edits easier. This software is
@@ -96,6 +109,7 @@ A decent IDE with the right add-ons can provide syntax highlighting to show
 potential issues you might have missed, help you check for spelling or
 grammar mistakes in your documentation, and even makes suggestions on
 alternate ways of writing your code.
+
 \justify{}
 Visual Studio Code from Microsoft is quite a popular choice these
 days in a large sea of commercial and Open Source candidates.
@@ -105,12 +119,14 @@ linter, or syntax checker we may have a need
 for, thanks to their easy to use and well integrated ``Extension''
 feature. VSCode also has an integrated terminal window\index{Terminal Window}
 so the developer can execute shell commands without leaving the IDE screen.
+
 \subsection{VSCode Plugins}
 
 \justify{}
 Another extensible Open Source IDE of note is Atom.
 
 \section{Lab Exercises}
+
 \justify{}
 This book is meant to be a workbook as much as it is meant to be read.
 You are encouraged to jump ahead, go back and re-read, do the exercises
@@ -119,39 +135,48 @@ and skip the parts you don't think you will ever use. Learning can
 be a non-linear experience and you
 are encouraged to ``color outside the lines'' to the extent you feel
 comfortable doing so.
+
 \justify{}
 That said, I've attempted to give this book a feel of moving the reader
 along towards a final project.
 This project is meant to guide the reader through applying the information
 introduced between this chapter and that.
 \section{SSH Key Setup}
+
 \justify{}
 Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have
 one. We will be using it at various stages to log in to various sites
 and hosts. The directions for generating an SSH keypair found on the
 github.com website are perfect for this task.
+
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
 \lstinputlisting{code/03_setup/ssh-key-generation}
 \end{mybox}
+
 \justify{}
 Now you can add your public key half to github.com.
+
 \section{GPG Key Setup}
+
 \justify{}
 Gnu Privacy Guard (GPG) is a replacement for Symantec's PGP software. It allows you
 to generate and asymmetric key pair that can be exchanged with other users, encrypt your
 personal files, or verify your identity.
+
 \justify{}
 We will use a GPG key to sign commits
 to GitHub\index{GitHub}. This will help others verify that work you check in to revision control did
 actually come from you. It's not strictly necessary but is considered good practice.
 Some repositories require that you sign your pull requests with your GPG key\index{GPG key}.
+
 \justify{}
 Take a few minutes to set up a GPG key. Once you have an account setup, you can add
 it to your profile on GitHub.
-\justify{}
+
 \begin{mybox}{\thetcbcounter: GPG Key Setup}
 \lstinputlisting{code/03_setup/gpg-key-setup}
 \end{mybox}
+
 \justify{}
 Copy your GPG key, beginning with the string ``BEGIN PGP PUBLIC KEY BLOCK'' and ending with the string
 ``END PGP PUBLIC KEY BLOCK''. Add the GPG key to your GitHub account.
