@@ -119,7 +119,7 @@ projects.
 
 \subsection{Using AWS Credentials with Terraform}
 \justify{}
- Using the "pass" manager means you can remove plain text credentials
+ Using the ``pass'' manager means you can remove plain text credentials
   from the local file system.
   * Prevents credentials from being committed to revision control by accident.
   * When using pass, your credentials are still encrypted with your private key, even
@@ -156,13 +156,11 @@ pass show aws-secret-access-key
 * Create Terraform plan, apply, etc.
 
 \begin{mybox}{\thetcbcounter: Terraform}
-export AWS_ACCESS_KEY_ID=$(pass aws-access-key-id) # your creds come from the vault
-export AWS_SECRET_ACCESS_KEY=$(pass aws-secret-access-key) # your creds come from the vault
-terraform plan # should be able to get your creds from your shell
+  \lstinputlisting{code/10_tools/export-pass.txt}
 \end{mybox}
 
 \subsection{terraform.tfvars}
-
+\justify{}
 When working with AWS as cloud provider, life gets a bit easier if you
 save a copy of your console credentials in a file called
 terraform.tfvars as seen in the next example. You must be very careful
@@ -196,7 +194,7 @@ Virtual Private Cloud (VPC) and provider-assigned IPv4 Subnets.
 
 put an example VPC in here
 
-\subsection{outputs.tf}\label{outputs.tf}
+\subsection{outputs.tf}
 
 \justify{}
 We can display or export the resources we've created in main.tf using a
@@ -228,7 +226,7 @@ put an example variables file here.
 \subsection{Verification}
 
 \justify{}
-Terraform has some commands, validate and fmt (short for "format") that
+Terraform has some commands, validate and fmt (short for ``format'') that
 we can use to syntactically verify our configuration before sending it
 off to the cloud provider to act upon. Validating your Terraform files
 is as easy as typing terraform validate in the directory the files exist
@@ -313,7 +311,7 @@ single: AES-256 single: Vault
 \subsection{Encrypting a File with Vault}
 
 \justify{}
-Let's try encrypting a file... using another file! Create a text file
+Let's try encrypting a file\ldots using another file! Create a text file
 with some random contents. For example, create a file in your home
 directory called my\_dog.txt with the following contents:
 

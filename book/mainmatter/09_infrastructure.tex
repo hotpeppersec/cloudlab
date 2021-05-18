@@ -53,14 +53,12 @@ popularity and simultaneously mature and ever-expanding feature set.
 \subsection{Credentials}
 \justify{}
 Amazon Web Services (AWS) credentials are stored in a hidden directory
-in your home directory called ".aws". The file
+in your home directory called ``.aws''. The file
 \textasciitilde{}/.aws/credentials should be modified to contain your
 AWS access\_id and secret\_key as seen below.
 
 \begin{mybox}{\thetcbcounter: ~/.aws/credentials}
-  [default]\\
-  aws\_access\_key\_id = AKIAJCQ6WHUXVOKZ8RQQ\\
-  aws\_secret\_access\_key = q27qR8fwdHLUh7WOEH3JVd2VHjfRlQs1jlhhbZbQ\\
+  \lstinputlisting{code/09_infra/aws-creds.txt}
 \end{mybox}
 
 \justify{}
