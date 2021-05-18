@@ -9,7 +9,7 @@
 \begin{document}
 
 % frontmatter: half title, title page, colophon (copyright page), epigraph, toc, preface, acknowledgements
-\frontmatter
+\frontmatter{}
 \include{frontmatter/maketitle}
 \include{frontmatter/colophon}
 %\include{frontmatter/epigraph}
@@ -18,7 +18,7 @@
 \listoffigures
 \listoftables
 
-\mainmatter
+\mainmatter{}
 \include{mainmatter/01_introduction}
 \include{mainmatter/02_big_ideas}
 \include{mainmatter/03_setup}
@@ -35,7 +35,7 @@
 % \include{mainmatter/11_test-lab}
 
 % backmatter: appendix, bibliography, index, postface
-\backmatter
+\backmatter{}
 \printindex
 \nocite{*}
 \bibliography{backmatter/mybib}
