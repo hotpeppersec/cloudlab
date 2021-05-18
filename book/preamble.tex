@@ -11,7 +11,7 @@
   bmargin=1cm,
   lmargin=2cm,
   rmargin=2.40cm,
-  headsep=0cm,
+  headsep=10pt,
   footskip=13.6cm
 }
 
@@ -24,7 +24,9 @@
 %%% FONTS %%%
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{tgbonum} % set the document font
+\usepackage[english]{babel}
+%\usepackage{tgpagella} % set the document font to TeX Gyre Pagella
+\usepackage{tgbonum} % set the document font to TeX Gyre Bonum
 \usepackage{fontawesome5} % The Creative Commons icons
 
 %%% LICENSE %%%
@@ -76,14 +78,19 @@
 \usepackage{ragged2e} % use flush and justify for text blocks
 \usepackage{bookmark} % http://ctan.org/pkg/bookmark
 \usepackage{booktabs} % https://nhigham.com/2019/11/19/better-latex-tables-with-booktabs/
+
 %% RO, LE will not work for 'oneside' layout.
 %% Change oneside to twoside in document class
 \usepackage{fancyhdr}\pagestyle{fancy}
 \fancyhf{}
+%\renewcommand{\headrulewidth}{2pt}
+%\renewcommand{\footrulewidth}{1pt}
 %%% Alternating Header for oneside
 \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{ \small \nouppercase{\leftmark} }{}}
 \fancyhead[R]{\ifthenelse{\isodd{\value{page}}}{}{ \small \nouppercase{\rightmark} }}
-\fancyfoot[CO, CE]{\thepage} % page number
+\fancyfoot[C]{\thepage} % page number
+
+
 \usepackage{datetime}
 \newdateformat{MonthYearFormat}{%
   \monthname[\THEMONTH], \THEYEAR}
