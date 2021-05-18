@@ -1,6 +1,5 @@
 \chapter{Getting Ready to Get Tactical}
 \includegraphics[scale=0.20]{../images/ingredients-498199_1920.jpg}
-
 \justify{}
 Think of this chapter as the \emph{mise en place} of our DevSecOps souffle.
 \pagebreak
@@ -46,7 +45,6 @@ Not a bad trade-off! It only makes sense to avail yourself of free-tier
 cloud services, build and test platforms, and low or no-cost hosting
 environments. There are plenty of these out there and we will explore
 some of these as we dive further into the topics.
-
 \justify{}
 When we choose to use a tool, say Ansible\index{Ansible} for example, we must adopt the
 most up-to-date and best practices for using that tool.
@@ -56,22 +54,18 @@ that came before us, and with whom we share many goals. As your skills
 mature over time, you may want to consider donating time back to the
 open source and other communities upon which your knowledge has been
 built.
-
-\justify
+\justify{}
 Finally, I find it very helpful for my own personal peace of mind to
 leave projects clean and green, to the extent possible. In other words,
 there is mental benefit to tidying up your physical and virtual workspace
 before walking away from the keyboard for the day. Perhaps you would
 find similar benefit should you choose to adopt this practice.
-
 \section{Prerequisites}
-
-\justify
+\justify{}
 This book intends to be a practical treatment of common and popular technologies
 from the DevSecOps world. As such, we assume the reader has some basic knowledge
 of certain concepts. We will be exploring new ways of working for folks who
 are somewhat familiar with:
-
 \begin{itemize}
 	\item
 	      Linux (UI and command line)
@@ -99,7 +93,6 @@ A decent IDE with the right add-ons can provide syntax highlighting to show
 potential issues you might have missed, help you check for spelling or
 grammar mistakes in your documentation, and even makes suggestions on
 alternate ways of writing your code.
-
 \justify{}
 Visual Studio Code from Microsoft is quite a popular choice these
 days in a large sea of commercial and Open Source candidates.
@@ -109,10 +102,7 @@ linter, or syntax checker we may have a need
 for, thanks to their easy to use and well integrated "Extensions"
 feature. VSCode also has an integrated terminal window\index{Terminal Window}
 so the developer can execute shell commands without leaving the IDE screen.
-
 \subsection{VSCode Plugins}
-\justify{}
-
 
 \justify{}
 Another extensible Open Source IDE of note is Atom.
@@ -126,13 +116,11 @@ and skip the parts you don't think you will ever use. Learning can
 be a non-linear experience and you
 are encouraged to "color outside the lines" to the extent you feel
 comfortable doing so.
-
 \justify{}
 That said, I've attempted to give this book a feel of moving the reader
 along towards a final project.
 This project is meant to guide the reader through applying the information
 introduced between this chapter and that.
-
 \section{SSH Key Setup}
 \justify{}
 Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have
@@ -140,14 +128,11 @@ one. We will be using it at various stages to log in to various sites
 and hosts. The directions for generating an SSH keypair found on the
 github.com website
 are perfect for this task.
-
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
 	\lstinputlisting{code/03_setup/ssh-key-generation}
 \end{mybox}
-
 \justify{}
 Now you can add your public key half to github.com.
-
 \section{GPG Key Setup}
 \justify{}
 Gnu Privacy Guard (GPG) is a replacement for Symantec's PGP software. It allows you
@@ -161,12 +146,10 @@ Some repositories require that you sign your pull requests with your GPG key\ind
 \justify{}
 Take a few minutes to set up a GPG key. Once you have an account setup, you can add
 it to your profile on GitHub.
-
 \justify{}
 \begin{mybox}{\thetcbcounter: GPG Key Setup}
 	\lstinputlisting{code/03_setup/gpg-key-setup}
 \end{mybox}
-
 \justify{}
 Copy your GPG key, beginning with the string ``BEGIN PGP PUBLIC KEY BLOCK'' and ending with the string
 ``END PGP PUBLIC KEY BLOCK''. Add the GPG key to your GitHub account.
