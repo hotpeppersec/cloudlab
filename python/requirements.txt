@@ -1,5 +1,2 @@
 Pygments
-rst2pdf
-restructuredtext-lint
-recommonmark
 dot2tex
