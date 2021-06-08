@@ -1,17 +1,15 @@
 # syntax=docker/dockerfile:1
 
-FROM debian:stable-slim
+FROM pandoc/latex:latest
 
-LABEL maintainer="Franklin Diaz <franklin@bitsmasher.net>"
+LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
 LABEL org.opencontainers.image.source="https://github.com/thedevilsvoice/devsecops-tactical-book"
 
-WORKDIR /workspace/devsecops-tactical-book/book
+# Install additional LaTeX packages
+RUN tlmgr update --self && tlmgr install \
+  pgf # <list of packages goes here>
 
-# Debian packages
-ENV DEBIAN_FRONTEND noninteractive
-RUN \
-    apt-get update; \
-    apt-get install -y --no-install-recommends wget unzip make texlive-full
+WORKDIR /workspace/devsecops-tactical-book/book
 
 COPY . /workspace/devsecops-tactical-book
 

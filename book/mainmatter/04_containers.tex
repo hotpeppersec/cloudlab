@@ -4,16 +4,11 @@
 
 
 \justify{}
-Containerization is the process of encapsulating code and dependencies for part
-or all of a project. The most popular and common tool for realizing containerization is
-Docker\index{Docker}. Using Docker, we can define an environment for our project, build
-an image based on this definition, then
-pass the entirety of this encapsulated environment from our local development machine
-along to another machine. At that point, we can run the image on the next machine to get
-the same results as on the first machine. For example, we can pass our container
-into the Continuous Integration (CI)\index{Continuous Integration}
-pipeline for testing, and eventually into our production environment. 
-Containerization\index{containerization} helps us by offering a consistent operating
+Containerization is the process of encapsulating the code and dependencies for part or all of a project. The most popular
+and common tool for realizing containerization is Docker\index{Docker}. Using Docker, we can programatically build an
+environment for our project, and pass the entirety of this encapsulated environment from our local
+development machine, into the Continuous Integration (CI)\index{Continuous Integration} pipeline for testing, and eventually
+into our production environment. Containerization\index{containerization} helps us by offering a consistent operating
 experience across disparate environments.
 
 \justify
@@ -73,12 +68,12 @@ for the exercises we will do later.
 
 
 \justify{}
-Once you have Docker installed and running on your workstation, take a
-look at the two example files below. It's OK for now to see them and get
-a general familiarity with their contents. Later we will use these files
+Once you have Docker installed and running on your workstation, take a look at the two example files below. It's OK for now
+to see them and get a general familiarity with their contents. Later we will use these files
 to create containers for our projects.
 
 \section{What is a Dockerfile?}
+
 \justify{}
 The Dockerfile is our basic unit of containerization. That is to say,
 our containers, and the applications they contain, are defined by the
@@ -100,16 +95,13 @@ within this directory. Note the capitalization of the first letter in the file n
 \end{mybox}
 
 \justify{}
-A valid Dockerfile begins with the \textbf{FROM} instruction. This
-instruction specifies the base image that we will use to build our
-project on. These base images come from the
-\href{https://docs.docker.com/docker-hub/repos/}{Docker Hub
-  repositories}. We are setting an environment variable
-\textbf{DEBIAN\_FRONEND} to the value of noninteractive, which will
-cause the apt command to skip or ignore any interactive menus that are
-encountered during execution of the apt command, since these would cause
-our builds to ``hang up'' at an inaccessible interactive prompt. The
-\textbf{ADD} and \textbf{WORKDIR} directives are meant to cause Docker
+A valid Dockerfile begins with the \textbf{FROM} instruction. This instruction specifies the base image that we
+will use to build our project on. These base images come from the
+\href{https://docs.docker.com/docker-hub/repos/}{Docker Hub repositories}. We are setting an environment variable
+\textbf{DEBIAN\_FRONTEND} to the value of noninteractive, which will cause the apt command to skip or ignore any
+interactive menus that are encountered during execution of the apt command, since these would cause
+our builds to ``hang up'' at an inaccessible interactive prompt. The \textbf{ADD} and \textbf{WORKDIR} directives
+are meant to cause Docker
 to use the /workdir directory as the root of the project ``inside'' the
 container. Finally, we are directing Docker to \textbf{RUN} and apt
 update and install the apt-utils package.
@@ -278,6 +270,8 @@ Later we will look more closely at the sprawling and vibrant
 topic of Kubernetes. For this stage of our journey to DevSecOps
 enlightenment, it is enough to know that orchestration exists
 and have a bit of familiarity with its purpose.
+
+\section {kaniko}
 
 \section{Container Security} 
 
