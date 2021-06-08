@@ -15,26 +15,32 @@ familiarity with them.
 
 \justify{}
 Fundamentally, DevOps and DevSecOps are models for how a team or set of teams can be arranged
-to optimize the creation of applications and Infrastructure as Code. Calling out the ``Security''
-piece explicitly in the nomenclature often signifies an intentional inclusion of security focused
-activities by the teams involved. Some folks will stick with the term ``DevOps'', insisting the
-security piece is still there and just as important but should not be called out separately.
+to optimize the creation of applications and Infrastructure as Code. They both benefit from
+employing similar, if not identical, Agile methodologies. Calling out the ``Security''
+piece explicitly in the ``DevSecOps'' nomenclature often signifies an intentional inclusion
+of security focused process and activities by the teams involved. Some folks will stick with
+the term ``DevOps'', insisting the security piece is still there and just as important, so
+there is no need for it to be called out separately.
 
 \justify{}
-Consider the table below. The big takeaway here is to notice the DevSecOps path goes a bit futher
-in highlighting security and making it a priority.
+Consider the table\ref{DevOps vs. DevSecOps} below. The big takeaway here is to notice the DevSecOps path goes a bit futher
+in highlighting security and making it a priority. The goal is to think hard about integrating
+security and making it a conscuious team effort. Adding a security engineer to DevOps design 
+and review meetings may not be enough to fuse security into our workflows. We want to ensure
+our work products are as secure as possible.
 
-\begin{tabular}{|l|c|c|l|}\hline
-    & DevOps & DevSecOps & \\\hline
-\end{tabular}
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|c|c|}\hline
+                                   & DevOps & DevSecOps \\\hline
+        Shifting Left              &   X    &    X       \\\hline
+        Automated Security Testing &        &    X       \\\hline
+        Policy as Code Testing     &        &    X       \\\hline
 
-\justify{}
-Let's explore the similarites and differences a bit further.
-
-
-\begin{tabular}{|l|c|c|l|}\hline
-    & DevOps & DevSecOps & \\\hline
-\end{tabular}
+    \end{tabular}
+\caption{DevOps vs. DevSecOps}
+\label{DevOps vs. DevSecOps}
+\end{table}
 
 \section{Revision Control}
 
@@ -46,26 +52,40 @@ These work products are typically created, reviewed and checked into Revision Co
 Other popular revision control systems include GitLab\index{GitLab} and BitBucket\index{BitBucket}.
 
 \justify{}
-Although it may seem like there are a lot of choices when it comes to revision control, there is one tool that
-underlies them all. That tool is known as git. Git is the brainchild of Linus Torvalds, who also happens to be
-the person that invented the Linux kernel just before the turn of the century. This tool work wonderfully on projects small
+Although it may seem like there are a lot of choices when it comes to revision control, there
+is one tool that
+underlies them all. That tool is known as git. Git is the brainchild of Linus Torvalds, who also
+happens to be
+the person that invented the Linux kernel just before the turn of the century. This tool work wonderfully
+on projects small
 and large. For this and may other reasons, it is at the heart of many of these RCS systems that we just mentioned. Note that
 in addition to these websites, there are many desktop tools meant to aid developers with revision control on their local
 machine. While these can be quite handy, there is no substitute for learning the intricacies of git from the command
 line. It will come in quite handy indeed.
-
+\justify{}
 We will look more closely at git and revision control in a later chapter.
 
 \section{Testing}
 
 \justify{}
-We will delve into various types and aspects of testing throughout this book. For now it is enough
-to understand the idea of a test case as a discrete check, or grouping of similar types of checks,
-that we use to ensure our work products meet certain minimum standards.  Test cases are created with
+A test case as a discrete check, or grouping of similar types of checks,
+that we use to ensure our work products meet certain minimum standards. Test cases are created with
 and often run against our work products at the time they are checked in to the revision control system.
 This is meant to ensure stability, security, and compatibility with the existing code base in revision
 control. The automation required to execute tests every time work is checked in to
-revision control is typically the responsibility of the DevSecOps engineers.
+revision control is typically the responsibility of the DevSecOps engineers. We will delve into various
+types and aspects of testing throughout this book. 
+
+\subsection{SAST Security Testing}
+Static Application Security Testing (SAST)\index{SAST} helps identify shortcomings by examining your code.
+
+\subsection{DAST Security Testing}
+Dynamic Application Security Testing (DAST)\index{DAST} puts administrators in the perspective of
+an attacker to help identify gaps and vulnerabilities.
+
+\subsection{IAST Security Testing}
+Interactive Application Security Testing (IAST)\index{IAST} combines both SAST and DAST to use software
+instrumentation (active or passive) to monitor application performance.
 
 \section{Pipelines}
 
@@ -77,8 +97,8 @@ revision control is typically the responsibility of the DevSecOps engineers.
 \end{figure}
 
 \justify{}
-As seen in figure\ref{pipeline}, work typically flows from the local environments, into a test environment, and finally to production
-where it is available for use by the entire user base.
+As seen in figure\ref{pipeline}, work typically flows from the local environments, into a test
+environment, and finally to production where it is available for use by the entire user base.
 
 \justify{}
 We will refer to the entirety of this three-stage flow as one example of what is known as a build pipeline\index{pipeline}.
@@ -102,13 +122,15 @@ between differing functions might be said to comprise two different pipelines.
 \section{Shifting Left}
 
 \justify{}
-We now have a mental picture of how software will flow through our three environments, from Development, to Test, and finally
-into Production where it is accessible to the widest base of consumers. Integration of
-best security practices into this flow, as early and as often as possible, is highly desirable.
+We now have a mental picture of how software will flow through our three environments, from
+Development, to Test, and finally into Production where it is accessible to the widest
+base of consumers. Integration of best security practices into this flow, as early and as often
+as possible, is highly desirable.
 
 \justify{}
-Imagine our software life cycle occurring along a temporal axis, t. Intentionally moving security to the left on this axis (lower
-values of t) is known as ``Shifting Left''\index{Shift Left} as seen in figure\ref{shift}.
+Imagine our software life cycle occurring along a temporal axis, t. Intentionally moving security to the
+left on this axis (lower values of t) is known as ``Shifting Left''\index{Shift Left} as seen
+in figure\ref{shift}.
 
 \justify{}
 \begin{figure}[!htb]
