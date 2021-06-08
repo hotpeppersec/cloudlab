@@ -11,7 +11,7 @@ development machine, into the Continuous Integration (CI)\index{Continuous Integ
 into our production environment. Containerization\index{containerization} helps us by offering a consistent operating
 experience across disparate environments.
 
-\justify
+  \justify{}
 Recall our earlier discussion on the topics of immutability\index{immutability}
 and ephemerality\index{ephemerality}. It is more desirable to create projects that are built
 and replaced frequently, than it is to attempt to upgrade and repair the infrastructure, 
@@ -105,7 +105,7 @@ alongside our Dockerfile in our docker directory.
   \lstinputlisting{code/containers/docker-compose.yml}
 \end{mybox}
 
-\justify
+\justify{}
 The docker-compose.yml file begins with a version specification. It's important to note that the commands and structure
 of docker-compose.yml can vary widely based on this version. While versions cannot be mixed, all version are valid with
 respect to docker-compose itself. We specify a service named ``devsecops'', and assign a host and container name. Under
