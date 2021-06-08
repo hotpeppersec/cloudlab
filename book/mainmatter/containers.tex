@@ -24,48 +24,33 @@ and ephemerality\index{ephemerality} also introduces issues keeping
 operating system packages current, yet still compatible with
 the project. Imagine a situation where an upgrade to a package
 is necessary to meet security requirements. What happens when this very same
-upgrade means the project stops working since the package
-features that your application depends on have also changed?
-The result is most likely angry end users and customers. Certainly not a situation
-we ever like to find ourselves in.
+upgrade means the project stops working since the package features that your application depends on have also changed?
+The result is most likely angry end users and customers. Certainly not a situation we ever like to find ourselves in.
 
 \section{Docker Conatiners}
 
 \justify{}
-Docker images are ``canned'' (as in, prefabricated) or custom directives
-for provisioning a Docker container. One or more
-images can be used as building blocks when configuring our containers.
-For example, a Linux image and Python image might be combined
-with our customizations that describe and point to our application code,
-all of which make up a single container that provides the functions of
-a fully provisioned server. We get the added
-benefit of being able to switch quickly between base operating system
-images with just a few lines of code change to our project. For example,
-we could easily modify our container image to be predicated on Debian
-rather than Red Hat distribution of Linux kernel and operating system
-should the need arise.
+Docker images are ``canned'' (as in, prefabricated) or custom directives for provisioning a Docker container. One or more
+images can be used as building blocks when configuring our containers. For example, a Linux image and Python image might
+be combined with our customizations that describe and point to our application code,
+all of which make up a single container that provides the functions of a fully provisioned server. We get the added
+benefit of being able to switch quickly between base operating system images with just a few lines of code change to our
+project. For example, we could easily modify our container image to be predicated on Debian
+rather than Red Hat distribution of Linux kernel and operating system should the need arise.
 
-\subsection{Docker Hub}
+\section{Docker Hub}
 \justify{}
-Many pre-built container images are available for download from 
-\href{https://hub.docker.com/}{Docker Hub}. 
+This is a repository for Docker containers. Many pre-built container images are available for download
+from \href{https://hub.docker.com/}{Docker Hub}. You can also create an account and upload your own images from your various
+projects.
 
-\subsection{The Dockerfile}
 
-\justify{}
-The specification that outlines how a docker image is to be built is the ``Dockerfile''.
-One technique to improve our build pipelines is to simply pass along the Dockfile than
-building and passing a container image along to others.
-
-\subsection{Installing Docker}
+\section{Installing Docker}
 
 \justify{}
 See the Docker website for instructions on how to install and configure
 Docker. A properly functioning Docker setup on your local machine is a requirement
 for the exercises we will do later. 
-
-
-
 
 \justify{}
 Once you have Docker installed and running on your workstation, take a look at the two example files below. It's OK for now
@@ -75,23 +60,21 @@ to create containers for our projects.
 \section{What is a Dockerfile?}
 
 \justify{}
+The specification that outlines how a docker image is to be built is saved in the ``Dockerfile''.
 The Dockerfile is our basic unit of containerization. That is to say,
 our containers, and the applications they contain, are defined by the
 Dockerfile. This Dockerfile will dictate how we provision resources and
 include operating system essentials and packages inside our container.
-Each Dockerfile is predicated on a base image, such as Python/Debian 10
-as shown in the example below.
+Each Dockerfile is predicated on a base image, such as ``python:slim-buster''
+for example.
 
 \justify{}
-Consider a directory named
-\href{https://github.com/hotpeppersec/rapid_secdev_framework/tree/master/docker}{Docker}
-and a file called
-\href{https://github.com/hotpeppersec/rapid_secdev_framework/blob/master/docker/Dockerfile}{Dockerfile}\index{Dockerfile}
-within this directory. Note the capitalization of the first letter in the file name. Some IDE's will key off this file and allow for additional syntax highlighting.
+One common technique to speed up our build pipelines is to simply pass along the Dockfile, rather than
+building and passing a container image along to others.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: Dockerfile}
-  \lstinputlisting{code/04_containers/Dockerfile}
+  \lstinputlisting{code/containers/Dockerfile}
 \end{mybox}
 
 \justify{}
@@ -106,41 +89,35 @@ to use the /workdir directory as the root of the project ``inside'' the
 container. Finally, we are directing Docker to \textbf{RUN} and apt
 update and install the apt-utils package.
 
-\subsection{Volumes}
+\section{Volumes}
 
-\subsection{docker-compose.yml}
+\section{docker-compose.yml}
 \justify{}
-The docker-compose tool and its associated docker-compose.yml file
-allows us to manage multiple Docker containers for one or more
-applications. We will add this file to our project to illustrate it's
-composition and give ourselves the ability to extend our work later, as
-needed.
+The docker-compose tool and its associated docker-compose.yml file allows us to manage multiple Docker containers for
+one or more applications in the same project. We will add this file to our project to illustrate it's
+composition and give ourselves the ability to extend our work later, as needed.
 
 \justify{}
 A file called docker-compose.yml\index{docker-compose.yml} will exist
 alongside our Dockerfile in our docker directory.
 
 \begin{mybox}{\thetcbcounter: Example docker-compose.yml}
-  \lstinputlisting{code/04_containers/docker-compose.yml}
+  \lstinputlisting{code/containers/docker-compose.yml}
 \end{mybox}
 
 \justify
-The docker-compose.yml file begins with a version specification. It's
-important to note that the commands and structure of docker-compose.yml
-can vary widely based on this version. While versions cannot be mixed,
-all version are valid with respect to docker-compose itself. We specify
-a service named ``devsecops'', and assign a host and container name. Under
+The docker-compose.yml file begins with a version specification. It's important to note that the commands and structure
+of docker-compose.yml can vary widely based on this version. While versions cannot be mixed, all version are valid with
+respect to docker-compose itself. We specify a service named ``devsecops'', and assign a host and container name. Under
 ``volumes'' we are mounting the base of the project directory in the host
 filesystem as ``/project'' in the container filesystem. The build
-``directive'' tells docker-compose how to locate the Dockerfile we wish to
-use for the containers.
+``directive'' tells docker-compose how to locate the Dockerfile we wish to use for the containers.
 
-\subsection{Exercise: Testing Out Docker}
+\section{Exercise: Testing Out Docker}
+
 \justify{}
-With Docker properly installed and an understanding of the necessary
-configuration files, we can now try out our configuration. See the 
-figure\ref{githubdirectory} for an illustration of how to lay out the
-project files in your local filesystem.
+With Docker properly installed and an understanding of the necessary configuration files, we can now try out our configuration.
+See the  figure\ref{githubdirectory} for an illustration of how to lay out the project files in your local filesystem.
 
 \begin{figure}[!htb]
   \centering
@@ -182,39 +159,39 @@ docker-compose.yml file.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: Create files for Docker,height=3.5cm}
-  \lstinputlisting{code/04_containers/create-files.txt}
+  \lstinputlisting{code/containers/create-files.txt}
 \end{mybox}
 
 \justify{}
-With our files created and populated, we are ready to generate our
-container based on our specified configuration.
+With our files created and populated, we are ready to generate our container based on our specified configuration.
 
 \begin{mybox}{\thetcbcounter: Build from docker-compose.yml}
   docker-compose -f docker/docker-compose.yml build devsecops
 \end{mybox}
 
 \justify{}
-If all went well, you should now have a shell prompt from ``inside'' the
-new container. Recall that we set our \textbf{WORKDIR} variable to 
-/project in the Dockerfile. Following that example, we now have Dockerfile
-and docker-compose.yml in the directory /project/docker, having mounted the
-project directory from the host machine ``inside'' the container.
+If all went well, you should now have a shell prompt from ``inside'' the new container. Recall that we set our 
+\textbf{WORKDIR} variable to /project in the Dockerfile. Following that example, we now have Dockerfile
+and docker-compose.yml in the directory /project/docker, having mounted the project directory from the host machine 
+``inside'' the container.
 
-\subsubsection{Testing from GitHub}
+\subsection{Testing from GitHub}
 \justify{}
-In the next chapter we will explore how to ``clone'' a project repository from 
-\href{github.com} and do our work directory from there.
+In later chapter we will explore how to ``clone'' a project repository from \href{github.com} and do our work directory
+from there. It is a good practice to keep a Dockerfile at the top level of your GitHUb repository that can be used to
+build and test your application.
 
 \section{Security Scanning Our Containers}
 The \href{trivy container scanner}{https://github.com/aquasecurity/trivy} bills itself
 as ``A Simple and Comprehensive Vulnerability Scanner for Containers and other
 Artifacts, Suitable for CI''.
 
+% https://www.paloaltonetworks.com/cyberpedia/what-is-container-security
+
 \section{Podman and Buildah}
-\justify{}
-Note that Podman\index{Podman} is an acceptable substitute for Docker.
 
 \justify{}
+Note that Podman\index{Podman} is an acceptable substitute for Docker.
 Podman is an Open Source tool from the Open
 Containers Initiative (OCI)\index{Open Containers Initiative
 (OCI)}. The Podman\index{Podman} service is said to be capable
@@ -240,22 +217,15 @@ balancing, and more. The Container Orchestrator manages the
 lifecycle and visibility of a container at all stages.
 
 \justify{}
-Kubernetes\index{Kubernetes} is an example, perhaps even the
-penultimate example, of a Container Orchestrator\index{orchestration}.
-Folks throughout the DevSecOps, Software and
-Security communities are using Kubernetes these days, and
-with good reason. It's adoption as a means to manage and
-replicate containers, and scale the applications they contain,
-has been nothing short of revolutionary. System administrators
-and developers can do more, better work. Granted, this comes at
-the expense of introduction yet another framework to learn, and
-no small amount of complexity.
+Kubernetes\index{Kubernetes} is an example, perhaps even the penultimate example, of a Container Orchestrator\index{orchestration}.
+Folks throughout the DevSecOps, Software and Security communities are using Kubernetes these days, and
+with good reason. It's adoption as a means to manage and replicate containers, and scale the applications they contain,
+has been nothing short of revolutionary. System administrators and developers can do more, better work. Granted, this comes at
+the expense of introduction yet another framework to learn, and no small amount of complexity.
 
 \justify{}
-An orchestrator helps us achieve immutability, and scale
-to meet user demand quickly and easily by abstracting away
-concerns that come with operating workloads in a bare metal
-or VM environment.
+An orchestrator helps us achieve immutability, and scale to meet user demand quickly and easily by abstracting away
+concerns that come with operating workloads in a bare metal or VM environment.
 
 \justify{}
 Kubernetes and other orchestrators are rapidly evolving. To ignore this
@@ -266,15 +236,7 @@ with in preparation for expanding your mindset into the greater
 dimensionality that orchestration realizes.
 
 \justify{}
-Later we will look more closely at the sprawling and vibrant 
-topic of Kubernetes. For this stage of our journey to DevSecOps
-enlightenment, it is enough to know that orchestration exists
-and have a bit of familiarity with its purpose.
-
-\section {kaniko}
-
-\section{Container Security} 
-
-% https://www.paloaltonetworks.com/cyberpedia/what-is-container-security
+Later we will look more closely at the sprawling and vibrant topic of Kubernetes. For this stage of our journey to DevSecOps
+enlightenment, it is enough to know that orchestration exists and have a bit of familiarity with its purpose.
 
 \section{Further Reading}

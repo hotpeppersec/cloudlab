@@ -1,41 +1,42 @@
 \chapter{Revision Control}
 \includegraphics[scale=0.20]{../images/owl-50267_1920.jpg}
-\justify{}
-The advantages of using a revision control\index{revision control} methodology in being able to
-organize and store project artifacts in a way that multiple users or
-teams can leverage. Websites, like github.com for example, are
-fundamental to our workflow as they are a key piece of our software
-delivery pipeline.
-\justify{}
-In addition to giving us a way to back up and store our work,
-essentially for free, it facilitates a greater degree of collaboration.
-There are other similar, (mostly) free services we can choose from
-including Bit Bucket and Git Lab. For the purposes of this book we will
-focus on the most well known of these, GitHub\index{GitHub}.
 
-\section{github.com}
 \justify{}
-Simply put, github.com is a website that allows you to store the work
-you are using git to manage. Git is the tool that allows for revision
-control of your work. GitHub is a repository for storing that work,
-creating teams to work on projects, tracking issues, release
-snapshotting, and more.
+Using a revision control\index{revision control} methodology allows us to organize and store project artifacts. Multiple users or
+teams can collaborate on a single code base. Websites, like \href{https://github.com}{}github.com} for example, are foundational to our workflow. They are a key piece of 
+our software delivery pipeline since they allow us to declare a single source of truth for the code that makes up our project.
+
+\justify{}
+In addition to giving us a way to back up and store our work, essentially for free, revision control facilitates a greater degree
+of collaboration. There are other similar, (mostly) free services we can choose from, for example Bit Bucket and Git
+Lab. For the purposes of this book we will focus GitHub\index{GitHub}, since it is the most common and well known.
+
+\section{The Relationship Between Git and GitHub}
+
+\justify{}
+Git is the tool that allows for revision control of your work. GitHub is a repository for storing that work, creating teams to work on projects, tracking issues, defining release packages,
+and more. Simply put, \href{github.com}{github.com} is a website that gives you a place to store the work you are using git to manage. 
+
 \subsection{Enable Two-Factor Authentication}
+
 \justify{}
 One of the very first things you should do (after creating an account,
-that is) is to configure two-factor authentication (2FA)\index{2FA} for your
-GitHub account.
+that is) is to configure two-factor authentication (2FA)\index{2FA} for your GitHub account.
+
 \justify{}
-Next let's take a look at two of the key methods of interacting with
-projects and other people on github.com.
+Next let's take a look at two of the key methods of interacting with projects and other people on github.com.
+
 \subsection{Forking and Cloning Repositories}
+
 \justify{}
 When someone else has a project on github.com that you would like to make changes to,
 you can make a ``fork'' of that project. Forking\index{forking} a repository means you
 are making a copy of that repository to your personal account on the GitHub web site.
+
 \justify{}
 Creating a ``clone''\index{cloning a repo} of your fork to your local machine is done so that
 you can make changes without altering the original project before testing and review of the changes takes place.
+
 \justify{}
 Adding a ``remote'' is a git convention to easily push changes from your clone back to
 the original source repository.
@@ -188,7 +189,7 @@ Consider the following example. Notice that the command prompt changes
 to indicate that you have a BASH shell in the running container.
 
 \begin{mybox}{\thetcbcounter: Output from make docker command}
-  \lstinputlisting{code/05_github/make-docker-output.txt}
+  \lstinputlisting{code/github/make-docker-output.txt}
 \end{mybox}
 
 \subsection{CODEOWNERS}
@@ -207,7 +208,7 @@ Consider this example where we add the @hotpeppersec to the CODEOWNERS
 file.
 
 \begin{mybox}{\thetcbcounter: Adding a user to CODEOWNERS file}
-      \lstinputlisting{code/05_github/create-codeowners.txt}
+      \lstinputlisting{code/github/create-codeowners.txt}
 \end{mybox}
 \justify{}
 In this example, the @githubusername user will be tagged as a reviewer
@@ -224,7 +225,7 @@ Consider the following example .gitignore file. This will prevent you
 from checking in the .DS-Store that Macintosh creates in many folders.
 
 \begin{mybox}{\thetcbcounter: Example .gitignore file}
-      \lstinputlisting{code/05_github/create-gitignore.txt}
+      \lstinputlisting{code/github/create-gitignore.txt}
 \end{mybox}
 
 \subsection{Working with Branches}

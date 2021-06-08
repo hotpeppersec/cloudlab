@@ -12,8 +12,7 @@ We want to:
 \justify{}
 \begin{itemize}
 	\item
-	      Create an extensible lab environment for rapid prototyping and
-	      development.
+	      Create an extensible lab environment for rapid prototyping and development.
 	\item
 	      Keep our lab costs down while meeting the rest of the objectives.
 	      Utilize free services and open source tools to the extent possible.
@@ -26,21 +25,18 @@ We want to:
 	      Get out of our old comfort zone, into a new one.
 \end{itemize}
 
-
-
-
 \section{Prerequisites}
 
 \justify{}
-This book intends to be a practical treatment of common and popular technologies
-from the DevSecOps world. As such, we assume the reader has some basic knowledge
-of certain concepts. We will be exploring new ways of working for folks who
+This book intends to be a practical treatment of common and popular technologies from the DevSecOps world. As such, we assume
+the reader has some basic knowledge of certain concepts. We will be exploring new ways of working for folks who
 are somewhat familiar with:
+
 \begin{itemize}
 	\item
 	    Linux (UI and command line)
 	\item 
-            Python 3
+        Python 3
 	\item
 	    Familiarity with github.com and the concepts of pull requests and branching.
 \end{itemize}
@@ -74,10 +70,10 @@ window\index{Terminal Window} so the developer can execute shell commands withou
 \section{SSH Key Setup}
 
 \justify{}
-Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have
-one. We will be using it at various stages to log in to various sites
-and hosts. The directions for generating an SSH keypair found on the
-github.com website are perfect for this task.
+Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have one. We will add the public half of
+our SSH key pair to hosts we provision. The directions for generating an SSH keypair found on the
+\href{github.com}{github.com} website are perfect for our setup task. Follow the directions in the article 
+\href{https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent}{Generating a new SSH key and adding it to the ssh-agent}
 
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
 \lstinputlisting{code/03_setup/ssh-key-generation}
@@ -89,14 +85,12 @@ Now you can add your public key half to github.com.
 \section{GPG Key Setup}
 
 \justify{}
-Gnu Privacy Guard (GPG) is a replacement for Symantec's PGP software. It allows you
-to generate and asymmetric key pair that can be exchanged with other users, encrypt your
-personal files, or verify your identity.
+\href{https://gnupg.org/}{Gnu Privacy Guard (GPG)} is an Open Source replacement for Symantec's PGP software. It allows you
+to generate and asymmetric key pair that can be exchanged with other users, encrypt your personal files, or verify your identity.
 
 \justify{}
-We will use a GPG key to sign commits
-to GitHub\index{GitHub}. This will help others verify that work you check in to revision control did
-actually come from you. It's not strictly necessary but is considered good practice.
+We will use a GPG key to sign commits to GitHub\index{GitHub}. This will help others verify that work you check in to revision
+control did actually come from you. It's not strictly necessary but is considered good practice.
 Some repositories require that you sign your pull requests with your GPG key\index{GPG key}.
 
 \justify{}
