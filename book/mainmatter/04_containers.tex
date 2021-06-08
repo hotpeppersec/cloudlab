@@ -2,12 +2,16 @@
 
 \includegraphics[scale=0.85]{../images/container-4203677_1920.jpg}
 
+
 \justify{}
-Containerization is the process of encapsulating the code and dependencies for part
+Containerization is the process of encapsulating code and dependencies for part
 or all of a project. The most popular and common tool for realizing containerization is
-Docker\index{Docker}. Using Docker, we can programatically build an environment for our
-project, and pass the entirety of this encapsulated environment from our local
-development machine, into the Continuous Integration (CI)\index{Continuous Integration}
+Docker\index{Docker}. Using Docker, we can define an environment for our project, build
+an image based on this definition, then
+pass the entirety of this encapsulated environment from our local development machine
+along to another machine. At that point, we can run the image on the next machine to get
+the same results as on the first machine. For example, we can pass our container
+into the Continuous Integration (CI)\index{Continuous Integration}
 pipeline for testing, and eventually into our production environment. 
 Containerization\index{containerization} helps us by offering a consistent operating
 experience across disparate environments.
@@ -15,13 +19,11 @@ experience across disparate environments.
 \justify
 Recall our earlier discussion on the topics of immutability\index{immutability}
 and ephemerality\index{ephemerality}. It is more desirable to create projects that are built
-and replaced frequently, than it is to attempt to upgrade
-and repair the infrastructure, platforms, and project code
-on an on-going basis. The reason this is more desirable 
-is that attempts to patch and upgrade project
-hosts ``in place'', quickly reveal great difficulty in maintaining consistency
-with the project source. This is our only option when it comes 
-to ``bare metal'' hosts, and some configurations of hosts using
+and replaced frequently, than it is to attempt to upgrade and repair the infrastructure, 
+platforms, and project code on an on-going basis. The reason this is more desirable 
+is that attempts to patch and upgrade project hosts ``in place'', quickly reveal
+great difficulty in maintaining consistency with the project source. This is our only
+option when it comes  to ``bare metal'' hosts, and some configurations of hosts using
 certain virtualization technologies. A lesser degree of immutability
 and ephemerality\index{ephemerality} also introduces issues keeping
 operating system packages current, yet still compatible with
@@ -32,11 +34,13 @@ features that your application depends on have also changed?
 The result is most likely angry end users and customers. Certainly not a situation
 we ever like to find ourselves in.
 
+\section{Docker Conatiners}
+
 \justify{}
 Docker images are ``canned'' (as in, prefabricated) or custom directives
-for provisioning the operating system of a Docker container. One or more
+for provisioning a Docker container. One or more
 images can be used as building blocks when configuring our containers.
-For example, a base Linux image and base Python image might be combined
+For example, a Linux image and Python image might be combined
 with our customizations that describe and point to our application code,
 all of which make up a single container that provides the functions of
 a fully provisioned server. We get the added
@@ -46,16 +50,27 @@ we could easily modify our container image to be predicated on Debian
 rather than Red Hat distribution of Linux kernel and operating system
 should the need arise.
 
+\subsection{Docker Hub}
+\justify{}
+Many pre-built container images are available for download from 
+\href{https://hub.docker.com/}{Docker Hub}. 
+
+\subsection{The Dockerfile}
+
+\justify{}
+The specification that outlines how a docker image is to be built is the ``Dockerfile''.
+One technique to improve our build pipelines is to simply pass along the Dockfile than
+building and passing a container image along to others.
+
+\subsection{Installing Docker}
+
 \justify{}
 See the Docker website for instructions on how to install and configure
 Docker. A properly functioning Docker setup on your local machine is a requirement
-<<<<<<< HEAD
-for the exercises we will do later. Note that Podman is an acceptable substitute
-=======
-for the exercises we will do later. Note that Podman\index{Podman} is an
-acceptable substitute
->>>>>>> refs/remotes/origin/main
-for Docker, as detailed later in this chapter.
+for the exercises we will do later. 
+
+
+
 
 \justify{}
 Once you have Docker installed and running on your workstation, take a
@@ -203,7 +218,10 @@ The \href{trivy container scanner}{https://github.com/aquasecurity/trivy} bills 
 as ``A Simple and Comprehensive Vulnerability Scanner for Containers and other
 Artifacts, Suitable for CI''.
 
-\section{Substituting Podman for Docker}
+\section{Podman and Buildah}
+\justify{}
+Note that Podman\index{Podman} is an acceptable substitute for Docker.
+
 \justify{}
 Podman is an Open Source tool from the Open
 Containers Initiative (OCI)\index{Open Containers Initiative
@@ -222,6 +240,7 @@ should be able to alias docker=podman and use it as a
 drop-in replacement for Docker and it's associated daemon.
 
 \section{Container Orchestration}
+
 \justify{}
 An orchestrator for containers can be thought of as an engine which
 allows for their provisioning, deployment, scaling, monitoring, load

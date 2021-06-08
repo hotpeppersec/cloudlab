@@ -9,7 +9,32 @@ chapter we will explore some of these in an attempt to level-set our understandi
 domain. We will also continue to introduce the reader to the vernacular of the modern day
 DevSecOps engineer in a world gone cloudy. You certainly don't need to memorize all of 
 these terms, but the thinking is they are prevalent enough that you should have a passing 
-familiarity with them. 
+familiarity with them.
+
+\section{What are DevOps and DevSecOps?}
+
+\justify{}
+Fundamentally, DevOps and DevSecOps are models for how a team or set of teams can be arranged
+to optimize the creation of applications and Infrastructure as Code. Calling out the ``Security''
+piece explicitly in the nomenclature often signifies an intentional inclusion of security focused
+activities by the teams involved. Some folks will stick with the term ``DevOps'', insisting the
+security piece is still there and just as important but should not be called out separately.
+
+\justify{}
+Consider the table below. The big takeaway here is to notice the DevSecOps path goes a bit futher
+in highlighting security and making it a priority.
+
+\begin{tabular}{|l|c|c|l|}\hline
+    & DevOps & DevSecOps & \\\hline
+\end{tabular}
+
+\justify{}
+Let's explore the similarites and differences a bit further.
+
+
+\begin{tabular}{|l|c|c|l|}\hline
+    & DevOps & DevSecOps & \\\hline
+\end{tabular}
 
 \section{Revision Control}
 
@@ -34,11 +59,12 @@ We will look more closely at git and revision control in a later chapter.
 \section{Testing}
 
 \justify{}
-We will delve into various types and aspects of testing throughout this book. For now it is enough to understand the idea of
-a test case as a discrete check, or grouping of similar types of checks, that we use to ensure our work products meet
-certain minimum standards.  Test cases are created with and often run against our work products at the time they are checked
-in to the revision control system. This is meant to ensure stability, security, and compatibility
-with the existing code base in revision control. The automation required to execute tests every time work is checked in to
+We will delve into various types and aspects of testing throughout this book. For now it is enough
+to understand the idea of a test case as a discrete check, or grouping of similar types of checks,
+that we use to ensure our work products meet certain minimum standards.  Test cases are created with
+and often run against our work products at the time they are checked in to the revision control system.
+This is meant to ensure stability, security, and compatibility with the existing code base in revision
+control. The automation required to execute tests every time work is checked in to
 revision control is typically the responsibility of the DevSecOps engineers.
 
 \section{Pipelines}
@@ -141,19 +167,6 @@ we might in a traditional project stack that uses bare metal hosts or even virtu
 use Docker to create a new container in place of the old one. In other words, we're running our project in containers that
 are immutable and ephemeral to the degree possible.
 
-\section{Agile Methodologies}
+\section{GitOps}
 
-\justify{}
-The concept of Agile\index{agile} Software development is an expansive topic unto itself. Agile practices are commonly
-regarded as an underpinning of a successful DevSecOps program. There are methodologies that can help with organizing our
-work items, staying on task, and completion of work items in a timely manner. While people tend to have varying
-opnionions on the desirability and efficacy of these methodolgies, there is no denying the
-fact that they are prevalent among tech companies.
-
-\subsection{The Backlog}
-This is the place work items are captured and await triage and assignment to a developer.
-
-\subsection{the Kanban Board}
-This is typically a columnar layout of work, where each column is an indication of status and completeness.
-For example, a backlog column on the left, and in-progress column in the middle, and a completed
-column on the left. 
+\section{Organizational Maturity}
