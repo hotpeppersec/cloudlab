@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM pandoc/latex:latest
+FROM pandoc/latex
 
-LABEL maintainer "Franklin Diaz <franklin@bitsmasher.net>"
+LABEL maintainer="Franklin Diaz <franklin@bitsmasher.net>"
 LABEL org.opencontainers.image.source="https://github.com/thedevilsvoice/devsecops-tactical-book"
 
 # Install additional LaTeX packages
