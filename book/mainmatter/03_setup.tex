@@ -1,7 +1,7 @@
 \chapter{Getting Ready to Get Tactical}
 
 \centering
-\includegraphics[scale=0.20]{../images/ingredients-498199_1920.jpg}
+\includegraphics[scale=0.20]{images/ingredients-498199_1920.jpg}
 
 
 \justify{}
@@ -55,7 +55,7 @@ of the other foundational environmental elements we need in place to be successf
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[scale=0.45]{../images/setup-vscode.png}
+\includegraphics[scale=0.45]{images/setup-vscode.png}
 \caption{The VScode IDE.}
 \end{figure}
 
@@ -116,9 +116,9 @@ Some repositories require that you sign your pull requests with your GPG key\ind
 Take a few minutes to set up a GPG key. Once you have an account setup, you can add
 it to your profile on \href{github.com}{github.com}.
 
-\subsection{Linux GPG Key Setup}
+\subsection{Command Line GPG Key Setup}
 
-\begin{mybox}{\thetcbcounter: Linux GPG Key Setup}
+\begin{mybox}{\thetcbcounter: Command Line GPG Key Setup}
 \lstinputlisting{code/03_setup/gpg-key-setup}
 \end{mybox}
 
@@ -126,12 +126,13 @@ it to your profile on \href{github.com}{github.com}.
 Copy your GPG key, beginning with the string ``BEGIN PGP PUBLIC KEY BLOCK'' and ending with the string
 ``END PGP PUBLIC KEY BLOCK''. Add the GPG key to your GitHub account.
 
-\subsection{Macintosh GPG Key Setup}
-
-\begin{mybox}{\thetcbcounter: SSH Key Generation}
-\lstinputlisting{code/03_setup/gpg-key-setup-mac}
-\end{mybox}
+\section{Using pass to Encrypt Secrets Locally}
 
 \justify{}
-Copy your GPG key, beginning with the string ``BEGIN PGP PUBLIC KEY BLOCK'' and ending with the string
-``END PGP PUBLIC KEY BLOCK''. Add the GPG key to your GitHub account.
+The pass program allows you to encrypt your keys, files, and other secrets in an encrypted database that is
+stored in your home directory. Know that eventually, secrets leak. They can be exposed in a variety of ways, 
+often they are committed to revision control by mistake.
+
+\begin{mybox}{\thetcbcounter: Encrypt Local Secrets}
+\lstinputlisting{code/03_setup/pass-mgr}
+\end{mybox}
