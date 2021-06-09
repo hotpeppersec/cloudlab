@@ -45,6 +45,12 @@ are somewhat familiar with:
 The examples in this book have been tested on Linux running the latest version of Docker. Let's take a look at some
 of the other foundational environmental elements we need in place to be successful.
 
+\section{Packages}
+
+\subsection{Macintosh}
+
+\subsection{Linux}
+
 \section{The Workhorse (IDE)}
 
 \begin{figure}[!htb]
@@ -66,27 +72,40 @@ The environment is easily extensible to support most any language, linter, or sy
 for, thanks to their easy to use and well integrated ``Extension'' feature. VSCode also has an integrated terminal
 window\index{Terminal Window} so the developer can execute shell commands without leaving the IDE screen.
 
-
 \section{SSH Key Setup}
 
+\justify{}
+Take note of the fact that setting up SSH keys means generating a pair of keys, not a single key. This is an important 
+distinction. You will want to add your public key to sites like \href{github.com}{github.com}. The public key half will
+also be added to machine instances that you create with public cloud providers. This will allow you to log in without
+having to provision a user/password combination. You should take care to 
+protect the private key at all times. Under no circumstances should you share your private SSH key.\cite{ssh}
 \justify{}
 Take a few minutes to generate an SSH key\index{SSH keys} pair if you don't already have one. We will add the public half of
 our SSH key pair to hosts we provision. The directions for generating an SSH keypair found on the
 \href{github.com}{github.com} website are perfect for our setup task. Follow the directions in the article 
 \href{https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent}{Generating a new SSH key and adding it to the ssh-agent}
 
+\subsection{Generating a Key from the Command Line}
+
+If you are using a Linux or Mac system, you have the option to create your SSH key pair from the command line. Consider 
+the following example code listing.
+
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
 \lstinputlisting{code/03_setup/ssh-key-generation}
 \end{mybox}
 
 \justify{}
-Now you can add your public key half to github.com.
+Now you can add your public key half to your user settings in \href{github.com}{github.com}. For me it makes sense to have
+two key pairs, one used for work projects, and one used for personal projects.
 
 \section{GPG Key Setup}
 
 \justify{}
 \href{https://gnupg.org/}{Gnu Privacy Guard (GPG)} is an Open Source replacement for Symantec's PGP software. It allows you
-to generate and asymmetric key pair that can be exchanged with other users, encrypt your personal files, or verify your identity.
+to generate an asymmetric key pair that can be exchanged with other users, encrypt your personal files, or verify your identity.
+Again, you will want to be sure to share your public key and protect your private key. This is the same reasoning we used in the
+case of our SSH keys.
 
 \justify{}
 We will use a GPG key to sign commits to GitHub\index{GitHub}. This will help others verify that work you check in to revision
@@ -95,10 +114,22 @@ Some repositories require that you sign your pull requests with your GPG key\ind
 
 \justify{}
 Take a few minutes to set up a GPG key. Once you have an account setup, you can add
-it to your profile on GitHub.
+it to your profile on \href{github.com}{github.com}.
 
-\begin{mybox}{\thetcbcounter: GPG Key Setup}
+\subsection{Linux GPG Key Setup}
+
+\begin{mybox}{\thetcbcounter: Linux GPG Key Setup}
 \lstinputlisting{code/03_setup/gpg-key-setup}
+\end{mybox}
+
+\justify{}
+Copy your GPG key, beginning with the string ``BEGIN PGP PUBLIC KEY BLOCK'' and ending with the string
+``END PGP PUBLIC KEY BLOCK''. Add the GPG key to your GitHub account.
+
+\subsection{Macintosh GPG Key Setup}
+
+\begin{mybox}{\thetcbcounter: SSH Key Generation}
+\lstinputlisting{code/03_setup/gpg-key-setup-mac}
 \end{mybox}
 
 \justify{}

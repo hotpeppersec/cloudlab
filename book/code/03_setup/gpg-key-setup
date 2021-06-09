@@ -1,13 +1,13 @@
-user@devsecops:~# gpg --default-new-key-algo rsa4096 --gen-key
+creator4983@devsecops:~# gpg --default-new-key-algo rsa4096 --gen-key
 public and secret key created and signed.
 Note that this key cannot be used for encryption.  You may want to use
 the command "--edit-key" to generate a subkey for this purpose.
 pub   rsa4096 2020-05-12 [SC] [expires: 2022-05-12]
 		848943CDCE488F138BF91079E81498874E59648D
 uid
-	  Kevin Flynn <user@example.com>
+	  Kevin Flynn <Creator4983@en.com>
 
 user@devsecops:~# gpg --list-secret-keys --keyid-format LONG |grep sec| \
     cut -f2 -d'/'|cut -f1 -d' '
 E81498874E59648D
-user@devsecops:~# gpg --armor --export E81498874E59648D
+creator4983@devsecops:~# gpg --armor --export E81498874E59648D
