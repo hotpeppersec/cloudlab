@@ -76,16 +76,33 @@ control. The automation required to execute tests every time work is checked in 
 revision control is typically the responsibility of the DevSecOps engineers. We will delve into various
 types and aspects of testing throughout this book. 
 
+\subsection{White Box vs. Black Box Testing}
+
+\justify{}
+This is a distinction based on whether you have access to the code, documentation, or hardware under test.
+For example, testing the code from a project where you can see the source code would be considered "white box"
+testing. You might also look at this as the difference between red\index{Red Team} and blue
+teaming\index{Blue Team}. For instance, a "red teamer" or "penetration tester" will typically not have
+access to documentation about a system that they are testing.
+
 \subsection{SAST Security Testing}
-Static Application Security Testing (SAST)\index{SAST} helps identify shortcomings by examining your code.
+
+\justify{}
+A form of white box testing, Static Application Security Testing (SAST)\index{SAST} helps identify
+shortcomings by scanning and evaluating your source code.
 
 \subsection{DAST Security Testing}
-Dynamic Application Security Testing (DAST)\index{DAST} puts administrators in the perspective of
-an attacker to help identify gaps and vulnerabilities.
+
+\justify{}
+This is testing against an application that we do not have the source code to. In fact, we may not know much
+about the target at all at the beginning of testing. During Dynamic Application Security Testing (DAST)\index{DAST}
+the tester poses as an attacker to help identify gaps and vulnerabilities in the application.
 
 \subsection{IAST Security Testing}
-Interactive Application Security Testing (IAST)\index{IAST} combines both SAST and DAST to use software
-instrumentation (active or passive) to monitor application performance.
+
+\justify{}
+A combination of the previous two methodoliges, Interactive Application Security Testing (IAST)\index{IAST} combines
+SAST and DAST testing.
 
 \section{Pipelines}
 

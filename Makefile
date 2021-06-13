@@ -1,3 +1,9 @@
+python: 
+	python3 -m venv _build
+	. ./_build/bin/activate.fish
+	python3 -m pip install -rrequirements.txt
+	cd book && make
+
 clean: 
 	@find . -name '*.pyc' | xargs rm -rf
 	@find . -name '__pycache__' | xargs rm -rf
