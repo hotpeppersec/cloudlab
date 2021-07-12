@@ -1,6 +1,6 @@
 python: 
 	python3 -m venv _build
-	. ./_build/bin/activate.fish
+	. ./_build/bin/activate
 	python3 -m pip install -rrequirements.txt
 	cd book && make
 
