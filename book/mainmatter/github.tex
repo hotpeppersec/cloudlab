@@ -3,8 +3,9 @@
 
 \justify{}
 Using a revision control\index{revision control} methodology allows us to organize and store project artifacts. Multiple users or
-teams can collaborate on a single code base. Websites, like \href{https://github.com}{github.com} for example, are foundational to our workflow. They are a key piece of 
-our software delivery pipeline since they allow us to declare a single source of truth for the code that makes up our project.
+teams can collaborate on a single code base. Websites, like \href{https://github.com}{github.com} for example, are foundational
+to our workflow. They are a key piece of our software delivery pipeline since they allow us to declare a single source of truth
+for the code that makes up our project.
 
 \justify{}
 In addition to giving us a way to back up and store our work, essentially for free, revision control facilitates a greater degree
@@ -14,8 +15,9 @@ Lab. For the purposes of this book we will focus GitHub\index{GitHub}, since it 
 \section{The Relationship Between Git and GitHub}
 
 \justify{}
-Git is the tool that allows for revision control of your work. GitHub is a repository for storing that work, creating teams to work on projects, tracking issues, defining release packages,
-and more. Simply put, \href{github.com}{github.com} is a website that gives you a place to store the work you are using git to manage. 
+Git is the tool that allows for revision control of your work. GitHub is a repository for storing that work, creating
+teams to work on projects, tracking issues, defining release packages, and more. Simply put, \href{github.com}{github.com}
+is a website that gives you a place to store the work you are using git to manage. 
 
 \subsection{Enable Two-Factor Authentication}
 
@@ -72,12 +74,14 @@ enjoy the full power of Git and GitHub.
             original repo.
 \end{itemize}
 
+\justify{}
 To create a ``remote'' called upstream from your clone to the original
 repo, use this example command:
 
 \begin{mybox}{\thetcbcounter: Create Upstream Remote}
 git remote add upstream git@github.com:hotpeppersec/devsecops.git
 \end{mybox}
+
 \justify{}
 After completing these steps you can easily submit pull requests (PRs)
 back to the original project.
@@ -110,6 +114,7 @@ machine where your clone resides:
             git push origin master
 \end{itemize}
 \subsection{Creating Repositories}
+
 \justify{}
 If you are starting out on a new project, simply creating a repo is
 probably enough. Often I will start a repository on my personal account
@@ -136,6 +141,7 @@ managing my code check-ins.
             Do a git pull to my master branch to keep my local clone up to date.
 \end{itemize}
 \subsection{Example Repository}
+
 \justify{}
 A GitHub Template Repository is available should you decide to follow
 along with the code examples in this book. The next sets of steps are
@@ -182,11 +188,11 @@ template.
 \end{itemize}
 
 \justify{}
-From the devsecops directory, execute the command
-``make docker'' to get to a command prompt within the container.
+From the devsecops directory, execute the command ``make docker'' to get to a command prompt within the container.
+
 \justify{}
-Consider the following example. Notice that the command prompt changes
-to indicate that you have a BASH shell in the running container.
+Consider the following example. Notice that the command prompt changes to indicate that you have a BASH
+shell in the running container.
 
 \begin{mybox}{\thetcbcounter: Output from make docker command}
   \lstinputlisting{code/github/make-docker-output.txt}
@@ -195,8 +201,7 @@ to indicate that you have a BASH shell in the running container.
 \subsection{CODEOWNERS}
 
 \justify{}
-Creating a CODEOWNERS\index{CODEOWNERS} file
-is a good way to automatically tag folks in PRs to make them aware of
+Creating a CODEOWNERS\index{CODEOWNERS} file is a good way to automatically tag folks in PRs to make them aware of
 changes to certain files or folders in your projects.
 
 \justify{}
@@ -204,31 +209,31 @@ In it's most basic form, the CODEOWNERS file in the .github directory
 simply lists the file(s) and the owner(s) on a line together.
 
 \justify{}
-Consider this example where we add the @hotpeppersec to the CODEOWNERS
-file.
+Consider this example where we add the @hotpeppersec to the CODEOWNERS file.
 
 \begin{mybox}{\thetcbcounter: Adding a user to CODEOWNERS file}
       \lstinputlisting{code/github/create-codeowners.txt}
 \end{mybox}
+
 \justify{}
-In this example, the @githubusername user will be tagged as a reviewer
-in all pull requests.
+In this example, the @githubusername user will be tagged as a reviewer in all pull requests.
 
 \subsection{The .gitignore file}
-\justify{}
-Use this file\index{.gitignore} to designate items that should be excluded from revision
-control. This is useful for helping keep credentials and other secrets
-out of the GitHub repository.
 
 \justify{}
-Consider the following example .gitignore file. This will prevent you
-from checking in the .DS-Store that Macintosh creates in many folders.
+Use this file\index{.gitignore} to designate items that should be excluded from revision
+control. This is useful for helping keep credentials and other secrets out of the GitHub repository.
+
+\justify{}
+Consider the following example .gitignore file. This will prevent you from checking in the .DS-Store that
+Macintosh creates in many folders.
 
 \begin{mybox}{\thetcbcounter: Example .gitignore file}
       \lstinputlisting{code/github/create-gitignore.txt}
 \end{mybox}
 
 \subsection{Working with Branches}
+
 \justify{}
 Naming your branches something useful is helpful (self documenting). Let's look at how
 to create a branch.
@@ -237,19 +242,19 @@ to create a branch.
       \paragraph{Steps}\label{steps-3}}
 
 \subsection{Pull Requests}
+
 \justify{}
-When you make changes on a local branch, say on your personal laptop,
-you will eventually want those changes to flow back into the main
-project. Opening a pull request\index{Pull Request} is a means of letting other
+When you make changes on a local branch, say on your personal laptop, you will eventually want those changes
+to flow back into the main project. Opening a pull request\index{Pull Request} is a means of letting other
 people know you've got a set of changes ready for review and potential changes.
 
 \justify{}
 Keeping pull requests smaller and more frequent makes it easier for your
 peers to review your changes. It also means you will be less likely to lose work.
+
 \justify{}
-Let's use our changes to the CODEOWNERS file to try making a change in
-our clone of the repository in GitHub, then pushing that change up to
-the repository.
+Let's use our changes to the CODEOWNERS file to try making a change in our clone of the repository in GitHub,
+then pushing that change up to the repository.
 
 \hypertarget{steps-4}{%
       \paragraph{Steps}\label{steps-4}}
@@ -270,6 +275,7 @@ the repository.
             Use the github.com website to open and merge the pull request.
 \end{itemize}
 \subsection{Repository Settings}
+
 \justify{}
 When setting up a new repository in my GitHub account, I always click
 the Settings tab (with the little gear icon) and then choose the
@@ -284,9 +290,8 @@ Consider the following example {myFig2}.
 \end{figure}
 
 \justify{}
-After we start to work with CI/CD tools (status checks, like GitHub
-Actions for example) new choices ({myFig3}) become available in this
-part of your repository for managing those checks.
+After we start to work with CI/CD tools (status checks, like GitHub Actions for example) new choices ({myFig3}) become
+available in this part of your repository for managing those checks.
 
 \begin{figure}
       \includegraphics[scale=0.53]{images/guthub-status-check.png}
@@ -295,13 +300,14 @@ part of your repository for managing those checks.
 \end{figure}
 
 \subsection{Automated Repository Scanning}
+
 \justify{}
-There are many GitHub plugins that are free for
-single-user/non-commercial scenarios. a cursory search of the web of the
+There are many GitHub plugins that are free for single-user/non-commercial scenarios. a cursory search of the web of the
 GitHub Marketplace will turn up many of these. Let's leave some of the
 tedious work to the bots, allowing us to focus on our DevSecOps journey to the cloud!
 
 \subsubsection{Renovate}
+
 \justify{}
 WhiteSource Renovate is what's known as a dependency scanner. It is free
 for single user to add from the GitHub Marketplace. It can tell you when you are using
@@ -315,23 +321,25 @@ JavaScript, Java, Ruby, PHP, Python, Go, Cargo, Elixir, Docker, and
 more.
 
 \justify{}
-Once you've signed up and specified which repositories you want Renovate
-to monitor, it opens a pull request to install a simple default
-configuration file called renovate.json. Merge this initial pull request
-and you're up and running!
+Once you've signed up and specified which repositories you want Renovate to monitor, it opens a pull request to install a simple default
+configuration file called renovate.json. Merge this initial pull request and you're up and running!
 
 \subsubsection{LGTM}
+
 \justify{}
 Semmle is a company that runs a code scanning service we can use to keep
 an eye on our repositories for issues with syntax and dependencies. It
 is tightly coupled with github.com and can be configured from lgtm.com
 after logging in with your GitHub credentials.
+
 \justify{}
 As a fun aside, LGTM stands for ``looks good to me'', something developers
 will add as review comments when their pull request is simple or matches
 obvious expectations.
 \clearpage
+
 \section{Directory Structure}
+
 \justify{}
 Relevant files and folders mentioned in this chapter are organized as
 seen below.
