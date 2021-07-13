@@ -6,7 +6,8 @@ LABEL maintainer="Franklin Diaz <franklin@bitsmasher.net>"
 LABEL org.opencontainers.image.source="https://github.com/devsecfranklin/devsecops-tactical-book"
 
 # Install additional LaTeX packages
-RUN tlmgr update --self && tlmgr install  pgf
+RUN tlmgr update --self && tlmgr install \
+  pgf
 
 WORKDIR /workspace/devsecops-tactical-book/book
 
