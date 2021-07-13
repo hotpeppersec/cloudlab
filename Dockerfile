@@ -13,4 +13,5 @@ WORKDIR /workspace/devsecops-tactical-book/book
 
 COPY . /workspace/devsecops-tactical-book
 
-RUN make book
+RUN \
+  make book
