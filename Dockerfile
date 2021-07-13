@@ -15,3 +15,5 @@ COPY . /workspace/devsecops-tactical-book
 
 RUN \
   make book
+
+# this is a comment
