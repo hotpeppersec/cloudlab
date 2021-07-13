@@ -14,5 +14,4 @@ WORKDIR /workspace/devsecops-tactical-book/book
 COPY . /workspace/devsecops-tactical-book
 
 RUN \
-  echo "franklin"; \
   make book
