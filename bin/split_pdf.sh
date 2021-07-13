@@ -3,8 +3,8 @@
 # Usage ./split_pdf.sh first_page last_page outputfile.pdf 
 # Example: ./split_pdf.sh 10 17 ch1.pdf
 # 
-#        AUTHOR: Franklin (), 
-#       CREATED: 02/01/2021 19:00
+# AUTHOR: Franklin (), 
+# CREATED: 02/01/2021 19:00
 
 set -o nounset                              # Treat unset variables as an error
 
