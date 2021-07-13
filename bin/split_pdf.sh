@@ -6,7 +6,7 @@
 # AUTHOR: Franklin (), 
 # CREATED: 02/01/2021 19:00
 
-set -o nounset                              # Treat unset variables as an error
+set -o nounset # Treat unset variables as an error
 
 GS=$(which gs)
 
