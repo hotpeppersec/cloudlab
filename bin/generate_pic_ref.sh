@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: @devsecfranklin
+
 IMAGE_DIR="/book/docs/images"
 OUTFILE="/book/docs/_source/pictures.rst"
 
