@@ -1,3 +1,5 @@
+.PHONY: python tests
+
 python: 
 	python3 -m venv _build
 	. ./_build/bin/activate
