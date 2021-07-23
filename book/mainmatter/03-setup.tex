@@ -42,8 +42,11 @@ are somewhat familiar with:
 \end{itemize}
 
 \justify{}
-The examples in this book have been tested on Linux running the latest version of Docker. Let's take a look at some
-of the other foundational environmental elements we need in place to be successful.
+The examples in this book have been tested on Linux running the latest version of Docker. For more
+intformation about installing Docker, see \href{the Get Docker section}{https://docs.docker.com/get-docker/}
+of their website. There are directions there for installing Docker on Linux, Mac, and other operating systems.
+
+Let's take a look at some of the other foundational environmental elements we need in place to be successful.
 
 \section{Packages}
 
@@ -97,7 +100,7 @@ If you are using a Linux or Mac system, you have the option to create your SSH k
 the following example code listing.
 
 \begin{mybox}{\thetcbcounter: SSH Key Generation}
-\lstinputlisting{code/03_setup/ssh-key-generation}
+\lstinputlisting{code/03-setup/ssh-key-generation}
 \end{mybox}
 
 \justify{}
@@ -124,7 +127,7 @@ it to your profile on \href{github.com}{github.com}.
 \subsection{Command Line GPG Key Setup}
 
 \begin{mybox}{\thetcbcounter: Command Line GPG Key Setup}
-\lstinputlisting{code/03_setup/gpg-key-setup}
+\lstinputlisting{code/03-setup/gpg-key-setup}
 \end{mybox}
 
 \justify{}
@@ -138,6 +141,24 @@ The pass program allows you to encrypt your keys, files, and other secrets in an
 stored in your home directory. Know that eventually, secrets leak. They can be exposed in a variety of ways, 
 often they are committed to revision control by mistake.
 
-\begin{mybox}{\thetcbcounter: Encrypt Local Secrets}
-\lstinputlisting{code/03_setup/pass-mgr}
+\justify{}
+Consider the following example where the pass program is used to encrypt secrets from a terminal window.
+
+\begin{mybox}{\thetcbcounter: Encrypt Local Secrets on your Mac}
+\lstinputlisting{code/03-setup/pass-mgr}
 \end{mybox}
+
+\section{Standard Project Layout}
+
+\justify{}
+The code examples in this book are organized in a standard way. The use of a known project 
+layout across all project/repository directories increases the degree to which our projects can be used, reused, and
+interoperate. Attention will be called to the folder and file naming conventions that are defined by this layout
+as we encounter them.
+
+\section{Lab 3.1}
+
+\justify{}
+A container has been created that defines a lab environment you can use to try out the commands shown in this
+chapter. Directions for building and running the container are available in 
+\href{https://github.com/devsecfranklin/devsecops-tactical-workbook/tree/main/code/chapter-three}{the included README.md file}.
