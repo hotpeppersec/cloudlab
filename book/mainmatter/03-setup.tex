@@ -50,14 +50,22 @@ Let's take a look at some of the other foundational environmental elements we ne
 
 \section{Packages}
 
-\subsection{Macintosh}
+\subsection{MacOS}
 
-Using ``brew'' and ``cask'' to install and manage packages on Mac will make your life much simpler.
+Homebrew bills itself as \href{https://brew.sh/}{the missing package manager for MacOS}. Using ``brew'' and also
+``cask'' to install and manage packages on MacOS will make your life much simpler.
+
+\justify{}
+It is also recommended that you familiarize yourself with the Terminal application on MacOS. Note that brew
+commands are executed form within the terminal rather than using the GUI. Also bear in mind that packages are
+installed with your user account. In other words, ``SuperUser'' privileges are not just discouraged, they are
+neither required nor desired.
 
 \subsection{Linux}
 
-My prefered environment is a Debian based distribution. Ubuntu, Cinnamon, and PopOS are all examples of 
-Linux distrubutions in this family.
+My prefered environment is a Debian based Linux distribution. Ubuntu, Cinnamon, and PopOS are all examples of 
+Linux distrubutions in this family. While some code examples and lab containers use Debian-based distros, you
+may also encounter Alpine Linux (typically chosen for it's smaller image size), amoung others.
 
 \section{The Workhorse (IDE)}
 
@@ -159,6 +167,12 @@ as we encounter them.
 \section{Lab 3.1}
 
 \justify{}
-A container has been created that defines a lab environment you can use to try out the commands shown in this
-chapter. Directions for building and running the container are available in 
+A container has been created that defines a lab environment you can use to try out some of the commands shown
+in this chapter. Directions for building and running the container are available in 
 \href{https://github.com/devsecfranklin/devsecops-tactical-workbook/tree/main/code/chapter-three}{the included README.md file}.
+For now we don't have to be concerned about the syntax and composition of the Dockerfile. We will look more closely
+at Docker and Dockerfiles in an upcoming chapter.
+
+\justify{}
+An advantage with executing lab commands in a container is we can try things without altering the configuration of
+our host operating system. The packages we install and configurations under test are, well, ephemeral!
