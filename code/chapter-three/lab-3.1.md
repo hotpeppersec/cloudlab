@@ -1,4 +1,6 @@
-# generate a key pair
+# Lab 3.1
+
+```sh
 gpg --default-new-key-algo rsa4096 --gen-key
 
 # generate key ID
@@ -19,4 +21,5 @@ MY_PUB_KEY=$(gpg --list-keys | grep [A-Z] | grep -vF '[SC]')
 
 # Initialize your pass DB
 pass init ${MY_PUB_KEY}
+```
 
