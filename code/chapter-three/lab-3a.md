@@ -11,14 +11,17 @@ our host operating system. The packages we install and configurations under test
 
 ### Build the Lab Container
 
+In this step we use the `docker build` command to generate a container image. Note the passing of an optional
+argument, `BUILD_DATE`, that we will use as an additional label on our container image.
+
     docker build -t frank378:chapter-three \
     --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') .
 
 ### Inspect the Lab Container
 
-In this example, the container image ID is `cdf6b6fafe03`. Substitue this string
-in your actual image build. The "docker inspect" command will return a great deal of information about the
-new container image in a JSON format.
+Output from the command we executed in the previous step tells us the container image ID is `cdf6b6fafe03`.
+Substitue this string in your actual image build. The "docker inspect" command will return a great deal of
+information about the new container image in a JSON format.
 
     #Successfully built cdf6b6fafe03  <-- substitue with the value from your docker build
     docker inspect cdf6b6fafe03
@@ -26,7 +29,11 @@ new container image in a JSON format.
 
 ### Run the Lab Container
 
+You can run the container on your local system as needed. Use `docker ps` to view the containers you
+currently have running on your local host.
+
     docker run --rm  -it --entrypoint /bin/bash cdf6b6fafe03
+    docker ps
 
 ### Cleanup Lab Container
 

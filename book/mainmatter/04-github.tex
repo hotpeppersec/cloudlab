@@ -128,55 +128,15 @@ the original source repository.
 If you are starting out on a new project, simply creating a repo is probably enough. The whole fork/clone/merge to original
 paradigm is better suited to medium to large size projects that accept contributions from multiple developers.
 
-\section{Template Repositories}
-
 \markdownInput{../code/chapter-four/lab-4c.md}
+
+\section{Template Repositories}
 
 \justify{}
 A GitHub Template Repository is available should you decide to follow along with the code examples in this book. The next sets of steps are
 predicated on having Docker installed and running as described in the previous chapter.
 
-\paragraph{Template Steps}
-\begin{itemize}
-      \item
-            Navigate to ``https://github.com/devsecfranklin/devsecops-tactical-workbook''
-      \item
-            Click the green button ``Use this template''
-      \item
-            Select a repository name, like ``devsecops'' for
-            example.
-      \item
-            Now click ``Create repository from template''
-\end{itemize}
-
-\justify{}
-Now you have a repository in your GitHub account that you can use for testing and completing lab examples detailed in this book. For our first
-exercise, let's try to make a clone of the repository we generated from template.
-
-\paragraph{Cloning Steps}
-
-\begin{itemize}
-      \item Navigate to the main page for our new repository on github.com.
-      \item
-            \begin{description}
-                  \item [Clone the repository to your local host by clicking on the green ``Clone or download'' button.]
-                        \begin{itemize}
-                              \item Be sure to clone with ``SSH'' and not ``HTTPS''.
-                        \end{itemize}
-            \end{description}
-      \item Change to the clone directory with the ``cd'' command.
-\end{itemize}
-
-\justify{}
-From the devsecops directory, execute the command ``make docker'' to get to a command prompt within the container.
-
-\justify{}
-Consider the following example. Notice that the command prompt changes to indicate that you have a BASH
-shell in the running container.
-
-\begin{mybox}{\thetcbcounter: Output from make docker command}
-      \lstinputlisting{code/04-github/make-docker-output.txt}
-\end{mybox}
+\markdownInput{../code/chapter-four/lab-4d.md}
 
 \section{Conventions}
 
