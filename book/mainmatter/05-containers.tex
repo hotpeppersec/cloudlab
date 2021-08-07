@@ -43,19 +43,6 @@ This is a repository for Docker containers. Many pre-built container images are 
 from \href{https://hub.docker.com/}{Docker Hub}. You can also create an account and upload your own images from your various
 projects.
 
-
-\section{Installing Docker}
-
-\justify{}
-See the Docker website for instructions on how to install and configure
-Docker. A properly functioning Docker setup on your local machine is a requirement
-for the exercises we will do later. 
-
-\justify{}
-Once you have Docker installed and running on your workstation, take a look at the two example files below. It's OK for now
-to see them and get a general familiarity with their contents. Later we will use these files
-to create containers for our projects.
-
 \section{What is a Dockerfile?}
 
 \justify{}
@@ -112,8 +99,6 @@ respect to docker-compose itself. We specify a service named ``devsecops'', and 
 filesystem as ``/project'' in the container filesystem. The build
 ``directive'' tells docker-compose how to locate the Dockerfile we wish to use for the containers.
 
-\section{Exercise: Testing Out Docker}
-
 \justify{}
 With Docker properly installed and an understanding of the necessary configuration files, we can now try out our configuration.
 See the  figure\ref{githubdirectory} for an illustration of how to lay out the project files in your local filesystem.
@@ -125,54 +110,7 @@ See the  figure\ref{githubdirectory} for an illustration of how to lay out the p
 \label{githubdirectory}
 \end{figure}
 
-\clearpage
-\justify{}
-Here is a step by step description of how to prepare the creation of
-our first container:
-
-\begin{itemize}
-  \item Create the ``devsecops'' folder.
-        \begin{itemize}
-          \item When creating folders, note that capitalization matters.
-        \end{itemize}
-  \item In that folder, create another folder called ``docker''.
-  \item Now in the docker folder, create a text file with the name ``Dockerfile''.
-        \begin{itemize}
-          \item
-                Copy and paste the example Dockerfile from earlier in this chapter
-                into your text file.
-        \end{itemize}
-  \item Also in the docker folder, create a text file with the name ``docker-compose.yml''
-        \begin{itemize}
-          \item Copy and paste the example docker-compose.yml file from earlier
-          in this chapter into your second text file.
-        \end{itemize}
-\end{itemize}
-
-\justify{}
-Here is an example of the BASH shell commands you can use to accomplish
-the steps of the exercise. You can substitue vi for your favorite text
-editor as needed. Note that typing the ``docker-compose'' command on line
-6 will reference the devsecops ``service'' we specified on line 3 of the
-docker-compose.yml file.
-
-\justify{}
-\begin{mybox}{\thetcbcounter: Create files for Docker,height=3.5cm}
-  \lstinputlisting{code/05-containers/create-files.txt}
-\end{mybox}
-
-\justify{}
-With our files created and populated, we are ready to generate our container based on our specified configuration.
-
-\begin{mybox}{\thetcbcounter: Build from docker-compose.yml}
-  docker-compose -f docker/docker-compose.yml build devsecops
-\end{mybox}
-
-\justify{}
-If all went well, you should now have a shell prompt from ``inside'' the new container. Recall that we set our 
-\textbf{WORKDIR} variable to /project in the Dockerfile. Following that example, we now have Dockerfile
-and docker-compose.yml in the directory /project/docker, having mounted the project directory from the host machine 
-``inside'' the container.
+\markdownInput{../code/chapter-five/lab-5a.md}
 
 \subsection{Testing from GitHub}
 \justify{}
