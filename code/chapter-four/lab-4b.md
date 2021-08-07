@@ -1,28 +1,11 @@
-# Lab 4.1 
+### Branching and Merging (Lab 4b)
 
-The fork-n-clone lab.
+Let's use our changes to the CODEOWNERS file to try making a change in our clone of the repository in GitHub,
+then pushing that change up to the repository.
 
-
-## Forking
-
-From the original project page on github.com, click the ``fork'' button.
-This creates a copy of the original repository on your personal GitHub page.
-
-Now from your personal GitHub repository page, make a clone of that fork from github.com to your machine.
-
-This will allow you to add, update and test code and documentation without altering the original project.
-     
-## Create a Remote
-
-On your local machine, create a ``remote'' connection back to the original repo.
-
-Use this example command:
-
-```sh
-git remote add upstream git@github.com:devsecfranklin/devsecops-tactical-workbook.git
-```
-
-## Create a Pull Request (PR)
-
-After completing these steps you can easily submit pull requests (PRs)
-back to the original project.
+* Create a new branch, for example git checkout -b newbranch
+* Create the .github directory if it does not exist, then the CODEOWNERS file in that directory.
+* Use git to add the file to the commit: git add CODEOWNERS
+* Commit the file with git, git commit -S -m `add CODEOWNERS file'
+* Push this commit to github.com, git push origin newbranch
+* Use the github.com website to open and merge the pull request.

@@ -1,6 +1,6 @@
-# Lab 4a: Creating A New Repository
+### Creating A New Repository (Lab 4a)
 
-## Steps
+#### Steps
 
 * Create the repository on github.com from my personal account.
 * Make a clone of that new repository from github.com to my local host.

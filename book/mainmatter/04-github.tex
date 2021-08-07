@@ -23,10 +23,9 @@ is a website that gives you a place to store the work you are using git to manag
 Linus Torvalds\index{Linus Torvalds}, who, as you may know, also created the Linux kenrnel.
 
 \justify{}
-After creating your account on GitHub, one of the very first things you should do is to configure two-factor
-authentication (2FA)\index{2FA} for your GitHub account.
-See \href{https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa}{securing your account with two factor authentication} for more information.
-If you already have an account at GitHub, now is a good time to make sure you have this feature enabled. Two-factor authentication provides
+After creating your account on GitHub, one of the very first things you should do is to configure two-factor authentication (2FA)\index{2FA} for your GitHub account.
+See \href{https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa}{securing your account with two factor authentication}
+for more information. If you already have an account at GitHub, now is a good time to make sure you have this feature enabled. Two-factor authentication provides
 an additional layer of security on your Github account, and is all-around good practice. Using two- or multi-factor authentication with a
 password manager will do wonders
 to improve your security hygeine. You may also use your password manager to store your account recovery codes. Creating a text file 
@@ -43,38 +42,45 @@ Often I will start a new repository on my personal account while I use the steps
 Later I will move the repository into an organization where the responsibility for ownership and administration can be
 shared with other folks.
 
-\section{Repository Settings}
+\justify{}
+Directions for the labs in this chapter are located in GitHub, of course! 
+\href{https://github.com/devsecfranklin/devsecops-tactical-workbook/tree/main/code/chapter-four}{Follow this link to view the lab files},
+or simply proceed with the steps below.
+
+\markdownInput{../code/chapter-four/lab-4a.md}
+
+\subsection{Repository Settings}
 
 \justify{}
 When setting up a new repository in my GitHub account, I always click the Settings tab (with the little gear icon) and then choose the
 ``Branches'' section. The Default branch gets set to ``main''. Clicking the ``Add Rule'' button, entering ``main'' for the ``Branch name pattern'',
-and then the green ``Create'' button sets up master as a protected branch. Consider the following example {myFig2}.
+and then the green ``Create'' button sets up master as a protected branch. Consider the following example \ref{branchprotect}.
 
-\begin{figure}
-      \includegraphics[scale=0.50]{images/github-branch-protection.png}
-      \caption{Setting up branch protection.}
-      \label{branchprotect}
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.50]{images/github-branch-protection.png}
+\caption{Setting up branch protection.}
+\label{branchprotect}
 \end{figure}
 
 \justify{}
-After we start to work with CI/CD tools (status checks, like GitHub Actions for example) new choices ({myFig3}) become
+After we start to work with CI/CD tools (status checks, like GitHub Actions for example) new choices, as seen in figure \ref{statuscheck}, become
 available in this part of your repository for managing those checks.
 
 \begin{figure}
-      \includegraphics[scale=0.53]{images/guthub-status-check.png}
-      \caption{Requiring status checks.}
-      \label{statuscheck}
+\centering
+\includegraphics[scale=0.53]{images/guthub-status-check.png}
+\caption{Requiring status checks.}
+\label{statuscheck}
 \end{figure}
 
-\section{Working with Branches}
+\section{Branching and Merging}
+\subsection{Working with Branches}
 
 \justify{}
 Naming your branches something useful is helpful (self documenting). Let's look at how to create a branch.
 
-\hypertarget{steps-3}{%
-      \paragraph{Steps}\label{steps-3}}
-
-\section{Pull Requests}
+\subsection{Pull Requests}
 
 \justify{}
 When you make changes on a local branch, say on your personal laptop, you will eventually want those changes
@@ -85,28 +91,9 @@ people know you've got a set of changes ready for review and potential changes.
 Keeping pull requests smaller and more frequent makes it easier for your
 peers to review your changes. It also means you will be less likely to lose work.
 
-\justify{}
-Let's use our changes to the CODEOWNERS file to try making a change in our clone of the repository in GitHub,
-then pushing that change up to the repository.
+\subsection{Merging Your Branch}
 
-\hypertarget{steps-4}{%
-      \paragraph{Steps}\label{steps-4}}
-
-\begin{itemize}
-      \item Create a new branch, for example git checkout -b newbranch
-      \item Create the .github directory if it does not exist, then the CODEOWNERS file in that directory.
-      \item Use git to add the file to the commit: git add CODEOWNERS
-      \item Commit the file with git, git commit -S -m `add CODEOWNERS file'
-      \item Push this commit to github.com, git push origin newbranch
-      \item Use the github.com website to open and merge the pull request.
-\end{itemize}
-
-\section{Creating A New Repository (Lab 4a)}
-
-\justify{}
-Directions for the labs in this chapter are located in GitHub, of course! 
-\href{https://github.com/devsecfranklin/devsecops-tactical-workbook/tree/main/code/chapter-four}{Follow this link to view the included README.md file}.
-
+\markdownInput{../code/chapter-four/lab-4b.md}
 
 \section{Forking and Cloning Existing Repositories}
 
@@ -122,9 +109,10 @@ any impact to the parent repository. These changes or completed by creating one 
 changes they encompass can be tested further, and are eventually merged into the parent repository.
 
 \begin{figure}[!htb]
-      \input{dot/forking.tex}
-      \caption{Forking and cloning.}
-      \label{forkandclone}
+\centering
+\input{dot/forking.tex}
+\caption{Forking and cloning.}
+\label{forkandclone}
 \end{figure}
 
 \justify{}
@@ -140,43 +128,13 @@ the original source repository.
 If you are starting out on a new project, simply creating a repo is probably enough. The whole fork/clone/merge to original
 paradigm is better suited to medium to large size projects that accept contributions from multiple developers.
 
-\subsection{Forking and Cloning(Lab 4b)}
-
-\hypertarget{keeping-a-clone-in-sync}{%
-      \subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
-
-\justify{}
-The process of performing a pull request (PR) and merging changes is covered fairly extensively on the Web. Let's take a quick look at how to
-keep your local clone of a repository, as well as your clone on github.com, up to date.
-
-\hypertarget{steps-1}{%
-      \paragraph{Steps}\label{steps-1}}
-
-\justify{}
-These are the steps to take once your pull request is merged to the main
-branch in the main project repository. From the command line on the
-machine where your clone resides:
-
-\begin{itemize}
-      \item
-            git checkout master
-      \item
-            git fetch upstream
-      \item
-            git rebase upstream/master
-      \item
-            git push origin master
-\end{itemize}
-
 \section{Template Repositories}
 
-\subsection{Template Repository (Lab 4c)}
+\markdownInput{../code/chapter-four/lab-4c.md}
 
 \justify{}
-A GitHub Template Repository is available should you decide to follow
-along with the code examples in this book. The next sets of steps are
-predicated on having Docker installed and running as described in the
-previous chapter.
+A GitHub Template Repository is available should you decide to follow along with the code examples in this book. The next sets of steps are
+predicated on having Docker installed and running as described in the previous chapter.
 
 \paragraph{Template Steps}
 \begin{itemize}
@@ -192,11 +150,8 @@ previous chapter.
 \end{itemize}
 
 \justify{}
-Now you have a repository in your GitHub account that you can use for
-testing and completing lab examples detailed in this book. For our first
-exercise, let's try to make a clone of the repository we generated from
-template.
-
+Now you have a repository in your GitHub account that you can use for testing and completing lab examples detailed in this book. For our first
+exercise, let's try to make a clone of the repository we generated from template.
 
 \paragraph{Cloning Steps}
 
