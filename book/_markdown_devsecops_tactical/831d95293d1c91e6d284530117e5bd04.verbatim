@@ -1,3 +1,0 @@
-#Successfully built cdf6b6fafe03  <-- substitue with the value from your docker build
-docker inspect cdf6b6fafe03
-docker images
