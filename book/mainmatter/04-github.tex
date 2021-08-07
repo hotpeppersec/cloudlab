@@ -8,7 +8,7 @@ deployment, and more. Websites like \href{https://github.com}{github.com} for ex
 backbone of revision control, and foundational to our workflow. They are a key piece of our software delivery pipeline,
 allowing us to declare a single source of truth for the code that makes up our project. Multiple users or teams can collaborate on a
 single code base stored in a repository, the structure which encompasses a typical project. Even after the benefits from collaboration and
-storage are considered, we can still realize a great benefit from being able to create releases, which can be tagged and "rolled"
+storage are considered, we can still realize a great benefit from being able to create releases, which can be tagged and ``rolled''
 forward to and back from.
 
 \justify{}
@@ -32,49 +32,24 @@ password manager will do wonders
 to improve your security hygeine. You may also use your password manager to store your account recovery codes. Creating a text file 
 that contains your recovery codes and keeping an encrypted copy in your home directory is another option.
 
-\section{What is a Repository?}
-
 \section{Creating a Repository}
 
-
-
-\subsection{Lab 4.2: Creating New Repositories}
-
-\justify{}
-If you are starting out on a new project, simply creating a repo is probably enough. The whole fork/clone/merge to original
-paradigm is better suited to medium to large size projects that accept contributions from multiple developers.
+Repository creation is well documented, for example
+\href{https://docs.github.com/en/get-started/quickstart/create-a-repo}{these steps in the GitHub quickstart pages}. Let look a bit 
+more closely ar what is involved in this process.
 
 \justify{}
 Often I will start a new repository on my personal account while I use the steps in this book to get the project off the ground.
 Later I will move the repository into an organization where the responsibility for ownership and administration can be
 shared with other folks.
 
-\justify{}
-While the repository is owned/used by only me, I use a much simpler process for managing my code check-ins.
-
-\hypertarget{steps-2}{%
-      \paragraph{Steps}\label{steps-2}}
-
-\begin{itemize}
-      \item
-            Create the repository on github.com from my personal account.
-      \item
-            Make a clone of that new repository from github.com to my local host.
-      \item
-            Do my pull requests and merges as desired.
-      \item
-            Do a git pull to my main branch to keep my local clone up to date.
-\end{itemize}
-
 \section{Repository Settings}
 
 \justify{}
-When setting up a new repository in my GitHub account, I always click
-the Settings tab (with the little gear icon) and then choose the
-``Branches'' section. The Default branch gets set to ``main''. Clicking
-the ``Add Rule'' button, entering ``main'' for the ``Branch name pattern'',
-and then the green ``Create'' button sets up master as a protected branch.
-Consider the following example {myFig2}.
+When setting up a new repository in my GitHub account, I always click the Settings tab (with the little gear icon) and then choose the
+``Branches'' section. The Default branch gets set to ``main''. Clicking the ``Add Rule'' button, entering ``main'' for the ``Branch name pattern'',
+and then the green ``Create'' button sets up master as a protected branch. Consider the following example {myFig2}.
+
 \begin{figure}
       \includegraphics[scale=0.50]{images/github-branch-protection.png}
       \caption{Setting up branch protection.}
@@ -126,6 +101,13 @@ then pushing that change up to the repository.
       \item Use the github.com website to open and merge the pull request.
 \end{itemize}
 
+\section{Creating A New Repository (Lab 4a)}
+
+\justify{}
+Directions for the labs in this chapter are located in GitHub, of course! 
+\href{https://github.com/devsecfranklin/devsecops-tactical-workbook/tree/main/code/chapter-four}{Follow this link to view the included README.md file}.
+
+
 \section{Forking and Cloning Existing Repositories}
 
 \justify{}
@@ -154,7 +136,11 @@ enjoy the full power of Git and GitHub.
 Adding a ``remote'' to your repository clone is a git convention to easily manage branches between your clone and
 the original source repository.
 
-\section{Lab 4.1: Forking and Cloning}
+\justify{}
+If you are starting out on a new project, simply creating a repo is probably enough. The whole fork/clone/merge to original
+paradigm is better suited to medium to large size projects that accept contributions from multiple developers.
+
+\subsection{Forking and Cloning(Lab 4b)}
 
 \hypertarget{keeping-a-clone-in-sync}{%
       \subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
@@ -184,7 +170,7 @@ machine where your clone resides:
 
 \section{Template Repositories}
 
-\subsection{Lab 4.3: Template Repository}
+\subsection{Template Repository (Lab 4c)}
 
 \justify{}
 A GitHub Template Repository is available should you decide to follow
@@ -310,6 +296,8 @@ obvious expectations.
 \subsection{Metabob}
 
 \subsection{Bridgecrew}
+
+\section{Further Reading}
 
 \section{Directory Structure}
 

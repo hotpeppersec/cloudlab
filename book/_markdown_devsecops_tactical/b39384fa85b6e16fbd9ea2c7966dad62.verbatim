@@ -1,0 +1,2 @@
+docker image rm cdf6b6fafe03
+docker system prune
