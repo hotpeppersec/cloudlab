@@ -2,18 +2,19 @@
 \includegraphics[scale=0.20]{images/owl-50267_1920.jpg}
 
 \justify{}
-Using a revision control\index{revision control} methodology allows us to organize and store project artifacts. Multiple users or
-teams can collaborate on a single code base. Websites like \href{https://github.com}{github.com} for example, are the modern
+Using a revision control\index{revision control} methodology allows us to organize and store project artifacts. Typically these 
+artifacts are source code files but may include documentation, files to assist us with Kubernetes cluster management and application
+deployment, and more. Websites like \href{https://github.com}{github.com} for example, are the modern
 backbone of revision control, and foundational to our workflow. They are a key piece of our software delivery pipeline,
-allowing us to declare a single source of truth for the code that makes up our project. Even after the benefits from collaboration and 
+allowing us to declare a single source of truth for the code that makes up our project. Multiple users or teams can collaborate on a
+single code base stored in a repository, the structure which encompasses a typical project. Even after the benefits from collaboration and
 storage are considered, we can still realize a great benefit from being able to create releases, which can be tagged and "rolled"
 forward to and back from.
 
 \justify{}
-There are other similar, (mostly) free services we can choose from, for example Bit Bucket and Git
-Lab. For the purposes of this book we will focus GitHub\index{GitHub}, since it is the most common and well known.
-
-\section{The Relationship Between Git and GitHub}
+There are other similar services we can choose from. These tend to be free for personal projects, non-commercial, and even some commercial
+uses. For example \href{https://bitbucket.org/product}{Bitbucket} and \href{https://about.gitlab.com/}{GitLab}. For the purposes of this
+book we will focus GitHub\index{GitHub}, since many people are familiar with it.
 
 \justify{}
 Git is the tool that allows for revision control of your work. GitHub is a repository for storing that work, creating
@@ -21,76 +22,23 @@ teams to work on projects, tracking issues, defining release packages, and more.
 is a website that gives you a place to store the work you are using git to manage. Git was created in 2005 by
 Linus Torvalds\index{Linus Torvalds}, who, as you may know, also created the Linux kenrnel.
 
-\subsection{Enable Two-Factor Authentication}
-
 \justify{}
-One of the very first things you should do (after creating an account, that is) is to configure two-factor
-authentication (2FA)\index{2FA} for your GitHub account. This provides an additional layer of security on your Github account,
-and is all-around good practice. Using two- or multi-factor authentication with a password manager will do wonders
-to improve your security hygeine. 
+After creating your account on GitHub, one of the very first things you should do is to configure two-factor
+authentication (2FA)\index{2FA} for your GitHub account.
+See \href{https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa}{securing your account with two factor authentication} for more information.
+If you already have an account at GitHub, now is a good time to make sure you have this feature enabled. Two-factor authentication provides
+an additional layer of security on your Github account, and is all-around good practice. Using two- or multi-factor authentication with a
+password manager will do wonders
+to improve your security hygeine. You may also use your password manager to store your account recovery codes. Creating a text file 
+that contains your recovery codes and keeping an encrypted copy in your home directory is another option.
 
-\justify{}
-Next let's take a look at two of the key methods of interacting with projects and other people on github.com.
+\section{What is a Repository?}
 
-\subsection{Forking and Cloning Repositories}
+\section{Creating a Repository}
 
-\justify{}
-When someone else has a project on github.com that you would like to make changes to, you can make a ``fork'' of that project.
-Forking\index{forking} a repository means you are making a copy of that repository to your personal account on the GitHub web
-site. The reason for creating a fork is so we can make and test changes without any impact on the original repository.
 
-\justify{}
-Once you have created a fork, you create a locay copy of your fork on one or more of your personal workstations. This is 
-known as creating a ``clone''\index{cloning a repo} of your fork. Now we have a workspace to make and test changes without
-any impact to the parent repository. These changes or completed by creating one or more ``branches''. These branches and the
-changes they encompass can be tested further, and are eventually merged into the parent repository.
 
-\begin{figure}[!htb]
-\input{dot/forking.tex}
-\caption{Forking and cloning.}
-\label{forkandclone}
-\end{figure}
-
-\justify{}
-This can be a tricky pattern to master, but it is fundamental if you
-want to join the ranks of Open Source contributors and developers that
-enjoy the full power of Git and GitHub.
-
-\justify{}
-Adding a ``remote'' to your repository clone is a git convention to easily manage branches between your clone and
-the original source repository.
-
-\section{Lab 4.1: Forking and Cloning}
-
-\hypertarget{keeping-a-clone-in-sync}{%
-      \subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
-
-\justify{}
-The process of performing a pull request (PR) and merging changes is
-covered fairly extensively on the Web. Let's take a quick look at how to
-keep your local clone of a repository, as well as your clone on
-github.com, up to date.
-
-\hypertarget{steps-1}{%
-      \paragraph{Steps}\label{steps-1}}
-
-\justify{}
-These are the steps to take once your pull request is merged to the main
-branch in the main project repository. From the command line on the
-machine where your clone resides:
-
-\begin{itemize}
-      \item
-            git checkout master
-      \item
-            git fetch upstream
-      \item
-            git rebase upstream/master
-      \item
-            git push origin master
-\end{itemize}
-
-\section{Lab 4.2: Creating New Repositories}
+\subsection{Lab 4.2: Creating New Repositories}
 
 \justify{}
 If you are starting out on a new project, simply creating a repo is probably enough. The whole fork/clone/merge to original
@@ -118,7 +66,125 @@ While the repository is owned/used by only me, I use a much simpler process for 
             Do a git pull to my main branch to keep my local clone up to date.
 \end{itemize}
 
-\section{Lab 4.3: Template Repository}
+\section{Repository Settings}
+
+\justify{}
+When setting up a new repository in my GitHub account, I always click
+the Settings tab (with the little gear icon) and then choose the
+``Branches'' section. The Default branch gets set to ``main''. Clicking
+the ``Add Rule'' button, entering ``main'' for the ``Branch name pattern'',
+and then the green ``Create'' button sets up master as a protected branch.
+Consider the following example {myFig2}.
+\begin{figure}
+      \includegraphics[scale=0.50]{images/github-branch-protection.png}
+      \caption{Setting up branch protection.}
+      \label{branchprotect}
+\end{figure}
+
+\justify{}
+After we start to work with CI/CD tools (status checks, like GitHub Actions for example) new choices ({myFig3}) become
+available in this part of your repository for managing those checks.
+
+\begin{figure}
+      \includegraphics[scale=0.53]{images/guthub-status-check.png}
+      \caption{Requiring status checks.}
+      \label{statuscheck}
+\end{figure}
+
+\section{Working with Branches}
+
+\justify{}
+Naming your branches something useful is helpful (self documenting). Let's look at how to create a branch.
+
+\hypertarget{steps-3}{%
+      \paragraph{Steps}\label{steps-3}}
+
+\section{Pull Requests}
+
+\justify{}
+When you make changes on a local branch, say on your personal laptop, you will eventually want those changes
+to flow back into the main project. Opening a pull request\index{Pull Request} is a means of letting other
+people know you've got a set of changes ready for review and potential changes.
+
+\justify{}
+Keeping pull requests smaller and more frequent makes it easier for your
+peers to review your changes. It also means you will be less likely to lose work.
+
+\justify{}
+Let's use our changes to the CODEOWNERS file to try making a change in our clone of the repository in GitHub,
+then pushing that change up to the repository.
+
+\hypertarget{steps-4}{%
+      \paragraph{Steps}\label{steps-4}}
+
+\begin{itemize}
+      \item Create a new branch, for example git checkout -b newbranch
+      \item Create the .github directory if it does not exist, then the CODEOWNERS file in that directory.
+      \item Use git to add the file to the commit: git add CODEOWNERS
+      \item Commit the file with git, git commit -S -m `add CODEOWNERS file'
+      \item Push this commit to github.com, git push origin newbranch
+      \item Use the github.com website to open and merge the pull request.
+\end{itemize}
+
+\section{Forking and Cloning Existing Repositories}
+
+\justify{}
+When someone else has a project on github.com that you would like to make changes to, you can make a ``fork'' of that project.
+Forking\index{forking} a repository means you are making a copy of that repository to your personal account on the GitHub web
+site. The reason for creating a fork is so we can make and test changes without any impact on the original repository.
+
+\justify{}
+Once you have created a fork, you create a locay copy of your fork on one or more of your personal workstations. This is
+known as creating a ``clone''\index{cloning a repo} of your fork. Now we have a workspace to make and test changes without
+any impact to the parent repository. These changes or completed by creating one or more ``branches''. These branches and the
+changes they encompass can be tested further, and are eventually merged into the parent repository.
+
+\begin{figure}[!htb]
+      \input{dot/forking.tex}
+      \caption{Forking and cloning.}
+      \label{forkandclone}
+\end{figure}
+
+\justify{}
+This can be a tricky pattern to master, but it is fundamental if you
+want to join the ranks of Open Source contributors and developers that
+enjoy the full power of Git and GitHub.
+
+\justify{}
+Adding a ``remote'' to your repository clone is a git convention to easily manage branches between your clone and
+the original source repository.
+
+\section{Lab 4.1: Forking and Cloning}
+
+\hypertarget{keeping-a-clone-in-sync}{%
+      \subsection{Keeping a Clone in Sync}\label{keeping-a-clone-in-sync}}
+
+\justify{}
+The process of performing a pull request (PR) and merging changes is covered fairly extensively on the Web. Let's take a quick look at how to
+keep your local clone of a repository, as well as your clone on github.com, up to date.
+
+\hypertarget{steps-1}{%
+      \paragraph{Steps}\label{steps-1}}
+
+\justify{}
+These are the steps to take once your pull request is merged to the main
+branch in the main project repository. From the command line on the
+machine where your clone resides:
+
+\begin{itemize}
+      \item
+            git checkout master
+      \item
+            git fetch upstream
+      \item
+            git rebase upstream/master
+      \item
+            git push origin master
+\end{itemize}
+
+\section{Template Repositories}
+
+\subsection{Lab 4.3: Template Repository}
 
 \justify{}
 A GitHub Template Repository is available should you decide to follow
@@ -149,20 +215,15 @@ template.
 \paragraph{Cloning Steps}
 
 \begin{itemize}
-      \item
-            Navigate to the main page for our new repository on github.com.
+      \item Navigate to the main page for our new repository on github.com.
       \item
             \begin{description}
-                  \item[Clone the repository to your local host by clicking on the green
-                        ``Clone or download'' button.]
+                  \item [Clone the repository to your local host by clicking on the green ``Clone or download'' button.]
                         \begin{itemize}
-
-                              \item
-                                    Be sure to clone with ``SSH'' and not ``HTTPS''.
+                              \item Be sure to clone with ``SSH'' and not ``HTTPS''.
                         \end{itemize}
             \end{description}
-      \item
-            Change to the clone directory with the ``cd'' command.
+      \item Change to the clone directory with the ``cd'' command.
 \end{itemize}
 
 \justify{}
@@ -173,10 +234,12 @@ Consider the following example. Notice that the command prompt changes to indica
 shell in the running container.
 
 \begin{mybox}{\thetcbcounter: Output from make docker command}
-  \lstinputlisting{code/04-github/make-docker-output.txt}
+      \lstinputlisting{code/04-github/make-docker-output.txt}
 \end{mybox}
 
-\section{CODEOWNERS}
+\section{Conventions}
+
+\subsection{CODEOWNERS}
 
 \justify{}
 Creating a CODEOWNERS\index{CODEOWNERS} file is a good way to automatically tag folks in PRs to make them aware of
@@ -196,7 +259,7 @@ Consider this example where we add the @hotpeppersec to the CODEOWNERS file.
 \justify{}
 In this example, the @githubusername user will be tagged as a reviewer in all pull requests.
 
-\section{The .gitignore file}
+\subsection{The .gitignore file}
 
 \justify{}
 Use this file\index{.gitignore} to designate items that should be excluded from revision
@@ -210,74 +273,6 @@ Macintosh creates in many folders.
       \lstinputlisting{code/04-github/create-gitignore.txt}
 \end{mybox}
 
-\section{Working with Branches}
-
-\justify{}
-Naming your branches something useful is helpful (self documenting). Let's look at how
-to create a branch.
-
-\hypertarget{steps-3}{%
-      \paragraph{Steps}\label{steps-3}}
-
-\section{Pull Requests}
-
-\justify{}
-When you make changes on a local branch, say on your personal laptop, you will eventually want those changes
-to flow back into the main project. Opening a pull request\index{Pull Request} is a means of letting other
-people know you've got a set of changes ready for review and potential changes.
-
-\justify{}
-Keeping pull requests smaller and more frequent makes it easier for your
-peers to review your changes. It also means you will be less likely to lose work.
-
-\justify{}
-Let's use our changes to the CODEOWNERS file to try making a change in our clone of the repository in GitHub,
-then pushing that change up to the repository.
-
-\hypertarget{steps-4}{%
-      \paragraph{Steps}\label{steps-4}}
-
-\begin{itemize}
-      \item
-            Create a new branch, for example git checkout -b newbranch
-      \item
-            Create the .github directory if it does not exist, then the CODEOWNERS
-            file in that directory.
-      \item
-            Use git to add the file to the commit: git add CODEOWNERS
-      \item
-            Commit the file with git, git commit -S -m `add CODEOWNERS file'
-      \item
-            Push this commit to github.com, git push origin newbranch
-      \item
-            Use the github.com website to open and merge the pull request.
-\end{itemize}
-
-\section{Repository Settings}
-
-\justify{}
-When setting up a new repository in my GitHub account, I always click
-the Settings tab (with the little gear icon) and then choose the
-``Branches'' section. The Default branch gets set to ``main''. Clicking
-the ``Add Rule'' button, entering ``main'' for the ``Branch name pattern'',
-and then the green ``Create'' button sets up master as a protected branch.
-Consider the following example {myFig2}.
-\begin{figure}
-      \includegraphics[scale=0.50]{images/github-branch-protection.png}
-      \caption{Setting up branch protection.}
-      \label{branchprotect}
-\end{figure}
-
-\justify{}
-After we start to work with CI/CD tools (status checks, like GitHub Actions for example) new choices ({myFig3}) become
-available in this part of your repository for managing those checks.
-
-\begin{figure}
-      \includegraphics[scale=0.53]{images/guthub-status-check.png}
-      \caption{Requiring status checks.}
-      \label{statuscheck}
-\end{figure}
-
 \section{Automated Repository Scanning}
 
 \justify{}
@@ -290,14 +285,12 @@ tedious work to the bots, allowing us to focus on our DevSecOps journey to the c
 \justify{}
 WhiteSource Renovate is what's known as a dependency scanner. It is free
 for single user to add from the GitHub Marketplace. It can tell you when you are using
-a version of a module or image that
-is out of date. For example, if you have a Dockerfile that specifies
+a version of a module or image that is out of date. For example, if you have a Dockerfile that specifies
 Python 3.8.1, Renovate will open a pull request on your repository to
 update the version string in that Dockerfile to the most current version
 available. You can also grant Renovate the permissions required to
-simply merge the change with no human interaction. Renovate supports
-JavaScript, Java, Ruby, PHP, Python, Go, Cargo, Elixir, Docker, and
-more.
+simply merge the change with no human interaction. Renovate supports JavaScript, Java, Ruby, PHP, Python, Go, Cargo,
+Elixir, Docker, and more.
 
 \justify{}
 Once you've signed up and specified which repositories you want Renovate to monitor, it opens a pull request to install a simple default
@@ -306,18 +299,17 @@ configuration file called renovate.json. Merge this initial pull request and you
 \subsection{LGTM}
 
 \justify{}
-Semmle is a company that runs a code scanning service we can use to keep
-an eye on our repositories for issues with syntax and dependencies. It
-is tightly coupled with github.com and can be configured from lgtm.com
-after logging in with your GitHub credentials.
+Semmle is a company that runs a code scanning service we can use to keep an eye on our repositories for issues with syntax and dependencies. It
+is tightly coupled with github.com and can be configured from lgtm.com after logging in with your GitHub credentials.
 
 \justify{}
-As a fun aside, LGTM stands for ``looks good to me'', something developers
-will add as review comments when their pull request is simple or matches
+As a fun aside, LGTM stands for ``looks good to me'', something developers will add as review comments when their pull request is simple or matches
 obvious expectations.
 \clearpage
 
 \subsection{Metabob}
+
+\subsection{Bridgecrew}
 
 \section{Directory Structure}
 
