@@ -2,7 +2,7 @@
 
 I have created a ``lab container'' to define the lab environment. You can use this container to try out some of the
 commands shown in this chapter. Directions for building and running the container are available in 
-[the included markdown file](https://github.com/devsecfranklin/devsecops-tactical-workbook/tree/main/code/chapter-three/lab-3a.md).
+[the included markdown file](https://github.com/devsecfranklin/devsecops-tactical-workbook/tree/main/code/ch3/lab-3a.md).
 For now we don't have to be concerned about the syntax and composition of the Dockerfile. We will look more closely
 at Docker and Dockerfiles in an upcoming chapter.
 
@@ -42,3 +42,4 @@ container and clean up the stale images.
 
     docker image rm cdf6b6fafe03
     docker system prune
+

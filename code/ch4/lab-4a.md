@@ -1,30 +1,15 @@
-## Testing Out Docker (Lab 5a)
+## Testing Out Docker (Lab 4a)
 
-
-
-\clearpage
-\justify{}
 Here is a step by step description of how to prepare the creation of
 our first container:
 
-\begin{itemize}
-  \item Create the ``devsecops'' folder.
-        \begin{itemize}
-          \item When creating folders, note that capitalization matters.
-        \end{itemize}
-  \item In that folder, create another folder called ``docker''.
-  \item Now in the docker folder, create a text file with the name ``Dockerfile''.
-        \begin{itemize}
-          \item
-                Copy and paste the example Dockerfile from earlier in this chapter
-                into your text file.
-        \end{itemize}
-  \item Also in the docker folder, create a text file with the name ``docker-compose.yml''
-        \begin{itemize}
-          \item Copy and paste the example docker-compose.yml file from earlier
-          in this chapter into your second text file.
-        \end{itemize}
-\end{itemize}
+* Create the ``devsecops'' folder.
+  * When creating folders, note that capitalization matters.
+* In that folder, create another folder called ``docker''.
+  * Now in the docker folder, create a text file with the name ``Dockerfile''.
+  * Copy and paste the example Dockerfile from earlier in this chapter into your text file.
+* Also in the docker folder, create a text file with the name ``docker-compose.yml''
+  * Copy and paste the example docker-compose.yml file from earlier in this chapter into your second text file.
 
 \justify{}
 Here is an example of the BASH shell commands you can use to accomplish

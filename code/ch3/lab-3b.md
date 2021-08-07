@@ -39,3 +39,4 @@ our secrets in.
 
 Note that the `pass` command is installed to the container when you build the image in the 
 previous lab.
+

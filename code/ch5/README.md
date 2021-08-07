@@ -6,7 +6,7 @@ this chapter.
 ## Build the Container
 
 ```sh
-docker build -t frank378:chapter-four \
+docker build -t frank378:chapter-five \
 --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') .
 ```
 
