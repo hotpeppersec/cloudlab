@@ -38,23 +38,16 @@ stanzas below.
 \end{mybox}
 
 \justify{}
-When the user types make docker at the CLI to invoke the docker target
-in the Makefile, the fist thing that happens is the python target is
-called. If the file python/requirements.txt exists, we attempt to
-install the modules listed within that requirements file using the
-Python ``pip'' package manager. Once completed, the thread of execution
-returns to the docker target. A message is sent to the user via STDOUT
-that we will be building with docker-compose. An empty file at the root
-of the containers filesystem named /.dockerenv is a convention that
-indicates we are operating inside a containerized environment. After a
-quick check for existence of the file /.dockerenv, we use docker-compose
-to build from our Dockerfile, and then start a BASH shell in our
-``cloudlab'' container. The user now has the ability to run BASH commands
+When the user types make docker at the CLI to invoke the docker target in the Makefile, the fist thing that happens is the python target is
+called. If the file python/requirements.txt exists, we attempt to install the modules listed within that requirements file using the
+Python ``pip'' package manager. Once completed, the thread of execution returns to the docker target. A message is sent to the user via STDOUT
+that we will be building with docker-compose. An empty file at the root of the containers filesystem named /.dockerenv is a convention that
+indicates we are operating inside a containerized environment. After a quick check for existence of the file /.dockerenv, we use docker-compose
+to build from our Dockerfile, and then start a BASH shell in our ``cloudlab'' container. The user now has the ability to run BASH commands
 ``inside'' the Docker container.
 
 \justify{}
-Be sure when you indent in a Makefile that you use tabs, not spaces. You
-can use the backslash character in a Makefile to combine two consecutive
+Be sure when you indent in a Makefile that you use tabs, not spaces. You can use the backslash character in a Makefile to combine two consecutive
 lines into one logical line.
 
 \section{Full Example Makefile}
