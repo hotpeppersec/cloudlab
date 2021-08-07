@@ -3,6 +3,7 @@
 *.code-workspace
 .DS_Store
 _markdown_devsecops_tactical
+*.nfs*
 
 # Book build artifacts
 _build
