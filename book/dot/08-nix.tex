@@ -1,0 +1,31 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: framework -> nixshell
+  \draw [->] (134.0bp,71.697bp) .. controls (134.0bp,63.983bp) and (134.0bp,54.712bp)  .. (134.0bp,36.104bp);
+  % Node: framework
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (268.0bp,108.0bp) -- (265.0bp,112.0bp) -- (244.0bp,112.0bp) -- (241.0bp,108.0bp) -- (0.0bp,108.0bp) -- (0.0bp,72.0bp) -- (268.0bp,72.0bp) -- cycle;
+  \draw (134.0bp,90.0bp) node {/home/devsecops/workspace/myproject};
+\end{scope}
+  % Node: nixshell
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (174.0bp,36.0bp) -- (94.0bp,36.0bp) -- (94.0bp,0.0bp) -- (174.0bp,0.0bp) -- cycle;
+  \draw (134.0bp,18.0bp) node {nix-shell};
+\end{scope}
+  % Node: nix
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (340.0bp,108.0bp) -- (337.0bp,112.0bp) -- (316.0bp,112.0bp) -- (313.0bp,108.0bp) -- (286.0bp,108.0bp) -- (286.0bp,72.0bp) -- (340.0bp,72.0bp) -- cycle;
+  \draw (313.0bp,90.0bp) node {/nix};
+\end{scope}
+%
+\end{tikzpicture}
+
