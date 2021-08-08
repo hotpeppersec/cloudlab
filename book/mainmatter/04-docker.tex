@@ -58,7 +58,7 @@ building and passing a container image along to others.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: Dockerfile}
-  \lstinputlisting{code/05-containers/Dockerfile}
+  \lstinputlisting{code/04-docker/Dockerfile}
 \end{mybox}
 
 \justify{}
@@ -84,7 +84,7 @@ A file called docker-compose.yml\index{docker-compose.yml} will exist
 alongside our Dockerfile in our docker directory.
 
 \begin{mybox}{\thetcbcounter: Example docker-compose.yml}
-  \lstinputlisting{code/05-containers/docker-compose.yml}
+  \lstinputlisting{code/04-docker/docker-compose.yml}
 \end{mybox}
 
 \justify{}
@@ -96,14 +96,14 @@ filesystem as ``/project'' in the container filesystem. The build
 ``directive'' tells docker-compose how to locate the Dockerfile we wish to use for the containers.
 
 \justify{}
-With Docker properly installed and an understanding of the necessary configuration files, we can now try out our configuration.
-See the  figure\ref{githubdirectory} for an illustration of how to lay out the project files in your local filesystem.
+With Docker properly installed and an understanding of the necessary configuration files, we can now do a bit of testing.
+See the figure\ref{dockerdirectory} for an illustration of how to lay out the project files in your local file system.
 
 \begin{figure}[!htb]
   \centering
-  \input{dot/githubdirectory.tex}
+  \input{dot/04-docker.tex}
   \caption{Project Directory and Docker related files.}
-\label{githubdirectory}
+\label{dockerdirectory}
 \end{figure}
 
 \markdownInput{../code/ch4/lab-4a.md}

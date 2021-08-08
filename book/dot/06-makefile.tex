@@ -1,0 +1,33 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: devsecops -> Makefile
+  \draw [->] (121.64bp,71.697bp) .. controls (115.77bp,63.474bp) and (108.63bp,53.483bp)  .. (96.217bp,36.104bp);
+  % Edge: devsecops -> Dockerfile
+  \draw [->] (146.36bp,71.697bp) .. controls (152.23bp,63.474bp) and (159.37bp,53.483bp)  .. (171.78bp,36.104bp);
+  % Node: devsecops
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (268.0bp,108.0bp) -- (265.0bp,112.0bp) -- (244.0bp,112.0bp) -- (241.0bp,108.0bp) -- (0.0bp,108.0bp) -- (0.0bp,72.0bp) -- (268.0bp,72.0bp) -- cycle;
+  \draw (134.0bp,90.0bp) node {/home/devsecops/workspace/myproject};
+\end{scope}
+  % Node: Makefile
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (122.5bp,36.0bp) -- (45.5bp,36.0bp) -- (45.5bp,0.0bp) -- (122.5bp,0.0bp) -- cycle;
+  \draw (84.0bp,18.0bp) node {Makefile};
+\end{scope}
+  % Node: Dockerfile
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (227.0bp,36.0bp) -- (141.0bp,36.0bp) -- (141.0bp,0.0bp) -- (227.0bp,0.0bp) -- cycle;
+  \draw (184.0bp,18.0bp) node {Dockerfile};
+\end{scope}
+%
+\end{tikzpicture}
+

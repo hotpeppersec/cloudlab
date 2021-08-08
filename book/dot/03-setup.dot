@@ -1,0 +1,14 @@
+digraph setup{
+    size="8,4";
+    node [fontname="Helvetica" fontsize=14 shape=box];
+    edge [fontname="Symbol" fontsize=10];
+
+    framework [shape=folder fontname="Symbol" label="/home/devsecops"];
+    pass [shape=folder fontname="Symbol" label=".password-store"];
+    gnupg [shape=folder fontname="Symbol" label=".gnupg"];
+    docker [shape=folder fontname="Symbol" label=".docker"];
+
+    framework -> pass;
+    framework -> gnupg;
+    framework -> docker;
+}

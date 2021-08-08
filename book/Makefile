@@ -2,6 +2,7 @@
 
 book:
 	@if [ ! -d /nix ]; then  echo "***> Where is your nix installation? <***" && exit 1; fi
+	latexmk -pdf -synctex=1 -shell-escape devsecops_tactical
 	bibtex devsecops_tactical
 	makeindex devsecops_tactical
 	latexmk -pdf -synctex=1 -shell-escape devsecops_tactical

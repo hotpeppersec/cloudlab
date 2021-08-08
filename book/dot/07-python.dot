@@ -1,0 +1,28 @@
+digraph mypython {
+  #rankdir=LR;
+  node [shape=rectangle];
+
+  py [shape=folder fontname="Symbol" label="/home/devsecops/workspace/myproject"];
+  lib [shape=folder fontname="Symbol" label="lib"];
+  src [shape=folder fontname="Symbol" label="src"];
+  8 [fontname="Symbol" label="tests" shape=folder];
+
+  req [fontname="Symbol" label="requirements.txt"];
+  tst [fontname="Symbol" label="requirements-test.txt"];
+  9 [fontname="Symbol" label="main.py"];
+  7 [fontname="Symbol" label="__init__.py"];
+  C [fontname="Symbol" label="tox.ini"];
+
+  py -> req;
+  py -> src;
+  py -> 8;
+  py -> C;
+
+  {rank=same; tst; src;}
+  src -> lib;
+  src -> 9;
+  src -> 7;
+
+  8 -> tst;
+  {rank=same; lib 9}
+}

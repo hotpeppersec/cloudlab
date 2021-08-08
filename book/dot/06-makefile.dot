@@ -1,0 +1,12 @@
+digraph makefile {
+  size="8,4";
+  node [fontname="Helvetica" fontsize=14 shape=box];
+  edge [fontname="Symbol" fontsize=10];
+
+  devsecops [shape=folder fontname="Symbol" label="/home/devsecops/workspace/myproject"];
+  Makefile [fontname="Symbol" label="Makefile"];
+  Dockerfile [fontname="Symbol"  label="Dockerfile"];
+
+  devsecops -> Makefile;
+  devsecops -> Dockerfile;
+}

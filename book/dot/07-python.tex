@@ -1,0 +1,103 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (0.0bp,0.0bp) -- (0.0bp,252.0bp) -- (454.5bp,252.0bp) -- (454.5bp,0.0bp) -- cycle;
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (0.0bp,0.0bp) -- (0.0bp,252.0bp) -- (454.5bp,252.0bp) -- (454.5bp,0.0bp) -- cycle;
+\end{scope}
+  \pgfsetcolor{black}
+  % Edge: py -> src
+  \draw [->] (229.63bp,215.84bp) .. controls (212.44bp,206.57bp) and (192.08bp,194.12bp)  .. (176.0bp,180.0bp) .. controls (154.83bp,161.41bp) and (135.43bp,135.74bp)  .. (116.78bp,108.28bp);
+  % Edge: py -> 8
+  \draw [->] (251.9bp,215.7bp) .. controls (245.61bp,207.39bp) and (237.95bp,197.28bp)  .. (224.95bp,180.1bp);
+  % Edge: py -> req
+  \draw [->] (278.1bp,215.7bp) .. controls (284.39bp,207.39bp) and (292.05bp,197.28bp)  .. (305.05bp,180.1bp);
+  % Edge: py -> C
+  \draw [->] (304.94bp,215.95bp) .. controls (329.04bp,205.63bp) and (360.32bp,192.15bp)  .. (388.0bp,180.0bp) .. controls (388.1bp,179.96bp) and (388.19bp,179.92bp)  .. (397.38bp,175.85bp);
+  % Edge: src -> lib
+  \draw [->] (86.472bp,71.697bp) .. controls (76.618bp,62.965bp) and (64.514bp,52.24bp)  .. (46.303bp,36.104bp);
+  % Edge: src -> 9
+  \draw [->] (106.0bp,71.697bp) .. controls (106.0bp,63.983bp) and (106.0bp,54.712bp)  .. (106.0bp,36.104bp);
+  % Edge: src -> 7
+  \draw [->] (129.48bp,71.697bp) .. controls (141.56bp,62.796bp) and (156.45bp,51.823bp)  .. (177.79bp,36.104bp);
+  % Edge: 8 -> tst
+  \draw [->] (216.2bp,143.7bp) .. controls (218.1bp,135.9bp) and (220.38bp,126.51bp)  .. (224.85bp,108.1bp);
+  % Node: src
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (133.0bp,108.0bp) -- (130.0bp,112.0bp) -- (109.0bp,112.0bp) -- (106.0bp,108.0bp) -- (79.0bp,108.0bp) -- (79.0bp,72.0bp) -- (133.0bp,72.0bp) -- cycle;
+  \draw (106.0bp,90.0bp) node {src};
+\end{scope}
+  % Node: tst
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (307.0bp,108.0bp) -- (151.0bp,108.0bp) -- (151.0bp,72.0bp) -- (307.0bp,72.0bp) -- cycle;
+  \draw (229.0bp,90.0bp) node {requirements-test.txt};
+\end{scope}
+  % Node: lib
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (54.0bp,36.0bp) -- (51.0bp,40.0bp) -- (30.0bp,40.0bp) -- (27.0bp,36.0bp) -- (0.0bp,36.0bp) -- (0.0bp,0.0bp) -- (54.0bp,0.0bp) -- cycle;
+  \draw (27.0bp,18.0bp) node {lib};
+\end{scope}
+  % Node: 9
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (139.5bp,36.0bp) -- (72.5bp,36.0bp) -- (72.5bp,0.0bp) -- (139.5bp,0.0bp) -- cycle;
+  \draw (106.0bp,18.0bp) node {main.py};
+\end{scope}
+  % Node: py
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (399.0bp,252.0bp) -- (396.0bp,256.0bp) -- (375.0bp,256.0bp) -- (372.0bp,252.0bp) -- (131.0bp,252.0bp) -- (131.0bp,216.0bp) -- (399.0bp,216.0bp) -- cycle;
+  \draw (265.0bp,234.0bp) node {/home/devsecops/workspace/myproject};
+\end{scope}
+  % Node: 8
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (239.0bp,180.0bp) -- (236.0bp,184.0bp) -- (215.0bp,184.0bp) -- (212.0bp,180.0bp) -- (185.0bp,180.0bp) -- (185.0bp,144.0bp) -- (239.0bp,144.0bp) -- cycle;
+  \draw (212.0bp,162.0bp) node {tests};
+\end{scope}
+  % Node: req
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (379.0bp,180.0bp) -- (257.0bp,180.0bp) -- (257.0bp,144.0bp) -- (379.0bp,144.0bp) -- cycle;
+  \draw (318.0bp,162.0bp) node {requirements.txt};
+\end{scope}
+  % Node: C
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (454.5bp,180.0bp) -- (397.5bp,180.0bp) -- (397.5bp,144.0bp) -- (454.5bp,144.0bp) -- cycle;
+  \draw (426.0bp,162.0bp) node {tox.ini};
+\end{scope}
+  % Node: 7
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (244.5bp,36.0bp) -- (157.5bp,36.0bp) -- (157.5bp,0.0bp) -- (244.5bp,0.0bp) -- cycle;
+  \draw (201.0bp,18.0bp) node {\_\_init\_\_.py};
+\end{scope}
+%
+\end{tikzpicture}
+
