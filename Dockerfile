@@ -3,7 +3,7 @@
 FROM ubuntu:bionic
 #FROM pandoc/latex
 
-LABEL maintainer="Franklin Diaz <franklin@bitsmasher.net>"
+LABEL maintainer="Franklin Diaz <2730246+devsecfranklin@users.noreply.github.com>"
 LABEL org.opencontainers.image.source="https://github.com/devsecfranklin/devsecops-tactical-workbook"
 
 # Install additional LaTeX packages
@@ -25,4 +25,5 @@ COPY . ${MY_DIR}
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN \
+  make dot && \
   make book

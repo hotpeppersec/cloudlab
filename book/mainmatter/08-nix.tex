@@ -7,13 +7,37 @@ helping you reliably create ``nailed'' build environments. You as the developer 
 the dependencies of a project, which increases  confidence in a high degree of fidelity around
 expectations for your builds. Nix allows you to experiment in ways that don't break Nix itself,
 or interfere with other projects on your system. Think ``virtualenv'' in Python, 
-but \href{https://github.com/NixOS/nixpkgs/tree/master/pkgs}{}the nixpkgs repository}
+but \href{https://github.com/NixOS/nixpkgs/tree/master/pkgs}{the nixpkgs repository}
 allows you to mix and match support for almost anything you can imagine.
 
 \section{Trying Out Nix}
+
+\subsection{Troubleshooting}
+
+\justify{}
+Sometimes running nix-shell will fail with a ``Permission Denied'' error.
+
+\begin{mybox}{\thetcbcounter: nix-shell error}
+	\lstinputlisting{code/08-nix/nix-error.txt}
+	\label{nixerr}
+\end{mybox}
+
+\justify{} 
+To solve this error, you can type ``set -e NIX\_REMOTE''.
 
 \markdownInput{../code/ch8/lab-8a.md}
 
 %\begin{mybox}{\thetcbcounter: nixlint}
 %    \lstinputlisting{code/08-nix/nix-lint.txt}
 %\end{mybox}
+
+\section{Nix Directory Structure}
+\justify{}
+Files and folders relevant to the Nix portions of our project are shown in the diagram below.
+
+\begin{figure}[!htb]
+	\centering
+	\input{dot/08-nix.tex}
+	\caption{Nix directory and related files.}
+	\label{nixfiles}
+\end{figure}
