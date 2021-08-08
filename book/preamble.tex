@@ -42,7 +42,9 @@
 \setcounter{tocdepth}{2} % Table of content upto 2=subsection, 3=subsubsection
 \usepackage[notlot,nottoc,notlof]{} % reduce spaces for ToC, figs and tables % used like so "\addtocontents{toc}{\vskip -1.2cm}"
 \linespread{1.25}
-\usepackage{enumitem}\setlist{nosep} % reduce spacing for itemize
+
+\usepackage{enumerate} % itemize package
+%\setlist{nosep} % reduce spacing for itemize
 
 %%% INDEX AND BIBLIOGRAPHY %%%
 \usepackage{makeidx}\makeindex
@@ -66,8 +68,7 @@
   fonttitle=\ttfamily\small,
   fontupper=\sffamily\small,
   halign=flush left,
-  rounded corners,
-  #1
+  rounded corners
 }
 
 %%% FORMATTING %%%
