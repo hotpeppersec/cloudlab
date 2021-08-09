@@ -3,34 +3,34 @@
 \includegraphics[scale=0.20]{images/books-1163695_1920.jpg}
 
 \justify{}
-A Makefile is a good way to put shorts sets of oft repeated steps at the
-fingertips of the developer. Rather than typing three complicated and
-possibly hard to recall strings to kick off your Docker container, you
-can simply type make docker and have everything build as desired. We're
-going to be using GNU Make for our projects.
+A Makefile\index{Makefile} is a handy way to put short sets of oft-repeated steps at the fingertips of the developer. Rather than
+typing three complicated and possibly hard to recall strings to kick off your Docker container, you can simply type ``make docker'' and
+have everything build as desired. We're going to be using GNU Make for our projects. 
 
-\section{The PHONY Directive}
+\section{Parts of a Makefile}
+
+A Makefile can be as simple as a few lines or grow to become and extremely intricate and vital piece of your build environment. 
+You might like to have a look at \href{https://www.gnu.org/software/make/manual/make.html}{the GNU make manual} at least once
+just to get a feel for all the things it can do for you.
+
+\subsection{The PHONY Directive}
 
 \justify{}
-If a file or directory exists with the same name as a stanza in the
-Makefile, you will need to specify it under the \emph{PHONY} directive.
+If a file or directory exists with the same name as a stanza in the Makefile, you will need to specify it under the \emph{PHONY} directive.
 This will allow the Makefile to find and run the desired commands.
 
 \justify{}
-Consider this example, where we have three directories (docker, docs,
-and python) and we also have three Makefile directives of the same name:
+Consider this example, where we have three directories (docker, docs, and python) and we also have three Makefile directives of the same name:
 
 \begin{mybox}{\thetcbcounter: The PHONY Directive}
 	\lstinputlisting{code/06-makefiles/phony.txt}
 \end{mybox}
 
-\section{Targets}
+\subsection{Targets}
 
 \justify{}
-Makefiles are comprised of various stanzas, know as targets. This is
-where the work gets done. Let's add a target for Docker and a target for
-Python to make our lives easier in the future. Consider the two target
-stanzas below.
+Makefiles are comprised of various stanzas, know as targets. This is where the work gets done. Let's add a target for Docker and a target for
+Python to make our lives easier in the future. Consider the two target stanzas below.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: A Makefile Target}
