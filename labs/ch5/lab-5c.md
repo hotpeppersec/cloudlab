@@ -1,4 +1,4 @@
-## Forking and Cloning (Lab 4c) 
+## Forking and Cloning (Lab 5c) 
 
 The process of performing a pull request (PR) and merging changes is covered fairly extensively on the Web.
 Let's take a quick look at how to keep your local clone of a repository, as well as your clone on github.com, 

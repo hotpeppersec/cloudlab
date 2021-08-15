@@ -1,4 +1,4 @@
-### Branching and Merging (Lab 4b)
+### Branching and Merging (Lab 5b)
 
 Let's use our changes to the CODEOWNERS file to try making a change in our clone of the repository in GitHub,
 then pushing that change up to the repository.

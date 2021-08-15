@@ -1,4 +1,4 @@
-## Working with Template Repositories (Lab 4d)
+## Working with Template Repositories (Lab 5d)
 
 ### Steps
 

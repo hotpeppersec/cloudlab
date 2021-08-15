@@ -1,4 +1,4 @@
-### Creating A New Repository (Lab 4a)
+### Creating A New Repository (Lab 5a)
 
 #### Steps
 
