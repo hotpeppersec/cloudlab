@@ -1,49 +1,68 @@
-\chapter{Makefiles}
+\chapter{GNU Makefiles}
 
 \includegraphics[scale=0.20]{images/books-1163695_1920.jpg}
 
 \justify{}
-A Makefile\index{Makefile} is a handy way to put short sets of oft-repeated steps at the fingertips of the developer. Rather than
-typing three complicated and possibly hard to recall strings to kick off your Docker container, you can simply type ``make docker'' and
-have everything build as desired. We're going to be using GNU Make for our projects. 
+The GNU make tool is a handy way to put short sets of oft-repeated steps at the fingertips of the
+developer. For make to function properly, you must create a Makefile\index{Makefile} in the directory
+you invoke the make command from. Using a Makefile lets us avoid typing complicated and hard to recall strings on the command
+line. You can simply type ``make docker'' and have everything build as desired. This is beneficial when
+you have lots of arguments and environment variables that you and your team members need for sets of commands
+to work properly. When your team member invokes a specific rule from a Makefile, it works without you having to 
+help them configure things or make them aware of all the parameters.
+We're going to be using \href{https://www.gnu.org/software/make/}{GNU Make} for our projects.
 
-\section{Parts of a Makefile}
-
-A Makefile can be as simple as a few lines or grow to become and extremely intricate and vital piece of your build environment. 
-You might like to have a look at \href{https://www.gnu.org/software/make/manual/make.html}{the GNU make manual} at least once
-just to get a feel for all the things it can do for you.
-
-\subsection{The PHONY Directive}
-
-\justify{}
-If a file or directory exists with the same name as a stanza in the Makefile, you will need to specify it under the \emph{PHONY} directive.
-This will allow the Makefile to find and run the desired commands.
+\section{Anatomy of a Makefile}
 
 \justify{}
-Consider this example, where we have three directories (docker, docs, and python) and we also have three Makefile directives of the same name:
+A Makefile can be as simple as a few lines or grow to become an extremely intricate and vital piece of your
+build environment. You might like to have a look at 
+\href{https://www.gnu.org/software/make/manual/make.html#Introduction}{the GNU make manual} at least once just to get a feel for how they work.
 
-\begin{mybox}{\thetcbcounter: The PHONY Directive}
-	\lstinputlisting{code/06-makefiles/phony.txt}
+\justify{}
+When a Makefile is executed, you can use the ampersand character to suppress the printing of lines from the original Makefile.
+
+\section{Rules}
+
+\justify{}
+Makefiles are comprised of various stanzas, know as rules. This is where the work gets done. Let's add a rule
+for Docker and a target for Python to make our lives easier in the future. Let's examine a simple Makefile with a single rules.
+
+\justify{}
+\begin{mybox}{\thetcbcounter: Our First Makefile}
+	\lstinputlisting{code/23-makefiles/simple-makefile}
 \end{mybox}
 
-\subsection{Targets}
+\justify{}
+It's important to note that indentation of Makefiles is done using tabs rather than spaces. If your Makefile is failing, check for spots where lines were improperly indented with eight spaces. The proper way to indent in a Makefile is to use tab characters.
+
+\section{The PHONY Directive}
 
 \justify{}
-Makefiles are comprised of various stanzas, know as targets. This is where the work gets done. Let's add a target for Docker and a target for
-Python to make our lives easier in the future. Consider the two target stanzas below.
+If a file or directory exists with the same name as a rule in the Makefile, you will need to specify
+it under the \emph{PHONY} directive. This will allow the Makefile to find and run the desired commands.
+
+\markdownInput{../labs/ch6/lab-6a.md}
+	
+\section{Rules}
+
+\justify{}
+Makefiles are comprised of various stanzas, know as rules. This is where the work gets done. Let's add a rule
+for Docker and a target for Python to make our lives easier in the future. Consider the two rules below.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: A Makefile Target}
-	\lstinputlisting{code/06-makefiles/makefile-target}
+	\lstinputlisting{code/23-makefiles/makefile-target}
 \end{mybox}
 
 \justify{}
-When the user types make docker at the CLI to invoke the docker target in the Makefile, the fist thing that happens is the python target is
-called. If the file python/requirements.txt exists, we attempt to install the modules listed within that requirements file using the
-Python ``pip'' package manager. Once completed, the thread of execution returns to the docker target. A message is sent to the user via STDOUT
-that we will be building with docker-compose. An empty file at the root of the containers filesystem named /.dockerenv is a convention that
-indicates we are operating inside a containerized environment. After a quick check for existence of the file /.dockerenv, we use docker-compose
-to build from our Dockerfile, and then start a BASH shell in our ``cloudlab'' container. The user now has the ability to run BASH commands
+When the user types ``make docker'' at the CLI to invoke the docker target in the Makefile, the fist thing
+that happens is the python rule is called. If the file python/requirements.txt exists, we attempt to install
+the modules listed within that requirements file using the Python ``pip'' package manager. Once completed, the
+thread of execution returns to the docker target. A message is sent to the user via STDOUT
+that we will be building with docker-compose. An empty file at the root of the containers filesystem named /.dockerenv
+is a convention that indicates we are operating inside a containerized environment. After a quick check for
+existence of the file /.dockerenv, we use docker-compose to build from our Dockerfile, and then start a BASH shell in our ``cloudlab'' container. The user now has the ability to run BASH commands
 ``inside'' the Docker container.
 
 \justify{}
@@ -65,7 +84,7 @@ Relevant files and folders related to our Makefile are organized as seen
 below.
 
 \begin{figure}[!htb]
-	\input{dot/06-makefile.tex}
+	\input{dot/23-makefile.tex}
 	\caption{Makefile and related files.}
 \label{makefile}
 \end{figure}

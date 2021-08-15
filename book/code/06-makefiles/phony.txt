@@ -1,1 +1,0 @@
-.PHONY: docker docs python

@@ -23,7 +23,7 @@ is necessary to meet security requirements. What happens when this very same
 upgrade means the project stops working since the package features that your application depends on have also changed?
 The result is most likely angry end users and customers. Certainly not a situation we ever like to find ourselves in.
 
-\section{Docker Conatiners}
+\section{Docker Containers}
 
 \justify{}
 Docker images are ``canned'' (as in, prefabricated) or custom directives for provisioning a Docker container. One or more
@@ -33,6 +33,8 @@ that provides the functions of a fully provisioned server. We get the added
 benefit of being able to switch quickly between base operating system images with just a few lines of code change to our
 project. For example, we could easily modify our container image to be predicated on Debian
 rather than Red Hat distribution of Linux kernel and operating system should the need arise.
+
+\subsection{The .dockerignore File}
 
 \section{Docker Hub}
 
@@ -58,7 +60,7 @@ building and passing a container image along to others.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: Dockerfile}
-  \lstinputlisting{code/04-docker/Dockerfile}
+  \lstinputlisting{code/21-docker/Dockerfile}
 \end{mybox}
 
 \justify{}
@@ -84,7 +86,7 @@ A file called docker-compose.yml\index{docker-compose.yml} will exist
 alongside our Dockerfile in our docker directory.
 
 \begin{mybox}{\thetcbcounter: Example docker-compose.yml}
-  \lstinputlisting{code/04-docker/docker-compose.yml}
+  \lstinputlisting{code/21-docker/docker-compose.yml}
 \end{mybox}
 
 \justify{}
@@ -101,7 +103,7 @@ See the figure\ref{dockerdirectory} for an illustration of how to lay out the pr
 
 \begin{figure}[!htb]
   \centering
-  \input{dot/04-docker.tex}
+  \input{dot/21-docker.tex}
   \caption{Project Directory and Docker related files.}
 \label{dockerdirectory}
 \end{figure}
