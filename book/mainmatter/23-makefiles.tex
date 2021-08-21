@@ -136,7 +136,7 @@ existence of the file /.dockerenv, we use docker-compose to build from our Docke
 Be sure when you indent in a Makefile that you use tabs, not spaces. You can use the backslash character in a Makefile to combine two consecutive
 lines into one logical line.
 
-\section{A Simple Makefile Example with Variables and Conditionals}
+\section{Variables and Conditionals in a Makefile}
 
 \justify{}
 Conditional operators and variables can be specified in a Makefile. Note that variables and conditionals do not observe the save rules with respect to tab based indentation.
@@ -146,7 +146,7 @@ Let's look at a simple Makefile example for checking if two programs are install
 with a single target, ``clean''. The first two lines of this Makefile run shell commands to determine 
 whether ``kubectl'' and ``tkn'' are installed in the current environment. 
 
-\begin{mybox}{\thetcbcounter: COnditionals and Variable Example}
+\begin{mybox}{\thetcbcounter: Conditionals and Variable Example}
 	\lstinputlisting{code/23-makefiles/6b-Makefile}
 \end{mybox}
 
