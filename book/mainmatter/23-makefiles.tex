@@ -2,15 +2,23 @@
 
 \includegraphics[scale=0.20]{images/books-1163695_1920.jpg}
 
+\begin{displayquote}
+	\emph{Make originated with a visit from Steve Johnson (author of yacc, etc.), storming into my office, cursing the Fates that had caused him to waste a morning debugging a correct program (bug had been fixed, file hadn't been compiled, cc *.o was therefore unaffected). As I had spent a part of the previous evening coping with the same disaster on a project I was working on, the idea of a tool to solve it came up. It began with an elaborate idea of a dependency analyzer, boiled down to something much simpler, and turned into Make that weekend. Use of tools that were still wet was part of the culture. Makefiles were text files, not magically encoded binaries, because that was the Unix ethos: printable, debuggable, understandable stuff.}
+	
+	Stuart Feldman\cite{raymond2004programming}
+\end{displayquote}
+
+
 \justify{}
-The GNU make tool is a handy way to put short sets of oft-repeated steps at the fingertips of the
-developer. For make to function properly, you must create a Makefile\index{Makefile} in the directory
+The GNU make tool is still around decades later for a reason. It has been battle-tested over the years and become a key tool for folks like us. Make is a handy way to put short sets of frequently used commands at our fingertips. For make to function properly, you must create a Makefile\index{Makefile} in the directory
 you invoke the make command from. Using a Makefile lets us avoid typing complicated and hard to recall strings on the command
-line. You can simply type ``make docker'' and have everything build as desired. This is beneficial when
+line. You can simply type ``make docker'' and have everything build as desired from a list of commands in part of your Makefile. This is beneficial when
 you have lots of arguments and environment variables that you and your team members need for sets of commands
 to work properly. When your team member invokes a specific rule from a Makefile, it works without you having to 
-help them configure things or make them aware of all the parameters.
-We're going to be using \href{https://www.gnu.org/software/make/}{GNU Make} for our projects.
+help them configure things or make them aware of all the parameters. We're going to be using \href{https://www.gnu.org/software/make/}{GNU Make} for our projects.
+
+\justify{}
+With Python projects, I like to use make to kick off builds and unit tests in a virtual environment, perhaps with differing sets of requirements files. When we build a python application we might call on ``requirements.txt'' for the dependencies we need. When we test, we might have another file called ``requirements-test.txt'' that gets installed with or in place of the usual requirements. Similarly with Ruby, there may be a need for different Gemfiles depending on your activity. Using make with Docker and docker-compose can be beneficial for building and running images locally. 
 
 \section{Anatomy of a Makefile}
 

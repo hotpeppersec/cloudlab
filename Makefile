@@ -17,6 +17,8 @@ help:
 
 book: dot ## Build the PDF file of the book
 	@if [ ! -d /nix ]; then  echo "***> Where is your nix installation? <***" && exit 1; fi
+	. /home/franklin/.nix-profile/etc/profile.d/nix.sh
+	python3 -m pip install -rrequirements.txt
 	cd book && latexmk -pdf -synctex=1 -shell-escape devsecops_tactical
 	cd book && bibtex devsecops_tactical
 	cd book && makeindex devsecops_tactical
