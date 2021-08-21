@@ -100,7 +100,6 @@ Note that the output occurs twice. To suppress the extra output, you can prepend
 	\lstinputlisting{code/23-makefiles/6a-test4}
 \end{mybox}
 
-
 \justify{}
 Now try running one final time.
 
@@ -137,14 +136,23 @@ existence of the file /.dockerenv, we use docker-compose to build from our Docke
 Be sure when you indent in a Makefile that you use tabs, not spaces. You can use the backslash character in a Makefile to combine two consecutive
 lines into one logical line.
 
-\section{A Simple Makefile Exmaple}
+\section{A Simple Makefile Example with Variables and Conditionals}
 
 \justify{}
-Let's look at a simple Makefile example. 
+Conditional operators and variables can be specified in a Makefile. Note that variables and conditionals do not observe the save rules with respect to tab based indentation.
+
+\justify{}
+Let's look at a simple Makefile example for checking if two programs are installed. Here we have a Makefile
+with a single target, ``clean''. The first two lines of this Makefile run shell commands to determine 
+whether ``kubectl'' and ``tkn'' are installed in the current environment. 
+
+\begin{mybox}{\thetcbcounter: COnditionals and Variable Example}
+	\lstinputlisting{code/23-makefiles/6b-Makefile}
+\end{mybox}
 
 \section{Full Example Makefile}
 \justify{}
-Next, let's look at a full working example of a Makefile.
+Finally, let's look at a full working example of a Makefile.
 
 \section{Further Reading}
 

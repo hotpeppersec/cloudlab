@@ -1,10 +1,11 @@
-docker: python \#\# build docker container for testing\\
-   echo "Building devsecops with docker-compose"\\
-   @if [ -f /.dockerenv ];then printf "***> Don't run make docker inside docker container <***" \&\& exit 1; fi\\
-   docker-compose -f docker/docker-compose.yml build devsecops\\
-   @docker-compose -f docker/docker-compose.yml run devsecops /bin/bash\\
+docker: python 
+   echo "Building with docker-compose"
+   docker-compose build devsecops
+   @docker-compose run devsecops /bin/bash
 
-python: \#\# setup python3\\
-   if [! -f /.dockerenv ]; then \$(MAKE) print-status MSG="Run make python inside docker container" \&\& exit 1; fi\\
-   \$(MAKE) print-status MSG="Set up the Python environment"\\
-   if [ -f 'python/requirements.txt' ]; then python -m pip install -rpython/requirements.txt; fi
+python: ## setup python3
+   if [! -f /.dockerenv ]; then \
+	echo "Run make python inside docker container" && exit 1; fi
+   echo "Set up the Python environment"
+   if [ -f 'python/requirements.txt' ]; then \
+	python -m pip install -rpython/requirements.txt; fi
