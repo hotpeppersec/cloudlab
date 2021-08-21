@@ -20,8 +20,6 @@ help them configure things or make them aware of all the parameters. We're going
 \justify{}
 With Python projects, I like to use make to kick off builds and unit tests in a virtual environment, perhaps with differing sets of requirements files. When we build a python application we might call on ``requirements.txt'' for the dependencies we need. When we test, we might have another file called ``requirements-test.txt'' that gets installed with or in place of the usual requirements. Similarly with Ruby, there may be a need for different Gemfiles depending on your activity. Using make with Docker and docker-compose can be beneficial for building and running images locally. 
 
-\section{Anatomy of a Makefile}
-
 \justify{}
 A Makefile can be as simple as a few lines or grow to become an extremely intricate and vital piece of your
 build environment. You might like to have a look at 
@@ -70,7 +68,7 @@ Create a small two-line Makefile. Be sure to use a tab character to indent the s
 
 \justify{}
 Test the Makefile by running the ``make'' command. Notice that you can
-type "make" or ``make code'' and get the same result.
+type ``make'' or ``make code'' and get the same result.
 
 \begin{mybox}{\thetcbcounter: First Test}
 	\lstinputlisting{code/23-makefiles/6a-test1}
@@ -110,31 +108,6 @@ Now try running one final time.
 \justify{}
 Now we get the desired result without the printing of the command
 by make.
-
-\section{Rules}
-
-\justify{}
-Makefiles are comprised of various stanzas, know as rules. This is where the work gets done. Let's add a rule
-for Docker and a target for Python to make our lives easier in the future. Consider the two rules below.
-
-\justify{}
-\begin{mybox}{\thetcbcounter: A Makefile Target}
-	\lstinputlisting{code/23-makefiles/makefile-target}
-\end{mybox}
-
-\justify{}
-When the user types ``make docker'' at the CLI to invoke the docker target in the Makefile, the fist thing
-that happens is the python rule is called. If the file python/requirements.txt exists, we attempt to install
-the modules listed within that requirements file using the Python ``pip'' package manager. Once completed, the
-thread of execution returns to the docker target. A message is sent to the user via STDOUT
-that we will be building with docker-compose. An empty file at the root of the containers filesystem named /.dockerenv
-is a convention that indicates we are operating inside a containerized environment. After a quick check for
-existence of the file /.dockerenv, we use docker-compose to build from our Dockerfile, and then start a BASH shell in our ``cloudlab'' container. The user now has the ability to run BASH commands
-``inside'' the Docker container.
-
-\justify{}
-Be sure when you indent in a Makefile that you use tabs, not spaces. You can use the backslash character in a Makefile to combine two consecutive
-lines into one logical line.
 
 \section{Variables and Conditionals in a Makefile}
 
