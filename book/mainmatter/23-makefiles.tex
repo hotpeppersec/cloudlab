@@ -10,7 +10,7 @@
 
 
 \justify{}
-The GNU make tool is still around decades later for a reason. It has been battle-tested over the years and become a key tool for folks like us. Make is a handy way to put short sets of frequently used commands at our fingertips. For make to function properly, you must create a Makefile\index{Makefile} in the directory
+The GNU make tool is still around decades later for a reason. It has been battle-tested over the years and become a key tool for folks like us. Originally intended for use in UNIX systems as an aid when compiling C projects, make is a handy way to put short sets of frequently used shell commands at our fingertips. For make to function properly, you must create a Makefile\index{Makefile} in the directory
 you invoke the make command from. Using a Makefile lets us avoid typing complicated and hard to recall strings on the command
 line. You can simply type ``make docker'' and have everything build as desired from a list of commands in part of your Makefile. This is beneficial when
 you have lots of arguments and environment variables that you and your team members need for sets of commands
@@ -42,21 +42,76 @@ for Docker and a target for Python to make our lives easier in the future. Let's
 \end{mybox}
 
 \justify{}
-It's important to note that indentation of Makefiles is done using tabs rather than spaces. If your Makefile is failing, check for spots where lines were improperly indented with eight spaces. The proper way to indent in a Makefile is to use tab characters.
+It's important to note that indentation of Makefiles is done using tabs rather than spaces. If your Makefile is failing, check for spots where lines were improperly
+indented with eight spaces rather than a tab cahracter. The proper way to indent in a Makefile is to use tab characters.
 
 \section{The PHONY Directive}
 
 \justify{}
 If a file or directory exists with the same name as a rule in the Makefile, you will need to specify
-it under the \emph{PHONY} directive. This will allow the Makefile to find and run the desired commands.
+it under the PHONY directive. This will allow the Makefile to find and run the desired commands.
 
 \justify{}
 \begin{mybox}{\thetcbcounter: The PHONY Directive}
 	\lstinputlisting{code/23-makefiles/phony-makefile}
 \end{mybox}
 
-\markdownInput{../labs/ch6/lab-6a.md}
-	
+\subsection{Understanding the PHONY Directive (Lab 6a)}
+
+\subsubsection{Create a Small Makefile}
+\justify{}
+Create a small two-line Makefile. Be sure to use a tab character to indent the second line.
+
+\begin{mybox}{\thetcbcounter: Small two-line Makefile}
+	\lstinputlisting{code/23-makefiles/6a-create}
+\end{mybox}
+
+\subsubsection{Test the Makefile}
+
+\justify{}
+Test the Makefile by running the ``make'' command. Notice that you can
+type "make" or ``make code'' and get the same result.
+
+\begin{mybox}{\thetcbcounter: First Test}
+	\lstinputlisting{code/23-makefiles/6a-test1}
+\end{mybox}
+
+\subsubsection{Test Again with PHONY}
+
+\justify{}
+Now edit the Makefile to include the PHONY directive. Be mindful of the 
+leading dot character.
+
+\begin{mybox}{\thetcbcounter: Add PHONY}
+	\lstinputlisting{code/23-makefiles/6a-test2}
+\end{mybox}
+
+\justify{}
+Try running make again.
+
+\begin{mybox}{\thetcbcounter: Run make}
+	\lstinputlisting{code/23-makefiles/6a-test3}
+\end{mybox}
+
+\justify{}
+Note that the output occurs twice. To suppress the extra output, you can prepend the command with an ampersand character like so:
+
+\begin{mybox}{\thetcbcounter: Supress extra Output}
+	\lstinputlisting{code/23-makefiles/6a-test4}
+\end{mybox}
+
+
+\justify{}
+Now try running one final time.
+
+\begin{mybox}{\thetcbcounter: Supress extra Output}
+	\lstinputlisting{code/23-makefiles/6a-test5}
+\end{mybox}
+
+\justify{}
+Now we get the desired result without the printing of the command
+by make.
+
 \section{Rules}
 
 \justify{}
@@ -90,6 +145,8 @@ Let's look at a simple Makefile example.
 \section{Full Example Makefile}
 \justify{}
 Next, let's look at a full working example of a Makefile.
+
+\section{Further Reading}
 
 \section{Directory Structure with Makefile}
 \justify{}

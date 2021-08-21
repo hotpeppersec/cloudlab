@@ -1,0 +1,3 @@
+.PHONY: code
+code:
+@echo "this is a test"
